@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
-	<!-- Gene Forge tab on the tenebral pod; the list merges with the casket tab inherited from the base def. -->
+	<!-- Gene Forge tab on the dark mirror. -->
 	<Operation Class="PatchOperationAdd">
-		<xpath>/Defs/ThingDef[defName="BOR_TenebralPod_III"]</xpath>
+		<xpath>/Defs/ThingDef[defName="BOR_Research_Unlocker_III"]/inspectorTabs</xpath>
 		<value>
-			<inspectorTabs>
-				<li>BeyondOurReach.ITab_GeneForge</li>
-			</inspectorTabs>
+			<li>BeyondOurReach.ITab_GeneForge</li>
 		</value>
 	</Operation>
 </Patch>
