@@ -23,12 +23,8 @@ public class UmbralPartReplacement
 // Tunables for the transformation; placed on BOR_UmbralTransformation.
 public class DefModExtension_UmbralTransformation : DefModExtension
 {
-    public float phaseAChance = 0.25f;
-    public float phaseBChance = 0.05f;
-    public float phaseCChance = 0.2f;
-
-    // Each unit of tenebrite emission around the pawn adds this fraction to the trigger chance.
-    public float emissionChanceFactor = 0.5f;
+    // Umbral parts one pact grants; the exoskeleton and exoskull come as one pact, the utility pod as another.
+    public int partsPerPact = 4;
 
     public List<UmbralPartReplacement> replacements = new();
 }

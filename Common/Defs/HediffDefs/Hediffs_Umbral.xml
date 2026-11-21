@@ -4,7 +4,7 @@
 	<HediffDef>
 		<defName>BOR_Umbral</defName>
 		<label>umbral</label>
-		<description>This person emerged from the Umbral Transformation Pod. Their body refuses any part put in by surgery and changes on its own, one kill at a time.</description>
+		<description>This person emerged from the Umbral Transformation Pod. Their body refuses any part put in by surgery and changes on its own, one pact at a time.</description>
 		<hediffClass>HediffWithComps</hediffClass>
 		<defaultLabelColor>(0.45, 0.2, 0.6)</defaultLabelColor>
 		<isBad>false</isBad>
@@ -96,10 +96,7 @@
 		</stages>
 		<modExtensions>
 			<li Class="BeyondOurReach.DefModExtension_UmbralTransformation">
-				<phaseAChance>0.25</phaseAChance>
-				<phaseBChance>0.05</phaseBChance>
-				<phaseCChance>0.2</phaseCChance>
-				<emissionChanceFactor>0.5</emissionChanceFactor>
+				<partsPerPact>4</partsPerPact>
 				<replacements>
 					<li><bodyPart>Eye</bodyPart><hediff>BOR_UmbralBionicEye</hediff></li>
 					<li><bodyPart>Ear</bodyPart><hediff>BOR_UmbralBionicEar</hediff></li>

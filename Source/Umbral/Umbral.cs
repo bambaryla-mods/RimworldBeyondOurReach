@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using LudeonTK;
 using RimWorld;
 using Verse;
 
@@ -87,28 +88,54 @@ public static class Umbral
         return set.HasHediff(BOR_UmbralDefOf.BOR_UmbralUtilityPod) ? Phase.Done : Phase.C;
     }
 
-    public static float TriggerChance(Pawn pawn)
+    public static bool Transforming(Pawn pawn) => pawn.health?.hediffSet?.HasHediff(BOR_UmbralDefOf.BOR_UmbralTransformation) ?? false;
+
+    // How many steps the pawn's next pact grants. A group never crosses into the next phase; 0 once fully transformed.
+    public static int GroupSteps(Pawn pawn)
     {
-        DefModExtension_UmbralTransformation s = Settings;
-        float chance = CurrentPhase(pawn) switch
+        switch (CurrentPhase(pawn))
         {
-            Phase.A => s.phaseAChance,
-            Phase.B => s.phaseBChance,
-            Phase.C => s.phaseCChance,
-            _ => 0f
-        };
-        return chance * (1f + MapComponent_TenebralExposure.EmissionFor(pawn) * s.emissionChanceFactor);
+            case Phase.A:
+                return System.Math.Min(Settings.partsPerPact, PendingReplacements(pawn).Count());
+            case Phase.B:
+                HediffSet set = pawn.health.hediffSet;
+                return (set.HasHediff(BOR_UmbralDefOf.BOR_UmbralExoskeleton) ? 0 : 1) + (set.HasHediff(BOR_UmbralDefOf.BOR_UmbralExoskull) ? 0 : 1);
+            case Phase.C:
+                return 1;
+            default:
+                return 0;
+        }
     }
 
-    public static void Notify_KilledHumanlike(Pawn killer)
+    // Starts the transformation illness for a whole group: each step that completes starts the next until the group is granted.
+    public static void StartGroup(Pawn pawn)
     {
-        if (!killer.RaceProps.Humanlike || !Transforms(killer) || killer.health.hediffSet.HasHediff(BOR_UmbralDefOf.BOR_UmbralTransformation))
+        int steps = GroupSteps(pawn);
+        if (steps <= 0 || Transforming(pawn))
         {
             return;
         }
-        if (Rand.Chance(TriggerChance(killer)))
+        StartStep(pawn, steps - 1);
+    }
+
+    private static void StartStep(Pawn pawn, int stepsLeft)
+    {
+        Hediff hediff = pawn.health.AddHediff(BOR_UmbralDefOf.BOR_UmbralTransformation);
+        HediffComp_UmbralTransformation? comp = hediff.TryGetComp<HediffComp_UmbralTransformation>();
+        if (comp != null)
         {
-            killer.health.AddHediff(BOR_UmbralDefOf.BOR_UmbralTransformation);
+            comp.stepsLeft = stepsLeft;
+        }
+    }
+
+    // The illness finished a step; the next one of the group, if any, starts straight away. A group ends with its phase.
+    public static void Notify_StepDone(Pawn pawn, int stepsLeft)
+    {
+        Phase phase = CurrentPhase(pawn);
+        CompleteTransformation(pawn);
+        if (stepsLeft > 0 && !pawn.Dead && CurrentPhase(pawn) == phase && phase != Phase.Done && !Transforming(pawn))
+        {
+            StartStep(pawn, stepsLeft - 1);
         }
     }
 
@@ -254,9 +281,18 @@ public class ThoughtWorker_UmbralEmpty : ThoughtWorker
         Umbral.IsUmbral(p) ? ThoughtState.ActiveDefault : ThoughtState.Inactive;
 }
 
-// Flu-style progression; at full severity the pawn does not die but gains its next Umbral step.
+// Flu-style progression; at full severity the pawn does not die but gains its next Umbral step. stepsLeft counts the steps
+// of the pact's group still to come after this one; illnesses saved before pacts load with 0 and grant one step.
 public class HediffComp_UmbralTransformation : HediffComp
 {
+    public int stepsLeft;
+
+    public override void CompExposeData()
+    {
+        base.CompExposeData();
+        Scribe_Values.Look(ref stepsLeft, "stepsLeft");
+    }
+
     public override void CompPostTickInterval(ref float severityAdjustment, int delta)
     {
         base.CompPostTickInterval(ref severityAdjustment, delta);
@@ -271,7 +307,20 @@ public class HediffComp_UmbralTransformation : HediffComp
         }
         severityAdjustment = 0f;
         Pawn pawn = Pawn;
+        int left = stepsLeft;
         pawn.health.RemoveHediff(parent);
-        Umbral.CompleteTransformation(pawn);
+        Umbral.Notify_StepDone(pawn, left);
+    }
+}
+
+public static class UmbralDebug
+{
+    [DebugAction("Pawns", "Start Umbral pact group", actionType = DebugActionType.ToolMapForPawns, allowedGameStates = AllowedGameStates.PlayingOnMap)]
+    public static void StartPactGroup(Pawn pawn)
+    {
+        if (Umbral.IsUmbral(pawn))
+        {
+            Umbral.StartGroup(pawn);
+        }
     }
 }
