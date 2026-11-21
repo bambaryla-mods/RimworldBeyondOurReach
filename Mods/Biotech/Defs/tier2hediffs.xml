@@ -12,6 +12,7 @@
     </statBases>
     <thingCategories Inherit="False">
       <li>BOR_Bionics_II</li>
+      <li>BodyPartsMechtech</li>
     </thingCategories>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath>
