@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <!-- Gizmos and messages -->
+  <BOR_Signals_Strange>Dziwne sygnały</BOR_Signals_Strange>
+  <BOR_Signals_Contact_Label>Odpowiedz na sygnały</BOR_Signals_Contact_Label>
+  <BOR_Signals_Contact_Desc>Ktoś nadaje do tego analizatora. Wybierz kolonistę, który odpowie.</BOR_Signals_Contact_Desc>
+  <BOR_Signals_ShuttleWaiting>Czeka na ciebie wahadłowiec.</BOR_Signals_ShuttleWaiting>
+  <BOR_Signals_Silent>Sygnały ucichły.</BOR_Signals_Silent>
+  <BOR_Signals_InspectContact>Odbieranie transmisji.</BOR_Signals_InspectContact>
+  <BOR_Signals_Incapable>nie może dotrzeć</BOR_Signals_Incapable>
+  <BOR_Signals_NoPawns>Żaden kolonista nie może tego zrobić.</BOR_Signals_NoPawns>
+  <BOR_Signals_NoLandingSpot>W pobliżu analizatora nie ma otwartego miejsca bez dachu, gdzie mógłby wylądować wahadłowiec.</BOR_Signals_NoLandingSpot>
+  <BOR_Signals_TalkToPilot>Porozmawiaj z pilotem</BOR_Signals_TalkToPilot>
+  <BOR_Signals_TalkToPilotDesc>Wyślij kolonistę, by wysłuchał oferty pilota: dysk danych za {0} solarstali. Wahadłowiec odlatuje za {1}.</BOR_Signals_TalkToPilotDesc>
+  <BOR_Signals_ShuttleLeavesIn>Odlatuje za {0}</BOR_Signals_ShuttleLeavesIn>
+  <BOR_Signals_NotEnoughSunsteel>Wymaga {0} solarstali na mapie.</BOR_Signals_NotEnoughSunsteel>
+
+  <!-- Letters -->
+  <BOR_Signals_ArrivalLabel>Nadlatuje wahadłowiec</BOR_Signals_ArrivalLabel>
+  <BOR_Signals_ArrivalText>[PLACEHOLDER] Wahadłowiec odpowiada na dziwne sygnały i ląduje w pobliżu twojego analizatora. Jego pilot chce porozmawiać.</BOR_Signals_ArrivalText>
+
+  <!-- Dialogue: strange signal -->
+  <BOR_Signals_Title>Dziwne sygnały</BOR_Signals_Title>
+  <BOR_Signals_Greeting>{PAWN_labelShort} słyszy w uszach ciche brzęczenie, a potem kliknięcie.\n\n„Pozdrowienia, Rimworldczyku. Trafia się tu znakomita okazja. Czy chcesz z niej skorzystać?”</BOR_Signals_Greeting>
+  <BOR_Signals_WantMeToCome>„Jestem dość zajęty, ale daleko mi do tego, by hamować postęp. Żeby ta okazja trafiła w twoje ręce, muszę ci ją dostarczyć. Podasz mi dobrowolnie swoje współrzędne? Chcesz, żebym przyleciał?”</BOR_Signals_WantMeToCome>
+  <BOR_Signals_Pity>„Jaka szkoda.”</BOR_Signals_Pity>
+  <BOR_Signals_Confirm>Potwierdź</BOR_Signals_Confirm>
+  <BOR_Signals_EndConversation>Zakończ rozmowę</BOR_Signals_EndConversation>
+
+  <!-- Dialogue: shuttle pilot -->
+  <BOR_Signals_PilotTitle>Pilot wahadłowca</BOR_Signals_PilotTitle>
+  <BOR_Signals_PilotOffer>{PAWN_labelShort} nie widzi jego twarzy, ale brzmi na całkiem wesołego gościa.\n\n„Wszystko masz tu, na tym dysku danych. Cały wszechświat i każdy Rimworld w całej przestrzeni i czasie, wciśnięty prosto w ten malutki dysk – a ja potrzebuję od ciebie tylko solarstali. {0} jednostek solarstali. Tak jest. Za śmiesznie niską cenę {0} solarstali odpowiedź na pytanie o życie, wszechświat i całą resztę będzie twoja.”</BOR_Signals_PilotOffer>
+  <BOR_Signals_Yes>Tak</BOR_Signals_Yes>
+  <BOR_Signals_No>Nie</BOR_Signals_No>
+  <BOR_Signals_Thanks>„Wspaniale! Zwrotów nie przyjmujemy. Pa-pa!”</BOR_Signals_Thanks>
+  <BOR_Signals_Farewell>„No proszę. Przykro mi to słyszeć. Jak już mówiłem – jestem bardzo zajętym człowiekiem. A teraz straciłem przez ciebie czas.”</BOR_Signals_Farewell>
+  <BOR_Signals_Close>Zamknij</BOR_Signals_Close>
+  <BOR_Signals_InvestigateReport>bada dziwne sygnały.</BOR_Signals_InvestigateReport>
+
+  <!-- Signal raids (sigma-class sagittary autoscope) -->
+  <BOR_Raid_StrangeSignal>Dziwny sygnał</BOR_Raid_StrangeSignal>
+  <BOR_Raid_StrangeSignal_Report>bada dziwny sygnał.</BOR_Raid_StrangeSignal_Report>
+  <BOR_Raid_PeculiarBroadcasts>Osobliwe transmisje</BOR_Raid_PeculiarBroadcasts>
+  <BOR_Raid_PeculiarBroadcasts_Report>bada osobliwe transmisje.</BOR_Raid_PeculiarBroadcasts_Report>
+  <BOR_Raid_Contact_Desc>{0}: ktoś nadaje do tego analizatora. Wybierz kolonistę, który odpowie.</BOR_Raid_Contact_Desc>
+  <BOR_Raid_ShuttlesPresent>Ich wahadłowce wciąż tu są.</BOR_Raid_ShuttlesPresent>
+  <BOR_Raid_NoLandingSpot>W twojej strefie domowej nie ma otwartego miejsca bez dachu, gdzie mogłyby wylądować ich wahadłowce.</BOR_Raid_NoLandingSpot>
+  <BOR_Raid_ShuttleLocked>Zablokowany, dopóki jego załoga walczy.</BOR_Raid_ShuttleLocked>
+  <BOR_Raid_RewardFound>W ładowni wahadłowca znaleziono: {0}.</BOR_Raid_RewardFound>
+
+  <!-- Strange signal (tenebrite motor) -->
+  <BOR_Raid_Signal_Greeting>{PAWN_labelShort} słyszy w uszach ciche brzęczenie, a potem kliknięcie.\n\n„Tu {IMPERSONATED}. Czego tu dzwonisz, co?”\n\n{PAWN_labelShort} czuje, że coś jest nie tak. Czemu ten głos brzmi tak… nieskładnie?</BOR_Raid_Signal_Greeting>
+  <BOR_Raid_Signal_HungUp>„Hę. Maluch się rozłączył.”</BOR_Raid_Signal_HungUp>
+  <BOR_Raid_Signal_Ask>Zapytaj o tenebralny silnik</BOR_Raid_Signal_Ask>
+  <BOR_Raid_Signal_AskReply>„A na co ci to, co? Trzeba przepchnąć te wredne cząstki haderotha, maluchu? Jaką tam macie artylerię? Ilu kolonistów?”</BOR_Raid_Signal_AskReply>
+  <BOR_Raid_Signal_GiveInfo>Podaj informacje</BOR_Raid_Signal_GiveInfo>
+  <BOR_Raid_Signal_GiveInfoReply>„A jasne, jasne. Mamy to dla ciebie. I dowieziemy szybciej niż ktokolwiek inny. Gdzie stacjonujesz?”</BOR_Raid_Signal_GiveInfoReply>
+  <BOR_Raid_Signal_GiveCoords>Podaj współrzędne</BOR_Raid_Signal_GiveCoords>
+  <BOR_Raid_Signal_DontGiveCoords>Nie podawaj współrzędnych</BOR_Raid_Signal_DontGiveCoords>
+  <BOR_Raid_Signal_Ambush>O nie! Badzaari!</BOR_Raid_Signal_Ambush>
+
+  <!-- Peculiar broadcasts (diluted tenebrite shard) -->
+  <BOR_Raid_Broadcasts_Stage1>{PAWN_labelShort} słyszy brzęczenie, a potem kliknięcie.\n\nNa tej częstotliwości słychać sapanie, pociąganie nosem i stękanie. Nikt nic nie mówi.</BOR_Raid_Broadcasts_Stage1>
+  <BOR_Raid_Broadcasts_Stage2>Sapanie i stękanie przybiera na sile. Zaczynają przebijać się jęki, choć przez szum trudno cokolwiek rozróżnić. Na kilka sekund zapada cisza, a potem {PAWN_labelShort} słyszy głośne, mokre łupnięcie.</BOR_Raid_Broadcasts_Stage2>
+  <BOR_Raid_Broadcasts_Stage3>Jęki stają się szybsze i głośniejsze, zlewają się z czyimś ciężkim oddechem. Powtarzają się w kółko, aż brzmią jak niskie, jednostajne buczenie. Buczenie narasta w uszach, potem schodzi jeszcze głębiej, osiada za oczami i dudni w żebrach. {PAWN_labelShort} je czuje.</BOR_Raid_Broadcasts_Stage3>
+  <BOR_Raid_Broadcasts_Stage4>Buczenie nagle cichnie. {PAWN_labelShort} słyszy, jak wilgotne wargi rozchylają się szeroko -- „Tu jesteś...”</BOR_Raid_Broadcasts_Stage4>
+  <BOR_Raid_Broadcasts_Ask>Zapytaj, czy ktoś tam jest</BOR_Raid_Broadcasts_Ask>
+  <BOR_Raid_Broadcasts_Final>Zaraz, co?</BOR_Raid_Broadcasts_Final>
+  <BOR_Raid_Broadcasts_Ambush>Kto to?</BOR_Raid_Broadcasts_Ambush>
+
+  <BOR_Raid_ArrivalText>[PLACEHOLDER] W twojej kolonii lądują wahadłowce frakcji {FACTION_name}. Ich załogi wychodzą uzbrojone.</BOR_Raid_ArrivalText>
+  <BOR_Tenebral_Busy>Tenebral wciąż tu jest.</BOR_Tenebral_Busy>
+  <BOR_Tenebral_ArrivalText>Przybył po ciebie samotny tenebral z frakcji {FACTION_name}.</BOR_Tenebral_ArrivalText>
+  <BOR_Tenebral_SlaughterLabel>Wyrżnięta osada</BOR_Tenebral_SlaughterLabel>
+  <BOR_Tenebral_SlaughterText>Przez twoje wścibstwo tenebralni Pogromcy wyrżnęli osadę {0}.</BOR_Tenebral_SlaughterText>
+  <BOR_Raid_DefeatedLabel>Porzucone wahadłowce</BOR_Raid_DefeatedLabel>
+  <BOR_Raid_DefeatedText>[PLACEHOLDER] Najeźdźcy pokonani. Ich wahadłowce możesz rozebrać, a jeden z nich wiezie coś cennego.</BOR_Raid_DefeatedText>
+</LanguageData>

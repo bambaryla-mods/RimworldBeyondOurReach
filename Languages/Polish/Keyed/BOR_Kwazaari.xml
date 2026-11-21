@@ -45,4 +45,16 @@
   <BOR_Kwazaari_LoanLostText>Wypożyczonych żołnierzy, którzy nie wrócili wahadłowcem: {0}. Kwazaari naliczyli {1} skryptu. Twoje saldo wynosi teraz {2} skryptu.\n\nCi, którzy przeżyli, zostają z tobą.</BOR_Kwazaari_LoanLostText>
   <BOR_Kwazaari_GearLocked>Żołnierze Kwazaari zachowują własne wyposażenie.</BOR_Kwazaari_GearLocked>
 
+  <!-- Gauss fire modes -->
+  <BOR_KwazaariFireMode>Rdzeń: {0}</BOR_KwazaariFireMode>
+  <BOR_KwazaariFireModeDesc>Zaprogramuj rdzeń każdego pocisku kwazaari przed strzałem. Kliknij, by przełączyć na następny tryb, albo kliknij prawym przyciskiem, by wybrać tryb. Przełączenie trwa {0} s i można je przerwać.</BOR_KwazaariFireModeDesc>
+  <BOR_KwazaariFireMode_Normal>zwykły</BOR_KwazaariFireMode_Normal>
+  <BOR_KwazaariFireMode_NormalDesc>Zwykły pocisk. Zadaje pełne obrażenia i zużywa jeden nabój.</BOR_KwazaariFireMode_NormalDesc>
+  <BOR_KwazaariFireMode_Boom>wybuch</BOR_KwazaariFireMode_Boom>
+  <BOR_KwazaariFireMode_BoomDesc>Pocisk trafia słabiej, a potem rdzeń wybucha jak mały granat i rani każdego blisko celu. Każdy strzał zużywa 10 nabojów.</BOR_KwazaariFireMode_BoomDesc>
+  <BOR_KwazaariFireMode_EMP>EMP</BOR_KwazaariFireMode_EMP>
+  <BOR_KwazaariFireMode_EMPDesc>Pocisk prawie nie zadaje obrażeń. Po trafieniu rdzeń uwalnia w cel impuls EMP, który ogłusza mechanoidy i wieżyczki i może przebić pas osłonowy. Każdy strzał zużywa 4 naboje.</BOR_KwazaariFireMode_EMPDesc>
+  <BOR_KwazaariFireMode_Burn>podpalenie</BOR_KwazaariFireMode_Burn>
+  <BOR_KwazaariFireMode_BurnDesc>Pocisk trafia słabiej i parzy cel. Może go podpalić. Każdy strzał zużywa 4 naboje.</BOR_KwazaariFireMode_BurnDesc>
+
 </LanguageData>

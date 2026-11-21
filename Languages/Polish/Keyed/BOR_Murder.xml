@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <BOR_MurderBreakReason>niezaspokojona żądza krwi</BOR_MurderBreakReason>
+  <BOR_MurderDefectLabel>{0}: zdrada</BOR_MurderDefectLabel>
+  <BOR_MurderDefectText>Żądza krwi pochłania {0} bez reszty: porzuca kolonię i staje się wrogiem.</BOR_MurderDefectText>
+</LanguageData>

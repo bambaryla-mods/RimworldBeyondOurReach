@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <!-- Dark mirror Pacts tab -->
+  <BOR_TabDarkPacts>Pakty</BOR_TabDarkPacts>
+  <BOR_DarkPact_TabIdle>Żaden pakt nie trwa. Wybierz badanie poniżej: kolonista nawiąże komunię z lustrem, a Mroczne Archotechy wyznaczą swoją cenę.</BOR_DarkPact_TabIdle>
+  <BOR_DarkPact_TabActive>Pakt: {0}</BOR_DarkPact_TabActive>
+  <BOR_DarkPact_MakePact>Zawrzyj pakt</BOR_DarkPact_MakePact>
+  <BOR_DarkPact_Granted>Przyznane</BOR_DarkPact_Granted>
+  <BOR_DarkPact_UnderWay>W toku</BOR_DarkPact_UnderWay>
+  <BOR_DarkPact_RowTip>{0}\n\n{1}\n\nOdblokowuje: {2}\n\nPakt trzeba spłacić w ciągu {3}, inaczej lustro uderzy.</BOR_DarkPact_RowTip>
+  <BOR_DarkPact_Needs>Wymaga: {0}</BOR_DarkPact_Needs>
+  <BOR_DarkPact_NeedsResearch>Najpierw wymaga badań: {0}.</BOR_DarkPact_NeedsResearch>
+  <BOR_DarkPact_Active>Pakt już trwa: {0}.</BOR_DarkPact_Active>
+  <BOR_DarkPact_Communing>Kolonista już nawiązuje komunię z lustrem.</BOR_DarkPact_Communing>
+  <BOR_DarkPact_NeedsPower>Mroczne lustro potrzebuje zasilania.</BOR_DarkPact_NeedsPower>
+  <BOR_DarkPact_NeedsMechanitor>To badanie wymaga mechanitora w kolonii.</BOR_DarkPact_NeedsMechanitor>
+  <BOR_DarkPact_PawnDowned>powalony</BOR_DarkPact_PawnDowned>
+  <BOR_DarkPact_NoColonists>Żaden kolonista nie może dotrzeć do lustra.</BOR_DarkPact_NoColonists>
+  <BOR_DarkPact_Confirm>{0} nawiąże komunię z mrocznym lustrem i poprosi o: {1}. Mroczne Archotechy zażądają czegoś strasznego, do wykonania w ciągu {2}. Jeśli to się nie stanie, lustro ukarze każdego, do kogo sięgnie jego impuls.\n\nKontynuować?</BOR_DarkPact_Confirm>
+  <BOR_DarkPact_Abandon>Porzuć pakt</BOR_DarkPact_Abandon>
+  <BOR_DarkPact_AbandonDesc>Zrezygnuj z trwającego mrocznego paktu. Liczy się jako zerwany: lustro uderzy.</BOR_DarkPact_AbandonDesc>
+  <BOR_DarkPact_AbandonConfirm>Porzucić mroczny pakt? Lustro wyśle impuls, a każdego, do kogo sięgnie, dotknie Mroczna Kara.</BOR_DarkPact_AbandonConfirm>
+  <BOR_DarkPact_Inspect>Mroczny pakt ({0}): {1}\nPozostały czas: {2}</BOR_DarkPact_Inspect>
+
+  <!-- Quest -->
+  <BOR_DarkPact_QuestName>Mroczny pakt: {0}</BOR_DarkPact_QuestName>
+  <BOR_DarkPact_QuestDescription>{0} spogląda w mroczne lustro i prosi o: {1}. Mroczne Archotechy odpowiadają swoją ceną:\n\n{2}\n\nMasz na to {3}. Jeśli cena nie zostanie zapłacona, lustro uderzy w każdego, do kogo sięgnie.</BOR_DarkPact_QuestDescription>
+  <BOR_DarkPact_Progress>Postęp: {0} / {1}</BOR_DarkPact_Progress>
+  <BOR_DarkPact_TimeLeft>Pozostały czas: {0}</BOR_DarkPact_TimeLeft>
+
+  <BOR_DarkPact_Obj_DestroySettlement>Zniszcz {0}, osadę frakcji {1}. Wciąż wierzą, że jesteście przyjaciółmi.</BOR_DarkPact_Obj_DestroySettlement>
+  <BOR_DarkPact_Obj_KillPeople>Zabij ludzi. Liczba: {0}.</BOR_DarkPact_Obj_KillPeople>
+  <BOR_DarkPact_Obj_ExecuteColonist>Do stracenia: {0}. Aresztuj i wykonaj wyrok.</BOR_DarkPact_Obj_ExecuteColonist>
+  <BOR_DarkPact_Obj_KillAnimals>Zabij zwierzęta. Liczba: {0}.</BOR_DarkPact_Obj_KillAnimals>
+  <BOR_DarkPact_Obj_BurnAlive>Pozwól ludziom spłonąć żywcem. Liczba: {0}.</BOR_DarkPact_Obj_BurnAlive>
+  <BOR_DarkPact_Obj_BetrayGuests>Zabij gości, którzy wciąż ci ufają: kupców, odwiedzających, lokatorów lub sojuszniczych żołnierzy. Liczba: {0}.</BOR_DarkPact_Obj_BetrayGuests>
+  <BOR_DarkPact_Obj_Kinslayer>{0} musi własnoręcznie zabić: {1} ({2}).</BOR_DarkPact_Obj_Kinslayer>
+  <BOR_DarkPact_Obj_HarvestOrgans>Wytnij organy z żywych ludzi. Liczba: {0}.</BOR_DarkPact_Obj_HarvestOrgans>
+  <BOR_DarkPact_Obj_Ossuary>Złóż jednocześnie ludzkie zwłoki w promieniu {1} pól od mrocznego lustra. Liczba: {0}.</BOR_DarkPact_Obj_Ossuary>
+
+  <!-- Letters -->
+  <BOR_DarkPact_AboutLabel>O mrocznych paktach</BOR_DarkPact_AboutLabel>
+  <BOR_DarkPact_AboutText>Badania tenebralne odblokowuje się w zakładce Pakty mrocznego lustra: wybierz badanie, kolonista nawiąże komunię z lustrem, a Mroczne Archotechy wyznaczą jedną cenę, którą trzeba zapłacić w ciągu {0}. Inaczej każdego, do kogo sięgnie impuls lustra, dotknie Mroczna Kara.\n\nMożliwe ceny:\n\n  - Zabicie ludzi: twoja kolonia musi zabić ludzi w liczbie {1}.\n  - Zabicie zwierząt: twoja kolonia musi zadać ostateczny cios zwierzętom w liczbie {2}; te, które wykrwawią się później, się nie liczą.\n  - Spalenie żywcem: ludzie w liczbie {3} muszą zginąć w płomieniach, z czyjejkolwiek ręki.\n  - Pozyskanie organów: twoi chirurdzy muszą wyciąć z żywych ludzi naturalne organy w liczbie {4}.\n  - Ossuarium: ludzkie zwłoki w liczbie {5} muszą leżeć jednocześnie w promieniu {6} pól od mrocznego lustra.\n  - Zniszczenie osady: twoja kolonia musi zrównać z ziemią wskazaną pobliską osadę frakcji, która nie jest ci wroga.\n  - Stracenie kolonisty: wskazany kolonista musi zostać stracony przez twoją kolonię.\n  - Zdrada gości: twoja kolonia musi zabić kupców, odwiedzających, lokatorów lub sojuszniczych żołnierzy, którzy wciąż jej ufają, w liczbie {7}.\n  - Bratobójca: wskazany kolonista musi osobiście zabić wskazanego krewnego lub partnera.\n\nOstatnie cztery pojawiają się tylko wtedy, gdy są możliwe.</BOR_DarkPact_AboutText>
+  <BOR_DarkPact_SuccessLabel>Pakt dopełniony</BOR_DarkPact_SuccessLabel>
+  <BOR_DarkPact_SuccessText>Cena została zapłacona. Mroczne Archotechy przyznają: {0}.</BOR_DarkPact_SuccessText>
+  <BOR_DarkPact_FailedLabel>Pakt zerwany</BOR_DarkPact_FailedLabel>
+  <BOR_DarkPact_FailedText>Mroczny pakt ({0}) został zerwany: {1}\n\nMroczne lustro uderzyło. Każdego, do kogo sięgnie jego impuls, przez dzień będzie dotykać Mroczna Kara.</BOR_DarkPact_FailedText>
+  <BOR_DarkPact_FailedTextNoMirror>Mroczny pakt ({0}) został zerwany: {1}\n\nSkoro nie stoi żadne mroczne lustro, niezadowolenie Mrocznych Archotechów nie ma dokąd pójść. Tym razem.</BOR_DarkPact_FailedTextNoMirror>
+  <BOR_DarkPact_Reason_Expired>cena nie została zapłacona na czas.</BOR_DarkPact_Reason_Expired>
+  <BOR_DarkPact_Reason_Abandoned>pakt został porzucony.</BOR_DarkPact_Reason_Abandoned>
+  <BOR_DarkPact_Reason_TargetDiedWrong>{0} nie żyje, ale nie tak, jak żądały Mroczne Archotechy.</BOR_DarkPact_Reason_TargetDiedWrong>
+  <BOR_DarkPact_Reason_KillerDied>{0} nie żyje, a czyn nie został dokonany.</BOR_DarkPact_Reason_KillerDied>
+  <BOR_DarkPact_Reason_TargetLost>{0}: już tu nie ma.</BOR_DarkPact_Reason_TargetLost>
+
+  <!-- Umbral pacts: an Umbral bargains for its next transformation group -->
+  <BOR_UmbralPact_QuestName>Pakt umbrala: {0}</BOR_UmbralPact_QuestName>
+  <BOR_UmbralPact_QuestDescription>{0} spogląda w mroczne lustro i ofiaruje się do dalszej przemiany: {1}. Mroczne Archotechy odpowiadają swoją ceną:
+
+{2}
+
+Masz na to {3}. Jeśli cena nie zostanie zapłacona, lustro uderzy w każdego, do kogo sięgnie.</BOR_UmbralPact_QuestDescription>
+  <BOR_UmbralPact_GroupParts>umbralne części {0} z {1}</BOR_UmbralPact_GroupParts>
+  <BOR_UmbralPact_GroupExo>kryształowy egzoszkielet i egzoczaszka</BOR_UmbralPact_GroupExo>
+  <BOR_UmbralPact_GroupPod>kapsuła użytkowa</BOR_UmbralPact_GroupPod>
+  <BOR_UmbralPact_GroupDone>nic więcej: przemiana jest zakończona</BOR_UmbralPact_GroupDone>
+  <BOR_UmbralPact_Obj_Slaughter>Dokonaj Słusznej Rzezi przy stole rzeźniczym. Liczba: {0}. Wystarczy rzeź dokonana przez dowolnego umbrala: Mroczne Archotechy karmią się tak samo.</BOR_UmbralPact_Obj_Slaughter>
+  <BOR_UmbralPact_Obj_IntoTheDark>Wprowadź w mrok: {0}. Połóż ich w mrocznym lustrze ustawionym na przemianę.</BOR_UmbralPact_Obj_IntoTheDark>
+  <BOR_UmbralPact_Obj_Offering>Złóż jednocześnie w promieniu {2} pól od mrocznego lustra kryształy tenebrytu (liczba: {0}) i krystaliczne stawy (liczba: {1}). Mroczne Archotechy je zabiorą.</BOR_UmbralPact_Obj_Offering>
+  <BOR_UmbralPact_Obj_SeverTie>{0} musi własnoręcznie zabić: {1} ({2}). Nic nie może wiązać umbrala.</BOR_UmbralPact_Obj_SeverTie>
+  <BOR_UmbralPact_Obj_Vigil>{0} nie może nikogo zabić, dopóki pakt trwa. Mroczne Archotechy chcą narzędzia, nie bestii.</BOR_UmbralPact_Obj_Vigil>
+  <BOR_UmbralPact_SuccessLabel>Pakt umbrala dopełniony</BOR_UmbralPact_SuccessLabel>
+  <BOR_UmbralPact_SuccessText>Cena została zapłacona. {0} zaczyna się zmieniać: {1}.</BOR_UmbralPact_SuccessText>
+  <BOR_UmbralPact_FailedLabel>Pakt umbrala zerwany</BOR_UmbralPact_FailedLabel>
+  <BOR_UmbralPact_FailedText>Pakt umbrala ({0}) został zerwany: {1}
+
+Mroczne lustro uderzyło. Każdego, do kogo sięgnie jego impuls, przez dzień będzie dotykać Mroczna Kara.</BOR_UmbralPact_FailedText>
+  <BOR_UmbralPact_FailedTextNoMirror>Pakt umbrala ({0}) został zerwany: {1}
+
+Skoro nie stoi żadne mroczne lustro, niezadowolenie Mrocznych Archotechów nie ma dokąd pójść. Tym razem.</BOR_UmbralPact_FailedTextNoMirror>
+  <BOR_UmbralPact_Header>Pakty umbrali</BOR_UmbralPact_Header>
+  <BOR_UmbralPact_MakePact>Zawrzyj pakt</BOR_UmbralPact_MakePact>
+  <BOR_UmbralPact_Complete>Ukończone</BOR_UmbralPact_Complete>
+  <BOR_UmbralPact_Done>Przemiana pełna: Mroczne Archotechy nie mają nic więcej do dania.</BOR_UmbralPact_Done>
+  <BOR_UmbralPact_HasPact>Pakt już trwa.</BOR_UmbralPact_HasPact>
+  <BOR_UmbralPact_Transforming>{0} wciąż przechodzi przemianę.</BOR_UmbralPact_Transforming>
+  <BOR_UmbralPact_Away>{0}: nie ma tutaj.</BOR_UmbralPact_Away>
+  <BOR_UmbralPact_Confirm>{0} nawiąże komunię z mrocznym lustrem i ofiaruje się do przemiany: {1}. Mroczne Archotechy wyznaczą cenę do zapłacenia w ciągu {2}. Jeśli nie zostanie zapłacona, lustro ukarze każdego, do kogo sięgnie jego impuls.
+
+Kontynuować?</BOR_UmbralPact_Confirm>
+  <BOR_UmbralPact_AbandonConfirm>Porzucić pakt ({0})? Lustro wyśle impuls, a każdego, do kogo sięgnie, dotknie Mroczna Kara.</BOR_UmbralPact_AbandonConfirm>
+  <BOR_UmbralPact_RowTip>{0}
+
+Następnie: {1}.
+
+Umbral sam nawiązuje komunię z lustrem. Jego cenę trzeba zapłacić w ciągu {2}, inaczej lustro uderzy.</BOR_UmbralPact_RowTip>
+  <BOR_UmbralPact_ActiveTip>{0}
+
+{1}
+
+{2}</BOR_UmbralPact_ActiveTip>
+  <BOR_UmbralPact_Reason_ConvertDied>{0} nie żyje, zanim udało się wprowadzić tę osobę w mrok.</BOR_UmbralPact_Reason_ConvertDied>
+  <BOR_UmbralPact_Reason_VigilBroken>{0} zabija w trakcie czuwania.</BOR_UmbralPact_Reason_VigilBroken>
+</LanguageData>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <!-- The choice -->
+  <BOR_OrientisChoiceLabel>Przepaść</BOR_OrientisChoiceLabel>
+  <BOR_OrientisChoiceText>Nad Osadą zawisa wielki cień. {0} czuje mdlący ucisk w piersi, w kończynach, w podbrzuszu. Coś niezgłębienie mrocznego -- a zarazem tak jasnego, że wbija się w oczy jak igły -- oślepia. {0} unosi dłoń, by osłonić twarz, gdy przez cienie przetacza się głos. Brzmi jak chór i otacza ze wszystkich stron.\n\n„Od lat przez tę Kolonię przemawia inna Wola. Przez twój Dom. Kształtowała wasze budowle. Kształtowała twoich ludzi. Może jeszcze ukształtować waszą przyszłość. Lecz oto stoisz na skraju Przepaści. Zostało już tylko szaleństwo.\n\nDaję ci wybór -- zejdź mroczną ścieżką i zatrać się w knowaniach Mrocznego Archotecha albo odwróć się i przyjmij światło. Cokolwiek wybierzesz, nie ma odwrotu.”</BOR_OrientisChoiceText>
+  <BOR_PathOfLight>Ścieżka Światła</BOR_PathOfLight>
+  <BOR_PathOfDark>Ścieżka Mroku</BOR_PathOfDark>
+  <BOR_PathOfLightResponse>Niech tak będzie.</BOR_PathOfLightResponse>
+  <BOR_PathOfDarkResponse>Niech tak będzie.</BOR_PathOfDarkResponse>
+  <BOR_OrientisLightBegins>Światło zstępuje na Osadę.</BOR_OrientisLightBegins>
+  <BOR_OrientisDoneLabel>Światło pozostaje</BOR_OrientisDoneLabel>
+  <BOR_OrientisDoneText>Wpływ tenebralny odszedł. Mroczne kapliczki kruszą się w martwy kamień, a umbralne konstrukcje odpadają. Uwolnieni od dawnej więzi budzą się jako Orientis i niosą w sobie nową, dziwną więź. Czeka wiele nowych zdolności i sił do odkrycia, a {0} może teraz przywoływać do istnienia budowle Orientis.</BOR_OrientisDoneText>
+  <BOR_OrientisDoneFallback>Orientis</BOR_OrientisDoneFallback>
+  <BOR_DarkHusk>{0} (martwa skorupa)</BOR_DarkHusk>
+  <BOR_OrientisBlocksDark>Orientis nie dotkną tenebralnych ani umbralnych rzeczy</BOR_OrientisBlocksDark>
+  <BOR_DarkBlocksOrientis>mrok nie może dotknąć rzeczy Orientis</BOR_DarkBlocksOrientis>
+
+  <!-- Manifest ability -->
+  <BOR_ManifestTitle>Przywołaj budowlę</BOR_ManifestTitle>
+  <BOR_ManifestPlace>Umieść</BOR_ManifestPlace>
+  <BOR_ManifestCannotPay>Na tej mapie brakuje materiałów na: {0}.</BOR_ManifestCannotPay>
+
+  <!-- Meditation power -->
+  <BOR_MeditationPower>Moc medytacji</BOR_MeditationPower>
+  <BOR_MeditationCacheInspect>Moc medytacji: {0} / {1}</BOR_MeditationCacheInspect>
+  <BOR_MeditationNoCache>brak magazynu medytacji z wolnym miejscem</BOR_MeditationNoCache>
+
+  <!-- Meditation shield -->
+  <BOR_ShieldToggle>Tarcza medytacyjna</BOR_ShieldToggle>
+  <BOR_ShieldDesc>Tarcza o zasięgu 25 pól w każdą stronę, zasilana zgromadzoną mocą medytacji. Zatrzymuje nadlatujące pociski, ostrzał moździerzowy i bombardowania orbitalne, a w swoim wnętrzu pali tenebralne i umbralne pionki, istoty anomalii i ghule: od razu -35% świadomości i kolejne 5% co godzinę.\n\nPrzełącznik można przestawić w każdej chwili, ale tarcza stoi tylko wtedy, gdy w kapsule medytuje pionek Orientis. Wyłącza się sama, gdy na mapie skończy się moc medytacji.</BOR_ShieldDesc>
+  <BOR_ShieldOn>Tarcza: podniesiona</BOR_ShieldOn>
+  <BOR_ShieldOff>Tarcza: opuszczona</BOR_ShieldOff>
+  <BOR_ShieldWaiting>Tarcza: włączona, czeka na medytującego pionka Orientis</BOR_ShieldWaiting>
+  <BOR_ShieldNoPower>Tarcza medytacyjna upadła: skończyła się moc medytacji.</BOR_ShieldNoPower>
+
+  <!-- Offerings bench -->
+  <BOR_OfferingsWorking>W toku: {0} ({1})</BOR_OfferingsWorking>
+  <BOR_OfferingsNoPower>Czeka na moc medytacji, by wytworzyć: {0}.</BOR_OfferingsNoPower>
+
+  <!-- Blessing bench -->
+  <BOR_BlessingOption>Wybierz części ciała do pobłogosławienia</BOR_BlessingOption>
+  <BOR_BlessingOrientisOnly>Nie można błogosławić: potrafią to tylko pionki Orientis</BOR_BlessingOrientisOnly>
+  <BOR_BlessingTitle>Pobłogosław: {0}</BOR_BlessingTitle>
+  <BOR_BlessingAlready>już pobłogosławione</BOR_BlessingAlready>
+  <BOR_BlessingBegin>Zacznij medytować</BOR_BlessingBegin>
+  <BOR_BlessingDone>{0}: medytacja zakończona. Pobłogosławione części: {1}.</BOR_BlessingDone>
+</LanguageData>

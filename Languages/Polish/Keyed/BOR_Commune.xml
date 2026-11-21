@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <BOR_CommuneDesc>Nawiąż komunię z mrocznym archotechem, by zdobyć wiedzę o: {0}.</BOR_CommuneDesc>
+  <BOR_CommuneConfirm>Na pewno? {0} oberwie piorunem i zapadnie na śmiertelną chorobę komunii z mrocznym archotechem. Bez względu na to, czy zdąży nabrać odporności, czy umrze, wiedza o: {1} zostanie zdobyta.</BOR_CommuneConfirm>
+  <BOR_CommuneNoUmbral>Brak umbralnego kolonisty</BOR_CommuneNoUmbral>
+  <BOR_CommuneNeedsResearch>wymaga: {0}</BOR_CommuneNeedsResearch>
+  <BOR_CommuneInProgress>Ktoś już nawiązuje komunię dla tej wiedzy.</BOR_CommuneInProgress>
+  <BOR_CommuneCuredLabel>{0}: wyleczono</BOR_CommuneCuredLabel>
+  <BOR_CommuneCured>Komunię z mrocznym archotechem u {0} przerwało leczenie z zewnątrz. Mroczne archotechy nie dały nic: wiedza o: {1} nie została zdobyta, a rytuał można spróbować ponownie.</BOR_CommuneCured>
+  <BOR_CommunePawnBusy>już w komunii</BOR_CommunePawnBusy>
+</LanguageData>

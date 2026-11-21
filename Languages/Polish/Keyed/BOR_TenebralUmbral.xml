@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <!-- Tenebral psychosis, breaks and crystallization -->
+  <BOR_CrystallizationLabel>{0}: krystalizacja</BOR_CrystallizationLabel>
+  <BOR_CrystallizationText>Psychoza zbyt wiele razy pchnęła {PAWN_labelShort} do zabijania. Ciało zaczyna zamieniać się w czarny kryształ, część po części. Skrystalizowane części przestają działać i nie da się ich usunąć.\n\nGdy skrystalizuje się połowa ciała, {PAWN_labelShort} może trafić do kapsuły umbralnej przemiany.</BOR_CrystallizationText>
+  <BOR_PsychosisGizmoTip>Psychoza: {0} ({1})\nLimit pracy: {2}\n\nGdy psychoza osiągnie limit, ten kolonista przestaje pracować przy stołach tenebrytowych, stołach badawczych, kuźniach i mrocznym ołtarzu. Może wrócić, gdy spadnie poniżej limitu. Przeciągnij pasek, by ustawić limit. Przy 100% limitu nie ma.</BOR_PsychosisGizmoTip>
+  <BOR_PsychosisLimitReached>psychoza: {0}, limit: {1}</BOR_PsychosisLimitReached>
+  <BOR_PsychosisLimitStopped>{0}: osiągnięto limit psychozy, koniec pracy przy: {1}.</BOR_PsychosisLimitStopped>
+
+  <!-- Dark abilities -->
+  <BOR_DarkAbilityLearnedLabel>{0}: nowa zdolność ({1})</BOR_DarkAbilityLearnedLabel>
+  <BOR_DarkAbilityLearnedText>Mrok osiadł w {0}. Od teraz może używać zdolności: {1}.\n\n{2}</BOR_DarkAbilityLearnedText>
+  <BOR_AbilityNeedsBloodlust>wymaga żądzy krwi: {0}</BOR_AbilityNeedsBloodlust>
+  <BOR_AbilityCostTip>Koszt w żądzy krwi: {0} (za darmo dla umbrali)</BOR_AbilityCostTip>
+  <BOR_AbilityTargetDowned>{0} już leży.</BOR_AbilityTargetDowned>
+  <BOR_AbilityTargetNoHeart>{0}: brak serca do zniszczenia.</BOR_AbilityTargetNoHeart>
+  <BOR_AbilityTargetOwn>{0}: już służy twojej frakcji.</BOR_AbilityTargetOwn>
+  <BOR_AbilityTargetLodger>{0}: pod twoją ochroną.</BOR_AbilityTargetLodger>
+
+  <!-- Umbral-only buildings -->
+  <BOR_UmbralOnlyDesc>Tylko umbralni koloniści mogą tego używać i to budować.</BOR_UmbralOnlyDesc>
+  <BOR_UmbralOnlyInspect>Tylko dla umbrali</BOR_UmbralOnlyInspect>
+  <BOR_UmbralOnlyCannotUse>Nie można użyć: {0}. Potrafią to tylko umbrale</BOR_UmbralOnlyCannotUse>
+  <BOR_UmbralOnlyCannotBuild>Nie można zbudować: {0}. Potrafią to tylko umbrale</BOR_UmbralOnlyCannotBuild>
+
+  <!-- Umbral transformation pod -->
+  <BOR_UmbralPodNotCrystallized>skrystalizowane tylko {0}, wymaga {1}</BOR_UmbralPodNotCrystallized>
+  <BOR_UmbralPodRemaining>Przemiana kończy się za {0}</BOR_UmbralPodRemaining>
+  <BOR_UmbralEmergedLabel>{0}: przemiana w umbrala</BOR_UmbralEmergedLabel>
+  <BOR_UmbralEmergedText>Kapsuła się otwiera. {PAWN_labelShort} jest teraz umbralem: to ciało nie przyjmie już żadnej operacji i będzie się dalej zmieniać tylko przez pakty przy mrocznym lustrze.</BOR_UmbralEmergedText>
+
+  <!-- Tenebral pod (the dark mirror) -->
+  <BOR_TenebralPodMode>Tryb</BOR_TenebralPodMode>
+  <BOR_TenebralPodModeDesc>Otwórz sterowanie kapsułą lustra: wybierz stazę, leczenie, przemianę albo operację oraz to, kto wejdzie do środka.</BOR_TenebralPodModeDesc>
+  <BOR_TenebralPodModeInspect>Tryb: {0}</BOR_TenebralPodModeInspect>
+  <BOR_TenebralPodMode_Stasis>staza</BOR_TenebralPodMode_Stasis>
+  <BOR_TenebralPodMode_Healing>leczenie</BOR_TenebralPodMode_Healing>
+  <BOR_TenebralPodMode_Operating>operacja</BOR_TenebralPodMode_Operating>
+  <BOR_TenebralPodMode_Transformation>przemiana</BOR_TenebralPodMode_Transformation>
+  <BOR_TenebralPodTransforming>Trwa przemiana i nie można jej przerwać.</BOR_TenebralPodTransforming>
+  <BOR_TenebralPodNeedsTenebral>leczenie wymaga tenebralnego lub umbralnego pionka</BOR_TenebralPodNeedsTenebral>
+  <BOR_TenebralPodDoesNotFit>Wybrana część ciała nie przyjmie tej operacji: {0}.</BOR_TenebralPodDoesNotFit>
+  <BOR_TenebralPodWaitingForPatient>Czeka, aż ktoś położy się w środku.</BOR_TenebralPodWaitingForPatient>
+  <BOR_TenebralPodCancel>Anuluj operację</BOR_TenebralPodCancel>
+  <BOR_TenebralPodCancelDesc>Anuluj operację i wyrzuć wszystko, co do niej załadowano.</BOR_TenebralPodCancelDesc>
+  <BOR_TenebralPodNoMode>najpierw wybierz tryb w sterowaniu kapsułą lustra</BOR_TenebralPodNoMode>
+  <BOR_TenebralPodLocked>Wymaga: {0}.</BOR_TenebralPodLocked>
+  <BOR_MirrorPowerLost>Mroczne lustro straciło zasilanie i wyrzuciło: {0}.</BOR_MirrorPowerLost>
+  <BOR_PodOrderRefused>{0}: nie może teraz przyjąć tego rozkazu.</BOR_PodOrderRefused>
+  <BOR_TenebralPodNeedsResearch>wymaga: {0}</BOR_TenebralPodNeedsResearch>
+  <BOR_TenebralPodReservedFor>ta operacja jest przygotowana dla: {0}</BOR_TenebralPodReservedFor>
+  <BOR_OpOrgans>Organy</BOR_OpOrgans>
+  <BOR_OpAppendages>Przydatki</BOR_OpAppendages>
+  <BOR_OpInstallAt>Miejsce wszczepu</BOR_OpInstallAt>
+  <BOR_OpCost>Koszt:</BOR_OpCost>
+  <BOR_OpPickColonist>Wybierz kolonistę</BOR_OpPickColonist>
+  <BOR_OpPickOperation>Wybierz organ lub przydatek</BOR_OpPickOperation>
+  <BOR_OpPickPart>Wybierz miejsce wszczepu</BOR_OpPickPart>
+  <BOR_OpMissingItems>Za mało w kolonii</BOR_OpMissingItems>
+  <BOR_TenebralPodTitle>Mroczne lustro</BOR_TenebralPodTitle>
+  <BOR_PodAction>Działanie</BOR_PodAction>
+  <BOR_PodColonists>Koloniści</BOR_PodColonists>
+  <BOR_PodSlaves>Niewolnicy</BOR_PodSlaves>
+  <BOR_PodPrisoners>Więźniowie</BOR_PodPrisoners>
+  <BOR_PodColonistsOnly>tylko koloniści</BOR_PodColonistsOnly>
+  <BOR_PodOccupied>Lustro jest zajęte</BOR_PodOccupied>
+  <BOR_PodWalks>{0} pójdzie do lustra.</BOR_PodWalks>
+  <BOR_PodCarried>Kolonista zaniesie do lustra: {0}.</BOR_PodCarried>
+  <BOR_PodNobodyToCarry>Żaden kolonista nie może zanieść do lustra: {0}.</BOR_PodNobodyToCarry>
+  <!-- Card shown when hovering a pawn in the pod window. -->
+  <BOR_PodColonist>Kolonista</BOR_PodColonist>
+  <BOR_PodSlave>Niewolnik</BOR_PodSlave>
+  <BOR_PodPrisoner>Więzień</BOR_PodPrisoner>
+  <BOR_PodCard_Age>Wiek: {0}</BOR_PodCard_Age>
+  <BOR_PodCard_Health>Zdrowie {0}</BOR_PodCard_Health>
+  <BOR_PodCard_Downed>powalony</BOR_PodCard_Downed>
+  <BOR_PodCard_Bleeding>krwawi</BOR_PodCard_Bleeding>
+  <BOR_PodCard_Crystallization>Skrystalizowane {0} (przemiana wymaga {1})</BOR_PodCard_Crystallization>
+  <BOR_PodCard_Psychosis>Psychoza tenebralna {0}</BOR_PodCard_Psychosis>
+  <BOR_PodCard_Implants>Implanty tenebralne</BOR_PodCard_Implants>
+  <BOR_PodCard_Conditions>Stany</BOR_PodCard_Conditions>
+  <BOR_PodCard_None>brak</BOR_PodCard_None>
+  <BOR_PodCard_More>i {0} więcej</BOR_PodCard_More>
+  <BOR_TenebralPodOperation>Operacja: {0}, miejsce: {1} ({2})</BOR_TenebralPodOperation>
+  <BOR_TenebralPodMissing>Czeka na: {0}</BOR_TenebralPodMissing>
+  <BOR_TenebralPodInstalled>Mroczne lustro wszczepiło: {1} ({0}).</BOR_TenebralPodInstalled>
+
+  <!-- Dark archotech altar -->
+  <BOR_TabDarkAltar>Ołtarz</BOR_TabDarkAltar>
+  <BOR_AltarHeader>Złożone krystaliczne stawy: {0}</BOR_AltarHeader>
+  <BOR_AltarLocked>zapieczętowane</BOR_AltarLocked>
+  <BOR_AltarLockedTip>{0}\n\nZapieczętowane. Kliknij, by psychotyczny kolonista zdjął pieczęć ({1} pracy). Kliknij ponownie, by anulować. Zdjęcie pieczęci tutaj zdejmuje ją na każdym ołtarzu.\n\nPo zdjęciu pieczęci: wydajność na cykl {2}, krystaliczne stawy na cykl {3}.</BOR_AltarLockedTip>
+  <BOR_AltarCellTip>{0}\n\nWydajność na cykl: {1}\nKrystaliczne stawy na cykl: {2}\n\nLewy przycisk: dodaj 1 (Shift: 5)\nPrawy przycisk: usuń 1 (Shift: 5)</BOR_AltarCellTip>
+  <BOR_AltarUnlocked>Ołtarz wydał projekt: {0}.</BOR_AltarUnlocked>
+  <BOR_AltarComponents>Złożone krystaliczne stawy: {0}</BOR_AltarComponents>
+  <BOR_AltarNeedsPsychosis>Nie można pracować przy ołtarzu: psychoza {0}, wymaga {1}</BOR_AltarNeedsPsychosis>
+  <BOR_AltarNeedsComponents>brakuje krystalicznych stawów: {0}</BOR_AltarNeedsComponents>
+  <BOR_AltarPietyBloodlust>Niezaspokojona żądza krwi</BOR_AltarPietyBloodlust>
+  <BOR_AltarPietyPsychosis>Psychoza tenebralna</BOR_AltarPietyPsychosis>
+  <BOR_AltarPietyTenebral>Tenebralne implanty i części</BOR_AltarPietyTenebral>
+  <BOR_AltarPietyUmbral>Umbralne implanty i części</BOR_AltarPietyUmbral>
+  <BOR_AltarPietyCrystallized>Skrystalizowane części</BOR_AltarPietyCrystallized>
+  <BOR_TabGeneForge>Kuźnia genów</BOR_TabGeneForge>
+  <BOR_GeneForgeHeader>Załadowane femtoklastry: {0} / {1}</BOR_GeneForgeHeader>
+  <BOR_GeneForgeNoGenes>{0}: brak genów, które kuźnia mogłaby wydobyć.</BOR_GeneForgeNoGenes>
+  <BOR_GeneForgeIdle>Kliknij gen, by lekarz go wydobył.</BOR_GeneForgeIdle>
+  <BOR_GeneForgeCellTip>{0}
+
+{1}
+
+Kliknij, by lekarz wydobył ten gen do paczki genów ({2} pracy, {4}: {3}). Kliknij ponownie, by anulować.
+
+Śpiący traci losową część ciała. Może to być palec u stopy. Może to być serce.</BOR_GeneForgeCellTip>
+  <BOR_GeneForgeWaiting>{0}: czeka na: {1}</BOR_GeneForgeWaiting>
+  <BOR_GeneForgeProgress>Wydobywanie: {0}</BOR_GeneForgeProgress>
+  <BOR_GeneForgeCancel>Przerwij wydobywanie tego genu. Załadowane femtoklastry zostają w lustrze.</BOR_GeneForgeCancel>
+  <BOR_GeneForgeInspect>Kuźnia genów: {0} ({1})</BOR_GeneForgeInspect>
+  <BOR_GeneForgeNeedsFemto>wymaga femtoklastrów: {0}</BOR_GeneForgeNeedsFemto>
+  <BOR_GeneForgeDone>Kuźnia genów wydobyła {0} z: {1}. Zabrała przy tym część ciała: {2}.</BOR_GeneForgeDone>
+  <BOR_GeneForgeDoneKilled>Kuźnia genów wydobyła {0} z: {1}. Zabrała przy tym część ciała: {2}. {1} nie przeżywa.</BOR_GeneForgeDoneKilled>
+  <BOR_GeneForgeDoneNoPart>Kuźnia genów wydobyła {0} z: {1}.</BOR_GeneForgeDoneNoPart>
+
+  <!-- Umbral -->
+  <BOR_UmbralTransformed>{0}: wyrasta {1}.</BOR_UmbralTransformed>
+  <BOR_ExoArmorBroken>{0}: pancerz bojowy zawiódł.</BOR_ExoArmorBroken>
+  <BOR_ExoModeLocked>regeneracja, pozostało {0}</BOR_ExoModeLocked>
+  <BOR_ExoMode>Egzoszkielet: {0}</BOR_ExoMode>
+  <BOR_ExoNeedsCharge>wymaga {0} ładunku</BOR_ExoNeedsCharge>
+  <BOR_ExoSpentFlee>{0}: egzoszkielet wyczerpany. Ucieka.</BOR_ExoSpentFlee>
+  <BOR_ExoForming>formowanie: {0}</BOR_ExoForming>
+  <BOR_ExoCharge>ładunek {0} / {1}</BOR_ExoCharge>
+  <BOR_ExoChargeEmpty>{0}: egzoszkielet wyczerpał ładunek i się regeneruje.</BOR_ExoChargeEmpty>
+  <BOR_ExoModeDesc>Zmień formę egzoszkieletu. Każda forma czerpie z jednego wspólnego ładunku na 4 godziny. Ładunek spada w każdej formie i odnawia się, gdy formy nie ma, więc wróć do braku formy, by naładować. Forma potrzebuje na start co najmniej pół godziny ładunku. Zmiana trwa kilka sekund: stara forma odpada, potem wyrasta nowa, a w tym czasie egzoszkielet nie ma formy. Gdy ładunek się skończy, egzoszkielet traci formę i musi regenerować się przez 2 godziny, zanim zacznie się ładować albo da się go znowu użyć.\n\nKamuflaż: niewidoczny, ale nie może niczego obsługiwać.\nUżytkowa: bez pancerza, pracuje dużo szybciej.\nBojowa: bardzo ciężki pancerz, pracuje dużo wolniej.\nBez formy: bez pancerza i bez premii.</BOR_ExoModeDesc>
+  <BOR_ExoMode_Camo>kamuflaż</BOR_ExoMode_Camo>
+  <BOR_ExoMode_Utility>użytkowa</BOR_ExoMode_Utility>
+  <BOR_ExoMode_Combat>bojowa</BOR_ExoMode_Combat>
+  <BOR_ExoMode_None>bez formy</BOR_ExoMode_None>
+  <BOR_GenesNotExtractable>{0}: genów nie da się wydobyć</BOR_GenesNotExtractable>
+  <BOR_ExoBlocksApparel>umbralny egzoszkielet nie zostawia miejsca na ubrania</BOR_ExoBlocksApparel>
+  <BOR_UtilityPodMode>Kapsuła: {0}</BOR_UtilityPodMode>
+  <BOR_UtilityPodModeDesc>Zmień kształt kapsuły użytkowej. Kryształ przekształca się przez kilka sekund, a pionek jest w tym czasie nieuzbrojony.</BOR_UtilityPodModeDesc>
+  <BOR_PodBlocksWeapon>umbralna kapsuła użytkowa nie mieści innej broni</BOR_PodBlocksWeapon>
+</LanguageData>

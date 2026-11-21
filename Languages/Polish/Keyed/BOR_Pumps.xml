@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <BOR_PumpMode>Tryb pompy: {0}</BOR_PumpMode>
+  <BOR_PumpModeDesc>Wybierz, co robi pompa. Każde zadanie ma własny postęp.</BOR_PumpModeDesc>
+  <BOR_PumpModeNeedsResearch>wymaga: {0}</BOR_PumpModeNeedsResearch>
+  <BOR_PumpMode_Pollution>oczyszczanie skażenia</BOR_PumpMode_Pollution>
+  <BOR_PumpMode_Pollution_Desc>Powoli oczyszcza skażony teren i formuje paczki toksycznych odpadów.</BOR_PumpMode_Pollution_Desc>
+  <BOR_PumpMode_Dry>wyrównanie wilgotności</BOR_PumpMode_Dry>
+  <BOR_PumpMode_Dry_Desc>Bardzo powoli wyrównuje wilgotność pobliskiego terenu, zamieniając bagna i płytką wodę w suchy grunt, a miękki piasek w zwykły. Nie działa na głęboką wodę.</BOR_PumpMode_Dry_Desc>
+  <BOR_PumpMode_Wet>odwrócenie wilgotności</BOR_PumpMode_Wet>
+  <BOR_PumpMode_Wet_Desc>Bardzo powoli zaburza wilgotność pobliskiego terenu, zamieniając suchy grunt w płytką wodę. Nie działa na piasek.</BOR_PumpMode_Wet_Desc>
+  <BOR_PumpMode_Fertilizer>nawóz</BOR_PumpMode_Fertilizer>
+  <BOR_PumpMode_Fertilizer_Desc>Bardzo powoli rozprowadza nawóz po pobliskim terenie, zamieniając różne gleby w żyzną ziemię. Działa tylko na terenie uprawnym.</BOR_PumpMode_Fertilizer_Desc>
+  <BOR_PumpMode_JackHammer>młot pneumatyczny</BOR_PumpMode_JackHammer>
+  <BOR_PumpMode_JackHammer_Desc>Rozbija kamienny teren, bardzo powoli zamieniając skaliste obszary w kamienistą glebę. Działa też na twoje wygładzone kamienne podłogi.</BOR_PumpMode_JackHammer_Desc>
+  <BOR_PumpMode_DeepWet>podnoszenie wód gruntowych</BOR_PumpMode_DeepWet>
+  <BOR_PumpMode_DeepWet_Desc>Bardzo powoli wynosi wody gruntowe na powierzchnię, zamieniając płytką wodę w głęboką. Nie działa na rzeki. Ma mniejszy zasięg niż inne zadania.</BOR_PumpMode_DeepWet_Desc>
+  <BOR_PumpMode_Shallower>podnoszenie dna</BOR_PumpMode_Shallower>
+  <BOR_PumpMode_Shallower_Desc>Bardzo powoli podnosi dno jezior i mórz, zamieniając głęboką wodę w płytką. Ma mniejszy zasięg niż inne zadania.</BOR_PumpMode_Shallower_Desc>
+</LanguageData>
