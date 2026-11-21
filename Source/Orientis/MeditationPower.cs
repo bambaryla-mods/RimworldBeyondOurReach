@@ -336,8 +336,11 @@ public class JobDriver_OrientisMeditate : JobDriver
 [HarmonyPatch(typeof(PawnRenderer), nameof(PawnRenderer.RenderPawnAt))]
 public static class PawnRenderer_RenderPawnAt_Patch
 {
-    private static readonly AccessTools.FieldRef<PawnRenderer, Pawn> PawnOf = AccessTools.FieldRefAccess<PawnRenderer, Pawn>("pawn");
+    private static readonly AccessTools.FieldRef<PawnRenderer, Pawn>? PawnOf =
+        BorReflection.FieldRef<PawnRenderer, Pawn>("pawn", "pawns in meditation pods stay visible.");
+
+    public static bool Prepare() => PawnOf != null;
 
     public static bool Prefix(PawnRenderer __instance) =>
-        PawnOf(__instance).jobs?.curDriver is not JobDriver_OrientisMeditate { Hidden: true };
+        PawnOf!(__instance).jobs?.curDriver is not JobDriver_OrientisMeditate { Hidden: true };
 }

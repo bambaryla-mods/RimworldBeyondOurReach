@@ -27,8 +27,8 @@ public sealed class CompMeditationShield : ThingComp
     private const int OccupancyInterval = 60;
     private const string TenebralFaction = "BOR_Tenebrites";
 
-    private static readonly AccessTools.FieldRef<CompProjectileInterceptor, bool> InterceptorShutDown =
-        AccessTools.FieldRefAccess<CompProjectileInterceptor, bool>("shutDown");
+    private static readonly AccessTools.FieldRef<CompProjectileInterceptor, bool>? InterceptorShutDown =
+        BorReflection.FieldRef<CompProjectileInterceptor, bool>("shutDown", "the meditation pod shield can no longer switch off.");
 
     // The player's switch, and whether the shield is actually up right now (switch on and a pawn inside).
     private bool enabled;
@@ -55,13 +55,19 @@ public sealed class CompMeditationShield : ThingComp
     public override void PostSpawnSetup(bool respawningAfterLoad)
     {
         base.PostSpawnSetup(respawningAfterLoad);
-        InterceptorShutDown(Interceptor) = !active;
+        if (InterceptorShutDown != null)
+        {
+            InterceptorShutDown(Interceptor) = !active;
+        }
     }
 
     private void SetActive(bool value)
     {
         active = value;
-        InterceptorShutDown(Interceptor) = !value;
+        if (InterceptorShutDown != null)
+        {
+            InterceptorShutDown(Interceptor) = !value;
+        }
     }
 
     private void Disable()

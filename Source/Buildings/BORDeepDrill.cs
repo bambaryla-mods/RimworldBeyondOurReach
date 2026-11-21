@@ -35,10 +35,14 @@ public class CompProperties_BORDeepDrill : CompProperties_DeepDrill
 public class CompBORDeepDrill : CompDeepDrill
 {
     // Vanilla keeps the progress private and its only writer is the method the patch below replaces.
-    private static readonly AccessTools.FieldRef<CompDeepDrill, float> Progress = AccessTools.FieldRefAccess<CompDeepDrill, float>("portionProgress");
-    private static readonly AccessTools.FieldRef<CompDeepDrill, float> YieldPct = AccessTools.FieldRefAccess<CompDeepDrill, float>("portionYieldPct");
-    private static readonly AccessTools.FieldRef<CompDeepDrill, int> LastUsedTick = AccessTools.FieldRefAccess<CompDeepDrill, int>("lastUsedTick");
-    private static readonly MethodInfo TryProducePortion = AccessTools.Method(typeof(CompDeepDrill), "TryProducePortion");
+    // If a game update renames any of them, the patch stays off and BOR drills work like vanilla ones.
+    private const string Fallback = "BOR deep drills work at vanilla speed and yield.";
+    private static readonly AccessTools.FieldRef<CompDeepDrill, float>? Progress = BorReflection.FieldRef<CompDeepDrill, float>("portionProgress", Fallback);
+    private static readonly AccessTools.FieldRef<CompDeepDrill, float>? YieldPct = BorReflection.FieldRef<CompDeepDrill, float>("portionYieldPct", Fallback);
+    private static readonly AccessTools.FieldRef<CompDeepDrill, int>? LastUsedTick = BorReflection.FieldRef<CompDeepDrill, int>("lastUsedTick", Fallback);
+    private static readonly MethodInfo? TryProducePortion = BorReflection.Method<CompDeepDrill>("TryProducePortion", Fallback);
+
+    public static bool CanBoost => Progress != null && YieldPct != null && LastUsedTick != null && TryProducePortion != null;
 
     private const float WorkPerPortion = 10000f;
 
@@ -60,17 +64,17 @@ public class CompBORDeepDrill : CompDeepDrill
     public void BoostedDrillWorkDone(Pawn driller, int delta)
     {
         float work = driller.GetStatValue(StatDefOf.DeepDrillingSpeed) * delta * Props.speedMultiplier;
-        ref float progress = ref Progress(this);
-        ref float yieldPct = ref YieldPct(this);
+        ref float progress = ref Progress!(this);
+        ref float yieldPct = ref YieldPct!(this);
         progress += work;
         yieldPct += work * driller.GetStatValue(StatDefOf.MiningYield) * Props.yieldMultiplier / WorkPerPortion;
-        LastUsedTick(this) = Find.TickManager.TicksGame;
+        LastUsedTick!(this) = Find.TickManager.TicksGame;
         if (progress > WorkPerPortion)
         {
             float pct = yieldPct;
             progress = 0f;
             yieldPct = 0f;
-            TryProducePortion.Invoke(this, new object[] { pct, driller });
+            TryProducePortion!.Invoke(this, new object[] { pct, driller });
         }
     }
 }
@@ -79,6 +83,8 @@ public class CompBORDeepDrill : CompDeepDrill
 [HarmonyPatch(typeof(CompDeepDrill), nameof(CompDeepDrill.DrillWorkDone))]
 public static class CompDeepDrill_DrillWorkDone_Patch
 {
+    public static bool Prepare() => CompBORDeepDrill.CanBoost;
+
     public static bool Prefix(CompDeepDrill __instance, Pawn driller, int delta)
     {
         if (__instance is not CompBORDeepDrill drill)

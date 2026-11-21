@@ -26,10 +26,14 @@ public class ITab_DarkPacts : BorTab
     private Vector2 scroll;
     private Vector2 umbralScroll;
 
-    // The Umbral rows and their pacts, worked out once a frame: size, layout and drawing all ask for them.
-    private int rowsFrame = -1;
+    // The rows and why each is blocked scan quests and colonists and check paths, so they are rebuilt twice a second
+    // rather than on every GUI event. Real time, so a paused game still updates. Offering re-checks before it starts a pact.
+    private const float RefreshSeconds = 0.5f;
+    private float refreshAt = -1f;
     private CompDarkPact? rowsMirror;
     private List<(Pawn umbral, QuestPart_UmbralPact? pact)> rows = new();
+    private readonly Dictionary<Pawn, string?> umbralBlocked = new();
+    private List<(ResearchProjectDef research, string? blocked)> researchRows = new();
 
     public ITab_DarkPacts()
     {
@@ -40,6 +44,12 @@ public class ITab_DarkPacts : BorTab
     private CompDarkPact? Mirror => SelThing?.TryGetComp<CompDarkPact>();
 
     public override bool IsVisible => Mirror != null && SelThing!.Faction == Faction.OfPlayer;
+
+    public override void OnOpen()
+    {
+        base.OnOpen();
+        refreshAt = -1f;
+    }
 
     protected override void UpdateSize()
     {
@@ -141,11 +151,8 @@ public class ITab_DarkPacts : BorTab
     private void DrawList(Rect area, CompDarkPact mirror)
     {
         BorSkin skin = BorSkin.Current;
-        // Ready first, then held back for the moment, then locked by research, then granted; within each, research order.
-        List<(ResearchProjectDef research, string? blocked)> rows = DarkPacts.All
-            .Select(r => (research: r, blocked: r.IsFinished ? null : mirror.BlockReason(r)))
-            .OrderBy(e => e.research.IsFinished ? 3 : e.blocked == null ? 0 : e.research.PrerequisitesCompleted ? 1 : 2)
-            .ToList();
+        Refresh(mirror);
+        List<(ResearchProjectDef research, string? blocked)> rows = researchRows;
 
         skin.Section(area);
         Rect outer = area.ContractedBy(4f);
@@ -161,18 +168,36 @@ public class ITab_DarkPacts : BorTab
     // Colony Umbrals on the mirror's map that can transform, and every Umbral with a pact under way wherever it is.
     private List<(Pawn umbral, QuestPart_UmbralPact? pact)> UmbralRows(CompDarkPact mirror)
     {
-        if (rowsFrame == Time.frameCount && rowsMirror == mirror)
+        Refresh(mirror);
+        return rows;
+    }
+
+    private void Refresh(CompDarkPact mirror)
+    {
+        if (rowsMirror == mirror && Time.realtimeSinceStartup < refreshAt)
         {
-            return rows;
+            return;
         }
-        rowsFrame = Time.frameCount;
+        refreshAt = Time.realtimeSinceStartup + RefreshSeconds;
         rowsMirror = mirror;
         List<QuestPart_UmbralPact> active = UmbralPacts.Active.ToList();
         IEnumerable<Pawn> here = mirror.parent.Map?.mapPawns.FreeColonistsSpawned.Where(p => Umbral.IsUmbral(p) && Umbral.Transforms(p)) ?? Enumerable.Empty<Pawn>();
         IEnumerable<Pawn> bound = active.Select(p => p.umbral).OfType<Pawn>();
         rows = here.Concat(bound).Distinct().OrderBy(p => p.LabelShort)
             .Select(p => (umbral: p, pact: (QuestPart_UmbralPact?)active.FirstOrDefault(a => a.umbral == p))).ToList();
-        return rows;
+        umbralBlocked.Clear();
+        foreach ((Pawn umbral, QuestPart_UmbralPact? pact) in rows)
+        {
+            if (pact == null && Umbral.GroupSteps(umbral) != 0)
+            {
+                umbralBlocked[umbral] = mirror.UmbralBlockReason(umbral);
+            }
+        }
+        // Ready first, then held back for the moment, then locked by research, then granted; within each, research order.
+        researchRows = DarkPacts.All
+            .Select(r => (research: r, blocked: r.IsFinished ? null : mirror.BlockReason(r)))
+            .OrderBy(e => e.research.IsFinished ? 3 : e.blocked == null ? 0 : e.research.PrerequisitesCompleted ? 1 : 2)
+            .ToList();
     }
 
     // A running pact's row carries the dev buttons under its Abandon button.
@@ -197,13 +222,14 @@ public class ITab_DarkPacts : BorTab
         for (int i = 0; i < umbrals.Count; i++)
         {
             float h = UmbralRowHeight(umbrals[i]);
-            DrawUmbralRow(new Rect(0f, y, view.width, h), umbrals[i].umbral, umbrals[i].pact, mirror, i);
+            umbralBlocked.TryGetValue(umbrals[i].umbral, out string? blocked);
+            DrawUmbralRow(new Rect(0f, y, view.width, h), umbrals[i].umbral, umbrals[i].pact, blocked, mirror, i);
             y += h;
         }
         Widgets.EndScrollView();
     }
 
-    private static void DrawUmbralRow(Rect row, Pawn umbral, QuestPart_UmbralPact? pact, CompDarkPact mirror, int index)
+    private static void DrawUmbralRow(Rect row, Pawn umbral, QuestPart_UmbralPact? pact, string? blocked, CompDarkPact mirror, int index)
     {
         BorSkin skin = BorSkin.Current;
         bool done = pact == null && Umbral.GroupSteps(umbral) == 0;
@@ -260,7 +286,6 @@ public class ITab_DarkPacts : BorTab
         }
         else
         {
-            string? blocked = mirror.UmbralBlockReason(umbral);
             if (blocked != null)
             {
                 GUI.color = new Color(1f, 1f, 1f, 0.4f);

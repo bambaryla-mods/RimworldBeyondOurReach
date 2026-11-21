@@ -48,6 +48,12 @@ public static class UmbralAbilityAI
         {
             return;
         }
+        // Scanning ~2,800 cells with line of sight is the costly part, so skip it while every ability is cooling down.
+        if (!CanCast(pawn, BOR_DarkAbilityDefOf.BOR_DarkThrall) && !CanCast(pawn, BOR_DarkAbilityDefOf.BOR_DarkBolt)
+            && !CanCast(pawn, BOR_DarkAbilityDefOf.BOR_DarkKill) && !CanCast(pawn, BOR_DarkAbilityDefOf.BOR_DarkWound))
+        {
+            return;
+        }
         List<Pawn> enemies = Enemies(pawn);
         if (enemies.Count == 0)
         {
