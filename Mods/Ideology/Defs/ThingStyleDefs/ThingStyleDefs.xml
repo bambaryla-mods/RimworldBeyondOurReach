@@ -147,6 +147,12 @@
 			<texPath>BOR/SolarStyle/spacer/shield</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 		</graphicData>
+		<!-- The worn shield is drawn by CE's render node, which ignores wornGraphicPath. -->
+		<modExtensions>
+			<li Class="BeyondOurReach.DefModExtension_StyledRenderNode">
+				<texPath>BOR/SolarStyle/spacer/shield</texPath>
+			</li>
+		</modExtensions>
 	</ThingStyleDef>
 
 	<ThingStyleDef>
@@ -155,6 +161,12 @@
 			<texPath>BOR/SolarStyle/ultra/shield</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 		</graphicData>
+		<!-- The worn shield is drawn by CE's render node, which ignores wornGraphicPath. -->
+		<modExtensions>
+			<li Class="BeyondOurReach.DefModExtension_StyledRenderNode">
+				<texPath>BOR/SolarStyle/ultra/shield</texPath>
+			</li>
+		</modExtensions>
 	</ThingStyleDef>
 	<!-- AllBambaArmors (Bamba.AllBambaArmors): worn textures are <worn>_<BodyType>_<dir> (armor) / <worn>_<dir> (helm, backpack). Item icon uses the south view. -->
 	<ThingStyleDef>
@@ -552,6 +564,20 @@
 			<graphicClass>Graphic_Single</graphicClass>
 			<drawSize>1.25</drawSize>
 		</graphicData>
+	</ThingStyleDef>
+
+	<ThingStyleDef>
+		<defName>BOR_OrientisStyle_Ultra_Shield</defName>
+		<graphicData>
+			<texPath>BOR/OrientisStyle/ultra/shield-styled</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<!-- The worn shield is drawn by CE's render node, which ignores wornGraphicPath. -->
+		<modExtensions>
+			<li Class="BeyondOurReach.DefModExtension_StyledRenderNode">
+				<texPath>BOR/OrientisStyle/ultra/shield-styled</texPath>
+			</li>
+		</modExtensions>
 	</ThingStyleDef>
 
 </Defs>

@@ -329,6 +329,10 @@
         <thingDef>Bamba_Melee_Ultra_Polehammer</thingDef>
         <styleDef>BOR_OrientisStyle_Ultra_Polehammer</styleDef>
       </li>
+      <li MayRequire="bamba.allbambamelee.tiered,ceteam.combatextended">
+        <thingDef>Bamba_Melee_Ultra_Shield</thingDef>
+        <styleDef>BOR_OrientisStyle_Ultra_Shield</styleDef>
+      </li>
     </thingDefStyles>
   </StyleCategoryDef>
 </Defs>
