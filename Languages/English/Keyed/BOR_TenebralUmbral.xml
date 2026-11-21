@@ -27,7 +27,7 @@
   <BOR_UmbralPodNotCrystallized>only {0} crystallized, needs {1}</BOR_UmbralPodNotCrystallized>
   <BOR_UmbralPodRemaining>Transformation ends in {0}</BOR_UmbralPodRemaining>
   <BOR_UmbralEmergedLabel>{0} emerged as Umbral</BOR_UmbralEmergedLabel>
-  <BOR_UmbralEmergedText>The pod opens. {PAWN_labelShort} is Umbral now: {PAWN_possessive} body will take no more surgery, and it will keep changing with every kill.</BOR_UmbralEmergedText>
+  <BOR_UmbralEmergedText>The pod opens. {PAWN_labelShort} is Umbral now: {PAWN_possessive} body will take no more surgery, and it will change further only through pacts at the dark mirror.</BOR_UmbralEmergedText>
 
   <!-- Tenebral pod -->
   <BOR_TenebralPodMode>Mode</BOR_TenebralPodMode>

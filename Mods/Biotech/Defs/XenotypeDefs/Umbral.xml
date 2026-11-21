@@ -26,7 +26,7 @@
 	<GeneDef>
 		<defName>BOR_UmbralTransformationGene</defName>
 		<label>umbral transformation</label>
-		<description>Carriers change, one kill at a time. Killing a person may start a transformation that, after a few weak days, grows an Umbral part: organs and limbs first, then an exoskeleton and exoskull, and last a utility pod.</description>
+		<description>Carriers change, one pact at a time. Each pact paid at the dark mirror starts a transformation that, after a few weak days, grows the next Umbral parts: organs and limbs first, then an exoskeleton and exoskull, and last a utility pod.</description>
 		<iconPath>BOR/Things/Factions/TenebralIcon</iconPath>
 		<displayCategory>Archite</displayCategory>
 		<biostatCpx>2</biostatCpx>

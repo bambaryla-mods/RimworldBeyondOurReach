@@ -200,8 +200,9 @@ public class ITab_DarkPacts : BorTab
         Text.Font = GameFont.Tiny;
         GUI.color = pact != null ? skin.TextWarn : skin.TextDim;
         Rect sub = new(textX, name.yMax, right - textX, 18f);
+        // Time first: an objective sentence is long and gets truncated, the time left must stay visible.
         string subline = pact != null
-            ? pact.StatusLine + " - " + pact.TicksLeft.ToStringTicksToPeriod()
+            ? pact.TicksLeft.ToStringTicksToPeriod() + " - " + pact.StatusLine
             : UmbralPacts.GroupLabel(umbral).CapitalizeFirst();
         Widgets.Label(sub, subline.Truncate(sub.width));
         GUI.color = Color.white;
