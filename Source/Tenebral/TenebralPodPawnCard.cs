@@ -108,8 +108,8 @@ public static class TenebralPodPawnCard
         if (!measure)
         {
             skin.Bar(new Rect(x, y, width, BarHeight), crystal,
-                "BOR_PodCard_Crystallization".Translate(crystal.ToStringPercent(), needed.ToStringPercent()),
-                crystal >= needed ? BorTone.Good : BorTone.Neutral);
+                "BOR_PodCard_Crystallization".Translate(crystal.ToStringPercent("0.0"), needed.ToStringPercent()),
+                Crystallization.ReadyForPod(pawn) ? BorTone.Good : BorTone.Neutral);
         }
         y += BarHeight + Gap;
 

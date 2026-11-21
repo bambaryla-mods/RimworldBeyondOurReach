@@ -61,7 +61,7 @@
 		</modExtensions>
 	</HediffDef>
 
-	<!-- Hidden: counts mental breaks and kills while psychotic. Kills crystallize the body. -->
+	<!-- Hidden: counts mental breaks while psychotic and kills as a tenebral. Kills crystallize the brain. -->
 	<HediffDef>
 		<defName>BOR_TenebralBreakCounter</defName>
 		<label>tenebral breaks and kills</label>
@@ -73,10 +73,9 @@
 		<modExtensions>
 			<li Class="BeyondOurReach.DefModExtension_TenebralBreaks">
 				<orientisThreshold>3</orientisThreshold>
-				<killThreshold>10</killThreshold>
-				<crystallizeChancePerKill>0.25</crystallizeChancePerKill>
-				<emissionChanceFactor>0.5</emissionChanceFactor>
-				<partsPerCrystallization>1</partsPerCrystallization>
+				<killsToPodThreshold>1000</killsToPodThreshold>
+				<killsSavedPerPart>100</killsSavedPerPart>
+				<abilityRollEvery>0.1</abilityRollEvery>
 				<podThreshold>0.5</podThreshold>
 			</li>
 		</modExtensions>
@@ -129,22 +128,21 @@
 		</stages>
 	</HediffDef>
 
+	<!-- Brain only. Severity is how far it has crystallized; it takes as much off the brain's efficiency (see Hediff_Crystallized). -->
 	<HediffDef>
 		<defName>BOR_Crystallized</defName>
 		<label>crystallized</label>
-		<labelNoun>a crystallized part</labelNoun>
-		<description>This body part has turned to black crystal. It no longer works and cannot be removed.</description>
-		<hediffClass>HediffWithComps</hediffClass>
+		<labelNoun>a crystallizing brain</labelNoun>
+		<description>The brain is turning to black crystal, a little more with every kill, and faster the more tenebral parts the body carries. The crystal dulls the mind by as much as it has taken, and it cannot be removed. Half crystallized, the brain is ready for the Umbral transformation; fully crystallized, it kills.</description>
+		<hediffClass>BeyondOurReach.Hediff_Crystallized</hediffClass>
 		<defaultLabelColor>(0.35, 0.1, 0.45)</defaultLabelColor>
 		<isBad>true</isBad>
 		<tendable>false</tendable>
 		<everCurableByItem>false</everCurableByItem>
 		<scenarioCanAdd>false</scenarioCanAdd>
-		<stages>
-			<li>
-				<partEfficiencyOffset>-100</partEfficiencyOffset>
-			</li>
-		</stages>
+		<initialSeverity>0.01</initialSeverity>
+		<minSeverity>0</minSeverity>
+		<maxSeverity>1</maxSeverity>
 	</HediffDef>
 
 </Defs>

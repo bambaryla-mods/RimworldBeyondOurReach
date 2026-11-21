@@ -14,7 +14,7 @@ Crystallizing tenebral pawns and transforming Umbral pawns can gain up to four d
 | Dark bolt | Red lightning strike and a vaporize explosion at the target | 6 hours |
 
 ### Requirement: Crystallization roll
-Each crystallization event that turns at least one part to crystal SHALL roll between the four abilities and two empty outcomes. An empty outcome adds no hit.
+Each time brain crystallization passes a multiple of 10%, the pawn SHALL roll between the four abilities and two empty outcomes. An empty outcome adds no hit.
 
 ### Requirement: Umbral roll
 Each Umbral transformation step SHALL roll between the four abilities and eight empty outcomes.

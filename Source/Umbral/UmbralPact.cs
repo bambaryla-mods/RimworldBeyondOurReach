@@ -251,9 +251,8 @@ public class QuestNode_Root_UmbralPact : QuestNode
     // A colonist crystallized enough for the transformation pod and not in one yet. Another Umbral's pact may name them too.
     private static Pawn? PickConvert(Pawn umbral)
     {
-        float needed = TenebralPsychosis.BreakSettings.podThreshold;
         return PawnsFinder.AllMaps_FreeColonistsSpawned
-            .Where(p => p != umbral && p.RaceProps.Humanlike && !Umbral.IsUmbral(p) && p.Map.IsPlayerHome && Crystallization.Fraction(p) >= needed)
+            .Where(p => p != umbral && p.RaceProps.Humanlike && !Umbral.IsUmbral(p) && p.Map.IsPlayerHome && Crystallization.ReadyForPod(p))
             .RandomElementWithFallback();
     }
 

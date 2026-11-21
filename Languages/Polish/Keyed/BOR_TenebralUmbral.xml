@@ -2,7 +2,7 @@
 <LanguageData>
   <!-- Tenebral psychosis, breaks and crystallization -->
   <BOR_CrystallizationLabel>{0}: krystalizacja</BOR_CrystallizationLabel>
-  <BOR_CrystallizationText>Psychoza zbyt wiele razy pchnęła {PAWN_labelShort} do zabijania. Ciało zaczyna zamieniać się w czarny kryształ, część po części. Skrystalizowane części przestają działać i nie da się ich usunąć.\n\nGdy skrystalizuje się połowa ciała, {PAWN_labelShort} może trafić do kapsuły umbralnej przemiany.</BOR_CrystallizationText>
+  <BOR_CrystallizationText>{PAWN_labelShort} zabija jako tenebral i mózg zaczyna zamieniać się w czarny kryształ. Każde zabójstwo krystalizuje go odrobinę bardziej, a im więcej tenebralnych części, tym szybciej to idzie. Kryształ otępia umysł w takim stopniu, w jakim go zajął, i nie da się go usunąć; w pełni skrystalizowany mózg zabija.\n\nGdy skrystalizuje się połowa mózgu, {PAWN_labelShort} może trafić do kapsuły umbralnej przemiany.</BOR_CrystallizationText>
   <BOR_PsychosisGizmoTip>Psychoza: {0} ({1})\nLimit pracy: {2}\n\nGdy psychoza osiągnie limit, ten kolonista przestaje pracować przy stołach tenebrytowych, stołach badawczych, kuźniach i mrocznym ołtarzu. Może wrócić, gdy spadnie poniżej limitu. Przeciągnij pasek, by ustawić limit. Przy 100% limitu nie ma.</BOR_PsychosisGizmoTip>
   <BOR_PsychosisLimitReached>psychoza: {0}, limit: {1}</BOR_PsychosisLimitReached>
   <BOR_PsychosisLimitStopped>{0}: osiągnięto limit psychozy, koniec pracy przy: {1}.</BOR_PsychosisLimitStopped>
@@ -99,7 +99,7 @@
   <BOR_AltarPietyPsychosis>Psychoza tenebralna</BOR_AltarPietyPsychosis>
   <BOR_AltarPietyTenebral>Tenebralne implanty i części</BOR_AltarPietyTenebral>
   <BOR_AltarPietyUmbral>Umbralne implanty i części</BOR_AltarPietyUmbral>
-  <BOR_AltarPietyCrystallized>Skrystalizowane części</BOR_AltarPietyCrystallized>
+  <BOR_AltarPietyCrystallized>Krystalizacja mózgu</BOR_AltarPietyCrystallized>
   <BOR_TabGeneForge>Kuźnia genów</BOR_TabGeneForge>
   <BOR_GeneForgeHeader>Załadowane femtoklastry: {0} / {1}</BOR_GeneForgeHeader>
   <BOR_GeneForgeNoGenes>{0}: brak genów, które kuźnia mogłaby wydobyć.</BOR_GeneForgeNoGenes>

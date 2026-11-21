@@ -152,11 +152,10 @@ public partial class Building_TenebralPod : Building_TenebralCasket
         }
         if (forMode == TenebralPodMode.Transformation)
         {
-            float needed = TenebralPsychosis.BreakSettings.podThreshold;
-            float fraction = Crystallization.Fraction(pawn);
-            if (fraction < needed)
+            if (!Crystallization.ReadyForPod(pawn))
             {
-                return "BOR_UmbralPodNotCrystallized".Translate(fraction.ToStringPercent(), needed.ToStringPercent());
+                return "BOR_UmbralPodNotCrystallized".Translate(Crystallization.Fraction(pawn).ToStringPercent("0.0"),
+                    TenebralPsychosis.BreakSettings.podThreshold.ToStringPercent());
             }
         }
         return true;

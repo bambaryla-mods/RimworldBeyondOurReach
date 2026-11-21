@@ -44,19 +44,19 @@ public class DefModExtension_TenebralBreaks : DefModExtension
 {
     public int orientisThreshold = 3;
 
-    // Kills while psychotic before the body starts to crystallize.
-    public int killThreshold = 10;
+    // Kills as a tenebral it takes a pawn with no tenebral parts to crystallize the brain up to podThreshold. Every
+    // counted kill crystallizes, from the first.
+    public int killsToPodThreshold = 1000;
 
-    // Chance that each kill past the kill threshold crystallizes parts.
-    public float crystallizeChancePerKill = 0.25f;
+    // Each tenebral part on the pawn takes this many kills off killsToPodThreshold, down to a single kill. The rate
+    // is worked out again at every kill, so a new part speeds up what is left. Crystallization has no cap: past
+    // podThreshold it keeps growing at the same rate, and a fully crystallized brain kills.
+    public int killsSavedPerPart = 100;
 
-    // Nearby tenebrite emission raises that chance by this much per unit, as it does for the Umbral steps.
-    public float emissionChanceFactor = 0.5f;
+    // A dark ability roll each time crystallization passes a multiple of this.
+    public float abilityRollEvery = 0.1f;
 
-    // Parts crystallized each time that chance succeeds.
-    public int partsPerCrystallization = 1;
-
-    // Fraction of the body that has to be crystallized before a Tenebral pod in transformation mode accepts the pawn.
+    // Brain crystallization needed before a Tenebral pod in transformation mode accepts the pawn.
     public float podThreshold = 0.5f;
 }
 
@@ -119,9 +119,11 @@ public static class TenebralPsychosis
         return counter;
     }
 
-    // A kill that counts toward crystallization: by a psychotic colonist who is not already Umbral.
+    // A kill that counts toward crystallization: by a tenebral colonist (psychotic, with at least one tenebral implant)
+    // who is not already Umbral.
     public static bool CountsKill(Pawn killer) =>
-        killer.RaceProps.Humanlike && killer.Faction == Faction.OfPlayer && !Umbral.IsUmbral(killer) && IsPsychotic(killer);
+        killer.RaceProps.Humanlike && killer.Faction == Faction.OfPlayer && !Umbral.IsUmbral(killer) && IsPsychotic(killer)
+        && TenebralMurder.ImplantCount(killer) > 0;
 
     // Severity at which the hediff stops being latent and the pawn counts as psychotic.
     public static float PsychoticSeverity
@@ -337,14 +339,11 @@ public class MapComponent_TenebralExposure : MapComponent
     }
 }
 
-// Hidden counter of berserk breaks and kills while psychotic. Breaks lead to the Orientis choice; kills past the kill
-// threshold may crystallize parts.
+// Hidden counter of berserk breaks while psychotic and kills as a tenebral. Breaks lead to the Orientis choice; every
+// kill crystallizes the brain further.
 public class Hediff_TenebralBreaks : HediffWithComps
 {
     private const int ChoiceCheckInterval = 60;
-
-    // Before kills, crystallization started after this many breaks. A save from then keeps crystallizing on its next kill.
-    private const int LegacyUmbralBreaks = 6;
 
     public int breaks;
     public int kills;
@@ -352,15 +351,14 @@ public class Hediff_TenebralBreaks : HediffWithComps
     // The Orientis choice waits for the break that earned it to end.
     private bool choicePending;
 
-    // False only on counters loaded from a save made before kills were counted.
-    private bool migrated;
-
     public override bool Visible => false;
 
-    public override void PostAdd(DamageInfo? dinfo)
+    // Brain crystallization one kill adds for this pawn: podThreshold spread over the kills its tenebral parts leave.
+    public static float SeverityPerKill(Pawn pawn)
     {
-        base.PostAdd(dinfo);
-        migrated = true;
+        DefModExtension_TenebralBreaks s = TenebralPsychosis.BreakSettings;
+        int kills = Mathf.Max(1, s.killsToPodThreshold - s.killsSavedPerPart * TenebralMurder.ImplantCount(pawn));
+        return s.podThreshold / kills;
     }
 
     public override void TickInterval(int delta)
@@ -389,29 +387,11 @@ public class Hediff_TenebralBreaks : HediffWithComps
     public void Notify_Kill()
     {
         kills++;
-        DefModExtension_TenebralBreaks s = TenebralPsychosis.BreakSettings;
-        if (kills == s.killThreshold)
+        bool started = Crystallization.Grow(pawn, SeverityPerKill(pawn));
+        if (started && pawn.Faction == Faction.OfPlayer)
         {
-            if (pawn.Faction == Faction.OfPlayer)
-            {
-                Find.LetterStack.ReceiveLetter("BOR_CrystallizationLabel".Translate(pawn.LabelShortCap),
-                    "BOR_CrystallizationText".Translate(pawn.Named("PAWN")), LetterDefOf.ThreatSmall, pawn);
-            }
-            return;
-        }
-        float chance = s.crystallizeChancePerKill * (1f + MapComponent_TenebralExposure.EmissionFor(pawn) * s.emissionChanceFactor);
-        if (kills < s.killThreshold || !Rand.Chance(chance))
-        {
-            return;
-        }
-        bool crystallized = false;
-        for (int i = 0; i < s.partsPerCrystallization; i++)
-        {
-            crystallized |= Crystallization.CrystallizeRandomPart(pawn);
-        }
-        if (crystallized)
-        {
-            DarkAbilities.RollCrystallization(pawn);
+            Find.LetterStack.ReceiveLetter("BOR_CrystallizationLabel".Translate(pawn.LabelShortCap),
+                "BOR_CrystallizationText".Translate(pawn.Named("PAWN")), LetterDefOf.ThreatSmall, pawn);
         }
     }
 
@@ -421,41 +401,69 @@ public class Hediff_TenebralBreaks : HediffWithComps
         Scribe_Values.Look(ref breaks, "breaks");
         Scribe_Values.Look(ref kills, "kills");
         Scribe_Values.Look(ref choicePending, "choicePending");
-        Scribe_Values.Look(ref migrated, "migrated");
-        if (Scribe.mode == LoadSaveMode.PostLoadInit && !migrated)
+    }
+}
+
+// Brain crystallization. Its severity is how far the brain has crystallized, and it takes that much off the brain's
+// efficiency: 1% crystallized is 1% less brain, so a fully crystallized brain kills.
+public class Hediff_Crystallized : HediffWithComps
+{
+    private HediffStage? stage;
+    private float stageSeverity = -1f;
+
+    public override HediffStage CurStage
+    {
+        get
         {
-            int threshold = TenebralPsychosis.BreakSettings.killThreshold;
-            if (breaks >= LegacyUmbralBreaks && kills < threshold)
+            if (stage == null || stageSeverity != Severity)
             {
-                kills = threshold;
+                stageSeverity = Severity;
+                stage = new HediffStage { partEfficiencyOffset = -Severity };
             }
-            migrated = true;
+            return stage;
+        }
+    }
+
+    // One decimal: a kill can add well under a percent.
+    public override string SeverityLabel => Severity.ToStringPercent("0.0");
+}
+
+// Saves from before brain crystallization have crystallized limbs and organs instead; each is turned into brain
+// crystallization on load.
+public class GameComponent_CrystalMigration : GameComponent
+{
+    public GameComponent_CrystalMigration(Game game)
+    {
+    }
+
+    public override void LoadedGame()
+    {
+        foreach (Pawn pawn in PawnsFinder.AllMapsWorldAndTemporary_Alive)
+        {
+            Crystallization.MigrateLegacy(pawn);
         }
     }
 }
 
 public static class Crystallization
 {
-    // Only these parts crystallize and count toward the percentage: arms, legs, eyes, ears, the left kidney, the right lung
-    // and the torso. Everything else (heart, brain, digits, ...) is left alone.
-    public static bool Eligible(Pawn pawn, BodyPartRecord part)
+    // Parts a human could crystallize under the old per-part rule; the old percentage was out of these.
+    private const float LegacyParts = 11f;
+
+    // The brain's crystallization, or null when it has not started.
+    public static Hediff? Crystal(Pawn pawn)
     {
-        if (pawn.health.hediffSet.PartIsMissing(part))
+        List<Hediff> hediffs = pawn.health.hediffSet.hediffs;
+        for (int i = 0; i < hediffs.Count; i++)
         {
-            return false;
+            // On the brain only: a save not yet migrated may still hold crystallized limbs.
+            if (hediffs[i].def == BOR_TenebralDefOf.BOR_Crystallized
+                && (hediffs[i].Part?.def.tags.Contains(BodyPartTagDefOf.ConsciousnessSource) ?? false))
+            {
+                return hediffs[i];
+            }
         }
-        if (part == pawn.RaceProps.body.corePart)
-        {
-            return true;
-        }
-        string defName = part.def.defName;
-        if (defName is "Arm" or "Leg" or "Eye" or "Ear")
-        {
-            return true;
-        }
-        // The untranslated label: the translated one does not start with "left" or "right" in other languages.
-        string label = part.untranslatedCustomLabel ?? part.customLabel ?? "";
-        return (defName == "Kidney" && label.StartsWith("left")) || (defName == "Lung" && label.StartsWith("right"));
+        return null;
     }
 
     public static bool IsCrystallized(Pawn pawn, BodyPartRecord? part)
@@ -475,37 +483,79 @@ public static class Crystallization
         return false;
     }
 
-    public static float Fraction(Pawn pawn)
-    {
-        int total = 0;
-        int crystal = 0;
-        foreach (BodyPartRecord part in pawn.RaceProps.body.AllParts)
-        {
-            if (!Eligible(pawn, part))
-            {
-                continue;
-            }
-            total++;
-            if (IsCrystallized(pawn, part))
-            {
-                crystal++;
-            }
-        }
-        return total == 0 ? 0f : (float)crystal / total;
-    }
+    // How far the brain has crystallized, 0 to 1.
+    public static float Fraction(Pawn pawn) => Crystal(pawn)?.Severity ?? 0f;
 
-    public static bool CrystallizeRandomPart(Pawn pawn)
+    // Whether the pawn is crystallized enough for the transformation pod. The small tolerance absorbs float drift from
+    // hundreds of tiny per-kill steps, so the kill that should reach the threshold does.
+    public static bool ReadyForPod(Pawn pawn) => Fraction(pawn) >= TenebralPsychosis.BreakSettings.podThreshold - 0.0001f;
+
+    // Crystallizes the brain by `amount` more, rolling for a dark ability at every step it passes. Returns true when
+    // this started the crystallization.
+    public static bool Grow(Pawn pawn, float amount)
     {
         if (!pawn.RaceProps.Humanlike || pawn.Dead)
         {
             return false;
         }
-        if (!pawn.RaceProps.body.AllParts.Where(p => Eligible(pawn, p) && !IsCrystallized(pawn, p)).TryRandomElement(out BodyPartRecord part))
+        Hediff? crystal = Crystal(pawn);
+        float before = crystal?.Severity ?? 0f;
+        float after = Mathf.Min(1f, before + amount);
+        if (crystal == null)
         {
-            return false;
+            BodyPartRecord? brain = pawn.health.hediffSet.GetBrain();
+            if (brain == null)
+            {
+                return false;
+            }
+            crystal = HediffMaker.MakeHediff(BOR_TenebralDefOf.BOR_Crystallized, pawn, brain);
+            crystal.Severity = after;
+            pawn.health.AddHediff(crystal, brain);
         }
-        pawn.health.AddHediff(BOR_TenebralDefOf.BOR_Crystallized, part);
-        return true;
+        else
+        {
+            crystal.Severity = after;
+            pawn.health.Notify_HediffChanged(crystal);
+        }
+        float step = TenebralPsychosis.BreakSettings.abilityRollEvery;
+        if (step > 0f && !pawn.Dead)
+        {
+            int rolls = Mathf.FloorToInt(after / step + 0.00001f) - Mathf.FloorToInt(before / step + 0.00001f);
+            for (int i = 0; i < rolls; i++)
+            {
+                DarkAbilities.RollCrystallization(pawn);
+            }
+        }
+        return before <= 0f;
+    }
+
+    // Replaces crystallized limbs and organs from an old save with brain crystallization worth the same share.
+    public static void MigrateLegacy(Pawn pawn)
+    {
+        BodyPartRecord? brain = pawn.health.hediffSet.GetBrain();
+        List<Hediff> legacy = pawn.health.hediffSet.hediffs
+            .Where(h => h.def == BOR_TenebralDefOf.BOR_Crystallized && h.Part != brain).ToList();
+        if (legacy.Count == 0 || brain == null)
+        {
+            return;
+        }
+        foreach (Hediff h in legacy)
+        {
+            pawn.health.RemoveHediff(h);
+        }
+        float severity = Mathf.Min(1f, legacy.Count / LegacyParts);
+        Hediff? crystal = Crystal(pawn);
+        if (crystal == null)
+        {
+            crystal = HediffMaker.MakeHediff(BOR_TenebralDefOf.BOR_Crystallized, pawn, brain);
+            crystal.Severity = severity;
+            pawn.health.AddHediff(crystal, brain);
+        }
+        else if (crystal.Severity < severity)
+        {
+            crystal.Severity = severity;
+            pawn.health.Notify_HediffChanged(crystal);
+        }
     }
 
     public static void ClearAll(Pawn pawn)

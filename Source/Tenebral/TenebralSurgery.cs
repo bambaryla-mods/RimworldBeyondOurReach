@@ -87,9 +87,9 @@ public static class TenebralSurgeryPatches
                 return;
             }
             bool replacesPart = removesPart || __instance is Recipe_InstallArtificialBodyPart or Recipe_InstallNaturalBodyPart;
+            // A crystallizing brain still takes implants; it only blocks taking off or replacing the head around it.
             __result = __result.Where(part =>
-                !Crystallization.IsCrystallized(pawn, part)
-                && (!replacesPart || !HasTenebralOnOrBelow(pawn, part))
+                (!replacesPart || !HasTenebralOnOrBelow(pawn, part))
                 && (install || !HasUmbralPartOn(pawn, part))).ToList();
         }
     }

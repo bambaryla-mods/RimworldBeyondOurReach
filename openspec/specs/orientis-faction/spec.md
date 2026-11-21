@@ -60,17 +60,14 @@ Every tenebral part SHALL be removed from every pawn holding one: every hediff w
 - A spawned pawn being cleansed SHALL glow with a golden aura for 10 seconds from the choice.
 - Stripped pawns SHALL also lose tenebral psychosis, the break counter, dark ability hits, and dark abilities.
 
-#### Scenario: Crystallized torso
-- WHEN a pawn with a crystallized torso is stripped
-- THEN the torso is restored with a golden scar, and the pawn survives and becomes Orientis
+#### Scenario: Crystallizing brain
+- WHEN a pawn with a crystallizing brain is stripped
+- THEN the crystallization is removed with no golden scar on the brain, and the pawn becomes Orientis
 
 #### Scenario: Tenebral arm
 - WHEN a pawn with a tenebral arm is stripped
 - THEN the pawn has a natural arm with a golden scar, and becomes Orientis
 
-#### Scenario: Crystallized parts from exposure
-- WHEN a pawn with no implants has crystallized parts from tenebrite exposure
-- THEN the parts are restored with golden scars, and the pawn becomes Orientis
 
 #### Scenario: Psychosis without parts
 - WHEN a pawn has psychosis from tenebrite exposure but no tenebral part, and did not trigger the letter

@@ -2,7 +2,7 @@
 <LanguageData>
   <!-- Tenebral psychosis, breaks and crystallization -->
   <BOR_CrystallizationLabel>{0} is crystallizing</BOR_CrystallizationLabel>
-  <BOR_CrystallizationText>{PAWN_labelShort} has killed too often under the psychosis. {PAWN_possessive} body has begun turning to black crystal, one part at a time. Crystallized parts stop working and cannot be removed.\n\nOnce half of the body has crystallized, {PAWN_labelShort} can be placed in an Umbral Transformation Pod.</BOR_CrystallizationText>
+  <BOR_CrystallizationText>{PAWN_labelShort} has killed as a tenebral, and {PAWN_possessive} brain has begun turning to black crystal. Every kill crystallizes it a little more, and the more tenebral parts {PAWN_pronoun} carries, the faster it goes. The crystal dulls the mind by as much as it has taken and cannot be removed; a fully crystallized brain kills.\n\nOnce half of the brain has crystallized, {PAWN_labelShort} can be placed in an Umbral Transformation Pod.</BOR_CrystallizationText>
   <BOR_PsychosisGizmoTip>Psychosis: {0} ({1})\nWork limit: {2}\n\nOnce psychosis reaches the limit, this colonist stops working tenebrite benches, research benches, forges and the dark altar. They can return once it falls below the limit. Drag the bar to set the limit. At 100% there is no limit.</BOR_PsychosisGizmoTip>
   <BOR_PsychosisLimitReached>psychosis at {0}, limit is {1}</BOR_PsychosisLimitReached>
   <BOR_PsychosisLimitStopped>{0} reached the psychosis limit and stopped working at the {1}.</BOR_PsychosisLimitStopped>
@@ -99,7 +99,7 @@
   <BOR_AltarPietyPsychosis>Tenebral psychosis</BOR_AltarPietyPsychosis>
   <BOR_AltarPietyTenebral>Tenebral implants and parts</BOR_AltarPietyTenebral>
   <BOR_AltarPietyUmbral>Umbral implants and parts</BOR_AltarPietyUmbral>
-  <BOR_AltarPietyCrystallized>Crystallized parts</BOR_AltarPietyCrystallized>
+  <BOR_AltarPietyCrystallized>Brain crystallization</BOR_AltarPietyCrystallized>
   <BOR_TabGeneForge>Gene Forge</BOR_TabGeneForge>
   <BOR_GeneForgeHeader>Femtoclusters loaded: {0} / {1}</BOR_GeneForgeHeader>
   <BOR_GeneForgeNoGenes>{0} has no genes the forge can draw out.</BOR_GeneForgeNoGenes>

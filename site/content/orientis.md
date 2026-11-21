@@ -22,7 +22,7 @@ It offers two answers, the **Path of Light** and the **Path of Dark**, and eithe
 
 The light reaches every colonist at once, wherever they are: on any map, in a caravan, in a transport pod, even in a cryptosleep casket. Prisoners and guests are left alone.
 
-- Every tenebral part is torn out, crystallized parts included. The body part grows back with a golden wound, and nobody dies of it, not even with a tenebral heart.
+- Every tenebral part is torn out. The body part grows back with a golden wound, and nobody dies of it, not even with a tenebral heart. A crystallizing brain is cleared clean, with no wound.
 - Every Umbral in the colony is struck down by a golden beam from the sky.
 - A colonist in the middle of a transformation in the dark mirror dies with the mirror.
 - Every dark archotech altar is struck too, and sends a ring of light across its map. Tenebral and Umbral buildings die as the ring passes and are left as grey husks. Dark gear burns, worn or not.

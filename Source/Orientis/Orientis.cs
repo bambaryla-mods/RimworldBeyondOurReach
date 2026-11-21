@@ -69,14 +69,15 @@ public static class Orientis
 
     public static bool HasTenebralParts(Pawn pawn) => pawn.health.hediffSet.hediffs.Any(IsTenebralPart);
 
-    // Takes out every tenebral part. Each part underneath comes back natural, with a golden scar.
+    // Takes out every tenebral part. Each part underneath comes back natural, with a golden scar. A crystallizing brain
+    // just clears: a scar there would be lasting brain damage.
     public static void Strip(Pawn pawn)
     {
         List<Hediff> parts = pawn.health.hediffSet.hediffs.Where(IsTenebralPart).ToList();
         HashSet<BodyPartRecord> scarred = new();
         foreach (Hediff hediff in parts)
         {
-            if (hediff.Part != null)
+            if (hediff.Part != null && hediff.def != BOR_TenebralDefOf.BOR_Crystallized)
             {
                 scarred.Add(hediff.Part);
             }

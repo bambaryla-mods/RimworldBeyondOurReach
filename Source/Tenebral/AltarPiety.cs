@@ -6,8 +6,8 @@ using Verse;
 namespace BeyondOurReach;
 
 // Dark altar piety: the speed at which a pawn works a dark archotech altar, unsealing and producing alike.
-// It starts at the stat's base and gains from an emptier bloodlust, deeper psychosis and every tenebral, umbral or
-// crystallized hediff the pawn carries.
+// It starts at the stat's base and gains from an emptier bloodlust, deeper psychosis, brain crystallization and every
+// tenebral or umbral part the pawn carries.
 public static class AltarPiety
 {
     // Bonus at an empty bloodlust; scales down to none at a full one.
@@ -16,7 +16,10 @@ public static class AltarPiety
     // Bonus per point of psychosis severity (severity 1 = +50%).
     public const float PsychosisWeight = 0.5f;
 
-    // Bonus per tenebral implant or part, per umbral implant or part, and per crystallized part.
+    // Bonus per point of brain crystallization (half crystallized = +25%).
+    public const float CrystalWeight = 0.5f;
+
+    // Bonus per tenebral implant or part, and per umbral implant or part.
     public const float PerPart = 0.05f;
 
     public static float Bloodlust(Pawn pawn)
@@ -29,11 +32,11 @@ public static class AltarPiety
 
     public static int UmbralParts(Pawn pawn) => Count(pawn, h => h.def.HasModExtension<DefModExtension_UmbralPart>());
 
-    public static int CrystallizedParts(Pawn pawn) => Count(pawn, h => h.def == BOR_TenebralDefOf.BOR_Crystallized);
+    public static float Crystal(Pawn pawn) => Crystallization.Fraction(pawn) * CrystalWeight;
 
     public static float Bonus(Pawn pawn) =>
-        Bloodlust(pawn) + Psychosis(pawn)
-        + (TenebralMurder.ImplantCount(pawn) + UmbralParts(pawn) + CrystallizedParts(pawn)) * PerPart;
+        Bloodlust(pawn) + Psychosis(pawn) + Crystal(pawn)
+        + (TenebralMurder.ImplantCount(pawn) + UmbralParts(pawn)) * PerPart;
 
     private static int Count(Pawn pawn, System.Predicate<Hediff> match)
     {
@@ -71,7 +74,7 @@ public class StatWorker_AltarPiety : StatWorker
             Line(sb, "BOR_AltarPietyPsychosis", AltarPiety.Psychosis(pawn));
             Line(sb, "BOR_AltarPietyTenebral", TenebralMurder.ImplantCount(pawn) * AltarPiety.PerPart);
             Line(sb, "BOR_AltarPietyUmbral", AltarPiety.UmbralParts(pawn) * AltarPiety.PerPart);
-            Line(sb, "BOR_AltarPietyCrystallized", AltarPiety.CrystallizedParts(pawn) * AltarPiety.PerPart);
+            Line(sb, "BOR_AltarPietyCrystallized", AltarPiety.Crystal(pawn));
         }
         return sb.ToString();
     }
