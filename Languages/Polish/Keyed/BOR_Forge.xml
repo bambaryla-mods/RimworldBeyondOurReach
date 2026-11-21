@@ -10,9 +10,7 @@
   <BOR_Forge_AnalysisDroppedLabel>Analiza porzucona</BOR_Forge_AnalysisDroppedLabel>
   <BOR_Forge_AnalysisDroppedText>Przez godzinę żaden kolonista nie mógł zanieść {0} do {1}, więc przedmiot został usunięty z kolejki analizy, a kuźnia wróciła do produkcji.\n\nPrzedmiot może być zakazany, poza zasięgiem albo nie ma go już na tej mapie. Dodaj go do kolejki ponownie, gdy kolonista będzie mógł do niego dotrzeć.</BOR_Forge_AnalysisDroppedText>
   <BOR_Forge_CellTip>{0}\nWytwarza {1} na cykl.</BOR_Forge_CellTip>
-  <BOR_Forge_Pending>Czeka na analizę: {0}</BOR_Forge_Pending>
   <BOR_Forge_Analyzing>Analiza: {0}</BOR_Forge_Analyzing>
-  <BOR_Forge_Hotkeys>Klik: dodaj 1. Shift: 5. Ctrl: 10. Shift+Ctrl: 50.</BOR_Forge_Hotkeys>
   <BOR_Forge_TooComplex>Ten przedmiot jest zbyt złożony dla: {0}.</BOR_Forge_TooComplex>
   <BOR_Forge_Mode_DoX>Wykonaj X</BOR_Forge_Mode_DoX>
   <BOR_Forge_Mode_DoUntil>Wykonuj do X</BOR_Forge_Mode_DoUntil>

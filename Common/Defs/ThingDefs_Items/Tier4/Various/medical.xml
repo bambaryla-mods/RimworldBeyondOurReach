@@ -41,7 +41,6 @@
 			<recipeUsers>
 				<li>BOR_MedicineBench_IV</li>
 			</recipeUsers>
-			<!-- TODO -->
 			<researchPrerequisite>BOR_Research_Medicine_IV</researchPrerequisite>
 			<skillRequirements>
 				<Crafting>18</Crafting>

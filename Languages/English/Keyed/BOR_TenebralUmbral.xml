@@ -39,8 +39,6 @@
   <BOR_TenebralPodMode_Transformation>transformation</BOR_TenebralPodMode_Transformation>
   <BOR_TenebralPodTransforming>A transformation is under way and cannot be interrupted.</BOR_TenebralPodTransforming>
   <BOR_TenebralPodNeedsTenebral>healing needs a tenebral or Umbral pawn</BOR_TenebralPodNeedsTenebral>
-  <BOR_TenebralPodChoose>Choose operation</BOR_TenebralPodChoose>
-  <BOR_TenebralPodChooseDesc>Choose what to install, and where. This works with nobody inside, so a colonist can set up their own operation, load the mirror and climb in. Colonists load the tenebral organ or appendage and the femtoclusters it needs; the operation starts once someone is inside and ends by opening the pod.</BOR_TenebralPodChooseDesc>
   <BOR_TenebralPodDoesNotFit>The chosen part can't take this operation on {0}.</BOR_TenebralPodDoesNotFit>
   <BOR_TenebralPodWaitingForPatient>Waiting for someone to lie down inside.</BOR_TenebralPodWaitingForPatient>
   <BOR_TenebralPodCancel>Cancel operation</BOR_TenebralPodCancel>
@@ -51,7 +49,6 @@
   <BOR_PodOrderRefused>{0} can't take the order right now.</BOR_PodOrderRefused>
   <BOR_TenebralPodNeedsResearch>needs {0}</BOR_TenebralPodNeedsResearch>
   <BOR_TenebralPodReservedFor>this operation is set up for {0}</BOR_TenebralPodReservedFor>
-  <BOR_OpColonists>Colonist</BOR_OpColonists>
   <BOR_OpOrgans>Organs</BOR_OpOrgans>
   <BOR_OpAppendages>Appendages</BOR_OpAppendages>
   <BOR_OpInstallAt>Install at</BOR_OpInstallAt>
@@ -84,7 +81,6 @@
   <BOR_PodCard_Conditions>Conditions</BOR_PodCard_Conditions>
   <BOR_PodCard_None>none</BOR_PodCard_None>
   <BOR_PodCard_More>and {0} more</BOR_PodCard_More>
-  <BOR_TenebralPodNoOperations>No tenebral operation is possible</BOR_TenebralPodNoOperations>
   <BOR_TenebralPodOperation>Operation: {0} on {1} ({2})</BOR_TenebralPodOperation>
   <BOR_TenebralPodMissing>Waiting for: {0}</BOR_TenebralPodMissing>
   <BOR_TenebralPodInstalled>The dark mirror installed {1} in {0}.</BOR_TenebralPodInstalled>

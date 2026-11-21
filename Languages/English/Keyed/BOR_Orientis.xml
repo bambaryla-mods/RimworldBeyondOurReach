@@ -32,7 +32,6 @@
   <BOR_ShieldOff>Shield: lowered</BOR_ShieldOff>
   <BOR_ShieldWaiting>Shield: on, waiting for a meditating Orientis pawn</BOR_ShieldWaiting>
   <BOR_ShieldNoPower>A meditation shield has fallen: no meditation power left.</BOR_ShieldNoPower>
-  <BOR_ShieldNoCharge>no meditation power stored</BOR_ShieldNoCharge>
 
   <!-- Offerings bench -->
   <BOR_OfferingsWorking>Making {0}: {1}</BOR_OfferingsWorking>

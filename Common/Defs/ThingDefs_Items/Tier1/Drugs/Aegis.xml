@@ -39,7 +39,6 @@
 			</outcomeDoers>
 		</ingestible>
 		<recipeMaker>
-			<!-- TODO -->
 			<researchPrerequisite>BOR_Research_Drugs_I</researchPrerequisite>
 			<recipeUsers>
 				<li>BOR_MedicineBench_I</li>
