@@ -1,7 +1,8 @@
 #version 450
 
 // The dark mirror's portal (CompMirrorPortal): _OnTex phases in over _MainTex through value noise, with a glowing
-// edge where the two meet. _Phase is x phase (0 all off, 1 all on), y edge width, z noise cells across the texture.
+// edge where the two meet. The noise and edge stay inside _MaskTex's alpha (the crystal); the case around it, which is
+// nearly the same in both textures, just crossfades. _Phase is x phase (0 all off, 1 all on), y edge width, z noise cells across the texture.
 // The noise lives in texture space, so the pattern stays put on the portal as it bobs.
 
 layout(location = 0) in vec4 vColor;
@@ -19,6 +20,7 @@ layout(set = 2, binding = 0) uniform MaterialUniforms
 
 layout(set = 2, binding = 1) uniform sampler2D _MainTex;
 layout(set = 2, binding = 2) uniform sampler2D _OnTex;
+layout(set = 2, binding = 3) uniform sampler2D _MaskTex;
 
 float hash(vec2 cell)
 {
@@ -47,19 +49,23 @@ void main()
     float p = u._Phase.x * (1.0 + w);
     float n = valueNoise(vUv * u._Phase.z);
 
-    vec4 color;
+    vec4 crystal;
     if (n < p - w)
     {
-        color = on;
+        crystal = on;
     }
     else if (n < p)
     {
-        color = vec4(mix(on.rgb, u._EdgeColor.rgb, u._EdgeColor.a), max(on.a, off.a));
+        // Only where the two textures differ, so the slate pieces lying over the crystal never catch the edge.
+        float differs = smoothstep(0.05, 0.2, distance(on.rgb, off.rgb));
+        crystal = vec4(mix(on.rgb, u._EdgeColor.rgb, u._EdgeColor.a * differs), max(on.a, off.a));
     }
     else
     {
-        color = off;
+        crystal = off;
     }
+    float mask = smoothstep(0.05, 0.5, texture(_MaskTex, uv).a);
+    vec4 color = mix(mix(off, on, u._Phase.x), crystal, mask);
     color *= u._Color * vColor;
     if (color.a <= 0.001)
         discard;

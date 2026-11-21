@@ -41,6 +41,10 @@
           <key>_OnTex</key>
           <value>Clamp</value>
         </li>
+        <li>
+          <key>_MaskTex</key>
+          <value>Clamp</value>
+        </li>
       </textureWrapOverrides>
     </shaderProgram>
   </ShaderDef>

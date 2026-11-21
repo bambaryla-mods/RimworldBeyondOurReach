@@ -103,6 +103,9 @@ public partial class Building_TenebralPod : Building_TenebralCasket
 
     public bool InMode => mode != TenebralPodMode.None;
 
+    // The pod runs on the mirror's power: without it nobody gets in, whoever is inside is put out, and the portal goes dark.
+    public bool Powered => DarkPacts.Powered(this);
+
     // The pod half of the dark mirror wakes with tenebral medicine; the mirror itself comes earlier, for the pacts.
     public static bool PodUnlocked => BOR_TenebralDefOf.BOR_Research_Medicine_III.IsFinished;
 
@@ -129,6 +132,10 @@ public partial class Building_TenebralPod : Building_TenebralCasket
         if (!PodUnlocked)
         {
             return LockedReason;
+        }
+        if (!Powered)
+        {
+            return "NoPower".Translate();
         }
         if (forMode == TenebralPodMode.None)
         {
@@ -367,6 +374,10 @@ public partial class Building_TenebralPod : Building_TenebralCasket
     protected override void Tick()
     {
         base.Tick();
+        if (HasAnyContents && !Powered)
+        {
+            PowerLost();
+        }
         if (this.IsHashIntervalTick(GenTicks.TickRareInterval))
         {
             RareStep();
@@ -503,6 +514,18 @@ public partial class Building_TenebralPod : Building_TenebralCasket
             }
         }
         RefreshMode();
+    }
+
+    // A transformation is aborted (the pawn comes out crystallized, not Umbral) so the eject isn't refused.
+    private void PowerLost()
+    {
+        Pawn? pawn = Occupant;
+        AbortTransformation();
+        EjectContents();
+        if (pawn != null)
+        {
+            Messages.Message("BOR_MirrorPowerLost".Translate(pawn.LabelShortCap), this, MessageTypeDefOf.NegativeEvent);
+        }
     }
 
     // Drops back to no mode once nothing holds the pod: nobody inside or on the way, no operation set up, no

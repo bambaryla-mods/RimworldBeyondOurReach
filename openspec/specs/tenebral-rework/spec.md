@@ -86,6 +86,8 @@ The tenebral pod SHALL be part of the dark mirror (`BOR_Research_Unlocker_III`, 
 
 The pod SHALL be locked until `BOR_Research_Medicine_III` is finished: the gizmo is disabled and no pawn can enter. The mirror SHALL have no mode until the player picks a mode and a pawn in the pod window, and SHALL drop back to no mode once nobody is inside or on the way, no operation is set up and no transformation runs. With no mode, no pawn can enter.
 
+The pod SHALL run on the mirror's power. Without power (cut, switched off, broken down) no pawn can enter, whoever is inside is ejected at once, and a transformation in progress is aborted: the pawn comes out crystallized, not Umbral, and can go back in to start over. An operation that is set up stays set up with its ingredients.
+
 #### Scenario: Back to no mode
 - WHEN a pawn ordered into stasis is drafted before reaching the mirror
 - THEN within a rare tick the mirror has no mode again
@@ -93,7 +95,7 @@ The pod SHALL be locked until `BOR_Research_Medicine_III` is finished: the gizmo
 - THEN the mirror stays in operating mode and keeps the loaded ingredients
 
 #### Scenario: Look
-- The portal floats over the button base and bobs; it phases from dark to lit while the mirror has a mode, and back when it loses it
+- The portal floats over the button base and bobs; it phases from dark to lit while the mirror has a mode and power, and back when it loses either. The noise dissolve and its red edge play only on the crystal (the area the `aroused` glow covers); the case around it stays put
 - A glow pulses over it while it has a mode and someone is inside
 
 #### Scenario: Healing mode

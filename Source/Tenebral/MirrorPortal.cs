@@ -10,6 +10,7 @@ public class CompProperties_MirrorPortal : CompProperties
 {
     public string offTexPath = "";
     public string onTexPath = "";
+    // Also the dissolve mask: the phase only plays out where this texture is opaque.
     public string glowTexPath = "";
     // How far the portal rises and falls, in cells, and how long one bob takes.
     public float bobAmplitude = 0.06f;
@@ -91,7 +92,9 @@ public sealed class CompMirrorPortal : ThingComp
     {
         base.PostDraw();
         int now = Find.TickManager.TicksGame;
-        float phase = Phase(now, Pod.InMode);
+        // Lit only while the pod has a mode and power; a power cut phases it dark.
+        bool lit = Pod.InMode && Pod.Powered;
+        float phase = Phase(now, lit);
 
         if (portalMaterial == null)
         {
@@ -100,6 +103,8 @@ public sealed class CompMirrorPortal : ThingComp
                 mainTexture = ContentFinder<Texture2D>.Get(Props.offTexPath)
             };
             portalMaterial.SetTexture("_OnTex", ContentFinder<Texture2D>.Get(Props.onTexPath));
+            // The glow texture doubles as the mask: the dissolve happens only on the crystal it covers.
+            portalMaterial.SetTexture("_MaskTex", ContentFinder<Texture2D>.Get(Props.glowTexPath));
             portalMaterial.SetColor("_EdgeColor", Props.edgeColor);
         }
         portalMaterial.SetVector("_Phase", new Vector4(phase, Props.edgeWidth, Props.noiseScale, 0f));
@@ -112,7 +117,7 @@ public sealed class CompMirrorPortal : ThingComp
         Graphics.DrawMesh(MeshPool.plane10, portal, portalMaterial, 0, null!, 0, (MaterialPropertyBlock)null!,
             UnityEngine.Rendering.ShadowCastingMode.Off, false, PortalQueue);
 
-        if (!Pod.InMode || Pod.Occupant == null)
+        if (!lit || Pod.Occupant == null)
         {
             return;
         }

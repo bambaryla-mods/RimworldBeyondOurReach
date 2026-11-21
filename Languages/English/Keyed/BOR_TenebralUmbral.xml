@@ -47,6 +47,7 @@
   <BOR_TenebralPodCancelDesc>Cancel the operation and drop whatever was loaded for it.</BOR_TenebralPodCancelDesc>
   <BOR_TenebralPodNoMode>choose a mode in the mirror's pod controls first</BOR_TenebralPodNoMode>
   <BOR_TenebralPodLocked>Needs {0}.</BOR_TenebralPodLocked>
+  <BOR_MirrorPowerLost>The dark mirror lost power and put {0} out.</BOR_MirrorPowerLost>
   <BOR_PodOrderRefused>{0} can't take the order right now.</BOR_PodOrderRefused>
   <BOR_TenebralPodNeedsResearch>needs {0}</BOR_TenebralPodNeedsResearch>
   <BOR_TenebralPodReservedFor>this operation is set up for {0}</BOR_TenebralPodReservedFor>

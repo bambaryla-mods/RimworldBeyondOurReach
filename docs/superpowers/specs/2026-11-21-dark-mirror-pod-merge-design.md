@@ -87,7 +87,7 @@ The story the tree tells (user's): you finish every quasar project and hit a wal
   
   *My call.*
 - `Order` checks the result of `TryTakeOrderedJob` and returns a reason instead of setting the mode when the job is refused.
-- Pod modes keep working without power, as the pod did. Power gates only pacts, as today. *My call.*
+- The pod runs on the mirror's power (changed after the build, user's decision). Without power nobody can enter, the occupant is ejected at once, and a running transformation is aborted (the pawn comes out crystallized, not Umbral). A set-up operation keeps its ingredients.
 - The gene forge needs Stasis with someone inside, so it is unaffected.
 
 ### Pacts and the pod on one building
@@ -111,7 +111,7 @@ A new comp on the mirror (`CompMirrorPortal`, in `Source/Tenebral/`) draws the p
    - Each mirror has its own material, created on spawn and destroyed on despawn (or a `MaterialPropertyBlock`), because the phase differs per building. The bubble overlay's one shared material per def cannot do this.
 3. **Glow.** `aroused` with `MoteGlow`, pulsing like `CompGlowOverlay`, with the same bob offset. It draws above the portal (a higher render queue or height than the portal) and only while the mode is not `None` and a pawn is inside.
 
-The drawing follows the mode, not power. A powered-off mirror still phases on for the pod, because the pod modes don't need power. *My call.*
+The portal is lit only while the pod has a mode and power. The dissolve and its edge are masked to the crystal by the `aroused` texture's alpha (`_MaskTex`), and the edge only shows where the off and on textures differ, so the case and the slate pieces over the crystal never morph. (User's request after the build.)
 
 The comp's properties hold the texture paths, amplitude, period and phase ticks, so they can be tuned in XML.
 
