@@ -1,7 +1,7 @@
 # Umbral Rework Specification
 
 ## Purpose
-Umbral is a xenotype reached at the end of the Tenebral path (see `tenebral-rework`). Umbrals cannot take bionics from surgery. Instead they slowly transform over three phases, each triggered by killing, until their body is replaced by Umbral parts. Umbral buildings are usable only by Umbral pawns.
+Umbral is a xenotype reached at the end of the Tenebral path (see `tenebral-rework`). Umbrals cannot take bionics from surgery. Instead they slowly transform over three phases, each step bought with an Umbral pact at the dark mirror (see `dark-pacts`), until their body is replaced by Umbral parts. Killing no longer transforms them. Umbral buildings are usable only by Umbral pawns.
 
 ## Requirements
 
@@ -39,16 +39,20 @@ Umbral pawns SHALL carry a gene that makes them slowly transform. The transforma
 The Umbral transformation hediff SHALL behave like a flu-style disease: it progresses over a few days and slowly debilitates the pawn.
 
 ### Requirement: Phase A — body part replacement
-- WHEN an Umbral kills a humanoid, THEN with 25% chance the pawn SHALL gain an Umbral transformation hediff.
+- WHEN an Umbral pact is fulfilled in phase A, THEN the pawn SHALL gain the Umbral transformation hediff, and each completion SHALL start the next until up to 4 parts (fewer if fewer are pending) have been granted. A group SHALL NOT cross into the next phase.
 - WHEN the transformation hediff reaches 100% severity, THEN the pawn SHALL NOT die. Instead the pawn SHALL receive a randomly selected Umbral body part and the hediff SHALL be cleared.
 - Replaceable parts SHALL be: eyes, ears, jaw, brain, arms, legs, heart, liver, kidneys, and lungs.
 
-#### Scenario: Kill triggers transformation
-- WHEN an Umbral kills a humanoid and the 25% roll succeeds
-- THEN the pawn gains the transformation hediff
+#### Scenario: Pact triggers transformation
+- WHEN an Umbral with 10 parts still pending fulfils its pact
+- THEN it transforms four times in a row, gaining four Umbral parts
+
+#### Scenario: Kills do nothing
+- WHEN an Umbral kills a humanoid
+- THEN no transformation hediff is gained
 
 ### Requirement: Phase B — exoskeleton and exoskull
-- WHEN every replaceable body part has been replaced, THEN every humanoid kill SHALL carry a 5% chance to trigger the transformation hediff.
+- WHEN every replaceable body part has been replaced, THEN one fulfilled pact SHALL grant both the exoskeleton and the exoskull, one after the other.
 - The first completion SHALL grant an Umbral exoskeleton (armor).
 - A second completion SHALL grant an Umbral exoskull (helmet).
 - The exoskeleton and exoskull SHALL be rendered as apparel.
@@ -58,7 +62,7 @@ The Umbral transformation hediff SHALL behave like a flu-style disease: it progr
 - THEN the pawn receives the Umbral exoskeleton, worn as apparel
 
 ### Requirement: Phase C — utility pod
-- WHEN the exoskull phase is complete, THEN every humanoid kill SHALL carry a 20% chance to trigger the transformation hediff.
+- WHEN the exoskull phase is complete, THEN one fulfilled pact SHALL grant the utility pod.
 - Completion SHALL produce the Umbral utility pod bionic.
 - The utility pod SHALL be rendered as a weapon.
 
@@ -102,7 +106,7 @@ With Odyssey, the player-built Umbral Harbinger SHALL fly as an Odyssey shuttle 
 ## Implementation decisions
 Implemented in `Umbral.cs`. Tunables live on `BOR_UmbralTransformation` and the exoskeleton hediff stages.
 
-- Phases A, B and C share one transformation hediff. Each unit of tenebrite emission adds 50% to the trigger chance.
+- Phases A, B and C share one transformation hediff. Its comp carries `stepsLeft`, the steps of the pact's group still to come; an illness saved before pacts loads with 0 and grants one step. `partsPerPact` (4) on `BOR_UmbralTransformation` sets the phase A group size.
 - Without Biotech, the `BOR_Umbral` hediff stands in for the xenotype and its genes.
 - Utility mode adds 250% global work speed, 960% mining, construction and plant work, 150% research and tending, 2250% cooking and 180% bionic crafting. These are the Tier 3 implant and Tier 4 Adreamoline numbers times 1.5. Selecting a mode restarts its timer, with no cooldown. No mode has placeholder art, using the utility textures.
 - The exoskeleton, exoskull and utility pod are hediffs. Their visuals are locked, destroy-on-drop apparel and weapons, swapped for each mode. The exoskull follows the exoskeleton's mode.

@@ -14,7 +14,7 @@ When a colonist in tenebral psychosis breaks for the third time, your colony get
 
 {{ keyed_quote("BOR_OrientisChoiceText") }}
 
-It offers two answers, the **Path of Light** and the **Path of Dark**, and either one is final. The Path of Dark changes nothing for now: your colonists go on breaking and crystallizing toward what waits at the end of [the Tenebral road](tenebral-road.html). The Path of Light turns your colony into Orientis.
+It offers two answers, the **Path of Light** and the **Path of Dark**, and either one is final. The Path of Dark changes nothing for now: your colonists go on killing and crystallizing toward what waits at the end of [the Tenebral road](tenebral-road.html). The Path of Light turns your colony into Orientis.
 
 {{ screenshot("orientis-choice", "The choice letter") }}
 

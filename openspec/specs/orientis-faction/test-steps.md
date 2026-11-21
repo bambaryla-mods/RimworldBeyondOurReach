@@ -46,7 +46,7 @@ To add tenebral parts and crystallized parts, use the dev add hediff tool on a b
 1. Get the letter and choose Path of Dark.
 2. **Expected:** the dialog shows "So be it." The letter is gone after you close it.
 3. Force more breaks on this pawn and on others. **Expected:** no letter ever comes again.
-4. Keep forcing breaks past the sixth on one pawn. **Expected:** crystallization still works as before.
+4. Use "Add tenebral kill" more than 10 times on one pawn. **Expected:** crystallization still works as before.
 5. Save and reload, then force another break. **Expected:** still no letter.
 
 ## 3. Path of Light

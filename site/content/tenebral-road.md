@@ -25,7 +25,7 @@ Tenebral technology has its own buildings:
 
 ## Where it leads
 
-A colonist in tenebral psychosis who keeps breaking is heading somewhere. After enough breaks your colony is offered a choice, once, and there is no going back.
+A colonist in tenebral psychosis is heading somewhere, and where depends on whether they feed the bloodlust. One who keeps breaking brings your colony a choice, once, and there is no going back. One who keeps killing is changing in another way.
 
 That's all this page says by default. Open the box below only if you want to know what's on the other side.
 
@@ -34,6 +34,6 @@ That's all this page says by default. Open the box below only if you want to kno
 
 **The Path of Light** leads to Orientis. Choosing it purges every tenebral part and every Umbral from the colony, and the stripped pawns become the Orientis xenotype. Orientis has no bionics at all. Its pawns meditate to build up meditation power, which runs their automated buildings, and they gain their enhancements by meditating at the blessing bench. Orientis buildings aren't built from the Architect menu: they're placed with an ability. The [Orientis page](orientis.html) has everything else.
 
-**The Path of Dark** follows the crystal. A pawn who breaks too often starts to crystallize, and the crystallized parts stop working and can't be removed. Once enough of the body has turned, the pawn emerges as an Umbral. Umbrals take no surgery. They transform over three phases instead, each triggered by killing, until Umbral parts have replaced their whole body. Umbral buildings work only for Umbral pawns.
+**The Path of Dark** follows the crystal. A psychotic pawn who kills too often starts to crystallize, and the crystallized parts stop working and can't be removed. Once enough of the body has turned, a Tenebral pod transforms the pawn into an Umbral. Umbrals take no surgery and no longer hunger for blood. They are the Dark Archotechs' instruments: each makes its own pacts at the dark mirror, and every pact paid grows the next part of its Umbral body, until Umbral parts have replaced all of it. Umbral buildings work only for Umbral pawns.
 
 </details>
