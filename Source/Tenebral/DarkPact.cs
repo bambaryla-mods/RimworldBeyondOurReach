@@ -356,7 +356,11 @@ public class JobDriver_DarkMirrorPact : JobDriver
 // An Umbral communing at the mirror for its own next transformation group.
 public class JobDriver_DarkMirrorUmbralPact : JobDriver_DarkMirrorPact
 {
-    protected override bool Invalid => Mirror.TryGetComp<CompDarkPact>()?.UmbralBlockReason(pawn) != null;
+    private const int CheckInterval = 30;
+
+    // The block reasons scan quests and pawns and path to the mirror, so they are checked twice a second, not every tick.
+    protected override bool Invalid =>
+        pawn.IsHashIntervalTick(CheckInterval) && Mirror.TryGetComp<CompDarkPact>()?.UmbralBlockReason(pawn) != null;
 
     protected override void Conclude() => UmbralPacts.Start(pawn, Mirror);
 }

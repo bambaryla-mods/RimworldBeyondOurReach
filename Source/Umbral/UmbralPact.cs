@@ -55,11 +55,22 @@ public static class UmbralPacts
         int steps = Umbral.GroupSteps(pawn);
         return Umbral.CurrentPhase(pawn) switch
         {
-            Umbral.Phase.A => "BOR_UmbralPact_GroupParts".Translate(steps, Umbral.PendingReplacements(pawn).Count()),
+            Umbral.Phase.A => PartsLabel(pawn, steps),
             Umbral.Phase.B => "BOR_UmbralPact_GroupExo".Translate(),
             Umbral.Phase.C => "BOR_UmbralPact_GroupPod".Translate(),
             _ => "BOR_UmbralPact_GroupDone".Translate()
         };
+    }
+
+    // "Umbral parts 5-8 of 16": the parts already grown count toward the total.
+    private static string PartsLabel(Pawn pawn, int steps)
+    {
+        int pending = Umbral.PendingReplacements(pawn).Count();
+        HashSet<HediffDef> partDefs = new(Umbral.Settings.replacements.Select(r => r.hediff));
+        int grown = pawn.health.hediffSet.hediffs.Count(h => partDefs.Contains(h.def));
+        int total = grown + pending;
+        string range = steps > 1 ? (grown + 1) + "-" + (grown + steps) : (grown + 1).ToString();
+        return "BOR_UmbralPact_GroupParts".Translate(range, total);
     }
 
     // The communion is over: the Dark Archotechs name the Umbral's price.
@@ -81,11 +92,12 @@ public static class UmbralPacts
         DarkPulse.Flash(mirror.Map, mirror.TrueCenter(), 4f);
     }
 
-    public static void Notify_Slaughter(Pawn butcher)
+    // One slaughter, by any Umbral, counts for every Umbral pact asking for one.
+    public static void Notify_Slaughter()
     {
         foreach (QuestPart_UmbralPact pact in Active.ToList())
         {
-            if (pact.umbral == butcher && pact.demand == UmbralPactDemand.Slaughter)
+            if (pact.demand == UmbralPactDemand.Slaughter)
             {
                 pact.Count();
             }
@@ -104,9 +116,18 @@ public static class UmbralPacts
         }
     }
 
-    // One offering pile pays every Umbral pact asking for an offering, and is taken once.
+    private static int offeringsCheckedTick = -1;
+
+    // One offering pile pays every Umbral pact asking for an offering, and is taken once. Every Offering pact calls this on
+    // the same long tick; only the first call scans.
     public static void TryPayOfferings()
     {
+        int now = Find.TickManager.TicksGame;
+        if (offeringsCheckedTick == now)
+        {
+            return;
+        }
+        offeringsCheckedTick = now;
         List<QuestPart_UmbralPact> due = Active.Where(p => p.demand == UmbralPactDemand.Offering).ToList();
         if (due.Count == 0)
         {
@@ -203,7 +224,7 @@ public class QuestNode_Root_UmbralPact : QuestNode
         {
             case UmbralPactDemand.Slaughter:
                 part.goal = slaughters;
-                part.objectiveText = "BOR_UmbralPact_Obj_Slaughter".Translate(umbral.LabelShortCap, slaughters);
+                part.objectiveText = "BOR_UmbralPact_Obj_Slaughter".Translate(slaughters);
                 break;
             case UmbralPactDemand.IntoTheDark:
                 part.target = convert;
@@ -316,6 +337,12 @@ public class QuestPart_UmbralPact : QuestPartActivable
         {
             return;
         }
+        // Quest-reserved pawns are never discarded, so an Umbral banished or sold is caught here. A kidnapped one is still ours.
+        if (umbral != null && !umbral.Dead && umbral.Faction != Faction.OfPlayer && !umbral.IsKidnapped())
+        {
+            Fail("BOR_DarkPact_Reason_TargetLost".Translate(umbral.LabelShortCap));
+            return;
+        }
         if (demand == UmbralPactDemand.Offering)
         {
             UmbralPacts.TryPayOfferings();
@@ -354,7 +381,7 @@ public class QuestPart_UmbralPact : QuestPartActivable
                 }
                 break;
             case UmbralPactDemand.IntoTheDark when pawn == target:
-                Fail("BOR_DarkPact_Reason_TargetDiedWrong".Translate(pawn.LabelShortCap));
+                Fail("BOR_UmbralPact_Reason_ConvertDied".Translate(pawn.LabelShortCap));
                 break;
         }
     }

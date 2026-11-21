@@ -22,23 +22,23 @@ Clicking **Make pact** SHALL open a menu of the map's free colonists (downed and
 Only one research pact SHALL run at a time. While it runs, the mirror's inspect string SHALL also show its progress and time left. Umbral pacts do not count toward this limit.
 
 ### Requirement: Umbral pacts
-The Pacts tab SHALL show an **Umbral pacts** section between the research pact under way and the research list, when there is at least one row. Rows SHALL be the player's Umbrals with the transformation gene on the mirror's map, plus every Umbral with an Umbral pact under way wherever it is, by name. Up to three rows show, then the section scrolls.
+The Pacts tab SHALL show an **Umbral pacts** section between the research pact under way and the research list, when there is at least one row. Rows SHALL be the player's Umbrals with the transformation gene on the mirror's map, plus every Umbral with an Umbral pact under way wherever it is, by name. Up to three rows show, then the section scrolls. The tab SHALL NOT grow taller than the screen leaves room for; the research list gives up the space and scrolls.
 
-- Each row SHALL show the Umbral, and either what its next pact grants (4 Umbral parts, fewer when fewer are pending; then the exoskeleton and exoskull together; then the utility pod; see `umbral-rework`) or its pact's progress and time left.
+- Each row SHALL show the Umbral, and either what its next pact grants (4 Umbral parts, fewer when fewer are pending, shown as "Umbral parts 5-8 of 16"; then the exoskeleton and exoskull together; then the utility pod; see `umbral-rework`) or its pact's progress and time left.
 - On the right: **Make pact**, greyed out with the reason while the Umbral is fully transformed, has a pact, is still transforming, someone else is communing, the mirror is unpowered, or the Umbral is away, downed or cannot reach the mirror; **Abandon pact** during a pact, plus **DEV: Complete** and **DEV: Expire** in dev mode; or "Complete" once fully transformed.
 - The Umbral itself SHALL commune (job `BOR_DarkMirrorUmbralPact`, 600 ticks), after a confirmation. Each Umbral SHALL have at most one pact, and any number of Umbrals may have one at once, alongside a research pact.
 - The quest is `BOR_UmbralPact` (root `QuestNode_Root_UmbralPact`, part `QuestPart_UmbralPact`). It SHALL last 10 days. The price SHALL be rolled by weight from the demands available:
 
 | Demand | Weight | Available when | Done when | Fails when |
 | --- | --- | --- | --- | --- |
-| Righteous Slaughter | 1 | Always | The Umbral performs 1 Righteous Slaughter | |
+| Righteous Slaughter | 1 | Always | Any Umbral performs 1 Righteous Slaughter | |
 | Into the dark | 1 | A colonist other than this Umbral, not Umbral, at least 50% crystallized, is spawned on a home map | That colonist enters a Tenebral pod in transformation mode | They die or are lost |
 | Offering | 1 | Always | 150 tenebrite crystals and 10 crystalline joints lie within 10 cells of a colony dark mirror at once (checked every long tick); they are then consumed | |
 | Sever the last tie | 1 | The Umbral has an adult blood relative or love partner on a home map who is not an enemy | The relative dies with the Umbral as instigator | The relative dies any other way, or is lost |
 | Vigil | 0.5 | Always | Time runs out with no humanlike killed by the Umbral | The Umbral kills a humanlike |
 
-- One deed MAY pay several Umbral pacts: one offering pile completes every Umbral pact asking for an offering and is consumed once, and one pod entry completes every pact naming that colonist.
-- Every Umbral pact SHALL also fail when its Umbral dies or is lost, or when it expires (except the Vigil). Failure SHALL bring Dark Punishment exactly as for research pacts, with a letter naming the Umbral. Success SHALL start the Umbral's transformation group.
+- One deed MAY pay several Umbral pacts: one Righteous Slaughter counts for every Umbral pact asking for one, one offering pile completes every Umbral pact asking for an offering and is consumed once, and one pod entry completes every pact naming that colonist.
+- Every Umbral pact SHALL also fail when its Umbral dies, is lost, or leaves the player's faction other than by kidnapping (checked every long tick), or when it expires (except the Vigil). Failure SHALL bring Dark Punishment exactly as for research pacts, with a letter naming the Umbral. Success SHALL start the Umbral's transformation group.
 
 ### Requirement: The price
 The price SHALL be rolled at random from the objectives that can run at that moment. Counts are fields of the `BOR_DarkPact` quest script root.

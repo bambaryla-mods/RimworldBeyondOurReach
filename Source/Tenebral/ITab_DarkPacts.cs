@@ -19,8 +19,17 @@ public class ITab_DarkPacts : BorTab
     private const float HeaderHeight = 26f;
     private const int VisibleUmbralRows = 3;
 
+    // Room the tab leaves for the inspect pane, the bottom bar and a margin at the top of the screen.
+    private const float ScreenReserve = 280f;
+    private const float MinListHeight = 3f * RowHeight;
+
     private Vector2 scroll;
     private Vector2 umbralScroll;
+
+    // The Umbral rows and their pacts, worked out once a frame: size, layout and drawing all ask for them.
+    private int rowsFrame = -1;
+    private CompDarkPact? rowsMirror;
+    private List<(Pawn umbral, QuestPart_UmbralPact? pact)> rows = new();
 
     public ITab_DarkPacts()
     {
@@ -34,9 +43,11 @@ public class ITab_DarkPacts : BorTab
 
     protected override void UpdateSize()
     {
-        List<Pawn>? umbrals = Mirror != null ? UmbralRows(Mirror) : null;
+        List<(Pawn umbral, QuestPart_UmbralPact? pact)>? umbrals = Mirror != null ? UmbralRows(Mirror) : null;
         float umbralHeight = umbrals is { Count: > 0 } ? UmbralSectionHeight(umbrals) + Gap * 2f : 0f;
-        size = new Vector2(480f, 540f + TitleHeight + umbralHeight);
+        // Never taller than the screen allows; the research list below gives up the space and scrolls.
+        float height = Mathf.Min(540f + TitleHeight + umbralHeight, Mathf.Max(540f + TitleHeight, UI.screenHeight - ScreenReserve));
+        size = new Vector2(480f, height);
         base.UpdateSize();
     }
 
@@ -49,10 +60,11 @@ public class ITab_DarkPacts : BorTab
         }
         Rect inner = rect.ContractedBy(Pad);
         float y = inner.y + DrawActive(new Rect(inner.x, inner.y, inner.width, 0f)) + Gap * 2f;
-        List<Pawn> umbrals = UmbralRows(mirror);
+        List<(Pawn umbral, QuestPart_UmbralPact? pact)> umbrals = UmbralRows(mirror);
         if (umbrals.Count > 0)
         {
-            float height = UmbralSectionHeight(umbrals);
+            // Leave the research list at least a few rows when the screen is short.
+            float height = Mathf.Min(UmbralSectionHeight(umbrals), Mathf.Max(HeaderHeight + RowHeight + 8f, inner.yMax - y - Gap * 2f - MinListHeight));
             DrawUmbrals(new Rect(inner.x, y, inner.width, height), umbrals, mirror);
             y += height + Gap * 2f;
         }
@@ -147,21 +159,30 @@ public class ITab_DarkPacts : BorTab
     }
 
     // Colony Umbrals on the mirror's map that can transform, and every Umbral with a pact under way wherever it is.
-    private static List<Pawn> UmbralRows(CompDarkPact mirror)
+    private List<(Pawn umbral, QuestPart_UmbralPact? pact)> UmbralRows(CompDarkPact mirror)
     {
+        if (rowsFrame == Time.frameCount && rowsMirror == mirror)
+        {
+            return rows;
+        }
+        rowsFrame = Time.frameCount;
+        rowsMirror = mirror;
+        List<QuestPart_UmbralPact> active = UmbralPacts.Active.ToList();
         IEnumerable<Pawn> here = mirror.parent.Map?.mapPawns.FreeColonistsSpawned.Where(p => Umbral.IsUmbral(p) && Umbral.Transforms(p)) ?? Enumerable.Empty<Pawn>();
-        IEnumerable<Pawn> bound = UmbralPacts.Active.Select(p => p.umbral).OfType<Pawn>();
-        return here.Concat(bound).Distinct().OrderBy(p => p.LabelShort).ToList();
+        IEnumerable<Pawn> bound = active.Select(p => p.umbral).OfType<Pawn>();
+        rows = here.Concat(bound).Distinct().OrderBy(p => p.LabelShort)
+            .Select(p => (umbral: p, pact: (QuestPart_UmbralPact?)active.FirstOrDefault(a => a.umbral == p))).ToList();
+        return rows;
     }
 
     // A running pact's row carries the dev buttons under its Abandon button.
-    private static float UmbralRowHeight(Pawn umbral) =>
-        RowHeight + (DebugSettings.ShowDevGizmos && UmbralPacts.For(umbral) != null ? ButtonHeight + Gap : 0f);
+    private static float UmbralRowHeight((Pawn umbral, QuestPart_UmbralPact? pact) row) =>
+        RowHeight + (DebugSettings.ShowDevGizmos && row.pact != null ? ButtonHeight + Gap : 0f);
 
-    private static float UmbralSectionHeight(List<Pawn> umbrals) =>
+    private static float UmbralSectionHeight(List<(Pawn umbral, QuestPart_UmbralPact? pact)> umbrals) =>
         HeaderHeight + umbrals.Take(VisibleUmbralRows).Sum(UmbralRowHeight) + 8f;
 
-    private void DrawUmbrals(Rect area, List<Pawn> umbrals, CompDarkPact mirror)
+    private void DrawUmbrals(Rect area, List<(Pawn umbral, QuestPart_UmbralPact? pact)> umbrals, CompDarkPact mirror)
     {
         BorSkin skin = BorSkin.Current;
         skin.Section(area);
@@ -176,16 +197,15 @@ public class ITab_DarkPacts : BorTab
         for (int i = 0; i < umbrals.Count; i++)
         {
             float h = UmbralRowHeight(umbrals[i]);
-            DrawUmbralRow(new Rect(0f, y, view.width, h), umbrals[i], mirror, i);
+            DrawUmbralRow(new Rect(0f, y, view.width, h), umbrals[i].umbral, umbrals[i].pact, mirror, i);
             y += h;
         }
         Widgets.EndScrollView();
     }
 
-    private static void DrawUmbralRow(Rect row, Pawn umbral, CompDarkPact mirror, int index)
+    private static void DrawUmbralRow(Rect row, Pawn umbral, QuestPart_UmbralPact? pact, CompDarkPact mirror, int index)
     {
         BorSkin skin = BorSkin.Current;
-        QuestPart_UmbralPact? pact = UmbralPacts.For(umbral);
         bool done = pact == null && Umbral.GroupSteps(umbral) == 0;
         skin.Row(row, false, hoverable: true, alternate: index % 2 == 1);
 

@@ -81,13 +81,13 @@ Rolled from the demands available at that moment, like the research pacts. Every
 
 | Demand | Available when | Done when | Fails when |
 |---|---|---|---|
-| Righteous Slaughter | Always | The pact's Umbral performs 1 Righteous Slaughter | |
+| Righteous Slaughter | Always | Any Umbral performs 1 Righteous Slaughter | |
 | Bring another into the dark | A colonist other than this Umbral is crystallized past the pod threshold and not in a pod | That colonist enters a Tenebral pod in transformation mode (start, not finish: the hold lasts months) | That colonist dies or is lost |
 | Offering | Always | The set amount of tenebrite and archotech items lies within 10 cells of the mirror at once, then is consumed | |
 | Sever the last tie | The Umbral has an adult blood relative or love partner on a home map who is not an enemy | That relative dies with this Umbral as instigator | The relative dies any other way, or the Umbral dies or is lost |
 | Vigil | Always | The time limit runs out with no humanlike killed by this Umbral | This Umbral kills a humanlike |
 
-One deed may pay several Umbral pacts at once (the user's call: they are all servants of the dark). One offering pile completes every Umbral pact asking for an offering, and the same crystallized colonist may be named in more than one pact, so one pod entry completes them all. The offering is consumed once.
+One deed may pay several Umbral pacts at once (the user's call: they are all servants of the dark). One Righteous Slaughter, by any Umbral, counts for every Slaughter pact (the bench's 10-day cooldown would otherwise doom a second Umbral's pact). One offering pile completes every Umbral pact asking for an offering, and the same crystallized colonist may be named in more than one pact, so one pod entry completes them all. The offering is consumed once.
 
 The Vigil inverts the clock: it succeeds when time runs out. It should be weighted lower than the others, since it costs little more than the Umbral's absence from fights.
 

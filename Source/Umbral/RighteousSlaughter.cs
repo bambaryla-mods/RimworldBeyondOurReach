@@ -163,6 +163,6 @@ public class JobDriver_RighteousSlaughter : JobDriver_HarvestComponents
         table.TryGetComp<CompComponentHarvest>()?.StartSlaughterCooldown();
         Messages.Message("BOR_Slaughter_Done".Translate(RighteousSlaughter.Bless()), table, MessageTypeDefOf.PositiveEvent);
         ApplyThoughts();
-        UmbralPacts.Notify_Slaughter(pawn);
+        UmbralPacts.Notify_Slaughter();
     }
 }
