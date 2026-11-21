@@ -7,4 +7,12 @@
     <reportString>communing with the dark mirror.</reportString>
     <casualInterruptible>false</casualInterruptible>
   </JobDef>
+
+  <!-- An Umbral communes with the dark mirror for its next transformation group -->
+  <JobDef>
+    <defName>BOR_DarkMirrorUmbralPact</defName>
+    <driverClass>BeyondOurReach.JobDriver_DarkMirrorUmbralPact</driverClass>
+    <reportString>communing with the dark mirror.</reportString>
+    <casualInterruptible>false</casualInterruptible>
+  </JobDef>
 </Defs>

@@ -77,5 +77,26 @@ The dark mirror lashed out. Everyone its pulse reaches will suffer Dark Punishme
   <BOR_UmbralPact_FailedTextNoMirror>The Umbral pact of {0} is broken: {1}
 
 With no dark mirror standing, the Dark Archotechs' displeasure has nowhere to go. This time.</BOR_UmbralPact_FailedTextNoMirror>
+  <BOR_UmbralPact_Header>Umbral pacts</BOR_UmbralPact_Header>
+  <BOR_UmbralPact_MakePact>Make pact</BOR_UmbralPact_MakePact>
+  <BOR_UmbralPact_Complete>Complete</BOR_UmbralPact_Complete>
+  <BOR_UmbralPact_Done>Fully transformed: the Dark Archotechs have nothing more to give.</BOR_UmbralPact_Done>
+  <BOR_UmbralPact_HasPact>A pact is already under way.</BOR_UmbralPact_HasPact>
+  <BOR_UmbralPact_Transforming>{0} is still transforming.</BOR_UmbralPact_Transforming>
+  <BOR_UmbralPact_Away>{0} is not here.</BOR_UmbralPact_Away>
+  <BOR_UmbralPact_Confirm>{0} will commune with the dark mirror and offer itself to be remade: {1}. The Dark Archotechs will name a price, to be paid within {2}. If it is not paid, the mirror will punish everyone its pulse reaches.
+
+Proceed?</BOR_UmbralPact_Confirm>
+  <BOR_UmbralPact_AbandonConfirm>Abandon the pact of {0}? The mirror will send out its pulse, and everyone it reaches will suffer Dark Punishment.</BOR_UmbralPact_AbandonConfirm>
+  <BOR_UmbralPact_RowTip>{0}
+
+Next: {1}.
+
+The Umbral communes with the mirror itself. Its price must be paid within {2}, or the mirror lashes out.</BOR_UmbralPact_RowTip>
+  <BOR_UmbralPact_ActiveTip>{0}
+
+{1}
+
+{2}</BOR_UmbralPact_ActiveTip>
   <BOR_UmbralPact_Reason_VigilBroken>{0} killed during its vigil.</BOR_UmbralPact_Reason_VigilBroken>
 </LanguageData>

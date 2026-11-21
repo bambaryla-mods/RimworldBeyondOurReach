@@ -18,6 +18,7 @@ public static class BOR_DarkPactDefOf
 {
     public static QuestScriptDef BOR_DarkPact = null!;
     public static JobDef BOR_DarkMirrorPact = null!;
+    public static JobDef BOR_DarkMirrorUmbralPact = null!;
     public static HediffDef BOR_DarkPunishment = null!;
     public static QuestScriptDef BOR_UmbralPact = null!;
 
@@ -116,7 +117,70 @@ public class CompProperties_DarkPact : CompProperties
 // The dark mirror's pacts, driven from its Pacts tab (ITab_DarkPacts).
 public class CompDarkPact : ThingComp
 {
-    private bool Communing => parent.Map.mapPawns.FreeColonistsSpawned.Any(p => p.CurJobDef == BOR_DarkPactDefOf.BOR_DarkMirrorPact);
+    private bool Communing => CommuningOtherThan(null);
+
+    // Someone other than this pawn is communing at the mirror, for a research or an Umbral pact.
+    private bool CommuningOtherThan(Pawn? self) => parent.Map.mapPawns.FreeColonistsSpawned.Any(p => p != self
+        && (p.CurJobDef == BOR_DarkPactDefOf.BOR_DarkMirrorPact || p.CurJobDef == BOR_DarkPactDefOf.BOR_DarkMirrorUmbralPact));
+
+    // Why this Umbral cannot make its pact right now, or null if it can. Its own communion does not block it.
+    public string? UmbralBlockReason(Pawn umbral)
+    {
+        if (Umbral.GroupSteps(umbral) == 0)
+        {
+            return "BOR_UmbralPact_Done".Translate();
+        }
+        if (UmbralPacts.For(umbral) != null)
+        {
+            return "BOR_UmbralPact_HasPact".Translate();
+        }
+        if (Umbral.Transforming(umbral))
+        {
+            return "BOR_UmbralPact_Transforming".Translate(umbral.LabelShortCap);
+        }
+        if (CommuningOtherThan(umbral))
+        {
+            return "BOR_DarkPact_Communing".Translate();
+        }
+        if (!DarkPacts.Powered(parent))
+        {
+            return "BOR_DarkPact_NeedsPower".Translate();
+        }
+        if (!umbral.Spawned || umbral.Map != parent.Map)
+        {
+            return "BOR_UmbralPact_Away".Translate(umbral.LabelShortCap);
+        }
+        if (umbral.Downed)
+        {
+            return "BOR_DarkPact_PawnDowned".Translate().CapitalizeFirst();
+        }
+        if (!umbral.CanReach(parent, PathEndMode.InteractionCell, Danger.Deadly))
+        {
+            return "NoPath".Translate().CapitalizeFirst();
+        }
+        return null;
+    }
+
+    // The Umbral itself communes: no colonist menu, only the confirmation.
+    public void OfferUmbral(Pawn umbral)
+    {
+        if (UmbralBlockReason(umbral) != null)
+        {
+            return;
+        }
+        Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation(
+            "BOR_UmbralPact_Confirm".Translate(umbral.LabelShortCap, UmbralPacts.GroupLabel(umbral), QuestNode_Root_UmbralPact.DurationLabel), () =>
+            {
+                if (!umbral.Dead && umbral.Spawned && UmbralBlockReason(umbral) == null)
+                {
+                    umbral.jobs.TryTakeOrderedJob(JobMaker.MakeJob(BOR_DarkPactDefOf.BOR_DarkMirrorUmbralPact, parent), JobTag.Misc);
+                }
+            }, true));
+    }
+
+    public static void ConfirmAbandonUmbral(QuestPart_UmbralPact pact) =>
+        Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("BOR_UmbralPact_AbandonConfirm".Translate(pact.umbral?.LabelShortCap ?? "?"),
+            () => pact.Fail("BOR_DarkPact_Reason_Abandoned".Translate()), true));
 
     // Why a pact for this research cannot be made right now, or null if it can.
     public string? BlockReason(ResearchProjectDef r)
@@ -235,16 +299,28 @@ public class JobDriver_DarkMirrorPact : JobDriver
 
     private int ticksDone;
 
-    private Thing Mirror => job.GetTarget(MirrorInd).Thing;
+    protected Thing Mirror => job.GetTarget(MirrorInd).Thing;
 
     private ResearchProjectDef? Research => job.count >= 0 && job.count < DarkPacts.All.Count ? DarkPacts.All[job.count] : null;
 
     public override bool TryMakePreToilReservations(bool errorOnFailed) => pawn.Reserve(Mirror, job, 1, -1, null, errorOnFailed);
 
+    // The communion is called off when this turns true.
+    protected virtual bool Invalid => !DarkPacts.Powered(Mirror) || DarkPacts.Active != null || Research == null || Research.IsFinished;
+
+    // What the finished communion starts.
+    protected virtual void Conclude()
+    {
+        if (Research is ResearchProjectDef research)
+        {
+            Mirror.TryGetComp<CompDarkPact>()?.StartPact(pawn, research);
+        }
+    }
+
     protected override IEnumerable<Toil> MakeNewToils()
     {
         this.FailOnDespawnedNullOrForbidden(MirrorInd);
-        this.FailOn(() => !DarkPacts.Powered(Mirror) || DarkPacts.Active != null || Research == null || Research.IsFinished);
+        this.FailOn(() => Invalid);
 
         yield return Toils_Goto.GotoThing(MirrorInd, PathEndMode.InteractionCell);
 
@@ -267,13 +343,7 @@ public class JobDriver_DarkMirrorPact : JobDriver
         commune.WithProgressBar(MirrorInd, () => (float)ticksDone / WorkTicks);
         yield return commune;
 
-        yield return Toils_General.Do(() =>
-        {
-            if (Research is ResearchProjectDef research)
-            {
-                Mirror.TryGetComp<CompDarkPact>()?.StartPact(pawn, research);
-            }
-        });
+        yield return Toils_General.Do(Conclude);
     }
 
     public override void ExposeData()
@@ -281,4 +351,12 @@ public class JobDriver_DarkMirrorPact : JobDriver
         base.ExposeData();
         Scribe_Values.Look(ref ticksDone, "ticksDone");
     }
+}
+
+// An Umbral communing at the mirror for its own next transformation group.
+public class JobDriver_DarkMirrorUmbralPact : JobDriver_DarkMirrorPact
+{
+    protected override bool Invalid => Mirror.TryGetComp<CompDarkPact>()?.UmbralBlockReason(pawn) != null;
+
+    protected override void Conclude() => UmbralPacts.Start(pawn, Mirror);
 }

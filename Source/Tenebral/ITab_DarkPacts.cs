@@ -16,7 +16,11 @@ public class ITab_DarkPacts : BorTab
     private const float RightColumn = 170f;
     private const float ButtonHeight = 28f;
 
+    private const float HeaderHeight = 26f;
+    private const int VisibleUmbralRows = 3;
+
     private Vector2 scroll;
+    private Vector2 umbralScroll;
 
     public ITab_DarkPacts()
     {
@@ -30,7 +34,9 @@ public class ITab_DarkPacts : BorTab
 
     protected override void UpdateSize()
     {
-        size = new Vector2(480f, 540f + TitleHeight);
+        List<Pawn>? umbrals = Mirror != null ? UmbralRows(Mirror) : null;
+        float umbralHeight = umbrals is { Count: > 0 } ? UmbralSectionHeight(umbrals) + Gap * 2f : 0f;
+        size = new Vector2(480f, 540f + TitleHeight + umbralHeight);
         base.UpdateSize();
     }
 
@@ -43,6 +49,13 @@ public class ITab_DarkPacts : BorTab
         }
         Rect inner = rect.ContractedBy(Pad);
         float y = inner.y + DrawActive(new Rect(inner.x, inner.y, inner.width, 0f)) + Gap * 2f;
+        List<Pawn> umbrals = UmbralRows(mirror);
+        if (umbrals.Count > 0)
+        {
+            float height = UmbralSectionHeight(umbrals);
+            DrawUmbrals(new Rect(inner.x, y, inner.width, height), umbrals, mirror);
+            y += height + Gap * 2f;
+        }
         DrawList(new Rect(inner.x, y, inner.width, inner.yMax - y), mirror);
     }
 
@@ -131,6 +144,125 @@ public class ITab_DarkPacts : BorTab
             DrawRow(new Rect(0f, i * RowHeight, view.width, RowHeight), rows[i].research, rows[i].blocked, mirror, i);
         }
         Widgets.EndScrollView();
+    }
+
+    // Colony Umbrals on the mirror's map that can transform, and every Umbral with a pact under way wherever it is.
+    private static List<Pawn> UmbralRows(CompDarkPact mirror)
+    {
+        IEnumerable<Pawn> here = mirror.parent.Map?.mapPawns.FreeColonistsSpawned.Where(p => Umbral.IsUmbral(p) && Umbral.Transforms(p)) ?? Enumerable.Empty<Pawn>();
+        IEnumerable<Pawn> bound = UmbralPacts.Active.Select(p => p.umbral).OfType<Pawn>();
+        return here.Concat(bound).Distinct().OrderBy(p => p.LabelShort).ToList();
+    }
+
+    // A running pact's row carries the dev buttons under its Abandon button.
+    private static float UmbralRowHeight(Pawn umbral) =>
+        RowHeight + (DebugSettings.ShowDevGizmos && UmbralPacts.For(umbral) != null ? ButtonHeight + Gap : 0f);
+
+    private static float UmbralSectionHeight(List<Pawn> umbrals) =>
+        HeaderHeight + umbrals.Take(VisibleUmbralRows).Sum(UmbralRowHeight) + 8f;
+
+    private void DrawUmbrals(Rect area, List<Pawn> umbrals, CompDarkPact mirror)
+    {
+        BorSkin skin = BorSkin.Current;
+        skin.Section(area);
+        Text.Font = GameFont.Small;
+        Widgets.Label(new Rect(area.x + Pad, area.y + 4f, area.width - Pad * 2f, HeaderHeight), "BOR_UmbralPact_Header".Translate());
+        Rect outer = new(area.x + 4f, area.y + HeaderHeight, area.width - 8f, area.height - HeaderHeight - 4f);
+        float total = umbrals.Sum(UmbralRowHeight);
+        bool scrolls = total > outer.height + 0.5f;
+        Rect view = new(0f, 0f, outer.width - (scrolls ? 16f : 0f), total);
+        Widgets.BeginScrollView(outer, ref umbralScroll, view, scrolls);
+        float y = 0f;
+        for (int i = 0; i < umbrals.Count; i++)
+        {
+            float h = UmbralRowHeight(umbrals[i]);
+            DrawUmbralRow(new Rect(0f, y, view.width, h), umbrals[i], mirror, i);
+            y += h;
+        }
+        Widgets.EndScrollView();
+    }
+
+    private static void DrawUmbralRow(Rect row, Pawn umbral, CompDarkPact mirror, int index)
+    {
+        BorSkin skin = BorSkin.Current;
+        QuestPart_UmbralPact? pact = UmbralPacts.For(umbral);
+        bool done = pact == null && Umbral.GroupSteps(umbral) == 0;
+        skin.Row(row, false, hoverable: true, alternate: index % 2 == 1);
+
+        Rect icon = new(row.x + Gap, row.y + (RowHeight - IconSize) / 2f, IconSize, IconSize);
+        Widgets.ThingIcon(icon, umbral);
+
+        float textX = icon.xMax + Gap * 2f;
+        float right = row.xMax - RightColumn - Gap;
+        Rect name = new(textX, row.y + 6f, right - textX, 22f);
+        Text.Font = GameFont.Small;
+        Widgets.Label(name, umbral.LabelShortCap.Truncate(name.width));
+        Text.Font = GameFont.Tiny;
+        GUI.color = pact != null ? skin.TextWarn : skin.TextDim;
+        Rect sub = new(textX, name.yMax, right - textX, 18f);
+        string subline = pact != null
+            ? pact.StatusLine + " - " + pact.TicksLeft.ToStringTicksToPeriod()
+            : UmbralPacts.GroupLabel(umbral).CapitalizeFirst();
+        Widgets.Label(sub, subline.Truncate(sub.width));
+        GUI.color = Color.white;
+        Text.Font = GameFont.Small;
+
+        Rect status = new(row.xMax - RightColumn - Gap, row.y, RightColumn, RowHeight);
+        Rect button = new(status.x, row.y + (RowHeight - ButtonHeight) / 2f, status.width, ButtonHeight);
+        if (pact != null)
+        {
+            if (skin.Button(button, "BOR_DarkPact_Abandon".Translate(), tone: BorTone.Bad))
+            {
+                CompDarkPact.ConfirmAbandonUmbral(pact);
+            }
+            if (DebugSettings.ShowDevGizmos)
+            {
+                float half = (status.width - Gap) / 2f;
+                float devY = row.y + RowHeight;
+                if (skin.Button(new Rect(status.x, devY, half, ButtonHeight), "DEV: Complete"))
+                {
+                    pact.Succeed();
+                }
+                if (skin.Button(new Rect(status.x + half + Gap, devY, half, ButtonHeight), "DEV: Expire"))
+                {
+                    pact.Fail("BOR_DarkPact_Reason_Expired".Translate());
+                }
+            }
+        }
+        else if (done)
+        {
+            Text.Anchor = TextAnchor.MiddleCenter;
+            GUI.color = skin.TextDim;
+            Widgets.Label(status, "BOR_UmbralPact_Complete".Translate());
+            GUI.color = Color.white;
+            Text.Anchor = TextAnchor.UpperLeft;
+        }
+        else
+        {
+            string? blocked = mirror.UmbralBlockReason(umbral);
+            if (blocked != null)
+            {
+                GUI.color = new Color(1f, 1f, 1f, 0.4f);
+            }
+            if (skin.Button(button, "BOR_UmbralPact_MakePact".Translate(), active: blocked == null, tone: BorTone.Bad) && blocked == null)
+            {
+                mirror.OfferUmbral(umbral);
+            }
+            GUI.color = Color.white;
+            if (blocked != null)
+            {
+                TooltipHandler.TipRegion(button, blocked);
+            }
+        }
+
+        Rect tipArea = new(row.x, row.y, row.width - RightColumn - Gap, row.height);
+        TooltipHandler.TipRegion(tipArea, () => pact != null
+            ? "BOR_UmbralPact_ActiveTip".Translate(umbral.LabelShortCap, pact.objectiveText,
+                "BOR_DarkPact_TimeLeft".Translate(pact.TicksLeft.ToStringTicksToPeriod())).Resolve()
+            : done
+                ? "BOR_UmbralPact_Done".Translate().Resolve()
+                : "BOR_UmbralPact_RowTip".Translate(umbral.LabelShortCap, UmbralPacts.GroupLabel(umbral), QuestNode_Root_UmbralPact.DurationLabel).Resolve(),
+            7395000 + index);
     }
 
     private static string MissingList(ResearchProjectDef r) => (r.prerequisites ?? new List<ResearchProjectDef>())
