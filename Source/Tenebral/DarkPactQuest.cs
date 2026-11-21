@@ -401,13 +401,8 @@ public class QuestPart_DarkPact : QuestPartActivable
             return;
         }
         Complete();
-        Thing? source = mirror is { Spawned: true } && mirror.Map.IsPlayerHome ? mirror
-            : Find.Maps.Where(m => m.IsPlayerHome).SelectMany(DarkPacts.MirrorsOn).FirstOrDefault();
+        Thing? source = DarkPacts.Punish(mirror);
         string label = research?.LabelCap ?? "";
-        if (source != null)
-        {
-            source.Map.GetComponent<MapComponent_DarkPulse>()?.Emit(source.Position);
-        }
         string text = (source != null ? "BOR_DarkPact_FailedText" : "BOR_DarkPact_FailedTextNoMirror").Translate(label, reason);
         Find.LetterStack.ReceiveLetter("BOR_DarkPact_FailedLabel".Translate(), text, LetterDefOf.NegativeEvent,
             source != null ? source : LookTargets.Invalid, null, quest);

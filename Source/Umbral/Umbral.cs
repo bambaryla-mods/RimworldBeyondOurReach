@@ -108,11 +108,19 @@ public static class Umbral
     }
 
     // Starts the transformation illness for a whole group: each step that completes starts the next until the group is granted.
+    // A pawn already transforming (an illness from an older save) carries the group on after its current step.
     public static void StartGroup(Pawn pawn)
     {
         int steps = GroupSteps(pawn);
-        if (steps <= 0 || Transforming(pawn))
+        if (steps <= 0)
         {
+            return;
+        }
+        HediffComp_UmbralTransformation? running = pawn.health.hediffSet.GetFirstHediffOfDef(BOR_UmbralDefOf.BOR_UmbralTransformation)
+            ?.TryGetComp<HediffComp_UmbralTransformation>();
+        if (running != null)
+        {
+            running.stepsLeft += steps;
             return;
         }
         StartStep(pawn, steps - 1);
@@ -315,6 +323,16 @@ public class HediffComp_UmbralTransformation : HediffComp
 
 public static class UmbralDebug
 {
+    [DebugAction("Pawns", "Start Umbral pact", actionType = DebugActionType.ToolMapForPawns, allowedGameStates = AllowedGameStates.PlayingOnMap)]
+    public static void StartPact(Pawn pawn)
+    {
+        Thing? mirror = DarkPacts.MirrorsOn(pawn.Map).FirstOrDefault();
+        if (mirror != null)
+        {
+            UmbralPacts.Start(pawn, mirror);
+        }
+    }
+
     [DebugAction("Pawns", "Start Umbral pact group", actionType = DebugActionType.ToolMapForPawns, allowedGameStates = AllowedGameStates.PlayingOnMap)]
     public static void StartPactGroup(Pawn pawn)
     {

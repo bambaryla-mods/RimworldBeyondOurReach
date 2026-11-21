@@ -184,6 +184,7 @@ public partial class Building_TenebralPod : Building_TenebralCasket
         {
             float remaining = 1f - Crystallization.Fraction(pawn);
             releaseTick = Find.TickManager.TicksGame + Mathf.RoundToInt(remaining * GenDate.TicksPerYear);
+            UmbralPacts.Notify_EnteredPod(pawn);
         }
     }
 

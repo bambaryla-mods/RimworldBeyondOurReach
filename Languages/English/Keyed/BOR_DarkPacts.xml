@@ -51,4 +51,31 @@
   <BOR_DarkPact_Reason_TargetDiedWrong>{0} died, but not as the Dark Archotechs demanded.</BOR_DarkPact_Reason_TargetDiedWrong>
   <BOR_DarkPact_Reason_KillerDied>{0} died before the deed was done.</BOR_DarkPact_Reason_KillerDied>
   <BOR_DarkPact_Reason_TargetLost>{0} is gone.</BOR_DarkPact_Reason_TargetLost>
+
+  <!-- Umbral pacts: an Umbral bargains for its next transformation group -->
+  <BOR_UmbralPact_QuestName>Umbral pact: {0}</BOR_UmbralPact_QuestName>
+  <BOR_UmbralPact_QuestDescription>{0} looked into the dark mirror and offered itself to be remade further: {1}. The Dark Archotechs answered with their price:
+
+{2}
+
+You have {3}. If the price is not paid, the mirror will lash out at everyone it can reach.</BOR_UmbralPact_QuestDescription>
+  <BOR_UmbralPact_GroupParts>{0} Umbral parts ({1} still to grow)</BOR_UmbralPact_GroupParts>
+  <BOR_UmbralPact_GroupExo>the crystal exoskeleton and exoskull</BOR_UmbralPact_GroupExo>
+  <BOR_UmbralPact_GroupPod>the utility pod</BOR_UmbralPact_GroupPod>
+  <BOR_UmbralPact_GroupDone>nothing more: the transformation is complete</BOR_UmbralPact_GroupDone>
+  <BOR_UmbralPact_Obj_Slaughter>{0} must perform {1} Righteous Slaughter at a butcher table.</BOR_UmbralPact_Obj_Slaughter>
+  <BOR_UmbralPact_Obj_IntoTheDark>Bring {0} into the dark: lay them in a Tenebral pod set to transformation.</BOR_UmbralPact_Obj_IntoTheDark>
+  <BOR_UmbralPact_Obj_Offering>Lay {0} tenebrite crystals and {1} crystalline joints within {2} cells of a dark mirror, all at once. The Dark Archotechs will take them.</BOR_UmbralPact_Obj_Offering>
+  <BOR_UmbralPact_Obj_SeverTie>{0} must kill {1}, its {2}, with its own hands. Nothing may bind an Umbral.</BOR_UmbralPact_Obj_SeverTie>
+  <BOR_UmbralPact_Obj_Vigil>{0} must not kill anyone until the pact ends. The Dark Archotechs want an instrument, not a beast.</BOR_UmbralPact_Obj_Vigil>
+  <BOR_UmbralPact_SuccessLabel>Umbral pact fulfilled</BOR_UmbralPact_SuccessLabel>
+  <BOR_UmbralPact_SuccessText>The price has been paid. {0} begins to change: {1}.</BOR_UmbralPact_SuccessText>
+  <BOR_UmbralPact_FailedLabel>Umbral pact broken</BOR_UmbralPact_FailedLabel>
+  <BOR_UmbralPact_FailedText>The Umbral pact of {0} is broken: {1}
+
+The dark mirror lashed out. Everyone its pulse reaches will suffer Dark Punishment for a day.</BOR_UmbralPact_FailedText>
+  <BOR_UmbralPact_FailedTextNoMirror>The Umbral pact of {0} is broken: {1}
+
+With no dark mirror standing, the Dark Archotechs' displeasure has nowhere to go. This time.</BOR_UmbralPact_FailedTextNoMirror>
+  <BOR_UmbralPact_Reason_VigilBroken>{0} killed during its vigil.</BOR_UmbralPact_Reason_VigilBroken>
 </LanguageData>

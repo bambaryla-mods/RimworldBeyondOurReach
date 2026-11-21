@@ -19,6 +19,7 @@ public static class BOR_DarkPactDefOf
     public static QuestScriptDef BOR_DarkPact = null!;
     public static JobDef BOR_DarkMirrorPact = null!;
     public static HediffDef BOR_DarkPunishment = null!;
+    public static QuestScriptDef BOR_UmbralPact = null!;
 
     static BOR_DarkPactDefOf()
     {
@@ -78,6 +79,16 @@ public static class DarkPacts
     public static bool IsMirror(Thing thing) => thing.TryGetComp<CompDarkPact>() != null;
 
     public static IEnumerable<Thing> MirrorsOn(Map map) => map.listerBuildings.allBuildingsColonist.Where(IsMirror);
+
+    // A broken pact's pulse: from the mirror it was made at, else any dark mirror on a home map. Returns where it came
+    // from, or null when no mirror stands.
+    public static Thing? Punish(Thing? mirror)
+    {
+        Thing? source = mirror is { Spawned: true } && mirror.Map.IsPlayerHome ? mirror
+            : Find.Maps.Where(m => m.IsPlayerHome).SelectMany(MirrorsOn).FirstOrDefault();
+        source?.Map.GetComponent<MapComponent_DarkPulse>()?.Emit(source.Position);
+        return source;
+    }
 
     public static bool Powered(Thing mirror) => mirror.TryGetComp<CompPowerTrader>()?.PowerOn ?? true;
 

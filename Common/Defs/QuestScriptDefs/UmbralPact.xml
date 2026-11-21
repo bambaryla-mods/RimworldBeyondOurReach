@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- An Umbral's pact for its next transformation group; started only from the dark mirror (rootSelectionWeight 0).
+       The root rolls the price; its fields tune the counts. See openspec/specs/dark-pacts -->
+  <QuestScriptDef>
+    <defName>BOR_UmbralPact</defName>
+    <autoAccept>true</autoAccept>
+    <questAvailableLetterDef>NegativeEvent</questAvailableLetterDef>
+    <questAvailableLetterTextIsDescription>true</questAvailableLetterTextIsDescription>
+    <root Class="BeyondOurReach.QuestNode_Root_UmbralPact">
+      <durationDays>10</durationDays>
+      <slaughters>1</slaughters>
+      <tenebrite>150</tenebrite>
+      <joints>10</joints>
+      <offeringRadius>10</offeringRadius>
+      <vigilWeight>0.5</vigilWeight>
+    </root>
+  </QuestScriptDef>
+</Defs>
