@@ -503,6 +503,16 @@ public static class OrientisDebug
         pawn.mindState.mentalStateHandler.TryStartMentalState(MentalStateDefOf.Berserk, forceWake: true);
     }
 
+    // Counts one kill toward crystallization, whether or not the pawn is psychotic.
+    [DebugAction("Pawns", "Add tenebral kill", actionType = DebugActionType.ToolMapForPawns, allowedGameStates = AllowedGameStates.PlayingOnMap)]
+    public static void AddTenebralKill(Pawn pawn)
+    {
+        if (pawn.RaceProps.Humanlike)
+        {
+            TenebralPsychosis.BreakCounter(pawn).Notify_Kill();
+        }
+    }
+
     [DebugAction("Pawns", "Make Orientis", actionType = DebugActionType.ToolMapForPawns, allowedGameStates = AllowedGameStates.PlayingOnMap)]
     public static void MakeOrientis(Pawn pawn)
     {

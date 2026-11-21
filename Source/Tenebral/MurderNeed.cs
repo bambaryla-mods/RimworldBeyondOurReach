@@ -145,7 +145,7 @@ public static class MurderPatches
         }
     }
 
-    // A humanlike killed by another pawn sates the killer's bloodlust and can set off its next Umbral step.
+    // A humanlike killed by another pawn sates the killer's bloodlust and counts toward its crystallization.
     [HarmonyPatch(typeof(Pawn), nameof(Pawn.Kill))]
     public static class Pawn_Kill_Patch
     {
@@ -156,7 +156,10 @@ public static class MurderPatches
                 return;
             }
             killer.needs?.TryGetNeed<Need_Murder>()?.Notify_Killed();
-            Umbral.Notify_KilledHumanlike(killer);
+            if (TenebralPsychosis.CountsKill(killer))
+            {
+                TenebralPsychosis.BreakCounter(killer).Notify_Kill();
+            }
         }
     }
 

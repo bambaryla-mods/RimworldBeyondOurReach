@@ -61,11 +61,11 @@
 		</modExtensions>
 	</HediffDef>
 
-	<!-- Hidden: counts mental breaks suffered while psychotic. -->
+	<!-- Hidden: counts mental breaks and kills while psychotic. Kills crystallize the body. -->
 	<HediffDef>
 		<defName>BOR_TenebralBreakCounter</defName>
-		<label>tenebral breaks</label>
-		<description>Hidden counter of mental breaks suffered under tenebral psychosis.</description>
+		<label>tenebral breaks and kills</label>
+		<description>Hidden counter of mental breaks and kills under tenebral psychosis.</description>
 		<hediffClass>BeyondOurReach.Hediff_TenebralBreaks</hediffClass>
 		<isBad>false</isBad>
 		<everCurableByItem>false</everCurableByItem>
@@ -73,8 +73,9 @@
 		<modExtensions>
 			<li Class="BeyondOurReach.DefModExtension_TenebralBreaks">
 				<orientisThreshold>3</orientisThreshold>
-				<umbralThreshold>6</umbralThreshold>
-				<crystallizeChancePerBreak>0.5</crystallizeChancePerBreak>
+				<killThreshold>10</killThreshold>
+				<crystallizeChancePerKill>0.25</crystallizeChancePerKill>
+				<emissionChanceFactor>0.5</emissionChanceFactor>
 				<partsPerCrystallization>1</partsPerCrystallization>
 				<podThreshold>0.5</podThreshold>
 			</li>

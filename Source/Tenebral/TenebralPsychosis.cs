@@ -39,14 +39,19 @@ public class DefModExtension_TenebralPsychosis : DefModExtension
     public float resistantFactor = 0.25f;
 }
 
-// Tunables for the hidden break counter; placed on BOR_TenebralBreakCounter.
+// Tunables for the hidden break and kill counter; placed on BOR_TenebralBreakCounter.
 public class DefModExtension_TenebralBreaks : DefModExtension
 {
     public int orientisThreshold = 3;
-    public int umbralThreshold = 6;
 
-    // Chance that each break past the umbral threshold crystallizes parts.
-    public float crystallizeChancePerBreak = 0.5f;
+    // Kills while psychotic before the body starts to crystallize.
+    public int killThreshold = 10;
+
+    // Chance that each kill past the kill threshold crystallizes parts.
+    public float crystallizeChancePerKill = 0.25f;
+
+    // Nearby tenebrite emission raises that chance by this much per unit, as it does for the Umbral steps.
+    public float emissionChanceFactor = 0.5f;
 
     // Parts crystallized each time that chance succeeds.
     public int partsPerCrystallization = 1;
@@ -100,6 +105,21 @@ public static class TenebralPsychosis
         Hediff? hediff = pawn.health?.hediffSet?.GetFirstHediffOfDef(BOR_TenebralDefOf.BOR_TenebralPsychosis);
         return hediff != null && hediff.Visible;
     }
+
+    // The pawn's hidden break and kill counter, added the first time it is needed.
+    public static Hediff_TenebralBreaks BreakCounter(Pawn pawn)
+    {
+        if (pawn.health.hediffSet.GetFirstHediffOfDef(BOR_TenebralDefOf.BOR_TenebralBreakCounter) is not Hediff_TenebralBreaks counter)
+        {
+            counter = (Hediff_TenebralBreaks)HediffMaker.MakeHediff(BOR_TenebralDefOf.BOR_TenebralBreakCounter, pawn);
+            pawn.health.AddHediff(counter);
+        }
+        return counter;
+    }
+
+    // A kill that counts toward crystallization: by a psychotic colonist who is not already Umbral.
+    public static bool CountsKill(Pawn killer) =>
+        killer.RaceProps.Humanlike && killer.Faction == Faction.OfPlayer && !Umbral.IsUmbral(killer) && IsPsychotic(killer);
 
     // Severity at which the hediff stops being latent and the pawn counts as psychotic.
     public static float PsychoticSeverity
@@ -315,17 +335,31 @@ public class MapComponent_TenebralExposure : MapComponent
     }
 }
 
-// Hidden counter of berserk breaks suffered while psychotic. Breaks past the umbral threshold may crystallize parts.
+// Hidden counter of berserk breaks and kills while psychotic. Breaks lead to the Orientis choice; kills past the kill
+// threshold may crystallize parts.
 public class Hediff_TenebralBreaks : HediffWithComps
 {
     private const int ChoiceCheckInterval = 60;
 
+    // Before kills, crystallization started after this many breaks. A save from then keeps crystallizing on its next kill.
+    private const int LegacyUmbralBreaks = 6;
+
     public int breaks;
+    public int kills;
 
     // The Orientis choice waits for the break that earned it to end.
     private bool choicePending;
 
+    // False only on counters loaded from a save made before kills were counted.
+    private bool migrated;
+
     public override bool Visible => false;
+
+    public override void PostAdd(DamageInfo? dinfo)
+    {
+        base.PostAdd(dinfo);
+        migrated = true;
+    }
 
     public override void TickInterval(int delta)
     {
@@ -344,30 +378,38 @@ public class Hediff_TenebralBreaks : HediffWithComps
     public void Notify_Break()
     {
         breaks++;
-        DefModExtension_TenebralBreaks s = TenebralPsychosis.BreakSettings;
-        if (breaks >= s.orientisThreshold)
+        if (breaks >= TenebralPsychosis.BreakSettings.orientisThreshold)
         {
             choicePending = true;
         }
-        if (breaks == s.umbralThreshold)
+    }
+
+    public void Notify_Kill()
+    {
+        kills++;
+        DefModExtension_TenebralBreaks s = TenebralPsychosis.BreakSettings;
+        if (kills == s.killThreshold)
         {
             if (pawn.Faction == Faction.OfPlayer)
             {
                 Find.LetterStack.ReceiveLetter("BOR_CrystallizationLabel".Translate(pawn.LabelShortCap),
                     "BOR_CrystallizationText".Translate(pawn.Named("PAWN")), LetterDefOf.ThreatSmall, pawn);
             }
+            return;
         }
-        else if (breaks > s.umbralThreshold && Rand.Chance(s.crystallizeChancePerBreak))
+        float chance = s.crystallizeChancePerKill * (1f + MapComponent_TenebralExposure.EmissionFor(pawn) * s.emissionChanceFactor);
+        if (kills < s.killThreshold || !Rand.Chance(chance))
         {
-            bool crystallized = false;
-            for (int i = 0; i < s.partsPerCrystallization; i++)
-            {
-                crystallized |= Crystallization.CrystallizeRandomPart(pawn);
-            }
-            if (crystallized)
-            {
-                DarkAbilities.RollCrystallization(pawn);
-            }
+            return;
+        }
+        bool crystallized = false;
+        for (int i = 0; i < s.partsPerCrystallization; i++)
+        {
+            crystallized |= Crystallization.CrystallizeRandomPart(pawn);
+        }
+        if (crystallized)
+        {
+            DarkAbilities.RollCrystallization(pawn);
         }
     }
 
@@ -375,7 +417,18 @@ public class Hediff_TenebralBreaks : HediffWithComps
     {
         base.ExposeData();
         Scribe_Values.Look(ref breaks, "breaks");
+        Scribe_Values.Look(ref kills, "kills");
         Scribe_Values.Look(ref choicePending, "choicePending");
+        Scribe_Values.Look(ref migrated, "migrated");
+        if (Scribe.mode == LoadSaveMode.PostLoadInit && !migrated)
+        {
+            int threshold = TenebralPsychosis.BreakSettings.killThreshold;
+            if (breaks >= LegacyUmbralBreaks && kills < threshold)
+            {
+                kills = threshold;
+            }
+            migrated = true;
+        }
     }
 }
 
@@ -476,12 +529,7 @@ public static class TenebralPsychosisPatches
             {
                 return;
             }
-            if (___pawn.health.hediffSet.GetFirstHediffOfDef(BOR_TenebralDefOf.BOR_TenebralBreakCounter) is not Hediff_TenebralBreaks counter)
-            {
-                counter = (Hediff_TenebralBreaks)HediffMaker.MakeHediff(BOR_TenebralDefOf.BOR_TenebralBreakCounter, ___pawn);
-                ___pawn.health.AddHediff(counter);
-            }
-            counter.Notify_Break();
+            TenebralPsychosis.BreakCounter(___pawn).Notify_Break();
         }
     }
 
