@@ -258,10 +258,6 @@
 					<li>BOR_UmbralUtility_Gun</li>
 					<li>BOR_UmbralUtility_Launcher</li>
 				</weapons>
-				<!-- Forms left out of the switch menu. The tool is off for now while the other textures' morphs are tested. -->
-				<disabledWeapons>
-					<li>BOR_UmbralUtility_Tool</li>
-				</disabledWeapons>
 				<morphSeconds>2.5</morphSeconds>
 			</li>
 		</comps>
