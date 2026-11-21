@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
@@ -101,6 +102,28 @@ public static class ResearchBenchSubstitutePatches
                         __result = true;
                         return;
                     }
+                }
+            }
+        }
+    }
+
+    // Pact research names the dark mirror as its building, but the mirror is not a research bench: a standing mirror
+    // counts, so the research tab doesn't show the requirement as unmet.
+    [HarmonyPatch(typeof(ResearchProjectDef), nameof(ResearchProjectDef.PlayerHasAnyAppropriateResearchBench), MethodType.Getter)]
+    public static class ResearchProjectDef_PlayerHasBench_Patch
+    {
+        public static void Postfix(ResearchProjectDef __instance, ref bool __result)
+        {
+            if (__result || !__instance.HasModExtension<DefModExtension_DarkPact>())
+            {
+                return;
+            }
+            foreach (Map map in Find.Maps)
+            {
+                if (DarkPacts.MirrorsOn(map).Any())
+                {
+                    __result = true;
+                    return;
                 }
             }
         }

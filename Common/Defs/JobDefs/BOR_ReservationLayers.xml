@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Pact communion reserves the dark mirror on its own layer, so it never blocks the pod's enter and carry jobs. -->
+  <ReservationLayerDef>
+    <defName>BOR_DarkMirrorCommune</defName>
+  </ReservationLayerDef>
+
+</Defs>

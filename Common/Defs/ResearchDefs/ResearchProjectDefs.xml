@@ -60,11 +60,9 @@
 			</li>
 		</modExtensions>
 	</ResearchProjectDef>
+	<!-- Only pacts use this tier. The dark mirror is not a research bench; ResearchBenchSubstitutes counts a standing mirror as this building. -->
 	<ResearchProjectDef Name="BOR_Research_Base_III" ParentName="BOR_Research_Base" Abstract="True">
 		<requiredResearchBuilding>BOR_Research_Unlocker_III</requiredResearchBuilding>
-		<requiredResearchFacilities>
-			<li>BOR_Research_Unlocker_II</li>
-		</requiredResearchFacilities>
 		<modExtensions>
 			<li Class="TechLeveler.ResearchTierExtension" MayRequire="bambaryla.techleveler">
 				<tier>TL_Tenebral</tier>

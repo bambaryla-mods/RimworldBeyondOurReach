@@ -21,6 +21,7 @@ public static class BOR_DarkPactDefOf
     public static JobDef BOR_DarkMirrorUmbralPact = null!;
     public static HediffDef BOR_DarkPunishment = null!;
     public static QuestScriptDef BOR_UmbralPact = null!;
+    public static ReservationLayerDef BOR_DarkMirrorCommune = null!;
 
     static BOR_DarkPactDefOf()
     {
@@ -303,7 +304,9 @@ public class JobDriver_DarkMirrorPact : JobDriver
 
     private ResearchProjectDef? Research => job.count >= 0 && job.count < DarkPacts.All.Count ? DarkPacts.All[job.count] : null;
 
-    public override bool TryMakePreToilReservations(bool errorOnFailed) => pawn.Reserve(Mirror, job, 1, -1, null, errorOnFailed);
+    // On its own layer: the mirror is also the tenebral pod, and communing must not block pawns entering it.
+    public override bool TryMakePreToilReservations(bool errorOnFailed) =>
+        pawn.Reserve(Mirror, job, 1, -1, BOR_DarkPactDefOf.BOR_DarkMirrorCommune, errorOnFailed);
 
     // The communion is called off when this turns true.
     protected virtual bool Invalid => !DarkPacts.Powered(Mirror) || DarkPacts.Active != null || Research == null || Research.IsFinished;
