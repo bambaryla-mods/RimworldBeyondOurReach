@@ -283,8 +283,6 @@ public class ITab_GeneForge : BorTab
     private static readonly Color CellBorder = new(0.35f, 0.2f, 0.4f, 1f);
     private static readonly Color ProgressTint = new(0.55f, 0.1f, 0.1f, 0.55f);
 
-    private static BorUISchemeDef? tenebralScheme;
-
     private readonly List<GeneDef> genes = new();
 
     public ITab_GeneForge()
@@ -296,10 +294,6 @@ public class ITab_GeneForge : BorTab
     private Building_TenebralPod? Pod => SelThing as Building_TenebralPod;
 
     public override bool IsVisible => Pod?.GeneForgeActive == true;
-
-    // The pod has no scheme of its own (that would recolour the vanilla contents tab too), so the tab borrows the altar's.
-    protected override BorUISchemeDef? Scheme =>
-        base.Scheme ?? (tenebralScheme ??= DefDatabase<BorUISchemeDef>.GetNamedSilentFail("BOR_UIScheme_Tenebral"));
 
     protected override void UpdateSize()
     {

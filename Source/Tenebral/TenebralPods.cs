@@ -65,7 +65,8 @@ public enum TenebralPodMode
     Transformation
 }
 
-// Bionic installator, healing pod, stasis pod and Umbral transformation chamber in one. In transformation mode a
+// The dark mirror's class (its pact comp and tab come from the def): bionic installator, healing pod, stasis pod and
+// Umbral transformation chamber in one. In transformation mode a
 // half-crystallized pawn is held for (100 - crystallized%)% of a year and released as an Umbral; there is no early exit.
 public partial class Building_TenebralPod : Building_TenebralCasket
 {

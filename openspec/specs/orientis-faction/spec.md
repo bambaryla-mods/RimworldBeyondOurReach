@@ -42,7 +42,7 @@ The choice SHALL be made once per colony and SHALL be final. While a letter is u
 Choosing either path SHALL show the response "So be it." Choosing the Path of Dark SHALL set the colony's path permanently. Nothing else SHALL change. Break counting and crystallization SHALL continue as defined in `tenebral-rework`.
 
 ### Requirement: Path of Light
-Choosing the Path of Light SHALL set the colony's path permanently and SHALL run these steps in order, each finishing before the next starts. It applies to every living pawn belonging to the colony (player faction, slaves included), wherever it is: on any map, in a caravan, in a transport pod, off-map, or held in a container such as a Tenebral pod or cryptosleep casket. Prisoners, guests, and pawns of other factions SHALL NOT be affected.
+Choosing the Path of Light SHALL set the colony's path permanently and SHALL run these steps in order, each finishing before the next starts. It applies to every living pawn belonging to the colony (player faction, slaves included), wherever it is: on any map, in a caravan, in a transport pod, off-map, or held in a container such as the dark mirror's pod or a cryptosleep casket. Prisoners, guests, and pawns of other factions SHALL NOT be affected.
 
 1. Stripping (see Requirement: Stripping).
 2. Umbral judgment (see Requirement: Umbral judgment).
@@ -81,11 +81,11 @@ Every tenebral part SHALL be removed from every pawn holding one: every hediff w
 - THEN the pawn is not stripped but still becomes Orientis
 
 ### Requirement: Transforming pawns
-A Tenebral pod holding a colony pawn in transformation mode SHALL be destroyed during the stripping step, and that pawn SHALL be killed with it. The pawn SHALL NOT become Orientis. Tenebral pods in other modes SHALL be left alone, and pawns held in them SHALL be stripped as normal.
+A dark mirror holding a colony pawn in transformation mode SHALL be destroyed during the stripping step, and that pawn SHALL be killed with it. The pawn SHALL NOT become Orientis. Dark mirrors in other modes SHALL be left alone, and pawns held in them SHALL be stripped as normal.
 
-#### Scenario: Pod mid-transformation
-- WHEN the Path of Light is chosen while a colonist is transforming in a Tenebral pod
-- THEN the pod is destroyed and the colonist dies
+#### Scenario: Mirror mid-transformation
+- WHEN the Path of Light is chosen while a colonist is transforming in the dark mirror
+- THEN the mirror is destroyed and the colonist dies
 
 ### Requirement: Umbral judgment
 Every Umbral pawn belonging to the colony (`Umbral.IsUmbral`, so the hediff fallback counts) SHALL be killed. A spawned pawn SHALL be killed by a golden beam from the sky. An unspawned pawn SHALL die without a beam. Armor, exoskeleton modes, and invisibility SHALL NOT prevent the death, and the beam SHALL NOT harm anything else. An Umbral pawn SHALL NOT become Orientis, even if it was stripped first.
@@ -137,7 +137,7 @@ The blades of Orientis melee weapons SHALL glow faintly while held, and their ha
 Choosing the Path of Light SHALL end the colony's tenebral and Umbral buildings on every map.
 - Each dark archotech altar SHALL be struck by a golden beam from the sky, at the same time as the Umbral pawns, and SHALL become an inert husk at that moment. It SHALL drop no materials and none of the components it held.
 - Each struck altar SHALL send a ring of light across the whole map. A tenebral or Umbral building on that map SHALL die as the ring reaches it. Buildings on maps with no altar SHALL die when the sequence ends.
-- Every other tenebral and Umbral building SHALL become an inert husk that has its footprint and looks like it, greyed out. Pawns in a Tenebral pod SHALL be ejected first.
+- Every other tenebral and Umbral building SHALL become an inert husk that has its footprint and looks like it, greyed out. Pawns in the dark mirror SHALL be ejected first.
 - All dark gear on the colony's pawns SHALL burn at the moment tenebral parts are stripped, whether or not the pawn is converted or on a map: worn, wielded, carried or in inventory. An Umbral pawn's grown exoskeleton and utility pod are not gear. Those pawns SHALL glow as the others do.
 - Dark items lying on the map SHALL burn away as the ring reaches them. Any still left when the sequence ends, on any map, SHALL burn then, including gear dropped during conversion. Items worn, carried or inside a container SHALL NOT burn.
 - Their blueprints and frames SHALL be cancelled with a refund.

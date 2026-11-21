@@ -6,7 +6,9 @@ Tenebral research is not studied; it is bargained for. Every tenebral research c
 ## Requirements
 
 ### Requirement: Pact research
-A research SHALL be a pact research when it inherits `BOR_Research_Base_III_Pact`, which sets a base cost of 1E+15 and the `DefModExtension_DarkPact` marker. Every tenebral research is one, compat researches included, except `BOR_Research_Gate_III`, which stays at the bench. `BOR_Research_Analyzer_III`, which unlocks the dark mirror, is tier II and stays at the bench too.
+A research SHALL be a pact research when it inherits `BOR_Research_Base_III_Pact`, which sets a base cost of 1E+15 and the `DefModExtension_DarkPact` marker. Every tenebral research is one, compat researches included, and so is `BOR_Research_Gate_IV` (umbral research gate), the ultimate pact: it needs every other tenebral pact and unlocks the umbral spire. `BOR_Research_Analyzer_III` ("dark pacts"), which unlocks the dark mirror, is the last tier II project: it is studied at the quasar bench and needs the whole quasar tree (compat projects through `MayRequire`, Biotech mechtech left out because it needs a mechanitor).
+
+The dark mirror is not a research bench. Pact research still names it as `requiredResearchBuilding`; a Harmony postfix on `PlayerHasAnyAppropriateResearchBench` counts a standing mirror. Pact communion reserves the mirror on its own reservation layer (`BOR_DarkMirrorCommune`), so it never blocks the mirror's pod.
 
 ### Requirement: Pacts tab
 The dark mirror SHALL have a **Pacts** inspector tab (`ITab_DarkPacts`) and no pact gizmos. The tab SHALL show:
@@ -32,7 +34,7 @@ The Pacts tab SHALL show an **Umbral pacts** section between the research pact u
 | Demand | Weight | Available when | Done when | Fails when |
 | --- | --- | --- | --- | --- |
 | Righteous Slaughter | 1 | Always | Any Umbral performs 1 Righteous Slaughter | |
-| Into the dark | 1 | A colonist other than this Umbral, not Umbral, at least 50% crystallized, is spawned on a home map | That colonist enters a Tenebral pod in transformation mode | They die or are lost |
+| Into the dark | 1 | A colonist other than this Umbral, not Umbral, at least 50% crystallized, is spawned on a home map | That colonist enters the dark mirror in transformation mode | They die or are lost |
 | Offering | 1 | Always | 150 tenebrite crystals and 10 crystalline joints lie within 10 cells of a colony dark mirror at once (checked every long tick); they are then consumed | |
 | Sever the last tie | 1 | The Umbral has an adult blood relative or love partner on a home map who is not an enemy | The relative dies with the Umbral as instigator | The relative dies any other way, or is lost |
 | Vigil | 0.5 | Always | Time runs out with no humanlike killed by the Umbral | The Umbral kills a humanlike |

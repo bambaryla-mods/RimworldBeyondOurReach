@@ -29,9 +29,9 @@
   <BOR_UmbralEmergedLabel>{0} emerged as Umbral</BOR_UmbralEmergedLabel>
   <BOR_UmbralEmergedText>The pod opens. {PAWN_labelShort} is Umbral now: {PAWN_possessive} body will take no more surgery, and it will change further only through pacts at the dark mirror.</BOR_UmbralEmergedText>
 
-  <!-- Tenebral pod -->
+  <!-- Tenebral pod (the dark mirror) -->
   <BOR_TenebralPodMode>Mode</BOR_TenebralPodMode>
-  <BOR_TenebralPodModeDesc>Open the pod controls: choose stasis, healing, transformation or an operation, and who goes in.</BOR_TenebralPodModeDesc>
+  <BOR_TenebralPodModeDesc>Open the mirror's pod controls: choose stasis, healing, transformation or an operation, and who goes in.</BOR_TenebralPodModeDesc>
   <BOR_TenebralPodModeInspect>Mode: {0}</BOR_TenebralPodModeInspect>
   <BOR_TenebralPodMode_Stasis>stasis</BOR_TenebralPodMode_Stasis>
   <BOR_TenebralPodMode_Healing>healing</BOR_TenebralPodMode_Healing>
@@ -40,7 +40,7 @@
   <BOR_TenebralPodTransforming>A transformation is under way and cannot be interrupted.</BOR_TenebralPodTransforming>
   <BOR_TenebralPodNeedsTenebral>healing needs a tenebral or Umbral pawn</BOR_TenebralPodNeedsTenebral>
   <BOR_TenebralPodChoose>Choose operation</BOR_TenebralPodChoose>
-  <BOR_TenebralPodChooseDesc>Choose what to install, and where. This works with nobody inside, so a colonist can set up their own operation, load the pod and climb in. Colonists load the tenebral organ or appendage and the femtoclusters it needs; the operation starts once someone is inside and ends by opening the pod.</BOR_TenebralPodChooseDesc>
+  <BOR_TenebralPodChooseDesc>Choose what to install, and where. This works with nobody inside, so a colonist can set up their own operation, load the mirror and climb in. Colonists load the tenebral organ or appendage and the femtoclusters it needs; the operation starts once someone is inside and ends by opening the pod.</BOR_TenebralPodChooseDesc>
   <BOR_TenebralPodDoesNotFit>The chosen part can't take this operation on {0}.</BOR_TenebralPodDoesNotFit>
   <BOR_TenebralPodWaitingForPatient>Waiting for someone to lie down inside.</BOR_TenebralPodWaitingForPatient>
   <BOR_TenebralPodCancel>Cancel operation</BOR_TenebralPodCancel>
@@ -59,16 +59,16 @@
   <BOR_OpPickOperation>Choose an organ or appendage</BOR_OpPickOperation>
   <BOR_OpPickPart>Choose where to install</BOR_OpPickPart>
   <BOR_OpMissingItems>Not enough in the colony</BOR_OpMissingItems>
-  <BOR_TenebralPodTitle>Tenebral pod</BOR_TenebralPodTitle>
+  <BOR_TenebralPodTitle>Dark mirror</BOR_TenebralPodTitle>
   <BOR_PodAction>Action</BOR_PodAction>
   <BOR_PodColonists>Colonists</BOR_PodColonists>
   <BOR_PodSlaves>Slaves</BOR_PodSlaves>
   <BOR_PodPrisoners>Prisoners</BOR_PodPrisoners>
   <BOR_PodColonistsOnly>colonists only</BOR_PodColonistsOnly>
-  <BOR_PodOccupied>The pod is occupied</BOR_PodOccupied>
-  <BOR_PodWalks>{0} will walk to the pod.</BOR_PodWalks>
-  <BOR_PodCarried>{0} will be carried to the pod by a colonist.</BOR_PodCarried>
-  <BOR_PodNobodyToCarry>No colonist can carry {0} to the pod.</BOR_PodNobodyToCarry>
+  <BOR_PodOccupied>The mirror is occupied</BOR_PodOccupied>
+  <BOR_PodWalks>{0} will walk to the mirror.</BOR_PodWalks>
+  <BOR_PodCarried>{0} will be carried to the mirror by a colonist.</BOR_PodCarried>
+  <BOR_PodNobodyToCarry>No colonist can carry {0} to the mirror.</BOR_PodNobodyToCarry>
   <!-- Card shown when hovering a pawn in the pod window. -->
   <BOR_PodColonist>Colonist</BOR_PodColonist>
   <BOR_PodSlave>Slave</BOR_PodSlave>
@@ -86,7 +86,7 @@
   <BOR_TenebralPodNoOperations>No tenebral operation is possible</BOR_TenebralPodNoOperations>
   <BOR_TenebralPodOperation>Operation: {0} on {1} ({2})</BOR_TenebralPodOperation>
   <BOR_TenebralPodMissing>Waiting for: {0}</BOR_TenebralPodMissing>
-  <BOR_TenebralPodInstalled>The tenebral pod installed {1} in {0}.</BOR_TenebralPodInstalled>
+  <BOR_TenebralPodInstalled>The dark mirror installed {1} in {0}.</BOR_TenebralPodInstalled>
 
   <!-- Dark archotech altar -->
   <BOR_TabDarkAltar>Altar</BOR_TabDarkAltar>
@@ -116,7 +116,7 @@ Click to have a doctor draw this gene out into a genepack ({2} of work, {3} {4})
 The sleeper loses a random body part. It might be a toe. It might be the heart.</BOR_GeneForgeCellTip>
   <BOR_GeneForgeWaiting>{0}: waiting for {1}</BOR_GeneForgeWaiting>
   <BOR_GeneForgeProgress>Drawing out {0}</BOR_GeneForgeProgress>
-  <BOR_GeneForgeCancel>Stop drawing out this gene. Loaded femtoclusters stay in the pod.</BOR_GeneForgeCancel>
+  <BOR_GeneForgeCancel>Stop drawing out this gene. Loaded femtoclusters stay in the mirror.</BOR_GeneForgeCancel>
   <BOR_GeneForgeInspect>Gene forge: {0} ({1})</BOR_GeneForgeInspect>
   <BOR_GeneForgeNeedsFemto>needs {0} femtoclusters</BOR_GeneForgeNeedsFemto>
   <BOR_GeneForgeDone>The gene forge drew {0} out of {1}. It took {1}'s {2} with it.</BOR_GeneForgeDone>

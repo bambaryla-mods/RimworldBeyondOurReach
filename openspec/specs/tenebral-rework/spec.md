@@ -35,10 +35,10 @@ Once the kill counter reaches the kill threshold, the pawn's body SHALL begin to
 
 #### Scenario: Half crystallized
 - WHEN 50% of the pawn's body is crystallized
-- THEN the pawn can be placed in a Tenebral pod in transformation mode
+- THEN the pawn can be placed in the dark mirror in transformation mode
 
 ### Requirement: Transformation mode hold
-A pawn placed in a Tenebral pod set to transformation mode SHALL be held for `(100 - crystallized%)`% of a year. The hold SHALL NOT end early, except that the Path of Light destroys the pod and kills the pawn (see `orientis-faction`).
+A pawn placed in the dark mirror set to transformation mode SHALL be held for `(100 - crystallized%)`% of a year. The hold SHALL NOT end early, except that the Path of Light destroys the pod and kills the pawn (see `orientis-faction`).
 
 #### Scenario: Partial crystallization
 - WHEN the pawn is 50% crystallized
@@ -51,7 +51,7 @@ When the hold ends, the pawn SHALL emerge as Umbral, as defined in `umbral-rewor
 Every Tenebral building SHALL be replaced by an Umbral building, except the turret, which SHALL remain Tenebral. The Umbral tier has no items of its own. Its buildings (tier IV) SHALL produce the tenebral-tier items (weapons, guns, apparel, vaccines, organs, appendages) as well as the items moved to the Umbral line (drugs and medicine). Umbral pawns resist tenebral psychosis, so they cannot use the Dark Archotech Altar and SHALL NOT need it.
 
 ### Requirement: New Tenebral buildings
-Tenebral SHALL gain the Dark Archotech Altar. The Umbral transformation chamber is a mode of the Tenebral pod, not a separate building.
+Tenebral SHALL gain the Dark Archotech Altar. The Umbral transformation chamber is a mode of the tenebral pod, which is part of the dark mirror, not a separate building.
 
 ### Requirement: Dark Archotech Altar
 The Dark Archotech Altar SHALL be a special Forge whose grid is prefilled with tenebral items: guns, apparel, tenebrite, tenebral organ, tenebral appendage, femtoclusters, and the tenebral and umbral vaccines. Tenebral melee weapons are not defined by this mod; they come from AllBambaMelee, which adds them to the grid when it is loaded. Every item on the altar SHALL also have a normal recipe at the Umbral tier IV buildings; the altar is an additional source, not the only one.
@@ -82,7 +82,19 @@ Everything created with `BOR_Tenebrite` (buildings, floors, walls, weapons, armo
 - THEN tenebral psychosis grows in that pawn after a few days
 
 ### Requirement: Tenebral pod
-The Tenebral pod SHALL be a Tenebral building that combines a bionic installator, a healing pod, and a stasis pod. It SHALL provide a mode gizmo with four modes: stasis, healing, operating, and transformation. The mode cannot be changed while a transformation is under way.
+The tenebral pod SHALL be part of the dark mirror (`BOR_Research_Unlocker_III`, class `Building_TenebralPod`), which also hosts dark pacts; there is no separate pod building. It combines a bionic installator, a healing pod, and a stasis pod. It SHALL provide a mode gizmo with four modes: stasis, healing, operating, and transformation. The mode cannot be changed while a transformation is under way.
+
+The pod SHALL be locked until `BOR_Research_Medicine_III` is finished: the gizmo is disabled and no pawn can enter. The mirror SHALL have no mode until the player picks a mode and a pawn in the pod window, and SHALL drop back to no mode once nobody is inside or on the way, no operation is set up and no transformation runs. With no mode, no pawn can enter.
+
+#### Scenario: Back to no mode
+- WHEN a pawn ordered into stasis is drafted before reaching the mirror
+- THEN within a rare tick the mirror has no mode again
+- WHEN an operation is set up and its target walks away
+- THEN the mirror stays in operating mode and keeps the loaded ingredients
+
+#### Scenario: Look
+- The portal floats over the button base and bobs; it phases from dark to lit while the mirror has a mode, and back when it loses it
+- A glow pulses over it while it has a mode and someone is inside
 
 #### Scenario: Healing mode
 - WHEN a tenebral pawn (tenebral implants or crystallized parts) or an Umbral enters the pod in healing mode

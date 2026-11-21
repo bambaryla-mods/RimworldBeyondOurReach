@@ -7,7 +7,7 @@ using Verse;
 
 namespace BeyondOurReach;
 
-// Control window of the Tenebral Pod: action, pawn (colonists, slaves, prisoners), then for an operation the organ
+// Pod control window of the dark mirror (Building_TenebralPod): action, pawn (colonists, slaves, prisoners), then for an operation the organ
 // or appendage and where to install it.
 public class Window_TenebralPod : BorWindow
 {

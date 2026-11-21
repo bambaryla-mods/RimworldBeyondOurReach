@@ -59,9 +59,9 @@ Set up these pawns first:
 | B | Crystallized torso and leg, no implants |
 | C | Clean colonist, with psychosis only from Force tenebral break |
 | D | Clean colonist with nothing |
-| E | Umbral, from a Tenebral pod or by adding the `BOR_Umbral` hediff |
-| F | Half crystallized, in a Tenebral pod in transformation mode |
-| G | Tenebral implant, in a Tenebral pod in stasis mode |
+| E | Umbral, from the dark mirror or by adding the `BOR_Umbral` hediff |
+| F | Half crystallized, in a dark mirror in transformation mode |
+| G | Tenebral implant, in a dark mirror in stasis mode |
 | H | Tenebral part, away in a caravan |
 | I | Prisoner with a tenebral part |
 | J | Hostile raider with a tenebral part, and a hostile Umbral if you can |
@@ -109,7 +109,7 @@ On a pawn with a tenebral arm and on a pawn with a crystallized leg, at any brea
 | Remove a tenebral implant | Not offered |
 | Remove a crystallized part or its parent | Not offered |
 | Install a non-tenebral implant beside a tenebral part, such as on the head when an eye is tenebral | Still offered |
-| Tenebral pod operating mode on a part that already has a tenebral part | Part is not listed |
+| Dark mirror operating mode on a part that already has a tenebral part | Part is not listed |
 
 On an Orientis pawn:
 
@@ -237,7 +237,7 @@ Use the dev add hediff tool to give an Umbral pawn `BOR_UmbralExoskeleton` and `
 
 ## 14. Dark buildings after the Path of Light
 
-Before choosing, place an altar, a Tenebral pod with a pawn in stasis, a pacifier turret, an Umbral reactor with something on its grid, an Umbral bench with a bill, and a tenebral blueprint and frame. Use a second map if you can.
+Before choosing, place an altar, a dark mirror with a pawn in stasis, a pacifier turret, an Umbral reactor with something on its grid, an Umbral bench with a bill, and a tenebral blueprint and frame. Use a second map if you can.
 
 1. Choose the Path of Dark on a test save. **Expected:** nothing here changes.
 2. Choose the Path of Light. **Expected:** the build menu loses tenebral and Umbral buildings at once, including in god mode.

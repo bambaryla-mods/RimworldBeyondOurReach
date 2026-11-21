@@ -15,7 +15,7 @@
 
 	<WorkGiverDef>
 		<defName>BOR_LoadTenebralPod</defName>
-		<label>load tenebral pod</label>
+		<label>load dark mirror</label>
 		<giverClass>BeyondOurReach.WorkGiver_LoadTenebralPod</giverClass>
 		<workType>Doctor</workType>
 		<priorityInType>40</priorityInType>

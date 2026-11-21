@@ -64,7 +64,7 @@ You have {3}. If the price is not paid, the mirror will lash out at everyone it 
   <BOR_UmbralPact_GroupPod>the utility pod</BOR_UmbralPact_GroupPod>
   <BOR_UmbralPact_GroupDone>nothing more: the transformation is complete</BOR_UmbralPact_GroupDone>
   <BOR_UmbralPact_Obj_Slaughter>Perform {0} Righteous Slaughter at a butcher table. Any Umbral's slaughter will do: the Dark Archotechs are fed all the same.</BOR_UmbralPact_Obj_Slaughter>
-  <BOR_UmbralPact_Obj_IntoTheDark>Bring {0} into the dark: lay them in a Tenebral pod set to transformation.</BOR_UmbralPact_Obj_IntoTheDark>
+  <BOR_UmbralPact_Obj_IntoTheDark>Bring {0} into the dark: lay them in a dark mirror set to transformation.</BOR_UmbralPact_Obj_IntoTheDark>
   <BOR_UmbralPact_Obj_Offering>Lay {0} tenebrite crystals and {1} crystalline joints within {2} cells of a dark mirror, all at once. The Dark Archotechs will take them.</BOR_UmbralPact_Obj_Offering>
   <BOR_UmbralPact_Obj_SeverTie>{0} must kill {1}, its {2}, with its own hands. Nothing may bind an Umbral.</BOR_UmbralPact_Obj_SeverTie>
   <BOR_UmbralPact_Obj_Vigil>{0} must not kill anyone until the pact ends. The Dark Archotechs want an instrument, not a beast.</BOR_UmbralPact_Obj_Vigil>

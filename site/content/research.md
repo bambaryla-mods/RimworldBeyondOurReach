@@ -4,7 +4,7 @@ card: banner:research
 ---
 {{ banner("research", "") }}
 
-Each tier has its own research projects and its own research bench to study them at. Every one of these benches needs a Kylar-Xar effect computer linked to it, and from Kwazaari on, the bench of the tier before as well. Linked benches also speed up each other's research.
+Each tier has its own research projects. Solar and Kwazaari research are studied at their own research benches, and each bench needs a Kylar-Xar effect computer linked to it, and from Kwazaari on, the bench of the tier before as well. Linked benches also speed up each other's research. The last Kwazaari project, dark pacts, needs the whole Kwazaari tree and unlocks the dark mirror. Tenebral research is never studied: it is bargained for at the mirror.
 
 {{ things("BOR_Research_Unlocker_I", "BOR_Research_Unlocker_II", "BOR_Research_Unlocker_III") }}
 
@@ -26,7 +26,7 @@ Not every signal ends well, and how a conversation ends can have consequences la
 
 ## Dark pacts
 
-Tenebral research isn't studied, it's bargained for. Apart from the first step, every Tenebral project has a cost no bench could ever pay. The only way to finish one is a dark pact, made at the dark mirror.
+Tenebral research isn't studied, it's bargained for. Every Tenebral project has a cost no bench could ever pay. The only way to finish one is a dark pact, made at the dark mirror. The last of them, the umbral research gate, is the ultimate pact: it unlocks the umbral spire.
 
 A pact is a quest with a terrible price and seven days to pay it. Pay, and the research is done. Fail, and the mirror sends out a red pulse that punishes everyone it reaches.
 
