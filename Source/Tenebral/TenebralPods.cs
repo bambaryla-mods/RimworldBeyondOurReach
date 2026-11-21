@@ -54,8 +54,11 @@ public abstract class Building_TenebralCasket : Building_CryptosleepCasket
     }
 }
 
+// None: nobody has been ordered in. The pod only holds a mode while a pawn is inside or on the way, an operation is
+// set up, or a transformation runs; otherwise it falls back to None.
 public enum TenebralPodMode
 {
+    None,
     Stasis,
     Healing,
     Operating,
@@ -70,7 +73,7 @@ public partial class Building_TenebralPod : Building_TenebralCasket
     private const float HealingMultiplier = 10f;
     private const float NaturalHealPerDay = 8f;
 
-    private TenebralPodMode mode = TenebralPodMode.Stasis;
+    private TenebralPodMode mode = TenebralPodMode.None;
     private ThingOwner<Thing> ingredients;
     private RecipeDef? operation;
     private Pawn? operationTarget;
@@ -97,6 +100,13 @@ public partial class Building_TenebralPod : Building_TenebralCasket
 
     public TenebralPodMode Mode => mode;
 
+    public bool InMode => mode != TenebralPodMode.None;
+
+    // The pod half of the dark mirror wakes with tenebral medicine; the mirror itself comes earlier, for the pacts.
+    public static bool PodUnlocked => BOR_TenebralDefOf.BOR_Research_Medicine_III.IsFinished;
+
+    private static string LockedReason => "BOR_TenebralPodLocked".Translate(BOR_TenebralDefOf.BOR_Research_Medicine_III.LabelCap);
+
     public Pawn? OperationTarget => operationTarget;
 
     public RecipeDef? Operation => operation;
@@ -114,6 +124,14 @@ public partial class Building_TenebralPod : Building_TenebralCasket
         if (!pawn.RaceProps.Humanlike)
         {
             return false;
+        }
+        if (!PodUnlocked)
+        {
+            return LockedReason;
+        }
+        if (forMode == TenebralPodMode.None)
+        {
+            return "BOR_TenebralPodNoMode".Translate();
         }
         // Healing is for the pawns dark medicine answers to: tenebral (implants or crystallized parts) or Umbral.
         if (forMode == TenebralPodMode.Healing && !DarkMedicine.IsAttuned(pawn))
@@ -149,12 +167,18 @@ public partial class Building_TenebralPod : Building_TenebralCasket
         {
             carrier = patient.Map.mapPawns.FreeColonistsSpawned
                 .Where(c => c != patient && !c.IsSlave && !c.Downed && c.health.capacities.CapableOf(PawnCapacityDefOf.Manipulation)
-                    && c.CanReserveAndReach(patient, PathEndMode.OnCell, Danger.Deadly) && c.CanReach(this, PathEndMode.InteractionCell, Danger.Deadly))
+                    && c.CanReserveAndReach(patient, PathEndMode.OnCell, Danger.Deadly) && c.CanReach(this, PathEndMode.InteractionCell, Danger.Deadly)
+                    && c.CanReserve(this))
                 .OrderBy(c => c.Position.DistanceToSquared(patient.Position)).FirstOrDefault();
             if (carrier == null)
             {
                 return "BOR_PodNobodyToCarry".Translate(patient.LabelShortCap);
             }
+        }
+        // Checked before anything changes, so a refused order leaves the mode, operation and ingredients as they were.
+        if (walks && !patient.CanReserve(this))
+        {
+            return "BOR_PodOrderRefused".Translate(patient.LabelShortCap);
         }
         SetMode(newMode);
         if (newMode == TenebralPodMode.Operating && recipe != null && part != null)
@@ -169,11 +193,16 @@ public partial class Building_TenebralPod : Building_TenebralCasket
         {
             Job carry = JobMaker.MakeJob(JobDefOf.CarryToCryptosleepCasket, patient, this);
             carry.count = 1;
-            carrier.jobs.TryTakeOrderedJob(carry, JobTag.Misc);
+            if (!carrier.jobs.TryTakeOrderedJob(carry, JobTag.Misc))
+            {
+                RefreshMode();
+                return "BOR_PodOrderRefused".Translate(carrier.LabelShortCap);
+            }
         }
-        else
+        else if (!patient.jobs.TryTakeOrderedJob(JobMaker.MakeJob(JobDefOf.EnterCryptosleepCasket, this), JobTag.Misc))
         {
-            patient.jobs.TryTakeOrderedJob(JobMaker.MakeJob(JobDefOf.EnterCryptosleepCasket, this), JobTag.Misc);
+            RefreshMode();
+            return "BOR_PodOrderRefused".Translate(patient.LabelShortCap);
         }
         return null;
     }
@@ -303,6 +332,7 @@ public partial class Building_TenebralPod : Building_TenebralCasket
     private void RareStep()
     {
         CheckGeneForge();
+        RefreshMode();
         Pawn? pawn = Occupant;
         if (pawn != null && Transforming && Find.TickManager.TicksGame >= releaseTick)
         {
@@ -423,7 +453,11 @@ public partial class Building_TenebralPod : Building_TenebralCasket
             icon = BorIcons.Pod(mode),
             action = () => Find.WindowStack.Add(new Window_TenebralPod(this))
         };
-        if (Transforming)
+        if (!PodUnlocked)
+        {
+            open.Disable(LockedReason);
+        }
+        else if (Transforming)
         {
             open.Disable("BOR_TenebralPodTransforming".Translate());
         }
@@ -460,15 +494,47 @@ public partial class Building_TenebralPod : Building_TenebralCasket
         List<Pawn> pawns = innerContainer.OfType<Pawn>().ToList();
         base.EjectContents();
         operationProgress = 0f;
-        if (mode == TenebralPodMode.Stasis)
+        if (mode != TenebralPodMode.Stasis)
         {
-            return;
+            foreach (Pawn pawn in pawns)
+            {
+                Umbral.RemoveHediffs(pawn, HediffDefOf.CryptosleepSickness);
+            }
         }
-        foreach (Pawn pawn in pawns)
+        RefreshMode();
+    }
+
+    // Drops back to no mode once nothing holds the pod: nobody inside or on the way, no operation set up, no
+    // transformation. Sets the field directly, since SetMode would cancel the operation and drop its ingredients.
+    private void RefreshMode()
+    {
+        if (InMode && !HasAnyContents && operation == null && !Transforming && !PawnOnTheWay())
         {
-            Umbral.RemoveHediffs(pawn, HediffDefOf.CryptosleepSickness);
+            mode = TenebralPodMode.None;
         }
     }
+
+    // A player pawn walking in, or carrying someone in. Ordered jobs are queued first, so the queue counts too.
+    private bool PawnOnTheWay()
+    {
+        if (!Spawned)
+        {
+            return false;
+        }
+        foreach (Pawn p in Map.mapPawns.SpawnedPawnsInFaction(Faction.OfPlayer))
+        {
+            if (HeadsHere(p.CurJob) || p.jobs?.jobQueue != null && p.jobs.jobQueue.Any(q => HeadsHere(q.job)))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private bool HeadsHere(Job? job) =>
+        job != null
+        && (job.def == JobDefOf.EnterCryptosleepCasket && job.targetA.Thing == this
+            || job.def == JobDefOf.CarryToCryptosleepCasket && job.targetB.Thing == this);
 
     // The Path of Light ends a transformation by killing the pawn and destroying the pod. The hold is cleared first so
     // the corpse is ejected instead of being destroyed with the pod.
@@ -489,7 +555,10 @@ public partial class Building_TenebralPod : Building_TenebralCasket
     public override string GetInspectString()
     {
         string text = base.GetInspectString();
-        text += "\n" + "BOR_TenebralPodModeInspect".Translate(("BOR_TenebralPodMode_" + mode).Translate());
+        if (InMode)
+        {
+            text += "\n" + "BOR_TenebralPodModeInspect".Translate(("BOR_TenebralPodMode_" + mode).Translate());
+        }
         if (Occupant != null && Transforming)
         {
             text += "\n" + "BOR_UmbralPodRemaining".Translate((releaseTick - Find.TickManager.TicksGame).ToStringTicksToPeriod());
@@ -518,7 +587,7 @@ public partial class Building_TenebralPod : Building_TenebralCasket
     public override void ExposeData()
     {
         base.ExposeData();
-        Scribe_Values.Look(ref mode, "podMode");
+        Scribe_Values.Look(ref mode, "podMode", TenebralPodMode.None);
         Scribe_Deep.Look(ref ingredients, "ingredients", this);
         Scribe_Defs.Look(ref operation, "operation");
         Scribe_References.Look(ref operationTarget, "operationTarget");

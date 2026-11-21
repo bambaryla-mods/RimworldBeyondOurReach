@@ -79,6 +79,8 @@ public static class BOR_TenebralDefOf
     public static JobDef BOR_AltarProduce = null!;
     public static JobDef BOR_LoadTenebralPod = null!;
 
+    public static ResearchProjectDef BOR_Research_Medicine_III = null!;
+
     [MayRequireBiotech]
     public static JobDef BOR_GeneForge = null!;
 

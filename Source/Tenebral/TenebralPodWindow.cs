@@ -54,7 +54,7 @@ public class Window_TenebralPod : BorWindow
         {
             (inside.IsPrisonerOfColony ? prisoners : inside.IsSlaveOfColony ? slaves : colonists).Add(inside);
         }
-        action = pod.Mode;
+        action = pod.InMode ? pod.Mode : TenebralPodMode.Stasis;
         Pawn? start = pod.OperationTarget ?? inside;
         if (start != null && Eligible(start) == null)
         {

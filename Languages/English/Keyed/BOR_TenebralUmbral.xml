@@ -45,6 +45,9 @@
   <BOR_TenebralPodWaitingForPatient>Waiting for someone to lie down inside.</BOR_TenebralPodWaitingForPatient>
   <BOR_TenebralPodCancel>Cancel operation</BOR_TenebralPodCancel>
   <BOR_TenebralPodCancelDesc>Cancel the operation and drop whatever was loaded for it.</BOR_TenebralPodCancelDesc>
+  <BOR_TenebralPodNoMode>choose a mode in the mirror's pod controls first</BOR_TenebralPodNoMode>
+  <BOR_TenebralPodLocked>Needs {0}.</BOR_TenebralPodLocked>
+  <BOR_PodOrderRefused>{0} can't take the order right now.</BOR_PodOrderRefused>
   <BOR_TenebralPodNeedsResearch>needs {0}</BOR_TenebralPodNeedsResearch>
   <BOR_TenebralPodReservedFor>this operation is set up for {0}</BOR_TenebralPodReservedFor>
   <BOR_OpColonists>Colonist</BOR_OpColonists>
