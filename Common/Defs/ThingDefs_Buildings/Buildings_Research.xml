@@ -364,7 +364,7 @@
         </graphicData>
         <uiIconScale>0.85</uiIconScale>
         <researchPrerequisites>
-            <li>BOR_Research_Gate_III</li>
+            <li>BOR_Research_Gate_IV</li>
         </researchPrerequisites>
         <size>(5,3)</size>
         <rotatable>False</rotatable>

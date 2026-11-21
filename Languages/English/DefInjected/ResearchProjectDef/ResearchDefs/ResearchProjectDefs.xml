@@ -166,12 +166,12 @@ Neutronosynthesis ("n-synthesis") is the process of turning stuff into neutroniu
   <BOR_Research_NSynth_II.label>standard n-synthesis</BOR_Research_NSynth_II.label>
   <BOR_Research_NSynth_II.description>Unlocks improved neutronium extractor construction using kwazaari alloy and Kwazaari universal parts, reducing neutronium loss during synthesis and enabling much more efficient neutronosynthesis recipes.</BOR_Research_NSynth_II.description>
 
-  <BOR_Research_Analyzer_III.label>galactic analyzer</BOR_Research_Analyzer_III.label>
-  <BOR_Research_Analyzer_III.description>Build a dark mirror, an extreme astronomical device that scrutinizes interstellar space for insights into dark matter. The dark mirror greatly aids your research and unlocks Tenebral research projects. In emulating Tenebral society you may, one day, join them.</BOR_Research_Analyzer_III.description>
-  <BOR_Research_Analyzer_III.discoveredLetterTitle>About: Forming tenebrite</BOR_Research_Analyzer_III.discoveredLetterTitle>
-  <BOR_Research_Analyzer_III.discoveredLetterText>You are now able to inefficiently form tenebrite crystals. Recipes for it can be found at the neutronium refabricator.
+  <BOR_Research_Analyzer_III.label>dark pacts</BOR_Research_Analyzer_III.label>
+  <BOR_Research_Analyzer_III.description>The Dark Mirror is a device used to speak with Dark Archotechs.\n\nIts surface reflects the viewer perfectly, save for small details that disappear over time. Through it, petitions may be offered and pacts established. Each exchange will deepen the connection.</BOR_Research_Analyzer_III.description>
+  <BOR_Research_Analyzer_III.discoveredLetterTitle>About: Dark whispers</BOR_Research_Analyzer_III.discoveredLetterTitle>
+  <BOR_Research_Analyzer_III.discoveredLetterText>The Dark Archotechs have answered. Their whispers teach you to form tenebrite crystals, inefficiently for now. Recipes for it can be found at the neutronium refabricator.
 
-You are also able to "produce" crystalline joints, which are essential for building the dark mirror and creating advanced Tenebral equipment. They are harvested by applying a shot of picoclusters into a dead body, effectively extracting the necessary materials from the corpse. It makes a gigantic mess and will not make people think of you any better - unless you have a matching precept. Look up Butcher tables or spots for a helpful gizmo.
+They also teach you to "produce" crystalline joints, which are essential for building the dark mirror and creating advanced Tenebral equipment. They are harvested by applying a shot of picoclusters into a dead body, effectively extracting the necessary materials from the corpse. It makes a gigantic mess and will not make people think of you any better - unless you have a matching precept. Look up Butcher tables or spots for a helpful gizmo.
 
 The dark mirror does not share its secrets through study. Tenebral research is unlocked by making a pact at the mirror, and the Dark Archotechs name their price.</BOR_Research_Analyzer_III.discoveredLetterText>
 
@@ -192,7 +192,7 @@ This is not a technology attained by humans; it is granted by the Dark Archotech
   <BOR_Research_UmbralShield.description>Build a crimson dome that turns aside hostile fire, drop pods and solar flares. Every pawn beneath it pays with their mind.</BOR_Research_UmbralShield.description>
 
   <BOR_Research_Medicine_III.label>tenebrite medicine production</BOR_Research_Medicine_III.label>
-  <BOR_Research_Medicine_III.description>Build the tenebral pod, a healing pod that takes the place of medicine at this tier, the tenebral medical fabricator, and femtoclusters: small machines that give your doctors agency in small places, needed for tenebral medical procedures.</BOR_Research_Medicine_III.description>
+  <BOR_Research_Medicine_III.description>Wake the pod in the dark mirror, which heals and takes the place of medicine at this tier. Build the tenebral medical fabricator and femtoclusters: small machines that give your doctors agency in small places, needed for tenebral medical procedures.</BOR_Research_Medicine_III.description>
 
   <BOR_Research_Bionics_III.label>tenebrite bionics</BOR_Research_Bionics_III.label>
   <BOR_Research_Bionics_III.description>Build tenebral body parts to supersede natural flesh. Requires femtoclusters and a skilled doctor to attach.</BOR_Research_Bionics_III.description>
@@ -222,8 +222,6 @@ The more bionics are installed on a pawn, the more often they have to kill.</BOR
   <BOR_Research_NSynth_V.label>laborless neutronium brew</BOR_Research_NSynth_V.label>
   <BOR_Research_NSynth_V.description>Construct the umbral neutronium self-sustained generator, which turns energy into neutronium and other materials.</BOR_Research_NSynth_V.description>
 
-  <BOR_Research_Gate_III.label>dark pacts</BOR_Research_Gate_III.label>
-  <BOR_Research_Gate_III.description>The Dark Mirror is a device used to speak with Dark Archotechs.\n\nIts surface reflects the viewer perfectly, save for small details that disappear over time. Through it, petitions may be offered and pacts established. Each exchange will deepen the connection.</BOR_Research_Gate_III.description>
 
   <BOR_Research_Power_V.label>unlimited power</BOR_Research_Power_V.label>
   <BOR_Research_Power_V.description>Construct the umbral reactor, a source of free energy (as far as you're concerned).</BOR_Research_Power_V.description>
@@ -291,6 +289,6 @@ The queue works on cell coordinates, so moving around the grid will follow the q
   <BOR_Research_Hydroponics_IV.description>Build the umbral hydroponics basin.</BOR_Research_Hydroponics_IV.description>
 
   <BOR_Research_Gate_IV.label>umbral research gate</BOR_Research_Gate_IV.label>
-  <BOR_Research_Gate_IV.description>The first step of umbral research. It unlocks umbral production.</BOR_Research_Gate_IV.description>
+  <BOR_Research_Gate_IV.description>The ultimate pact. The Dark Archotechs show how to raise an umbral spire, where umbral research begins.</BOR_Research_Gate_IV.description>
 
 </LanguageData>

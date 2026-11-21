@@ -697,23 +697,52 @@
 	<!--Tier 3-->
 	<ResearchProjectDef ParentName="BOR_Research_Base_II">
 		<defName>BOR_Research_Analyzer_III</defName>
-		<label>galactic analyzer</label>
-		<description>Build a dark mirror, an extreme astronomical device that scrutinizes interstellar space for insights into dark matter. The dark mirror greatly aids your research and unlocks Tenebral research projects. In emulating Tenebral society you may, one day, join them.</description>
-		<baseCost>340000</baseCost>
+		<label>dark pacts</label>
+		<description>The Dark Mirror is a device used to speak with Dark Archotechs.\n\nIts surface reflects the viewer perfectly, save for small details that disappear over time. Through it, petitions may be offered and pacts established. Each exchange will deepen the connection.</description>
+		<baseCost>1000000</baseCost>
 		<techLevel>Archotech</techLevel>
+		<!-- The last quasar project: it needs the whole quasar tree. Only the last project of each branch is listed, since each one needs the projects before it.
+		     The Biotech mechtech projects are left out because they need a mechanitor. -->
 		<prerequisites>
-			<li>BOR_Research_Production_II</li>
+			<li>BOR_QuasarGaussHighCaliberWeaponry</li>
+			<li>BOR_QuasarGaussSpecialistWeaponry</li>
+			<li>BOR_Research_Armor_II</li>
+			<li>BOR_Research_Battery_II</li>
+			<li>BOR_Research_Bionics_II</li>
+			<li>BOR_Research_Core_Drill_II</li>
+			<li>BOR_Research_Deepdrill_II</li>
+			<li>BOR_Research_Drugs_II</li>
+			<li>BOR_Research_Hydroponics_II</li>
+			<li>BOR_Research_Joy_II</li>
+			<li>BOR_Research_MoisturePump_II</li>
+			<li>BOR_Research_NSynth_II</li>
+			<li>BOR_Research_NegotiatorArtillery_II</li>
+			<li>BOR_Research_RangerTurret_II</li>
+			<li>BOR_Research_Storage_II</li>
 		</prerequisites>
+		<hiddenPrerequisites>
+			<li MayRequire="ceteam.combatextended">BOR_QuasarBeamHeavyWeaponry</li>
+			<li MayRequire="ceteam.combatextended">BOR_QuasarBeamSpecialistWeaponry</li>
+			<li MayRequire="ceteam.combatextended">BOR_CE_AmmoResearch_QaP</li>
+			<li MayRequire="ceteam.combatextended">BOR_CE_BeamAmmo_II</li>
+			<li MayRequire="ceteam.combatextended">BOR_CE_GaussAmmo_II_Ni</li>
+			<li MayRequire="ludeon.rimworld.biotech">BOR_Research_PollutionPump_II</li>
+			<li MayRequire="fox.simplelearning">BOR_QuasarDesk</li>
+			<li MayRequire="hobbes.terrapumps">BOR_Research_TerraWet_II</li>
+			<li MayRequire="hobbes.terrapumps">BOR_Research_TerraDeep_II</li>
+			<li MayRequire="onofre150.me.vaccines">BOR_Research_Vaccines_Combined_II</li>
+			<li MayRequire="smashphil.vehicleframework">BOR_Research_KwazaariTruck</li>
+		</hiddenPrerequisites>
 		<requiredAnalyzed>
 			<li>BOR_DiluteTenebriteShard</li>
 			<li>BOR_TenebriteMotor</li>
 		</requiredAnalyzed>
 		<researchViewX>14.00</researchViewX>
 		<researchViewY>2.90</researchViewY>
-		<discoveredLetterTitle>About: Forming tenebrite</discoveredLetterTitle>
-		<discoveredLetterText>You are now able to inefficiently form tenebrite crystals. Recipes for it can be found at the neutronium refabricator.
+		<discoveredLetterTitle>About: Dark whispers</discoveredLetterTitle>
+		<discoveredLetterText>The Dark Archotechs have answered. Their whispers teach you to form tenebrite crystals, inefficiently for now. Recipes for it can be found at the neutronium refabricator.
 
-			You are also able to "produce" crystalline joints, which are essential for building the dark mirror and creating advanced Tenebral equipment. They are harvested by applying a shot of picoclusters into a dead body, effectively extracting the necessary materials from the corpse. It makes a gigantic mess and will not make people think of you any better - unless you have a matching precept. Look up Butcher tables or spots for a helpful gizmo.
+			They also teach you to "produce" crystalline joints, which are essential for building the dark mirror and creating advanced Tenebral equipment. They are harvested by applying a shot of picoclusters into a dead body, effectively extracting the necessary materials from the corpse. It makes a gigantic mess and will not make people think of you any better - unless you have a matching precept. Look up Butcher tables or spots for a helpful gizmo.
 
 			The dark mirror does not share its secrets through study. Tenebral research is unlocked by making a pact at the mirror, and the Dark Archotechs name their price.</discoveredLetterText>
 	</ResearchProjectDef>
@@ -762,7 +791,7 @@
 	<ResearchProjectDef ParentName="BOR_Research_Base_III_Pact">
 		<defName>BOR_Research_Medicine_III</defName>
 		<label>tenebrite medicine production</label>
-		<description>Build the tenebral pod, a healing pod that takes the place of medicine at this tier, the tenebral medical fabricator, and femtoclusters: small machines that give your doctors agency in small places, needed for tenebral medical procedures.</description>
+		<description>Wake the pod in the dark mirror, which heals and takes the place of medicine at this tier. Build the tenebral medical fabricator and femtoclusters: small machines that give your doctors agency in small places, needed for tenebral medical procedures.</description>
 		<techLevel>Archotech</techLevel>
 		<prerequisites>
 			<li>BOR_Research_Production_III</li>
@@ -916,31 +945,26 @@
 		<researchViewX>23.50</researchViewX>
 		<researchViewY>5.80</researchViewY>
 	</ResearchProjectDef>
-	<ResearchProjectDef ParentName="BOR_Research_Base_IV">
+	<ResearchProjectDef ParentName="BOR_Research_Base_III_Pact">
 		<defName>BOR_Research_Gate_IV</defName>
 		<label>umbral research gate</label>
-		<description>The first step of umbral research. It unlocks umbral production.</description>
-		<baseCost>2000000</baseCost>
+		<description>The ultimate pact. The Dark Archotechs show how to raise an umbral spire, where umbral research begins.</description>
 		<techLevel>Archotech</techLevel>
+		<!-- Needs every other tenebral pact; the last of each branch is listed. Mechtech is left out (it needs a mechanitor). -->
 		<prerequisites>
-			<li>BOR_Research_Gate_III</li>
-		</prerequisites>
-		<researchViewX>22.00</researchViewX>
-		<researchViewY>2.90</researchViewY>
-	</ResearchProjectDef>
-	<ResearchProjectDef ParentName="BOR_Research_Base_III">
-		<defName>BOR_Research_Gate_III</defName>
-		<label>dark pacts</label>
-		<description>The Dark Mirror is a device used to speak with Dark Archotechs.\n\nIts surface reflects the viewer perfectly, save for small details that disappear over time. Through it, petitions may be offered and pacts established. Each exchange will deepen the connection.</description>
-		<baseCost>1000000</baseCost>
-		<techLevel>Archotech</techLevel>
-		<prerequisites>
-			<li>BOR_Research_Production_III</li>
+			<li>BOR_Research_Bionics_III</li>
+			<li>BOR_Research_Core_Drill_III</li>
+			<li>BOR_Research_MoisturePump_III</li>
+			<li>BOR_Research_PacifierTurret_III</li>
 		</prerequisites>
 		<hiddenPrerequisites>
-			<li>BOR_Research_Bionics_III</li>
-			<li>BOR_Research_Medicine_III</li>
-			<li>BOR_Research_Core_Drill_III</li>
+			<li MayRequire="ceteam.combatextended">BOR_CE_AmmoResearch_TC</li>
+			<li MayRequire="ludeon.rimworld.biotech">BOR_Research_PollutionPump_III</li>
+			<li MayRequire="adaptive.storage.framework">BOR_Research_Storage_III</li>
+			<li MayRequire="fox.simplelearning">BOR_TenebralDesk</li>
+			<li MayRequire="hobbes.terrapumps">BOR_Research_TerraWet_III</li>
+			<li MayRequire="hobbes.terrapumps">BOR_Research_TerraDeep_III</li>
+			<li MayRequire="onofre150.me.vaccines">BOR_Research_Vaccines_Combined</li>
 		</hiddenPrerequisites>
 		<researchViewX>20.00</researchViewX>
 		<researchViewY>3.00</researchViewY>
@@ -1075,8 +1099,8 @@
 			<li>BOR_Research_JudgmentCannon_I</li>
 			<li>BOR_Research_Weapons_II</li>
 		</prerequisites>
-		<researchViewX>19.00</researchViewX>
-		<researchViewY>1.50</researchViewY>
+		<researchViewX>13.00</researchViewX>
+		<researchViewY>3.30</researchViewY>
 	</ResearchProjectDef>
 
 	<ResearchProjectDef ParentName="BOR_Research_Base_I">

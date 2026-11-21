@@ -46,10 +46,6 @@
   <BOR_Research_Hydroponics_II.description>Zbuduj doskonalszy system hydroponiczny ze stopu kwazarowego.</BOR_Research_Hydroponics_II.description>
   <BOR_Research_NSynth_II.label>standardowa n-synteza</BOR_Research_NSynth_II.label>
   <BOR_Research_NSynth_II.description>Zbuduj rafinerię, która dzięki użyciu stopu kwazarowego i kwazaarskich uniwersalnych komponentów traci mniej neutronium podczas etapu syntezy, zapewniając znacznie wydajniejsze receptury neutronosyntezy.</BOR_Research_NSynth_II.description>
-  <BOR_Research_Analyzer_III.label>analizator galaktyczny</BOR_Research_Analyzer_III.label>
-  <BOR_Research_Analyzer_III.description>Zbuduj ciemne zwierciadło, ekstremalne urządzenie astronomiczne analizujące przestrzeń międzygwiezdną w poszukiwaniu wglądu w ciemną materię. Ciemne zwierciadło znacząco wspomaga twoje badania i odblokowuje projekty badawcze poziomu tenebralnego. Naśladując społeczeństwo Tenebrali możesz kiedyś do nich dołączyć.</BOR_Research_Analyzer_III.description>
-  <BOR_Research_Analyzer_III.discoveredLetterTitle>O: Formowanie tenebrytu</BOR_Research_Analyzer_III.discoveredLetterTitle>
-  <BOR_Research_Analyzer_III.discoveredLetterText>Możesz teraz, choć mało wydajnie, formować kryształy tenebrytu. Receptury na nie znajdziesz w refabrykatorze neutronium.</BOR_Research_Analyzer_III.discoveredLetterText>
   <BOR_Research_Production_III.label>grawitacyjne kształtowanie kryształów</BOR_Research_Production_III.label>
   <BOR_Research_Production_III.description>Wytwarzaj tenebryt, krystaliczny materiał pochodzący ze stopu kwazarowego i szczątkowej ciemnej materii. Twórz krystaliczne złącza z tenebrytu, kluczowe komponenty produktów z tenebrytu. Buduj konstrukcje z tenebrytu oraz wytwarzaj narzędzia i broń z tenebrytu; będą przewyższać niemal wszystkie inne.</BOR_Research_Production_III.description>
   <BOR_Research_Power_IV.label>energia tenebrytowa</BOR_Research_Power_IV.label>
@@ -76,8 +72,6 @@
   <BOR_Research_NSynth_IV.description>Zbuduj umbralny kondenser neutronium, który wydobywa neutronium z głębin wystarczająco szybko, by wykarmić umbralne kuźnie.</BOR_Research_NSynth_IV.description>
   <BOR_Research_NSynth_V.label>beznakładowe warzenie neutronium</BOR_Research_NSynth_V.label>
   <BOR_Research_NSynth_V.description>Zbuduj umbralny samowystarczalny generator neutronium, który zamienia energię w neutronium i inne materiały.</BOR_Research_NSynth_V.description>
-  <BOR_Research_Gate_III.label>mroczne pakty</BOR_Research_Gate_III.label>
-  <BOR_Research_Gate_III.description>Wszystkie twoje dotychczasowe wysiłki technologiczne zmierzały do odtworzenia wcześniej znanej ludzkiej technologii. Teraz jednak dotarłeś do końca ponownego odkrywania. To moment na coś twojego - coś nowego. To, co było poza twoim zasięgiem, jest teraz na wyciągnięcie ręki.</BOR_Research_Gate_III.description>
   <BOR_Research_Power_V.label>nieograniczona energia</BOR_Research_Power_V.label>
   <BOR_Research_Power_V.description>Zbuduj umbralny reaktor, źródło darmowej energii (przynajmniej z twojej perspektywy).</BOR_Research_Power_V.description>
   <BOR_Research_Production_IV.label>nieograniczona produkcja</BOR_Research_Production_IV.label>
