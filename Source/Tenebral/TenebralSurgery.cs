@@ -53,7 +53,7 @@ public static class TenebralSurgeryPatches
         return false;
     }
 
-    // Tenebral and crystallized parts never come out by surgery, whether cut off, replaced or lost with a parent part;
+    // Tenebral parts and a crystallizing brain never come out by surgery, whether cut off, replaced or lost with a parent part;
     // only implants added beside them still go in. Umbral parts never come out; Umbral pawns take no parts at all;
     // Orientis pawns take no bionics or implants, though a natural transplant is fine.
     [HarmonyPatch]

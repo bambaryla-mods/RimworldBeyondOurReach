@@ -141,7 +141,7 @@ public partial class Building_TenebralPod : Building_TenebralCasket
         {
             return "BOR_TenebralPodNoMode".Translate();
         }
-        // Healing is for the pawns dark medicine answers to: tenebral (implants or crystallized parts) or Umbral.
+        // Healing is for the pawns dark medicine answers to: tenebral (implants or a crystallizing brain) or Umbral.
         if (forMode == TenebralPodMode.Healing && !DarkMedicine.IsAttuned(pawn))
         {
             return "BOR_TenebralPodNeedsTenebral".Translate();

@@ -411,6 +411,22 @@ public class Hediff_Crystallized : HediffWithComps
     private HediffStage? stage;
     private float stageSeverity = -1f;
 
+    // With no def stages the vanilla setter never sees a stage change, so it never refreshes capacities. This does,
+    // for every change, dev tools included.
+    public override float Severity
+    {
+        get => base.Severity;
+        set
+        {
+            float old = base.Severity;
+            base.Severity = value;
+            if (base.Severity != old && pawn?.health?.hediffSet?.hediffs.Contains(this) == true)
+            {
+                pawn.health.Notify_HediffChanged(this);
+            }
+        }
+    }
+
     public override HediffStage CurStage
     {
         get
@@ -438,7 +454,8 @@ public class GameComponent_CrystalMigration : GameComponent
 
     public override void LoadedGame()
     {
-        foreach (Pawn pawn in PawnsFinder.AllMapsWorldAndTemporary_Alive)
+        // A copy: PawnsFinder refills one shared list on every read.
+        foreach (Pawn pawn in PawnsFinder.AllMapsWorldAndTemporary_Alive.ToList())
         {
             Crystallization.MigrateLegacy(pawn);
         }
@@ -488,7 +505,9 @@ public static class Crystallization
 
     // Whether the pawn is crystallized enough for the transformation pod. The small tolerance absorbs float drift from
     // hundreds of tiny per-kill steps, so the kill that should reach the threshold does.
-    public static bool ReadyForPod(Pawn pawn) => Fraction(pawn) >= TenebralPsychosis.BreakSettings.podThreshold - 0.0001f;
+    public static bool ReadyForPod(Pawn pawn) => Fraction(pawn) >= TenebralPsychosis.BreakSettings.podThreshold - ReadyTolerance;
+
+    private const float ReadyTolerance = 0.0001f;
 
     // Crystallizes the brain by `amount` more, rolling for a dark ability at every step it passes. Returns true when
     // this started the crystallization.
@@ -515,12 +534,12 @@ public static class Crystallization
         else
         {
             crystal.Severity = after;
-            pawn.health.Notify_HediffChanged(crystal);
         }
         float step = TenebralPsychosis.BreakSettings.abilityRollEvery;
         if (step > 0f && !pawn.Dead)
         {
-            int rolls = Mathf.FloorToInt(after / step + 0.00001f) - Mathf.FloorToInt(before / step + 0.00001f);
+            // Same tolerance as ReadyForPod, so the kill that readies the pawn also gets its roll.
+            int rolls = Mathf.FloorToInt((after + ReadyTolerance) / step) - Mathf.FloorToInt((before + ReadyTolerance) / step);
             for (int i = 0; i < rolls; i++)
             {
                 DarkAbilities.RollCrystallization(pawn);
@@ -554,7 +573,6 @@ public static class Crystallization
         else if (crystal.Severity < severity)
         {
             crystal.Severity = severity;
-            pawn.health.Notify_HediffChanged(crystal);
         }
     }
 

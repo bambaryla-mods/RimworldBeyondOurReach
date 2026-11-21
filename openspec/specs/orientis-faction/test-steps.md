@@ -18,7 +18,7 @@ These debug actions are new, and are in the Pawns section of the dev menu:
 
 The existing "Grant dark ability..." action is in the same section.
 
-To add tenebral parts and crystallized parts, use the dev add hediff tool on a body part. The hediffs are the tenebral bionics from the Tier 3 defs, and `BOR_Crystallized`.
+To add tenebral parts, use the dev add hediff tool on a body part; the hediffs are the tenebral bionics from the Tier 3 defs. To crystallize a brain, add `BOR_Crystallized` on the brain and set its severity, or use "Add tenebral kill" on a pawn with a tenebral part.
 
 ## 1. Letter timing
 
@@ -46,7 +46,7 @@ To add tenebral parts and crystallized parts, use the dev add hediff tool on a b
 1. Get the letter and choose Path of Dark.
 2. **Expected:** the dialog shows "So be it." The letter is gone after you close it.
 3. Force more breaks on this pawn and on others. **Expected:** no letter ever comes again.
-4. Use "Add tenebral kill" more than 10 times on one pawn. **Expected:** crystallization still works as before.
+4. Use "Add tenebral kill" a few times on a pawn with a tenebral part. **Expected:** brain crystallization still grows with each kill.
 5. Save and reload, then force another break. **Expected:** still no letter.
 
 ## 3. Path of Light
@@ -56,7 +56,7 @@ Set up these pawns first:
 | Pawn | Setup |
 | --- | --- |
 | A | Tenebral arm and a tenebral heart, psychotic, with a dark ability |
-| B | Crystallized torso and leg, no implants |
+| B | Crystallizing brain (about 30%), no implants |
 | C | Clean colonist, with psychosis only from Force tenebral break |
 | D | Clean colonist with nothing |
 | E | Umbral, from the dark mirror or by adding the `BOR_Umbral` hediff |
@@ -80,7 +80,7 @@ Bring C to three breaks so that C triggers the letter, then choose Path of Light
 | Pawn | Expected |
 | --- | --- |
 | A | Alive. Natural arm and heart, each with a golden scar. No psychosis, no dark abilities, no bloodlust need. Xenotype Orientis, `orientis` hediff, manifest ability |
-| B | Alive. Natural torso and leg with golden scars. Orientis, manifest ability |
+| B | Alive. No crystallization and no golden scar on the brain. Orientis, manifest ability |
 | C | Alive with no scars. No psychosis. Orientis, manifest ability, because C triggered the letter |
 | D | Unchanged. Not Orientis |
 | E | Dead |
@@ -99,7 +99,7 @@ Bring C to three breaks so that C triggers the letter, then choose Path of Light
 
 ## 4. Surgery
 
-On a pawn with a tenebral arm and on a pawn with a crystallized leg, at any break count, including 3 or more:
+On a pawn with a tenebral arm and on a pawn with a crystallizing brain, at any break count, including 3 or more:
 
 | Operation | Expected |
 | --- | --- |
@@ -107,7 +107,8 @@ On a pawn with a tenebral arm and on a pawn with a crystallized leg, at any brea
 | Remove the shoulder above it | Not offered |
 | Install a bionic arm over it | Not offered |
 | Remove a tenebral implant | Not offered |
-| Remove a crystallized part or its parent | Not offered |
+| Remove or replace the head around a crystallizing brain | Not offered |
+| Install a non-tenebral implant on a crystallizing brain | Still offered |
 | Install a non-tenebral implant beside a tenebral part, such as on the head when an eye is tenebral | Still offered |
 | Dark mirror operating mode on a part that already has a tenebral part | Part is not listed |
 
