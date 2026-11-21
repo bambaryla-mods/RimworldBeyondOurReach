@@ -299,6 +299,11 @@
         <comps>
             <!-- Tenebral research is unlocked here by dark pacts (the Pacts tab), not by study. -->
             <li Class="BeyondOurReach.CompProperties_DarkPact" />
+            <li Class="BeyondOurReach.CompProperties_MirrorPortal">
+                <offTexPath>BOR/Things/Building/tier3/mirror/umbrussy-off</offTexPath>
+                <onTexPath>BOR/Things/Building/tier3/mirror/umbrussy-on</onTexPath>
+                <glowTexPath>BOR/Things/Building/tier3/mirror/aroused</glowTexPath>
+            </li>
             <li Class="CompProperties_Power">
                 <compClass>CompPowerTrader</compClass>
                 <shortCircuitInRain>true</shortCircuitInRain>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-  <!-- Bubble layers of CompBubbleOverlay. Sources are in Common/Shaders. -->
+  <!-- Sources are in Common/Shaders. Bubble layers of CompBubbleOverlay: -->
   <ShaderDef>
     <defName>BOR_BubbleMask</defName>
     <shaderProgram>
@@ -17,6 +17,28 @@
         </li>
         <li>
           <key>_MaskTex</key>
+          <value>Clamp</value>
+        </li>
+      </textureWrapOverrides>
+    </shaderProgram>
+  </ShaderDef>
+
+  <!-- The dark mirror's portal phasing between off and on (CompMirrorPortal). -->
+  <ShaderDef>
+    <defName>BOR_MirrorPhase</defName>
+    <shaderProgram>
+      <vertexShaderFileName>BOR_BubbleMask.vert.glsl</vertexShaderFileName>
+      <fragmentShaderFileName>BOR_MirrorPhase.frag.glsl</fragmentShaderFileName>
+      <transparent>true</transparent>
+      <depthWrite>false</depthWrite>
+      <renderQueue>2960</renderQueue>
+      <textureWrapOverrides>
+        <li>
+          <key>_MainTex</key>
+          <value>Clamp</value>
+        </li>
+        <li>
+          <key>_OnTex</key>
           <value>Clamp</value>
         </li>
       </textureWrapOverrides>
