@@ -60,7 +60,7 @@ public class CompComponentHarvest : ThingComp
         {
             defaultLabel = "BOR_Harvest_Label".Translate(),
             defaultDesc = "BOR_Harvest_Desc".Translate(Props.componentCount),
-            icon = BOR_HarvestDefOf.BOR_ComponentIII.uiIcon,
+            icon = BorIcons.ComponentHarvest,
             action = () => OpenPawnMenu(false)
         };
         if (parent.Map.listerThings.ThingsOfDef(BOR_HarvestDefOf.BOR_Picoclusters).Count == 0)

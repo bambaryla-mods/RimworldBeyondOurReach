@@ -10,6 +10,7 @@
     <defName>BOR_BiomassHarvest_Exalted</defName>
     <issue>BOR_BiomassHarvest</issue>
     <label>exalted</label>
+    <iconPath>BOR/UI/Precepts/PawnGore_Gold</iconPath>
     <description>Turning the dead into components is a sacred act. Those who perform it feel purpose rather than guilt.</description>
     <impact>Medium</impact>
     <displayOrderInIssue>10</displayOrderInIssue>
@@ -20,6 +21,7 @@
     <defName>BOR_BiomassHarvest_Neutral</defName>
     <issue>BOR_BiomassHarvest</issue>
     <label>neutral</label>
+    <iconPath>BOR/UI/Precepts/PawnGore_Gray</iconPath>
     <description>A body is only meat and material. Harvesting components from it troubles no one's conscience.</description>
     <impact>Low</impact>
     <displayOrderInIssue>20</displayOrderInIssue>
@@ -30,6 +32,7 @@
     <defName>BOR_BiomassHarvest_Abhorrent</defName>
     <issue>BOR_BiomassHarvest</issue>
     <label>abhorrent</label>
+    <iconPath>BOR/UI/Precepts/PawnGore_White</iconPath>
     <description>Mutilating the dead for parts is a horror. Whoever does it is haunted by it.</description>
     <impact>Medium</impact>
     <displayOrderInIssue>30</displayOrderInIssue>

@@ -17,7 +17,7 @@ public static class BOR_TechTradeDefOf
 }
 
 // Patched via the assembly-wide PatchAll in SettingsWindowPatch.
-// Kwazaarism's BOR_TechTrade_Abhorrent: selling an item whose tech level is above the buying faction's is recorded
+// The BOR_TechTrade precepts (Kwazaarism holds the abhorrent one): selling an item whose tech level is above the buying faction's is recorded
 // once per trade, as vanilla records a traded organ. Gifts and factionless (orbital) traders don't count.
 [HarmonyPatch(typeof(TradeDeal), nameof(TradeDeal.TryExecute))]
 public static class TradeDeal_TryExecute_TechTrade_Patch

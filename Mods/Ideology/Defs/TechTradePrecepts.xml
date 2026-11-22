@@ -13,14 +13,53 @@
     <label>selling technology</label>
   </IssueDef>
 
+  <!-- Random ideoligions never pick a precept of this issue; only designed ones (Kwazaarism) or the player's own choice
+       hold one. -->
+  <PreceptDef>
+    <defName>BOR_TechTrade_Exalted</defName>
+    <issue>BOR_TechTrade</issue>
+    <label>exalted to lesser factions</label>
+    <iconPath>BOR/UI/Precepts/TechMoney_Gold</iconPath>
+    <description>Technology is meant to be shared. Selling anything more advanced than the buyer could make lifts them up, and is a noble act.</description>
+    <impact>Medium</impact>
+    <displayOrderInIssue>10</displayOrderInIssue>
+    <selectionWeight>0</selectionWeight>
+    <comps>
+      <li Class="PreceptComp_SelfTookMemoryThought">
+        <eventDef>BOR_SoldTechToLesser</eventDef>
+        <thought>BOR_SoldTechToLesser_Exalted</thought>
+      </li>
+      <li Class="PreceptComp_KnowsMemoryThought">
+        <eventDef>BOR_SoldTechToLesser</eventDef>
+        <thought>BOR_SoldTechToLesser_Know_Exalted</thought>
+      </li>
+      <li Class="PreceptComp_KnowsMemoryThought">
+        <eventDef>BOR_SoldTechToLesser</eventDef>
+        <thought>BOR_SoldTechToLesser_Know_Exalted_Mood</thought>
+        <description>Someone sold technology to a lesser faction</description>
+      </li>
+    </comps>
+  </PreceptDef>
+
+  <PreceptDef>
+    <defName>BOR_TechTrade_DontCare</defName>
+    <issue>BOR_TechTrade</issue>
+    <label>don't care</label>
+    <iconPath>BOR/UI/Precepts/TechMoney_Gray</iconPath>
+    <description>Technology is just another good. Who buys it, and what they do with it, is their own business.</description>
+    <impact>Low</impact>
+    <displayOrderInIssue>20</displayOrderInIssue>
+    <selectionWeight>0</selectionWeight>
+  </PreceptDef>
+
   <PreceptDef>
     <defName>BOR_TechTrade_Abhorrent</defName>
     <issue>BOR_TechTrade</issue>
     <label>abhorrent to lesser factions</label>
+    <iconPath>BOR/UI/Precepts/TechMoney_White</iconPath>
     <description>Technology must never fall into the wrong hands. Selling anything more advanced than the buyer could make is an abhorrent betrayal.</description>
     <impact>Medium</impact>
-    <displayOrderInIssue>10</displayOrderInIssue>
-    <!-- Only ideoligions designed with it (Kwazaarism) hold it; random ones never pick it. -->
+    <displayOrderInIssue>30</displayOrderInIssue>
     <selectionWeight>0</selectionWeight>
     <comps>
       <li Class="PreceptComp_SelfTookMemoryThought">
@@ -38,6 +77,48 @@
       </li>
     </comps>
   </PreceptDef>
+
+  <ThoughtDef>
+    <defName>BOR_SoldTechToLesser_Exalted</defName>
+    <durationDays>6</durationDays>
+    <stages>
+      <li>
+        <label>shared technology with lesser faction</label>
+        <description>I gave technology to people who could never have made it. They'll be better for it.</description>
+        <baseMoodEffect>10</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>BOR_SoldTechToLesser_Know_Exalted</defName>
+    <thoughtClass>Thought_MemorySocial</thoughtClass>
+    <durationDays>10</durationDays>
+    <stackLimit>100</stackLimit>
+    <stackLimitForSameOtherPawn>3</stackLimitForSameOtherPawn>
+    <stages>
+      <li>
+        <label>shared technology with lesser faction</label>
+        <baseOpinionOffset>15</baseOpinionOffset>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>BOR_SoldTechToLesser_Know_Exalted_Mood</defName>
+    <thoughtClass>Thought_Memory</thoughtClass>
+    <durationDays>8</durationDays>
+    <stackLimit>5</stackLimit>
+    <stackedEffectMultiplier>0.5</stackedEffectMultiplier>
+    <doNotApplyToQuestLodgers>true</doNotApplyToQuestLodgers>
+    <stages>
+      <li>
+        <label>technology shared with lesser faction</label>
+        <description>Someone shared our technology with a lesser faction. The world is better for it.</description>
+        <baseMoodEffect>3</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
 
   <ThoughtDef>
     <defName>BOR_SoldTechToLesser_Abhorrent</defName>

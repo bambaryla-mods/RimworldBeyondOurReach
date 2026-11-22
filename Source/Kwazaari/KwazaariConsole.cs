@@ -37,7 +37,7 @@ public class CompKwazaariUplink : ThingComp
         {
             defaultLabel = "BOR_Kwazaari_Connect_Label".Translate(),
             defaultDesc = "BOR_Kwazaari_Connect_Desc".Translate(),
-            icon = KwazaariTex.Icon,
+            icon = BorIcons.KwazaariContact,
             action = () => SignalUtility.OpenPawnMenu(parent, BOR_KwazaariDefOf.BOR_ConnectKwazaari, 0)
         };
         if (!SignalUtility.Powered(parent))

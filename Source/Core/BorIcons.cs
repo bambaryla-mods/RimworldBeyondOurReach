@@ -24,6 +24,8 @@ public static class BorIcons
     public static Texture2D BodysuitWork => Get("Bodysuit_Work");
     public static Texture2D OrientisBlessing => Get("Orientis_Blessing");
     public static Texture2D OrientisMeditate => Get("Orientis_Meditate");
+    public static Texture2D ComponentHarvest => Get("PawnGore");
+    public static Texture2D KwazaariContact => Get("TechMoney");
 
     // Pod gizmo icon per mode.
     public static Texture2D Pod(TenebralPodMode mode) => Get(mode switch
