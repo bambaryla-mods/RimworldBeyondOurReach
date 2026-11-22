@@ -137,6 +137,7 @@
     <maxSeverity>6</maxSeverity>
     <keepOnBodyPartRestoration>True</keepOnBodyPartRestoration>
     <levelIsQuantity>true</levelIsQuantity>
+    <comps Inherit="False" />
     <stages>
       <li>
         <minSeverity>1</minSeverity>
@@ -238,7 +239,7 @@
     <maxSeverity>3</maxSeverity>
     <keepOnBodyPartRestoration>True</keepOnBodyPartRestoration>
     <levelIsQuantity>true</levelIsQuantity>
-    <comps>
+    <comps Inherit="False">
       <li Class="HediffCompProperties_GiveAbility">
         <abilityDefs>
           <li>RemoteRepair</li>
@@ -323,6 +324,7 @@
     <maxSeverity>6</maxSeverity>
     <keepOnBodyPartRestoration>True</keepOnBodyPartRestoration>
     <levelIsQuantity>true</levelIsQuantity>
+    <comps Inherit="False" />
     <stages>
       <li>
         <minSeverity>1</minSeverity>
@@ -418,7 +420,7 @@
     <maxSeverity>3</maxSeverity>
     <keepOnBodyPartRestoration>True</keepOnBodyPartRestoration>
     <levelIsQuantity>true</levelIsQuantity>
-    <comps>
+    <comps Inherit="False">
       <li Class="HediffCompProperties_GiveAbility">
         <abilityDefs>
           <li>RemoteShield</li>
@@ -507,6 +509,7 @@
     <maxSeverity>6</maxSeverity>
     <keepOnBodyPartRestoration>True</keepOnBodyPartRestoration>
     <levelIsQuantity>true</levelIsQuantity>
+    <comps Inherit="False" />
     <stages>
       <li>
         <minSeverity>1</minSeverity>

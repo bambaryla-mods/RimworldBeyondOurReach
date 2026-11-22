@@ -6,11 +6,6 @@
 		<modExtensions>
 			<li Class="BeyondOurReach.DefModExtension_TenebralImplant" />
 		</modExtensions>
-		<comps>
-			<li MayRequire="v1024.ebframework" Class="EBF.Hediffs.HediffCompProperties_MaxHPAdjust">
-				<scaleAdjustment>3.375</scaleAdjustment>
-			</li>
-		</comps>
 	</HediffDef>
 	<HediffDef ParentName="AddedBodyPartBase" Name="BOR_AddedTenebralBodyPartBase" Abstract="True">
 		<defaultLabelColor>(128, 0, 0)</defaultLabelColor>

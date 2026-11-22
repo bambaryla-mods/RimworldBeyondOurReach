@@ -239,6 +239,11 @@
 		<descriptionHyperlinks>
 			<ThingDef>BOR_TenebralOrgan</ThingDef>
 		</descriptionHyperlinks>
+		<comps>
+			<li MayRequire="v1024.ebframework" Class="EBF.Hediffs.HediffCompProperties_MaxHPAdjust">
+				<scaleAdjustment>3.375</scaleAdjustment>
+			</li>
+		</comps>
 		<stages>
 			<li>
 				<capMods>

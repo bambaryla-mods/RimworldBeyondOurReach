@@ -106,6 +106,7 @@ These outposts and upgrades come with World Domination 2 - Additional upgrades a
 
 ## Smaller integrations
 
+- **Elite Bionics Framework**: BOR bionics have more hit points than natural parts, and a blessed part has more too. See [Tougher parts](bionics.html#tougher-parts).
 - **Coventech Mechsuit Framework**: the [Helios mechsuit](mechs.html#helios-mechsuit).
 - **Vehicle Framework**: the [Kwazaari combat truck](mechs.html#kwazaari-combat-truck), and the Umbral harbinger as an aircraft when Odyssey isn't loaded.
 - **Vanilla Trading Expanded**: the Kwazaari run a bank.

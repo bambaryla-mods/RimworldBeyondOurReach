@@ -303,6 +303,11 @@
 			<ThingDef>ArmorGlandQuasar</ThingDef>
 		</descriptionHyperlinks>
 		<spawnThingOnRemoved>ArmorGlandQuasar</spawnThingOnRemoved>
+		<comps>
+			<li MayRequire="v1024.ebframework" Class="EBF.Hediffs.HediffCompProperties_MaxHPAdjust">
+				<scaleAdjustment>2.25</scaleAdjustment>
+			</li>
+		</comps>
 		<stages>
 			<li>
 				<capMods>

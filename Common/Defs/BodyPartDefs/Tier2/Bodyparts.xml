@@ -5,11 +5,6 @@
 	<!-- base for implants -->
 	<HediffDef Abstract="True" ParentName="ImplantHediffBase" Name="BOR_ImplantQuasarHediffBase">
 		<defaultLabelColor>(106, 123, 206)</defaultLabelColor>
-		<comps>
-			<li MayRequire="v1024.ebframework" Class="EBF.Hediffs.HediffCompProperties_MaxHPAdjust">
-				<scaleAdjustment>2.25</scaleAdjustment>
-			</li>
-		</comps>
 	</HediffDef>
 	<HediffDef ParentName="AddedBodyPartBase" Name="BOR_AddedQuasarBodyPartBase" Abstract="True">
 		<defaultLabelColor>(106, 123, 206)</defaultLabelColor>

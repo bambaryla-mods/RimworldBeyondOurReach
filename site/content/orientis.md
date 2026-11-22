@@ -91,6 +91,7 @@ Orientis colonists have no bionics. Instead, a colonist meditates at the **bless
 - Several parts can be blessed in one meditation.
 - Blessing a part again restarts its timer. Blessings don't stack.
 - A part that already has an artificial part can't be blessed.
+- With Elite Bionics Framework loaded, a blessed part also has three times its hit points.
 
 {{ screenshot("orientis-blessing", "Choosing parts at the blessing bench") }}
 

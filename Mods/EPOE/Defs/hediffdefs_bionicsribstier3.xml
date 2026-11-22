@@ -65,7 +65,7 @@
 		<defaultLabelColor>(128, 0, 0)</defaultLabelColor>
 		<comps>
 			<li MayRequire="v1024.ebframework" Class="EBF.Hediffs.HediffCompProperties_MaxHPAdjust">
-				<scaleAdjustment>3.375</scaleAdjustment>
+				<linearAdjustment>9</linearAdjustment>
 			</li>
 		</comps>
 	</HediffDef>

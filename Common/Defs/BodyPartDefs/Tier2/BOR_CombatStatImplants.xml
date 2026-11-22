@@ -636,6 +636,11 @@
       <ThingDef>BOR_QuasarKineticDissipationMesh</ThingDef>
     </descriptionHyperlinks>
     <spawnThingOnRemoved>BOR_QuasarKineticDissipationMesh</spawnThingOnRemoved>
+    <comps>
+    	<li MayRequire="v1024.ebframework" Class="EBF.Hediffs.HediffCompProperties_MaxHPAdjust">
+    		<scaleAdjustment>2.25</scaleAdjustment>
+    	</li>
+    </comps>
     <stages>
       <li>
         <statOffsets>

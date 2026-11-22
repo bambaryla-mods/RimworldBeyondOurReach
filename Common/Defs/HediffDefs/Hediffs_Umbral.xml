@@ -120,6 +120,11 @@
 		<labelNoun>an Umbral brain</labelNoun>
 		<description>Black crystal lattice threaded through the brain. Thought runs faster and colder.</description>
 		<defaultLabelColor>(0.45, 0.2, 0.6)</defaultLabelColor>
+		<comps>
+			<li MayRequire="v1024.ebframework" Class="EBF.Hediffs.HediffCompProperties_MaxHPAdjust">
+				<scaleAdjustment>5.065</scaleAdjustment>
+			</li>
+		</comps>
 		<stages>
 			<li>
 				<capMods>

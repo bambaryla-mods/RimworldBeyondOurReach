@@ -413,6 +413,11 @@
       <ThingDef>BOR_SolarKineticDissipationMesh</ThingDef>
     </descriptionHyperlinks>
     <spawnThingOnRemoved>BOR_SolarKineticDissipationMesh</spawnThingOnRemoved>
+    <comps>
+    	<li MayRequire="v1024.ebframework" Class="EBF.Hediffs.HediffCompProperties_MaxHPAdjust">
+    		<scaleAdjustment>1.25</scaleAdjustment>
+    	</li>
+    </comps>
     <stages>
       <li>
         <statOffsets>
