@@ -57,7 +57,7 @@
 	<!-- Tier 3: Tenebral (generation III) ammo -->
 	<ResearchProjectDef ParentName="BOR_Research_Base_III_Pact">
 		<defName>BOR_CE_AmmoResearch_TC</defName>
-		<label>tenebral ammunition</label>
+		<label>tenebral munitions</label>
 		<description>Bond tenebral crystal lattices to ballistic rounds, creating ammunition that interacts with dark matter to dramatically increase penetration and terminal effect. Unlocks crafting of all generation-III ammunition.</description>
 		<techLevel>Archotech</techLevel>
 		<prerequisites>
