@@ -10,7 +10,7 @@ The Armors, Guns, Melee and Turrets mods all fit the same ladder: Industrial, Sp
 
 {{ banner("resource-generator", "") }}
 
-[Resource Generator Framework](https://steamcommunity.com/sharedfiles/filedetails/?id=3768286295) adds nothing by itself. It's the engine behind BOR's resource drills: how long a drill takes, how many workers it needs and what it produces are all set per building. It's the one mod in this list you have to install.
+[Resource Generator Framework](https://steamcommunity.com/sharedfiles/filedetails/?id=3844014591) adds nothing by itself. It's the engine behind BOR's resource drills: how long a drill takes, how many workers it needs and what it produces are all set per building. It's the one mod in this list you have to install.
 
 ## Armors For All Post-Medieval Tech Levels
 
