@@ -507,7 +507,6 @@
 		<thingCategories>
 			<li>BOR_Weapons_III</li>
 		</thingCategories>
-		<equippedAngleOffset>45</equippedAngleOffset>
 		<weaponClasses>
 			<li>RangedHeavy</li>
 		</weaponClasses>

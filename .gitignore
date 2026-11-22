@@ -1,5 +1,6 @@
 ## ORIGINAL .gitignore LINES
 *zip
+Assets.zip.*
 
 # Player site build output (site/build.py)
 site/_build/

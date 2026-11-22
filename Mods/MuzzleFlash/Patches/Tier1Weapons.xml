@@ -30,9 +30,6 @@
         </value>
     </Operation>
 
-    <Operation Class="PatchOperationRemove">
-        <xpath>Defs/ThingDef[defName="BOR_Gun_LMG_TI"]/equippedAngleOffset</xpath>
-    </Operation>
 
     <Operation Class="SafePatcher.PatchOperationSetModExtension">
         <xpath>Defs/ThingDef[defName="BOR_Gun_ChainShotgun_TI"]</xpath>

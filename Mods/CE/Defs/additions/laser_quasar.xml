@@ -604,6 +604,7 @@
 		<thingCategories>
 			<li>BOR_Weapons_II</li>
 		</thingCategories>
+		<equippedAngleOffset>45</equippedAngleOffset>
 		<statBases>
 			<RoyalFavorValue>3</RoyalFavorValue>
 			<WorkToMake>144000</WorkToMake>
