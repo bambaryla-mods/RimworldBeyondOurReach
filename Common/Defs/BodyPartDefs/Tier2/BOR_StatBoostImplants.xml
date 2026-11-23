@@ -179,6 +179,18 @@
     </incompatibleWithHediffTags>
   </RecipeDef>
 
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>BOR_RemoveQuasarQuantumCoherenceNeurocalculator</defName>
+    <label>remove kwazaari quantum coherence neurocalculator</label>
+    <description>Remove the kwazaari quantum coherence neurocalculator.</description>
+    <descriptionHyperlinks>
+      <ThingDef>BOR_QuasarQuantumCoherenceNeurocalculator</ThingDef>
+      <HediffDef>BOR_QuasarQuantumCoherenceNeurocalculator</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing kwazaari quantum coherence neurocalculator.</jobString>
+    <removesHediff>BOR_QuasarQuantumCoherenceNeurocalculator</removesHediff>
+  </RecipeDef>
+
   <HediffDef ParentName="BOR_ImplantQuasarHediffBase">
     <defName>BOR_QuasarMicroTremorStabilizer</defName>
     <label>kwazaari micro-tremor stabilizer</label>

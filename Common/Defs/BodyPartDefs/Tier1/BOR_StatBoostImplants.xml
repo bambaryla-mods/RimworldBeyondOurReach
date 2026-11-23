@@ -419,6 +419,18 @@
     </incompatibleWithHediffTags>
   </RecipeDef>
 
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>BOR_RemoveSolarQuantumCoherenceNeurocalculator</defName>
+    <label>remove solar quantum coherence neurocalculator</label>
+    <description>Remove the solar quantum coherence neurocalculator.</description>
+    <descriptionHyperlinks>
+      <ThingDef>BOR_SolarQuantumCoherenceNeurocalculator</ThingDef>
+      <HediffDef>BOR_SolarQuantumCoherenceNeurocalculator</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing solar quantum coherence neurocalculator.</jobString>
+    <removesHediff>BOR_SolarQuantumCoherenceNeurocalculator</removesHediff>
+  </RecipeDef>
+
 
   <HediffDef ParentName="BOR_ImplantSolarHediffBase">
     <defName>BOR_SolarResonanceEarImplant</defName>
@@ -641,6 +653,18 @@
       <li>Brain</li>
     </appliedOnFixedBodyParts>
     <addsHediff>BOR_SolarSurgicalCognitionAssistant</addsHediff>
+  </RecipeDef>
+
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>BOR_RemoveSolarSurgicalCognitionAssistant</defName>
+    <label>remove solar surgical cognition assistant</label>
+    <description>Remove the solar surgical cognition assistant.</description>
+    <descriptionHyperlinks>
+      <ThingDef>BOR_SolarSurgicalCognitionAssistant</ThingDef>
+      <HediffDef>BOR_SolarSurgicalCognitionAssistant</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing solar surgical cognition assistant.</jobString>
+    <removesHediff>BOR_SolarSurgicalCognitionAssistant</removesHediff>
   </RecipeDef>
 
 </Defs>

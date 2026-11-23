@@ -134,6 +134,18 @@
     <addsHediff>BOR_QuasarBallisticCognitionStack</addsHediff>
   </RecipeDef>
 
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>BOR_RemoveQuasarBallisticCognitionStack</defName>
+    <label>remove kwazaari ballistic cognition stack</label>
+    <description>Remove the kwazaari ballistic cognition stack.</description>
+    <descriptionHyperlinks>
+      <ThingDef>BOR_QuasarBallisticCognitionStack</ThingDef>
+      <HediffDef>BOR_QuasarBallisticCognitionStack</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing kwazaari ballistic cognition stack.</jobString>
+    <removesHediff>BOR_QuasarBallisticCognitionStack</removesHediff>
+  </RecipeDef>
+
   <HediffDef ParentName="BOR_ImplantQuasarHediffBase">
     <defName>BOR_QuasarCloseRangeVectorLens</defName>
     <label>kwazaari close-range vector lens</label>
@@ -493,6 +505,18 @@
     <addsHediff>BOR_QuasarTargetLockAnticipator</addsHediff>
   </RecipeDef>
 
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>BOR_RemoveQuasarTargetLockAnticipator</defName>
+    <label>remove kwazaari target lock anticipator</label>
+    <description>Remove the kwazaari target lock anticipator.</description>
+    <descriptionHyperlinks>
+      <ThingDef>BOR_QuasarTargetLockAnticipator</ThingDef>
+      <HediffDef>BOR_QuasarTargetLockAnticipator</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing kwazaari target lock anticipator.</jobString>
+    <removesHediff>BOR_QuasarTargetLockAnticipator</removesHediff>
+  </RecipeDef>
+
   <HediffDef ParentName="BOR_ImplantQuasarHediffBase">
     <defName>BOR_QuasarArtilleryDriftCorrector</defName>
     <label>kwazaari artillery drift corrector</label>
@@ -558,6 +582,18 @@
       <li>Brain</li>
     </appliedOnFixedBodyParts>
     <addsHediff>BOR_QuasarArtilleryDriftCorrector</addsHediff>
+  </RecipeDef>
+
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>BOR_RemoveQuasarArtilleryDriftCorrector</defName>
+    <label>remove kwazaari artillery drift corrector</label>
+    <description>Remove the kwazaari artillery drift corrector.</description>
+    <descriptionHyperlinks>
+      <ThingDef>BOR_QuasarArtilleryDriftCorrector</ThingDef>
+      <HediffDef>BOR_QuasarArtilleryDriftCorrector</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing kwazaari artillery drift corrector.</jobString>
+    <removesHediff>BOR_QuasarArtilleryDriftCorrector</removesHediff>
   </RecipeDef>
 
   <HediffDef ParentName="BOR_ImplantQuasarHediffBase">

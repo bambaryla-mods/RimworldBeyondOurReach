@@ -102,6 +102,9 @@
   <BOR_InstallSolarQuantumCoherenceNeurocalculator.label>Wszczep quantum coherence neurocalculator</BOR_InstallSolarQuantumCoherenceNeurocalculator.label>
   <BOR_InstallSolarQuantumCoherenceNeurocalculator.description>Wszczep quantum coherence neurocalculator.</BOR_InstallSolarQuantumCoherenceNeurocalculator.description>
   <BOR_InstallSolarQuantumCoherenceNeurocalculator.jobString>Wszczepianie quantum coherence neurocalculator.</BOR_InstallSolarQuantumCoherenceNeurocalculator.jobString>
+  <BOR_RemoveSolarQuantumCoherenceNeurocalculator.label>Usuń quantum coherence neurocalculator</BOR_RemoveSolarQuantumCoherenceNeurocalculator.label>
+  <BOR_RemoveSolarQuantumCoherenceNeurocalculator.description>Usuń quantum coherence neurocalculator.</BOR_RemoveSolarQuantumCoherenceNeurocalculator.description>
+  <BOR_RemoveSolarQuantumCoherenceNeurocalculator.jobString>Usuwanie quantum coherence neurocalculator.</BOR_RemoveSolarQuantumCoherenceNeurocalculator.jobString>
   <BOR_InstallSolarResonanceEarImplant.label>Wszczep resonance ear implant</BOR_InstallSolarResonanceEarImplant.label>
   <BOR_InstallSolarResonanceEarImplant.description>Wszczep resonance ear implant.</BOR_InstallSolarResonanceEarImplant.description>
   <BOR_InstallSolarResonanceEarImplant.jobString>Wszczepianie resonance ear implant.</BOR_InstallSolarResonanceEarImplant.jobString>
@@ -111,9 +114,15 @@
   <BOR_InstallSolarSurgicalCognitionAssistant.label>Wszczep surgical cognition assistant</BOR_InstallSolarSurgicalCognitionAssistant.label>
   <BOR_InstallSolarSurgicalCognitionAssistant.description>Wszczep surgical cognition assistant.</BOR_InstallSolarSurgicalCognitionAssistant.description>
   <BOR_InstallSolarSurgicalCognitionAssistant.jobString>Wszczepianie surgical cognition assistant.</BOR_InstallSolarSurgicalCognitionAssistant.jobString>
+  <BOR_RemoveSolarSurgicalCognitionAssistant.label>Usuń surgical cognition assistant</BOR_RemoveSolarSurgicalCognitionAssistant.label>
+  <BOR_RemoveSolarSurgicalCognitionAssistant.description>Usuń surgical cognition assistant.</BOR_RemoveSolarSurgicalCognitionAssistant.description>
+  <BOR_RemoveSolarSurgicalCognitionAssistant.jobString>Usuwanie surgical cognition assistant.</BOR_RemoveSolarSurgicalCognitionAssistant.jobString>
   <BOR_InstallSolarSurgicalCortexWeave.label>Wszczep solarne surgical cortex weave</BOR_InstallSolarSurgicalCortexWeave.label>
   <BOR_InstallSolarSurgicalCortexWeave.description>Wszczep solarne surgical cortex weave.</BOR_InstallSolarSurgicalCortexWeave.description>
   <BOR_InstallSolarSurgicalCortexWeave.jobString>Wszczepianie solarne surgical cortex weave.</BOR_InstallSolarSurgicalCortexWeave.jobString>
+  <BOR_RemoveSolarSurgicalCortexWeave.label>Usuń solarne surgical cortex weave</BOR_RemoveSolarSurgicalCortexWeave.label>
+  <BOR_RemoveSolarSurgicalCortexWeave.description>Usuń solarne surgical cortex weave.</BOR_RemoveSolarSurgicalCortexWeave.description>
+  <BOR_RemoveSolarSurgicalCortexWeave.jobString>Usuwanie solarne surgical cortex weave.</BOR_RemoveSolarSurgicalCortexWeave.jobString>
   <BOR_InstallSolarNanoSutureFingers.label>Wszczep solarne nano-suture fingers</BOR_InstallSolarNanoSutureFingers.label>
   <BOR_InstallSolarNanoSutureFingers.description>Wszczep solarne nano-suture fingers.</BOR_InstallSolarNanoSutureFingers.description>
   <BOR_InstallSolarNanoSutureFingers.jobString>Wszczepianie solarne nano-suture fingers.</BOR_InstallSolarNanoSutureFingers.jobString>
@@ -135,12 +144,18 @@
   <BOR_InstallSolarCircadianStabilizerMatrix.label>Wszczep solarne circadian stabilizer matrix</BOR_InstallSolarCircadianStabilizerMatrix.label>
   <BOR_InstallSolarCircadianStabilizerMatrix.description>Wszczep solarne circadian stabilizer matrix.</BOR_InstallSolarCircadianStabilizerMatrix.description>
   <BOR_InstallSolarCircadianStabilizerMatrix.jobString>Wszczepianie solarne circadian stabilizer matrix.</BOR_InstallSolarCircadianStabilizerMatrix.jobString>
+  <BOR_RemoveSolarCircadianStabilizerMatrix.label>Usuń solarne circadian stabilizer matrix</BOR_RemoveSolarCircadianStabilizerMatrix.label>
+  <BOR_RemoveSolarCircadianStabilizerMatrix.description>Usuń solarne circadian stabilizer matrix.</BOR_RemoveSolarCircadianStabilizerMatrix.description>
+  <BOR_RemoveSolarCircadianStabilizerMatrix.jobString>Usuwanie solarne circadian stabilizer matrix.</BOR_RemoveSolarCircadianStabilizerMatrix.jobString>
   <BOR_InstallSolarNarcoEconomicAnalyzer.label>Wszczep solarne narco-economic analyzer</BOR_InstallSolarNarcoEconomicAnalyzer.label>
   <BOR_InstallSolarNarcoEconomicAnalyzer.description>Wszczep solarne narco-economic analyzer.</BOR_InstallSolarNarcoEconomicAnalyzer.description>
   <BOR_InstallSolarNarcoEconomicAnalyzer.jobString>Wszczepianie solarne narco-economic analyzer.</BOR_InstallSolarNarcoEconomicAnalyzer.jobString>
   <BOR_InstallSolarSubcoreEncodingCoprocessor.label>Wszczep solarne subcore encoding coprocessor</BOR_InstallSolarSubcoreEncodingCoprocessor.label>
   <BOR_InstallSolarSubcoreEncodingCoprocessor.description>Wszczep solarne subcore encoding coprocessor.</BOR_InstallSolarSubcoreEncodingCoprocessor.description>
   <BOR_InstallSolarSubcoreEncodingCoprocessor.jobString>Wszczepianie solarne subcore encoding coprocessor.</BOR_InstallSolarSubcoreEncodingCoprocessor.jobString>
+  <BOR_RemoveSolarSubcoreEncodingCoprocessor.label>Usuń solarne subcore encoding coprocessor</BOR_RemoveSolarSubcoreEncodingCoprocessor.label>
+  <BOR_RemoveSolarSubcoreEncodingCoprocessor.description>Usuń solarne subcore encoding coprocessor.</BOR_RemoveSolarSubcoreEncodingCoprocessor.description>
+  <BOR_RemoveSolarSubcoreEncodingCoprocessor.jobString>Usuwanie solarne subcore encoding coprocessor.</BOR_RemoveSolarSubcoreEncodingCoprocessor.jobString>
   <BOR_InstallQuasarBionicEye.label>Wszczep kwazarowe oko</BOR_InstallQuasarBionicEye.label>
   <BOR_InstallQuasarBionicEye.description>Wszczep kwazarowe oko.</BOR_InstallQuasarBionicEye.description>
   <BOR_InstallQuasarBionicEye.jobString>Wszczepianie kwazarowe bioniczne oko.</BOR_InstallQuasarBionicEye.jobString>
@@ -201,6 +216,9 @@
   <BOR_InstallQuasarBallisticCognitionStack.label>Wszczep kwazarowe ballistic cognition stack</BOR_InstallQuasarBallisticCognitionStack.label>
   <BOR_InstallQuasarBallisticCognitionStack.description>Wszczep ballistic cognition stack.</BOR_InstallQuasarBallisticCognitionStack.description>
   <BOR_InstallQuasarBallisticCognitionStack.jobString>Wszczepianie kwazarowe ballistic cognition stack.</BOR_InstallQuasarBallisticCognitionStack.jobString>
+  <BOR_RemoveQuasarBallisticCognitionStack.label>Usuń kwazarowe ballistic cognition stack</BOR_RemoveQuasarBallisticCognitionStack.label>
+  <BOR_RemoveQuasarBallisticCognitionStack.description>Usuń kwazarowe ballistic cognition stack.</BOR_RemoveQuasarBallisticCognitionStack.description>
+  <BOR_RemoveQuasarBallisticCognitionStack.jobString>Usuwanie kwazarowe ballistic cognition stack.</BOR_RemoveQuasarBallisticCognitionStack.jobString>
   <BOR_InstallQuasarCloseRangeVectorLens.label>Wszczep kwazarowe close-range vector lens</BOR_InstallQuasarCloseRangeVectorLens.label>
   <BOR_InstallQuasarCloseRangeVectorLens.description>Wszczep close-range vector lens.</BOR_InstallQuasarCloseRangeVectorLens.description>
   <BOR_InstallQuasarCloseRangeVectorLens.jobString>Wszczepianie kwazarowe close-range vector lens.</BOR_InstallQuasarCloseRangeVectorLens.jobString>
@@ -216,9 +234,15 @@
   <BOR_InstallQuasarTargetLockAnticipator.label>Wszczep kwazarowe target lock anticipator</BOR_InstallQuasarTargetLockAnticipator.label>
   <BOR_InstallQuasarTargetLockAnticipator.description>Wszczep target lock anticipator.</BOR_InstallQuasarTargetLockAnticipator.description>
   <BOR_InstallQuasarTargetLockAnticipator.jobString>Wszczepianie kwazarowe target lock anticipator.</BOR_InstallQuasarTargetLockAnticipator.jobString>
+  <BOR_RemoveQuasarTargetLockAnticipator.label>Usuń kwazarowe target lock anticipator</BOR_RemoveQuasarTargetLockAnticipator.label>
+  <BOR_RemoveQuasarTargetLockAnticipator.description>Usuń kwazarowe target lock anticipator.</BOR_RemoveQuasarTargetLockAnticipator.description>
+  <BOR_RemoveQuasarTargetLockAnticipator.jobString>Usuwanie kwazarowe target lock anticipator.</BOR_RemoveQuasarTargetLockAnticipator.jobString>
   <BOR_InstallQuasarArtilleryDriftCorrector.label>Wszczep kwazarowe artillery drift corrector</BOR_InstallQuasarArtilleryDriftCorrector.label>
   <BOR_InstallQuasarArtilleryDriftCorrector.description>Wszczep an artillery drift corrector.</BOR_InstallQuasarArtilleryDriftCorrector.description>
   <BOR_InstallQuasarArtilleryDriftCorrector.jobString>Wszczepianie kwazarowe artillery drift corrector.</BOR_InstallQuasarArtilleryDriftCorrector.jobString>
+  <BOR_RemoveQuasarArtilleryDriftCorrector.label>Usuń kwazarowe artillery drift corrector</BOR_RemoveQuasarArtilleryDriftCorrector.label>
+  <BOR_RemoveQuasarArtilleryDriftCorrector.description>Usuń kwazarowe artillery drift corrector.</BOR_RemoveQuasarArtilleryDriftCorrector.description>
+  <BOR_RemoveQuasarArtilleryDriftCorrector.jobString>Usuwanie kwazarowe artillery drift corrector.</BOR_RemoveQuasarArtilleryDriftCorrector.jobString>
   <BOR_InstallQuasarHazardThreadMapper.label>Wszczep kwazarowe hazard-thread mapper</BOR_InstallQuasarHazardThreadMapper.label>
   <BOR_InstallQuasarHazardThreadMapper.description>Wszczep hazard-thread mapper.</BOR_InstallQuasarHazardThreadMapper.description>
   <BOR_InstallQuasarHazardThreadMapper.jobString>Wszczepianie kwazarowe hazard-thread mapper.</BOR_InstallQuasarHazardThreadMapper.jobString>
@@ -234,6 +258,9 @@
   <BOR_InstallQuasarQuantumCoherenceNeurocalculator.label>Wszczep kwazarowe quantum coherence neurocalculator</BOR_InstallQuasarQuantumCoherenceNeurocalculator.label>
   <BOR_InstallQuasarQuantumCoherenceNeurocalculator.description>Wszczep kwazarowe quantum coherence neurocalculator.</BOR_InstallQuasarQuantumCoherenceNeurocalculator.description>
   <BOR_InstallQuasarQuantumCoherenceNeurocalculator.jobString>Wszczepianie kwazarowe quantum coherence neurocalculator.</BOR_InstallQuasarQuantumCoherenceNeurocalculator.jobString>
+  <BOR_RemoveQuasarQuantumCoherenceNeurocalculator.label>Usuń kwazarowe quantum coherence neurocalculator</BOR_RemoveQuasarQuantumCoherenceNeurocalculator.label>
+  <BOR_RemoveQuasarQuantumCoherenceNeurocalculator.description>Usuń kwazarowe quantum coherence neurocalculator.</BOR_RemoveQuasarQuantumCoherenceNeurocalculator.description>
+  <BOR_RemoveQuasarQuantumCoherenceNeurocalculator.jobString>Usuwanie kwazarowe quantum coherence neurocalculator.</BOR_RemoveQuasarQuantumCoherenceNeurocalculator.jobString>
   <BOR_InstallQuasarMicroTremorStabilizer.label>Wszczep kwazarowe micro-tremor stabilizer</BOR_InstallQuasarMicroTremorStabilizer.label>
   <BOR_InstallQuasarMicroTremorStabilizer.description>Wszczep kwazarowe micro-tremor stabilizer.</BOR_InstallQuasarMicroTremorStabilizer.description>
   <BOR_InstallQuasarMicroTremorStabilizer.jobString>Wszczepianie kwazarowe micro-tremor stabilizer.</BOR_InstallQuasarMicroTremorStabilizer.jobString>
@@ -249,6 +276,9 @@
   <BOR_InstallQuasarCipherCortexNode.label>Wszczep kwazarowe cipher cortex node</BOR_InstallQuasarCipherCortexNode.label>
   <BOR_InstallQuasarCipherCortexNode.description>Wszczep kwazarowe cipher cortex node.</BOR_InstallQuasarCipherCortexNode.description>
   <BOR_InstallQuasarCipherCortexNode.jobString>Wszczepianie kwazarowe cipher cortex node.</BOR_InstallQuasarCipherCortexNode.jobString>
+  <BOR_RemoveQuasarCipherCortexNode.label>Usuń kwazarowe cipher cortex node</BOR_RemoveQuasarCipherCortexNode.label>
+  <BOR_RemoveQuasarCipherCortexNode.description>Usuń kwazarowe cipher cortex node.</BOR_RemoveQuasarCipherCortexNode.description>
+  <BOR_RemoveQuasarCipherCortexNode.jobString>Usuwanie kwazarowe cipher cortex node.</BOR_RemoveQuasarCipherCortexNode.jobString>
   <BOR_InstallQuasarMnemonicReaderMesh.label>Wszczep kwazarowe mnemonic reader mesh</BOR_InstallQuasarMnemonicReaderMesh.label>
   <BOR_InstallQuasarMnemonicReaderMesh.description>Wszczep kwazarowe mnemonic reader mesh.</BOR_InstallQuasarMnemonicReaderMesh.description>
   <BOR_InstallQuasarMnemonicReaderMesh.jobString>Wszczepianie kwazarowe mnemonic reader mesh.</BOR_InstallQuasarMnemonicReaderMesh.jobString>
@@ -267,6 +297,9 @@
   <BOR_InstallQuasarSubcoreEncodingCoprocessor.label>Wszczep kwazarowe subcore encoding coprocessor</BOR_InstallQuasarSubcoreEncodingCoprocessor.label>
   <BOR_InstallQuasarSubcoreEncodingCoprocessor.description>Wszczep kwazarowe subcore encoding coprocessor.</BOR_InstallQuasarSubcoreEncodingCoprocessor.description>
   <BOR_InstallQuasarSubcoreEncodingCoprocessor.jobString>Wszczepianie kwazarowe subcore encoding coprocessor.</BOR_InstallQuasarSubcoreEncodingCoprocessor.jobString>
+  <BOR_RemoveQuasarSubcoreEncodingCoprocessor.label>Usuń kwazarowe subcore encoding coprocessor</BOR_RemoveQuasarSubcoreEncodingCoprocessor.label>
+  <BOR_RemoveQuasarSubcoreEncodingCoprocessor.description>Usuń kwazarowe subcore encoding coprocessor.</BOR_RemoveQuasarSubcoreEncodingCoprocessor.description>
+  <BOR_RemoveQuasarSubcoreEncodingCoprocessor.jobString>Usuwanie kwazarowe subcore encoding coprocessor.</BOR_RemoveQuasarSubcoreEncodingCoprocessor.jobString>
   <BOR_InstallTenebralBionicEye.label>Wszczep tenebralne oko</BOR_InstallTenebralBionicEye.label>
   <BOR_InstallTenebralBionicEye.description>Wszczep tenebralne oko.</BOR_InstallTenebralBionicEye.description>
   <BOR_InstallTenebralBionicEye.jobString>Wszczepianie tenebralne bioniczne oko.</BOR_InstallTenebralBionicEye.jobString>

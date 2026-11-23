@@ -74,6 +74,18 @@
     <addsHediff>BOR_SolarSurgicalCortexWeave</addsHediff>
   </RecipeDef>
 
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>BOR_RemoveSolarSurgicalCortexWeave</defName>
+    <label>remove solar surgical cortex weave</label>
+    <description>Remove the solar surgical cortex weave.</description>
+    <descriptionHyperlinks>
+      <ThingDef>BOR_SolarSurgicalCortexWeave</ThingDef>
+      <HediffDef>BOR_SolarSurgicalCortexWeave</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing solar surgical cortex weave.</jobString>
+    <removesHediff>BOR_SolarSurgicalCortexWeave</removesHediff>
+  </RecipeDef>
+
   <HediffDef ParentName="BOR_ImplantSolarHediffBase">
     <defName>BOR_SolarNanoSutureFingers</defName>
     <label>solar nano-suture fingers</label>
@@ -364,6 +376,18 @@
     <addsHediff>BOR_SolarCircadianStabilizerMatrix</addsHediff>
   </RecipeDef>
 
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>BOR_RemoveSolarCircadianStabilizerMatrix</defName>
+    <label>remove solar circadian stabilizer matrix</label>
+    <description>Remove the solar circadian stabilizer matrix.</description>
+    <descriptionHyperlinks>
+      <ThingDef>BOR_SolarCircadianStabilizerMatrix</ThingDef>
+      <HediffDef>BOR_SolarCircadianStabilizerMatrix</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing solar circadian stabilizer matrix.</jobString>
+    <removesHediff>BOR_SolarCircadianStabilizerMatrix</removesHediff>
+  </RecipeDef>
+
   <HediffDef MayRequire="ludeon.rimworld.biotech" ParentName="BOR_ImplantSolarHediffBase">
     <defName>BOR_SolarSubcoreEncodingCoprocessor</defName>
     <label>solar subcore encoding coprocessor</label>
@@ -440,6 +464,18 @@
     <incompatibleWithHediffTags>
       <li>BOR_Slot_SubcoreEncoding</li>
     </incompatibleWithHediffTags>
+  </RecipeDef>
+
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>BOR_RemoveSolarSubcoreEncodingCoprocessor</defName>
+    <label>remove solar subcore encoding coprocessor</label>
+    <description>Remove the solar subcore encoding coprocessor.</description>
+    <descriptionHyperlinks>
+      <ThingDef>BOR_SolarSubcoreEncodingCoprocessor</ThingDef>
+      <HediffDef>BOR_SolarSubcoreEncodingCoprocessor</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing solar subcore encoding coprocessor.</jobString>
+    <removesHediff>BOR_SolarSubcoreEncodingCoprocessor</removesHediff>
   </RecipeDef>
 
 </Defs>

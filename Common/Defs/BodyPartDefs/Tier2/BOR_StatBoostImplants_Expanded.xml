@@ -137,6 +137,18 @@
     <addsHediff>BOR_QuasarCipherCortexNode</addsHediff>
   </RecipeDef>
 
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>BOR_RemoveQuasarCipherCortexNode</defName>
+    <label>remove kwazaari cipher cortex node</label>
+    <description>Remove the kwazaari cipher cortex node.</description>
+    <descriptionHyperlinks>
+      <ThingDef>BOR_QuasarCipherCortexNode</ThingDef>
+      <HediffDef>BOR_QuasarCipherCortexNode</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing kwazaari cipher cortex node.</jobString>
+    <removesHediff>BOR_QuasarCipherCortexNode</removesHediff>
+  </RecipeDef>
+
   <HediffDef ParentName="BOR_ImplantQuasarHediffBase">
     <defName>BOR_QuasarNarcoEconomicAnalyzer</defName>
     <label>kwazaari narco-economic analyzer</label>
@@ -275,6 +287,18 @@
     <incompatibleWithHediffTags>
       <li>BOR_Slot_SubcoreEncoding</li>
     </incompatibleWithHediffTags>
+  </RecipeDef>
+
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>BOR_RemoveQuasarSubcoreEncodingCoprocessor</defName>
+    <label>remove kwazaari subcore encoding coprocessor</label>
+    <description>Remove the kwazaari subcore encoding coprocessor.</description>
+    <descriptionHyperlinks>
+      <ThingDef>BOR_QuasarSubcoreEncodingCoprocessor</ThingDef>
+      <HediffDef>BOR_QuasarSubcoreEncodingCoprocessor</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Removing kwazaari subcore encoding coprocessor.</jobString>
+    <removesHediff>BOR_QuasarSubcoreEncodingCoprocessor</removesHediff>
   </RecipeDef>
 
 </Defs>
