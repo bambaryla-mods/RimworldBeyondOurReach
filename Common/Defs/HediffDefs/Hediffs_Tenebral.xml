@@ -133,7 +133,7 @@
 		<defName>BOR_Crystallized</defName>
 		<label>crystallized</label>
 		<labelNoun>a crystallizing brain</labelNoun>
-		<description>The brain is turning to black crystal, a little more with every kill, and faster the more tenebral parts the body carries. The crystal dulls the mind by as much as it has taken, and it cannot be removed. Half crystallized, the brain is ready for the Umbral transformation; fully crystallized, it kills.</description>
+		<description>The brain is turning to black crystal, which dulls the mind by as much as it has taken and cannot be removed. It reaches 50% after 1000 kills, 100 fewer for each tenebral part in the body. Parts count for every kill already made, so installing one raises it at once and losing one lowers it. At 50% the brain is ready for the Umbral transformation; at 100% it kills.</description>
 		<hediffClass>BeyondOurReach.Hediff_Crystallized</hediffClass>
 		<defaultLabelColor>(0.35, 0.1, 0.45)</defaultLabelColor>
 		<isBad>true</isBad>

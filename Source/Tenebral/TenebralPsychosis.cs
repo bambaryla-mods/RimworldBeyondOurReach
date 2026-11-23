@@ -44,13 +44,13 @@ public class DefModExtension_TenebralBreaks : DefModExtension
 {
     public int orientisThreshold = 3;
 
-    // Kills as a tenebral it takes a pawn with no tenebral parts to crystallize the brain up to podThreshold. Every
-    // counted kill crystallizes, from the first.
+    // Kills as a tenebral it takes a pawn with no tenebral parts to crystallize the brain up to podThreshold.
+    // Crystallization is podThreshold x kills / (these kills, lowered by the pawn's parts), from the first kill.
     public int killsToPodThreshold = 1000;
 
-    // Each tenebral part on the pawn takes this many kills off killsToPodThreshold, down to a single kill. The rate
-    // is worked out again at every kill, so a new part speeds up what is left. Crystallization has no cap: past
-    // podThreshold it keeps growing at the same rate, and a fully crystallized brain kills.
+    // Each tenebral part on the pawn takes this many kills off killsToPodThreshold, down to a single kill. Parts move
+    // the baseline, so installing one raises crystallization at once and losing one lowers it. Crystallization has no
+    // cap: past podThreshold it keeps growing with kills, and a fully crystallized brain kills.
     public int killsSavedPerPart = 100;
 
     // A dark ability roll each time crystallization passes a multiple of this.
@@ -339,11 +339,12 @@ public class MapComponent_TenebralExposure : MapComponent
     }
 }
 
-// Hidden counter of berserk breaks while psychotic and kills as a tenebral. Breaks lead to the Orientis choice; every
-// kill crystallizes the brain further.
+// Hidden counter of berserk breaks while psychotic and kills as a tenebral. Breaks lead to the Orientis choice. Kills
+// set the brain's crystallization: kills over the kills it takes this pawn to reach podThreshold, which its tenebral
+// parts lower. Parts change that baseline, not the kills, so installing or losing one moves crystallization at once.
 public class Hediff_TenebralBreaks : HediffWithComps
 {
-    private const int ChoiceCheckInterval = 60;
+    private const int CheckInterval = 60;
 
     public int breaks;
     public int kills;
@@ -351,20 +352,44 @@ public class Hediff_TenebralBreaks : HediffWithComps
     // The Orientis choice waits for the break that earned it to end.
     private bool choicePending;
 
+    // Ability-roll steps already paid out. Rolls follow the highest step reached, so losing a part and putting it back
+    // does not roll the same step twice.
+    public int rolledSteps;
+
+    // Tenebral parts at the last check; -1 makes the first check after loading recalculate.
+    private int lastParts = -1;
+
     public override bool Visible => false;
 
-    // Brain crystallization one kill adds for this pawn: podThreshold spread over the kills its tenebral parts leave.
-    public static float SeverityPerKill(Pawn pawn)
+    // Counted kills it takes this pawn to reach podThreshold: killsToPodThreshold minus killsSavedPerPart for each
+    // tenebral part, down to a single kill.
+    public static int KillsToPod(Pawn pawn)
     {
         DefModExtension_TenebralBreaks s = TenebralPsychosis.BreakSettings;
-        int kills = Mathf.Max(1, s.killsToPodThreshold - s.killsSavedPerPart * TenebralMurder.ImplantCount(pawn));
-        return s.podThreshold / kills;
+        return Mathf.Max(1, s.killsToPodThreshold - s.killsSavedPerPart * TenebralMurder.ImplantCount(pawn));
     }
+
+    // The crystallization these kills give with the parts the pawn has now.
+    public float TargetSeverity() =>
+        kills <= 0 ? 0f : Mathf.Min(1f, TenebralPsychosis.BreakSettings.podThreshold * kills / KillsToPod(pawn));
 
     public override void TickInterval(int delta)
     {
         base.TickInterval(delta);
-        if (!choicePending || !pawn.IsHashIntervalTick(ChoiceCheckInterval, delta) || pawn.InMentalState)
+        if (!pawn.IsHashIntervalTick(CheckInterval, delta))
+        {
+            return;
+        }
+        int parts = TenebralMurder.ImplantCount(pawn);
+        if (parts != lastParts)
+        {
+            lastParts = parts;
+            if (kills > 0)
+            {
+                Recalculate();
+            }
+        }
+        if (!choicePending || pawn.InMentalState)
         {
             return;
         }
@@ -373,6 +398,29 @@ public class Hediff_TenebralBreaks : HediffWithComps
         {
             GameComponent_OrientisPath.Instance.OfferChoice(pawn);
         }
+    }
+
+    // Brings the brain's crystallization in line with the kills and current parts, and pays out any ability rolls for
+    // steps reached for the first time. Returns true when this started the crystallization.
+    public bool Recalculate()
+    {
+        if (pawn.Dead || Umbral.IsUmbral(pawn))
+        {
+            return false;
+        }
+        float before = Crystallization.Fraction(pawn);
+        float after = TargetSeverity();
+        Crystallization.Set(pawn, after);
+        float step = TenebralPsychosis.BreakSettings.abilityRollEvery;
+        if (step > 0f && !pawn.Dead)
+        {
+            int steps = Crystallization.Steps(after, step);
+            for (; rolledSteps < steps; rolledSteps++)
+            {
+                DarkAbilities.RollCrystallization(pawn);
+            }
+        }
+        return before <= 0f && after > 0f;
     }
 
     public void Notify_Break()
@@ -387,7 +435,7 @@ public class Hediff_TenebralBreaks : HediffWithComps
     public void Notify_Kill()
     {
         kills++;
-        bool started = Crystallization.Grow(pawn, SeverityPerKill(pawn));
+        bool started = Recalculate();
         if (started && pawn.Faction == Faction.OfPlayer)
         {
             Find.LetterStack.ReceiveLetter("BOR_CrystallizationLabel".Translate(pawn.LabelShortCap),
@@ -401,6 +449,7 @@ public class Hediff_TenebralBreaks : HediffWithComps
         Scribe_Values.Look(ref breaks, "breaks");
         Scribe_Values.Look(ref kills, "kills");
         Scribe_Values.Look(ref choicePending, "choicePending");
+        Scribe_Values.Look(ref rolledSteps, "rolledSteps");
     }
 }
 
@@ -442,10 +491,26 @@ public class Hediff_Crystallized : HediffWithComps
 
     // One decimal: a kill can add well under a percent.
     public override string SeverityLabel => Severity.ToStringPercent("0.0");
+
+    // The pawn's own numbers: kills so far, kills to podThreshold with its current parts, and those parts.
+    public override string TipStringExtra
+    {
+        get
+        {
+            string extra = base.TipStringExtra;
+            if (pawn.health.hediffSet.GetFirstHediffOfDef(BOR_TenebralDefOf.BOR_TenebralBreakCounter) is not Hediff_TenebralBreaks counter)
+            {
+                return extra;
+            }
+            string line = "BOR_CrystallizationProgress".Translate(counter.kills, Hediff_TenebralBreaks.KillsToPod(pawn),
+                TenebralPsychosis.BreakSettings.podThreshold.ToStringPercent(), TenebralMurder.ImplantCount(pawn));
+            return extra.NullOrEmpty() ? line : extra + "\n" + line;
+        }
+    }
 }
 
-// Saves from before brain crystallization have crystallized limbs and organs instead; each is turned into brain
-// crystallization on load.
+// On load: crystallized limbs and organs from saves before brain crystallization become brain crystallization, and
+// crystallization saved before it was worked out from kills is matched to the kill counter (see SyncKills).
 public class GameComponent_CrystalMigration : GameComponent
 {
     public GameComponent_CrystalMigration(Game game)
@@ -458,6 +523,7 @@ public class GameComponent_CrystalMigration : GameComponent
         foreach (Pawn pawn in PawnsFinder.AllMapsWorldAndTemporary_Alive.ToList())
         {
             Crystallization.MigrateLegacy(pawn);
+            Crystallization.SyncKills(pawn);
         }
     }
 }
@@ -503,49 +569,66 @@ public static class Crystallization
     // How far the brain has crystallized, 0 to 1.
     public static float Fraction(Pawn pawn) => Crystal(pawn)?.Severity ?? 0f;
 
-    // Whether the pawn is crystallized enough for the transformation pod. The small tolerance absorbs float drift from
-    // hundreds of tiny per-kill steps, so the kill that should reach the threshold does.
+    // Whether the pawn is crystallized enough for the transformation pod. The small tolerance absorbs float rounding in
+    // kills x podThreshold / KillsToPod, so the kill that should reach the threshold does.
     public static bool ReadyForPod(Pawn pawn) => Fraction(pawn) >= TenebralPsychosis.BreakSettings.podThreshold - ReadyTolerance;
 
     private const float ReadyTolerance = 0.0001f;
 
-    // Crystallizes the brain by `amount` more, rolling for a dark ability at every step it passes. Returns true when
-    // this started the crystallization.
-    public static bool Grow(Pawn pawn, float amount)
+    // Ability-roll steps a crystallization has reached, with the same tolerance as ReadyForPod so the kill that readies
+    // the pawn also gets its roll.
+    public static int Steps(float severity, float step) => Mathf.FloorToInt((severity + ReadyTolerance) / step);
+
+    // Sets the brain's crystallization, adding the hediff on the brain or removing it as needed.
+    public static void Set(Pawn pawn, float severity)
     {
         if (!pawn.RaceProps.Humanlike || pawn.Dead)
         {
-            return false;
+            return;
         }
         Hediff? crystal = Crystal(pawn);
-        float before = crystal?.Severity ?? 0f;
-        float after = Mathf.Min(1f, before + amount);
-        if (crystal == null)
+        if (severity <= 0f)
         {
-            BodyPartRecord? brain = pawn.health.hediffSet.GetBrain();
-            if (brain == null)
+            if (crystal != null)
             {
-                return false;
+                pawn.health.RemoveHediff(crystal);
             }
-            crystal = HediffMaker.MakeHediff(BOR_TenebralDefOf.BOR_Crystallized, pawn, brain);
-            crystal.Severity = after;
-            pawn.health.AddHediff(crystal, brain);
+            return;
         }
-        else
+        if (crystal != null)
         {
-            crystal.Severity = after;
+            crystal.Severity = severity;
+            return;
         }
+        BodyPartRecord? brain = pawn.health.hediffSet.GetBrain();
+        if (brain == null)
+        {
+            return;
+        }
+        crystal = HediffMaker.MakeHediff(BOR_TenebralDefOf.BOR_Crystallized, pawn, brain);
+        crystal.Severity = severity;
+        pawn.health.AddHediff(crystal, brain);
+    }
+
+    // Crystallization saved before it was worked out from kills (old saves, migrated parts, dev tools) keeps its level:
+    // the kill counter is raised to the kills that give at least that much with the pawn's current parts, and the rolls
+    // it already earned are marked paid. Kills past that count as they are.
+    public static void SyncKills(Pawn pawn)
+    {
+        Hediff? crystal = Crystal(pawn);
+        if (crystal == null || pawn.Dead || Umbral.IsUmbral(pawn))
+        {
+            return;
+        }
+        Hediff_TenebralBreaks counter = TenebralPsychosis.BreakCounter(pawn);
+        float podThreshold = TenebralPsychosis.BreakSettings.podThreshold;
+        int needed = Mathf.CeilToInt(crystal.Severity / podThreshold * Hediff_TenebralBreaks.KillsToPod(pawn) - ReadyTolerance);
+        counter.kills = Mathf.Max(counter.kills, needed);
         float step = TenebralPsychosis.BreakSettings.abilityRollEvery;
-        if (step > 0f && !pawn.Dead)
+        if (step > 0f)
         {
-            // Same tolerance as ReadyForPod, so the kill that readies the pawn also gets its roll.
-            int rolls = Mathf.FloorToInt((after + ReadyTolerance) / step) - Mathf.FloorToInt((before + ReadyTolerance) / step);
-            for (int i = 0; i < rolls; i++)
-            {
-                DarkAbilities.RollCrystallization(pawn);
-            }
+            counter.rolledSteps = Mathf.Max(counter.rolledSteps, Steps(crystal.Severity, step));
         }
-        return before <= 0f;
     }
 
     // Replaces crystallized limbs and organs from an old save with brain crystallization worth the same share.

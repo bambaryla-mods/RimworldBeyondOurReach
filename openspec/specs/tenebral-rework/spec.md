@@ -23,7 +23,7 @@ The player SHALL NOT be able to remove tenebral parts by any operation at any po
 - THEN no operation is offered that removes or replaces the arm or the shoulder it is attached to
 
 ### Requirement: Crystallization
-Every counted kill SHALL crystallize the pawn's brain further, from the first. Reaching 50% SHALL take 1000 counted kills minus 100 for each tenebral part the pawn carries, down to a single kill. Kills only count with at least one tenebral part, so it is never more than 900. Breaks SHALL NOT crystallize anything.
+The pawn's brain crystallization SHALL be 50% x counted kills / (1000 - 100 x tenebral parts the pawn carries now), with the divisor never below 1, from the first counted kill. Reaching 50% therefore takes 1000 counted kills minus 100 for each tenebral part; kills only count with at least one tenebral part, so it is never more than 900. Parts change the baseline, not the kills: installing a tenebral part SHALL raise crystallization at once, and losing one SHALL lower it. Breaks SHALL NOT crystallize anything.
 
 - Only the brain crystallizes. No other body part SHALL crystallize.
 - Brain crystallization SHALL NOT be removable by surgery.
@@ -33,9 +33,9 @@ Every counted kill SHALL crystallize the pawn's brain further, from the first. R
 - WHEN a tenebral colonist with one tenebral part makes the first counted kill
 - THEN the brain is 50%/900 (about 0.06%) crystallized and the "crystallizing" letter is sent
 
-#### Scenario: More parts, faster
-- WHEN a tenebral colonist with five tenebral parts kills a humanlike
-- THEN brain crystallization rises by 50%/500 (0.1 percentage point)
+#### Scenario: Installing parts
+- WHEN a tenebral colonist with 100 counted kills and two tenebral parts (800 kills to 50%) has two more installed
+- THEN brain crystallization goes from 6.25% (50% x 100/800) to 8.33% (50% x 100/600) without another kill
 
 #### Scenario: Half crystallized
 - WHEN the pawn's brain is 50% crystallized
@@ -131,7 +131,7 @@ Implemented in `TenebralPsychosis.cs`, `TenebralSurgery.cs`, `TenebralPods.cs`, 
 - Severity floor = (implants + tenebrite gear x 0.5) x 0.1. Nearby tenebrite emission (buildings 1, floor cells 0.1, radius 6, capped at 3) adds 0.03 severity per day per unit. Without emission, severity decays 0.05/day down to the floor.
 - Orientis threshold: 3 breaks. Breaks caused by damage or psycasts don't count. There is no kill threshold: every counted kill crystallizes.
 - Surgery: a part can't be removed or replaced if it or anything below it is tenebral or crystallized, and a tenebral implant can't be removed. Implants that sit beside a part can still be installed on a part with tenebral below it, including a crystallizing brain; the head around a crystallizing brain can't be removed or replaced.
-- Crystallization: the `BOR_Crystallized` hediff on the brain, severity 0..1, which takes the same amount off the brain's efficiency (`partEfficiencyOffset = -severity`). Each counted kill adds `podThreshold / max(1, killsToPodThreshold - killsSavedPerPart x tenebral parts)`, that is 50% / (1000 - 100 x parts), with the parts counted at the time of the kill. The first counted kill sends the "crystallizing" letter. With 10 or more parts one kill reaches 50%, and the next is fatal. It is never capped: past 50% it keeps the same rate, at about 70% the pawn can no longer stay awake, and at 100% they die. There is no timer, so a pawn who stops killing stops crystallizing. Every 10 points (`abilityRollEvery`) gives a dark ability roll. The pod, the pod card and the Into the dark pact accept 50% within 0.0001, so float drift over hundreds of kills can't hold back the kill that should reach it. Saves from the per-part rule have their crystallized parts removed on load and replaced by brain crystallization of (parts / 11), the old human share. The Orientis path clears brain crystallization without a golden scar.
+- Crystallization: the `BOR_Crystallized` hediff on the brain, severity 0..1, which takes the same amount off the brain's efficiency (`partEfficiencyOffset = -severity`). Severity = `podThreshold x kills / max(1, killsToPodThreshold - killsSavedPerPart x tenebral parts)`, that is 50% x kills / (1000 - 100 x parts). The kill counter is the source of truth: it is recalculated on every counted kill and whenever the counter notices (checked every 60 ticks) that the pawn's tenebral part count changed. The first counted kill sends the "crystallizing" letter. With 10 or more parts one kill reaches 50% and the next is fatal; installing enough parts on a pawn with many kills can likewise push them past 70% (unconscious) or to 100% (dead) at once. It is never capped. There is no timer, so a pawn who stops killing stops crystallizing. Every 10 points (`abilityRollEvery`) gives a dark ability roll, once per step: the counter remembers the highest step paid (`rolledSteps`), so losing and reinstalling a part does not roll again. On load, a crystal that is not backed by kills (older saves, migrated parts) raises the kill counter to the kills that give at least that level with the current parts, and its earned rolls count as paid. The pod, the pod card and the Into the dark pact accept 50% within 0.0001, so float drift over hundreds of kills can't hold back the kill that should reach it. Saves from the per-part rule have their crystallized parts removed on load and replaced by brain crystallization of (parts / 11), the old human share. The Orientis path clears brain crystallization without a golden scar.
 - Transformation mode refuses a pawn below 50%.
 - Altar: unlocking a cell takes the forge analysis time for the item. Each run costs ceil(value x yield x 0.5 / joint value) crystalline joints (at least 1). Work drains 2 days' worth of bloodlust per day of work.
 - Altar unlocks live in `GameComponent_DarkAltar`, keyed by the item's defName, so an item from a removed mod loads without errors. Saves from before kept unlocks on each altar; on load, an item unlocked or requested at any altar carries over to all of them, with the furthest progress.
