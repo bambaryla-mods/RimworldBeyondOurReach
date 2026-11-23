@@ -115,7 +115,7 @@
 
 			In walking the footsteps of the original Solarites, you have learned the secrets of sunsteel. A crude method of manufacturing your own sunsteel is now available at your smelters, smithies, and fabrication benches. These facilities are not properly equipped to perform this process, and using them to produce sunsteel is rather inefficient.
 
-			Once you have enough, it is recommended that you use your sunsteel to construct the Sun Forge, a crafting apparatus that specializes in Sunsteel manufacture.</discoveredLetterText>
+			Once you have enough, it is recommended that you use your sunsteel to construct the sunsteel shaper, a workbench that specializes in sunsteel manufacture.</discoveredLetterText>
 	</ResearchProjectDef>
 	<ResearchProjectDef ParentName="BOR_Research_Base_I">
 		<defName>BOR_Research_Production_I</defName>
@@ -417,7 +417,7 @@
 		<researchViewX>7.00</researchViewX>
 		<researchViewY>2.90</researchViewY>
 		<discoveredLetterTitle>About: Forging Kwazaari Alloy</discoveredLetterTitle>
-		<discoveredLetterText>You are now able to inefficiently forge Kwazaari Alloy. Recipes for it can be found at the Sunsteel Shaper.</discoveredLetterText>
+		<discoveredLetterText>You are now able to inefficiently forge Kwazaari Alloy. The recipe can be found at the sunsteel shaper.</discoveredLetterText>
 	</ResearchProjectDef>
 	<ResearchProjectDef ParentName="BOR_Research_Base_II">
 		<defName>BOR_Research_Production_II</defName>
@@ -738,9 +738,9 @@
 		<researchViewX>14.00</researchViewX>
 		<researchViewY>2.90</researchViewY>
 		<discoveredLetterTitle>About: Dark whispers</discoveredLetterTitle>
-		<discoveredLetterText>The Dark Archotechs have answered. Their whispers teach you to form tenebrite crystals, inefficiently for now. Recipes for it can be found at the neutronium refabricator.
+		<discoveredLetterText>The Dark Archotechs have answered. Their whispers teach you to form tenebrite crystals, inefficiently for now. The recipe can be found at the Kwazifab Kwazaari Fabricator.
 
-			They also teach you to "produce" crystalline joints, which are essential for building the dark mirror and creating advanced Tenebral equipment. They are harvested by applying a shot of picoclusters into a dead body, effectively extracting the necessary materials from the corpse. It makes a gigantic mess and will not make people think of you any better - unless you have a matching precept. Look up Butcher tables or spots for a helpful gizmo.
+			They also teach you to "produce" crystalline joints, which are essential for building the dark mirror and creating advanced Tenebral equipment. They are harvested by applying a shot of picoclusters into a fresh, mostly intact dead body at a butcher table or spot, effectively extracting the necessary materials from the corpse. Each body is consumed and yields ten joints. It makes a gigantic mess and will not make people think of you any better - unless you have a matching precept. Look up Butcher tables or spots for a helpful gizmo.
 
 			The dark mirror does not share its secrets through study. Tenebral research is unlocked by making a pact at the mirror, and the Dark Archotechs name their price.</discoveredLetterText>
 	</ResearchProjectDef>
@@ -814,11 +814,11 @@
 		<researchViewX>18.00</researchViewX>
 		<researchViewY>2.40</researchViewY>
 		<discoveredLetterTitle>About: Tenebral Bionics</discoveredLetterTitle>
-		<discoveredLetterText>Tenebral Bionics are unlike any other body parts you have seen before. First off, they mould themselves from a Tenebral Organ or a Tenebral Appendage, instead of being produced at a bench. Secondly, they require femtoclusters to be applied. Thirdly, they screw up your brain by connecting you to the Dark Archotechs.
+		<discoveredLetterText>Tenebral Bionics are unlike any other body parts you have seen before. First off, they mould themselves from a tenebral organ template or a tenebral appendage template, instead of being produced at a bench. Secondly, they require femtoclusters to be applied. Thirdly, they screw up your brain by connecting you to the Dark Archotechs.
 
 			Installing any Tenebral Bionic makes your pawn feel a new need: Bloodlust. This craving for blood will make them go crazy after some time, and to appease it, they will need to kill. If the need is not met in time, they might succumb to rage and go berserk - and you don't want a berserk tenebral in your colony.
 
-			There is a small chance that falling to bloodlust will permanently fuse their mind with the Dark Archotech and you will lose control of them forever.
+			Each implant adds a 1% chance that such a rage ends with them abandoning the colony for good. Every kill also turns their brain a little more to black crystal, faster with every implant, and a fully crystallized brain kills.
 
 			The more bionics are installed on a pawn, the more often they have to kill.</discoveredLetterText>
 	</ResearchProjectDef>
