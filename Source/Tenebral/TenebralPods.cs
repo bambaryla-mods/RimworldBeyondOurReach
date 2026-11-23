@@ -245,6 +245,11 @@ public partial class Building_TenebralPod : Building_TenebralCasket
 
     public static List<RecipeDef> Operations => operations ??= DefDatabase<RecipeDef>.AllDefs.Where(IsTenebralOperation).OrderBy(r => r.label).ToList();
 
+    private static HashSet<RecipeDef>? operationSet;
+
+    // Operations as a set, for the per-recipe check that hides them from the Operations tab.
+    public static HashSet<RecipeDef> OperationSet => operationSet ??= new HashSet<RecipeDef>(Operations);
+
     // Whether the chosen part can take the operation on this pawn (already has it, missing parent, crystallized...).
     private bool OperationFits(Pawn pawn) =>
         operation != null && operationPart != null && operation.Worker.GetPartsToApplyOn(pawn, operation).Contains(operationPart);
