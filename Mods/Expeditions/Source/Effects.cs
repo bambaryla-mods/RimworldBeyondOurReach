@@ -141,14 +141,22 @@ public class OutcomeEffect_Scrip : OutcomeEffect
     }
 }
 
-// Pays the dark pact under way: all that is still owed on a win, half of it on a partial win.
+// Pays the dark pact under way: all that is still owed on a win, half of it on a partial win. Only a pact with one of
+// these prices counts: a squad sent for one pact never pays a different one made while it was away.
 public class OutcomeEffect_PactProgress : OutcomeEffect
 {
+    public List<DarkPactObjective> objectives = new();
+
     public OutcomeEffect_PactProgress() => outcomes = new() { Outcome.Success, Outcome.Partial };
+
+    public override IEnumerable<string> ConfigErrors()
+    {
+        if (objectives.Count == 0) yield return "OutcomeEffect_PactProgress lists no objectives";
+    }
 
     public override void Apply(Expedition e, Outcome outcome, ExpeditionReport report)
     {
-        if (DarkPacts.Active is not { } pact || !pact.Counted)
+        if (DarkPacts.Active is not { } pact || !pact.Counted || !objectives.Contains(pact.objective))
         {
             report.effectLines.Add("BOR_Exp_PactGone".Translate());
             return;

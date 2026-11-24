@@ -30,7 +30,7 @@
 			<li><thing>BOR_ComponentIII</thing><count>1~3</count><chance>0.5</chance><research>BOR_Research_Analyzer_III</research></li>
 		</loot>
 		<pawnEffects>
-			<li Class="BeyondOurReach.PawnEffect_TenebriteExposure"><emission>3</emission></li>
+			<li Class="BeyondOurReach.PawnEffect_TenebriteExposure"><emission>2</emission></li>
 		</pawnEffects>
 		<daysOnSite>1.5</daysOnSite>
 		<openness>0.4</openness>
@@ -288,7 +288,7 @@
 			<li><challenge>Exp_Fight</challenge><weight>2</weight><requirement>300</requirement></li>
 		</challenges>
 		<outcomeEffects>
-			<li Class="BeyondOurReach.OutcomeEffect_PactProgress" />
+			<li Class="BeyondOurReach.OutcomeEffect_PactProgress"><objectives><li>KillPeople</li></objectives></li>
 		</outcomeEffects>
 		<daysOnSite>1</daysOnSite>
 		<openness>1</openness>
@@ -314,7 +314,7 @@
 			<li><category>Leathers</category><count>30~100</count></li>
 		</loot>
 		<outcomeEffects>
-			<li Class="BeyondOurReach.OutcomeEffect_PactProgress" />
+			<li Class="BeyondOurReach.OutcomeEffect_PactProgress"><objectives><li>SlaughterAnimals</li></objectives></li>
 		</outcomeEffects>
 		<daysOnSite>1</daysOnSite>
 		<openness>1</openness>
