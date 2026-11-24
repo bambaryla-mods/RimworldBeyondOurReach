@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- BOR's own expedition sites. Risk parents and challenges come from Expeditions (Defs/Expeditions_Sites.xml,
+     Expeditions_Challenges.xml). Every number is a starting point for tuning. -->
+<Defs>
+
+	<!-- ============ The second way up: tier III's key artifacts, besides Strange Signals ============ -->
+
+	<Expeditions.ExpeditionSiteDef ParentName="Exp_SiteHarshNoCaptors">
+		<defName>BOR_Exp_TenebralRuins</defName>
+		<label>tenebral ruins</label>
+		<description>What is left of a Tenebral Vanquisher structure. The walls still hum, and the air tastes of iron. Whatever they built with is in there, and it gets into whoever goes looking.</description>
+		<color>(0.55, 0.15, 0.2)</color>
+		<gates>
+			<li Class="Expeditions.SiteGate_Research"><research><li>BOR_Research_Analyzer_II</li></research></li>
+			<li Class="BeyondOurReach.SiteGate_Path"><path>Light</path><not>true</not></li>
+		</gates>
+		<challenges>
+			<li><challenge>Exp_SearchSalvage</challenge><weight>2</weight><requirement>120</requirement></li>
+			<li><challenge>Exp_Hack</challenge><weight>1</weight><requirement>130</requirement></li>
+			<li><challenge>Exp_Endure</challenge><weight>1</weight><requirement>120</requirement></li>
+			<li><challenge>Exp_Fight</challenge><weight>1</weight><requirement>200</requirement></li>
+		</challenges>
+		<loot>
+			<li><thing>Plasteel</thing><count>20~50</count></li>
+			<li><thing>ComponentSpacer</thing><count>1~2</count></li>
+			<li><thing>BOR_ComponentII</thing><count>1~2</count><chance>0.5</chance></li>
+			<li><thing>BOR_DiluteTenebriteShard</thing><count>1</count><chance>0.5</chance><successOnly>true</successOnly><untilAnalyzed>true</untilAnalyzed></li>
+			<li><thing>BOR_TenebriteMotor</thing><count>1</count><chance>0.5</chance><successOnly>true</successOnly><untilAnalyzed>true</untilAnalyzed></li>
+			<li><thing>BOR_Tenebrite</thing><count>10~30</count><research>BOR_Research_Analyzer_III</research></li>
+			<li><thing>BOR_ComponentIII</thing><count>1~3</count><chance>0.5</chance><research>BOR_Research_Analyzer_III</research></li>
+		</loot>
+		<pawnEffects>
+			<li Class="BeyondOurReach.PawnEffect_TenebriteExposure"><emission>3</emission></li>
+		</pawnEffects>
+		<daysOnSite>1.5</daysOnSite>
+		<openness>0.4</openness>
+		<squadSize>1~5</squadSize>
+		<findChanceBase>0.8</findChanceBase>
+	</Expeditions.ExpeditionSiteDef>
+
+	<!-- ============ Tier sites ============ -->
+
+	<Expeditions.ExpeditionSiteDef ParentName="Exp_SiteHarshNoCaptors">
+		<defName>BOR_Exp_UmbralHuntingGround</defName>
+		<label>umbral hunting ground</label>
+		<description>Umbrals have been seen stalking the hills here. Whatever they guard, they guard it well.</description>
+		<color>(0.35, 0.05, 0.1)</color>
+		<commonness>0.3</commonness>
+		<gates>
+			<li Class="Expeditions.SiteGate_Research"><research><li>BOR_Research_Gate_IV</li></research></li>
+			<li Class="BeyondOurReach.SiteGate_Path"><path>Light</path><not>true</not></li>
+		</gates>
+		<challenges>
+			<li><challenge>Exp_Fight</challenge><weight>2</weight><requirement>350</requirement></li>
+			<li><challenge>Exp_Endure</challenge><weight>1.5</weight><requirement>150</requirement></li>
+		</challenges>
+		<loot>
+			<li><thing>BOR_TenebriteAmplifier</thing><count>1</count><chance>0.2</chance><successOnly>true</successOnly></li>
+			<li><thing>BOR_Tenebrite</thing><count>10~25</count></li>
+			<li><thing>BOR_Femtoclusters</thing><count>1</count><chance>0.3</chance></li>
+		</loot>
+		<pawnEffects>
+			<li Class="BeyondOurReach.PawnEffect_TenebriteExposure"><emission>1</emission></li>
+		</pawnEffects>
+		<daysOnSite>1</daysOnSite>
+		<openness>0.8</openness>
+		<squadSize>2~6</squadSize>
+		<findChanceBase>0.7</findChanceBase>
+	</Expeditions.ExpeditionSiteDef>
+
+	<Expeditions.ExpeditionSiteDef ParentName="Exp_SiteBase">
+		<defName>BOR_Exp_NeutroniumStore</defName>
+		<label>failing neutronium store</label>
+		<description>An abandoned store of neutronium whose power is failing. Without energy holding it together it won't stay put for long. Carry out what you can before it goes.</description>
+		<color>(0.4, 0.75, 0.95)</color>
+		<gates>
+			<li Class="Expeditions.SiteGate_Research"><research><li>BOR_Research_Quarks_I</li></research></li>
+		</gates>
+		<challenges>
+			<li><challenge>Exp_Haul</challenge><weight>2</weight><requirement>250</requirement></li>
+			<li><challenge>Exp_Endure</challenge><weight>1</weight><requirement>120</requirement></li>
+		</challenges>
+		<loot>
+			<li><thing>BOR_Neutronium</thing><count>20~60</count></li>
+		</loot>
+		<!-- Deaths here are the store going up, so nobody is ever taken. -->
+		<risk>
+			<success><unharmed>0.7</unharmed><injured>0.25</injured><killed>0.05</killed><captured>0</captured></success>
+			<partial><unharmed>0.4</unharmed><injured>0.45</injured><killed>0.15</killed><captured>0</captured></partial>
+			<failure><unharmed>0.1</unharmed><injured>0.5</injured><killed>0.4</killed><captured>0</captured></failure>
+		</risk>
+		<daysOnSite>0.5</daysOnSite>
+		<openness>0.5</openness>
+		<squadSize>1~6</squadSize>
+		<findChanceBase>1</findChanceBase>
+	</Expeditions.ExpeditionSiteDef>
+
+	<!-- ============ Kwazaari ============ -->
+
+	<Expeditions.ExpeditionSiteDef ParentName="Exp_SiteBase">
+		<defName>BOR_Exp_TechRecovery</defName>
+		<label>kwazaari tech recovery</label>
+		<description>The Kwazaari want something back from a wreck out here, and they pay in scrip for whoever brings it home intact.</description>
+		<color>(0.35, 0.8, 0.75)</color>
+		<gates>
+			<li Class="Expeditions.SiteGate_Research"><research><li>BOR_Research_Analyzer_II</li></research></li>
+		</gates>
+		<challenges>
+			<li><challenge>Exp_SearchSalvage</challenge><weight>2</weight><requirement>120</requirement></li>
+			<li><challenge>Exp_Hack</challenge><weight>1.5</weight><requirement>130</requirement></li>
+		</challenges>
+		<outcomeEffects>
+			<li Class="BeyondOurReach.OutcomeEffect_Scrip"><amount>20~40</amount></li>
+		</outcomeEffects>
+		<successText>The Kwazaari got their tech back.</successText>
+		<daysOnSite>1</daysOnSite>
+		<openness>0.6</openness>
+		<squadSize>1~4</squadSize>
+		<findChanceBase>1</findChanceBase>
+	</Expeditions.ExpeditionSiteDef>
+
+	<!-- ============ Path of Light ============ -->
+
+	<!-- A real Vanquisher settlement in range. A win razes it; it holds nothing a crusader may touch. -->
+	<Expeditions.ExpeditionSiteDef ParentName="Exp_SiteHarsh">
+		<defName>BOR_Exp_Crusade</defName>
+		<label>crusade</label>
+		<description>A Tenebral Vanquisher settlement within reach. The light asks that it be ended. Nothing in it is fit to carry home, but those it holds may be.</description>
+		<color>(0.95, 0.85, 0.5)</color>
+		<gates>
+			<li Class="BeyondOurReach.SiteGate_Path"><path>Light</path></li>
+		</gates>
+		<settlementLink>
+			<need>Hostile</need>
+			<factionDefs><li>BOR_Tenebrites</li></factionDefs>
+			<onSuccess>Destroy</onSuccess>
+			<onPartial>Nothing</onPartial>
+			<fightMin>400</fightMin>
+			<retaliation><source>SiteFaction</source></retaliation>
+		</settlementLink>
+		<challenges>
+			<li><challenge>Exp_Fight</challenge><weight>2.5</weight><requirement>400</requirement></li>
+			<li><challenge>Exp_Endure</challenge><weight>1</weight><requirement>150</requirement></li>
+		</challenges>
+		<joiners>
+			<chance>0.5</chance>
+			<count>1~3</count>
+			<kind>Colonist</kind>
+			<partialFactor>0.5</partialFactor>
+		</joiners>
+		<pawnEffects>
+			<li Class="BeyondOurReach.PawnEffect_TouchOfTheHoly"><chance>0.25</chance></li>
+		</pawnEffects>
+		<outcomeEffects>
+			<li Class="Expeditions.OutcomeEffect_GoodwillAll">
+				<amount>8</amount>
+				<includeHostile>true</includeHostile>
+				<exceptFactionDefs><li>BOR_Tenebrites</li><li>BOR_Umbrals</li></exceptFactionDefs>
+			</li>
+		</outcomeEffects>
+		<daysOnSite>1</daysOnSite>
+		<openness>1</openness>
+		<squadSize>2~6</squadSize>
+		<findChanceBase>1</findChanceBase>
+	</Expeditions.ExpeditionSiteDef>
+
+	<Expeditions.ExpeditionSiteDef ParentName="Exp_SiteGentle">
+		<defName>BOR_Exp_HolyRetreat</defName>
+		<label>holy retreat</label>
+		<description>A quiet place, far from anyone, where the light is easy to hear. Those who go come back calmer, and carry some of it home.</description>
+		<color>(1, 0.95, 0.75)</color>
+		<gates>
+			<li Class="BeyondOurReach.SiteGate_Path"><path>Light</path></li>
+		</gates>
+		<challenges>
+			<li><challenge>Exp_Teach</challenge><weight>2</weight><requirement>100</requirement></li>
+			<li><challenge>Exp_Contest_Debate</challenge><weight>1</weight><requirement>100</requirement></li>
+		</challenges>
+		<pawnEffects>
+			<li Class="BeyondOurReach.PawnEffect_TouchOfTheHoly"><chance>0.05</chance></li>
+		</pawnEffects>
+		<outcomeEffects>
+			<li Class="BeyondOurReach.OutcomeEffect_MeditationPower"><amount>600</amount></li>
+		</outcomeEffects>
+		<successText>They came back calmer than they left.</successText>
+		<daysOnSite>2</daysOnSite>
+		<openness>0.3</openness>
+		<squadSize>1~4</squadSize>
+		<findChanceBase>1</findChanceBase>
+	</Expeditions.ExpeditionSiteDef>
+
+	<Expeditions.ExpeditionSiteDef ParentName="Exp_SiteHarshNoCaptors">
+		<defName>BOR_Exp_UmbralHunt</defName>
+		<label>umbral hunt</label>
+		<description>Umbrals stalk the wilds nearby. The light wants them found and ended.</description>
+		<color>(0.9, 0.8, 0.45)</color>
+		<commonness>0.3</commonness>
+		<gates>
+			<li Class="BeyondOurReach.SiteGate_Path"><path>Light</path></li>
+		</gates>
+		<challenges>
+			<li><challenge>Exp_Fight</challenge><weight>2</weight><requirement>350</requirement></li>
+			<li><challenge>Exp_Endure</challenge><weight>1.5</weight><requirement>150</requirement></li>
+		</challenges>
+		<pawnEffects>
+			<li Class="BeyondOurReach.PawnEffect_TouchOfTheHoly"><chance>0.15</chance></li>
+		</pawnEffects>
+		<!-- Umbrals don't raid outside named events; enable once the Schism exists (openspec/specs/schism/spec.md).
+		<outcomeEffects>
+			<li Class="BeyondOurReach.OutcomeEffect_SchismWrath"><amount>-15</amount></li>
+		</outcomeEffects>
+		-->
+		<successText>The Umbrals they found are gone.</successText>
+		<daysOnSite>1</daysOnSite>
+		<openness>0.8</openness>
+		<squadSize>2~6</squadSize>
+		<findChanceBase>1</findChanceBase>
+	</Expeditions.ExpeditionSiteDef>
+
+	<!-- ============ Path of Dark ============ -->
+
+	<Expeditions.ExpeditionSiteDef ParentName="Exp_SiteHarsh">
+		<defName>BOR_Exp_Reaping</defName>
+		<label>reaping</label>
+		<description>An enemy camp, and the hunger that wants it emptied. Those who carry the dark come back sated, and a little more changed.</description>
+		<color>(0.6, 0.05, 0.1)</color>
+		<needsFaction>Hostile</needsFaction>
+		<gates>
+			<li Class="BeyondOurReach.SiteGate_Path"><path>Dark</path></li>
+		</gates>
+		<challenges>
+			<li><challenge>Exp_Fight</challenge><weight>2</weight><requirement>300</requirement></li>
+			<li><challenge>Exp_Stealth</challenge><weight>0.5</weight><requirement>100</requirement></li>
+		</challenges>
+		<loot>
+			<li><category>WeaponsRanged</category><count>1~2</count><chance>0.5</chance></li>
+			<li><category>Apparel</category><count>1~2</count><chance>0.5</chance></li>
+		</loot>
+		<pawnEffects>
+			<li Class="BeyondOurReach.PawnEffect_Reaping"><kills>2~5</kills></li>
+		</pawnEffects>
+		<daysOnSite>0.5</daysOnSite>
+		<openness>1</openness>
+		<squadSize>1~6</squadSize>
+		<findChanceBase>0.8</findChanceBase>
+	</Expeditions.ExpeditionSiteDef>
+
+	<!-- Dark pacts: offered the moment the pact opens, gone when it ends. -->
+
+	<Expeditions.ExpeditionSiteDef ParentName="Exp_SiteHarsh">
+		<defName>BOR_Exp_PactRaze</defName>
+		<label>pact: raze the settlement</label>
+		<description>The mirror named a settlement. Send a squad to end it, and the price is paid.</description>
+		<color>(0.7, 0.05, 0.05)</color>
+		<immediate>true</immediate>
+		<gates>
+			<li Class="BeyondOurReach.SiteGate_PactObjective"><objectives><li>DestroySettlement</li></objectives></li>
+		</gates>
+		<settlementLink>
+			<workerClass>BeyondOurReach.SettlementLinkWorker_Pact</workerClass>
+			<need>None</need>
+			<onSuccess>Destroy</onSuccess>
+			<onPartial>Nothing</onPartial>
+			<affectRelations>true</affectRelations>
+			<fightMin>300</fightMin>
+		</settlementLink>
+		<challenges>
+			<li><challenge>Exp_Fight</challenge><weight>2</weight><requirement>300</requirement></li>
+			<li><challenge>Exp_Stealth</challenge><weight>1</weight><requirement>120</requirement></li>
+		</challenges>
+		<daysOnSite>0.5</daysOnSite>
+		<openness>1</openness>
+		<squadSize>2~6</squadSize>
+		<findChanceBase>1</findChanceBase>
+	</Expeditions.ExpeditionSiteDef>
+
+	<Expeditions.ExpeditionSiteDef ParentName="Exp_SiteHarsh">
+		<defName>BOR_Exp_PactSlaughter</defName>
+		<label>pact: slaughter</label>
+		<description>The mirror wants lives. There are people out there who won't be missed by you.</description>
+		<color>(0.7, 0.05, 0.05)</color>
+		<immediate>true</immediate>
+		<needsFaction>Hostile</needsFaction>
+		<gates>
+			<li Class="BeyondOurReach.SiteGate_PactObjective"><objectives><li>KillPeople</li></objectives></li>
+		</gates>
+		<challenges>
+			<li><challenge>Exp_Fight</challenge><weight>2</weight><requirement>300</requirement></li>
+		</challenges>
+		<outcomeEffects>
+			<li Class="BeyondOurReach.OutcomeEffect_PactProgress" />
+		</outcomeEffects>
+		<daysOnSite>1</daysOnSite>
+		<openness>1</openness>
+		<squadSize>2~6</squadSize>
+		<findChanceBase>1</findChanceBase>
+	</Expeditions.ExpeditionSiteDef>
+
+	<Expeditions.ExpeditionSiteDef ParentName="Exp_SiteHarshNoCaptors">
+		<defName>BOR_Exp_PactHunt</defName>
+		<label>pact: the great hunt</label>
+		<description>The mirror wants blood, and it isn't particular whose. The herds out here will do.</description>
+		<color>(0.7, 0.05, 0.05)</color>
+		<immediate>true</immediate>
+		<gates>
+			<li Class="BeyondOurReach.SiteGate_PactObjective"><objectives><li>SlaughterAnimals</li></objectives></li>
+		</gates>
+		<challenges>
+			<li><challenge>Exp_SearchGame</challenge><weight>1.5</weight><requirement>100</requirement></li>
+			<li><challenge>Exp_Fight</challenge><weight>1.5</weight><requirement>200</requirement></li>
+		</challenges>
+		<loot>
+			<li><category>MeatRaw</category><count>60~200</count></li>
+			<li><category>Leathers</category><count>30~100</count></li>
+		</loot>
+		<outcomeEffects>
+			<li Class="BeyondOurReach.OutcomeEffect_PactProgress" />
+		</outcomeEffects>
+		<daysOnSite>1</daysOnSite>
+		<openness>1</openness>
+		<squadSize>1~6</squadSize>
+		<findChanceBase>1</findChanceBase>
+	</Expeditions.ExpeditionSiteDef>
+
+</Defs>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- BOR's goods on Expeditions' generic sites. -->
+<Patch>
+
+	<!-- A downed Kwazaari courier: the data drive that opens tier II, until it has been analysed some other way. -->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/Expeditions.ExpeditionSiteDef[defName="Exp_DownedCourier"]/loot</xpath>
+		<value>
+			<li><thing>BOR_DataDrive</thing><count>1</count><chance>0.35</chance><successOnly>true</successOnly><untilAnalyzed>true</untilAnalyzed><research>BOR_Research_Production_I</research></li>
+			<li><thing>BOR_CircuitBoard</thing><count>1~3</count><research>BOR_Research_Production_I</research></li>
+		</value>
+	</Operation>
+
+	<!-- Tier mechs among the dormant ones, once the colony has their tier. -->
+	<Operation Class="PatchOperationAdd" MayRequire="Ludeon.RimWorld.Biotech">
+		<xpath>Defs/Expeditions.ExpeditionSiteDef[defName="Exp_DormantMechs"]/joiners/mechKinds</xpath>
+		<value>
+			<li><kind>BOR_Mech_SolarLifter</kind><research>BOR_Research_Analyzer_I</research></li>
+			<li><kind>BOR_Mech_SolarCleaner</kind><research>BOR_Research_Analyzer_I</research></li>
+			<li><kind>BOR_Mech_QuasarFabricor</kind><research>BOR_Research_Analyzer_II</research></li>
+			<li><kind>BOR_Mech_QuasarDriller</kind><research>BOR_Research_Analyzer_II</research></li>
+		</value>
+	</Operation>
+
+</Patch>
