@@ -37,12 +37,7 @@ public class CompBlessingBench : ThingComp, IGlowSource
 
     public void NotifyBlessing() => lastBlessTick = Find.TickManager.TicksGame;
 
-    public IEnumerable<BodyPartRecord> BlessableParts(Pawn target)
-    {
-        HediffSet set = target.health.hediffSet;
-        return target.RaceProps.body.AllParts.Where(p => Props.blessableParts.Contains(p.def)
-            && !set.PartIsMissing(p) && !set.PartOrAnyAncestorHasDirectlyAddedParts(p));
-    }
+    public IEnumerable<BodyPartRecord> BlessableParts(Pawn target) => Blessings.Blessable(target, Props.blessableParts);
 
     public override IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn selPawn)
     {
@@ -146,6 +141,34 @@ public class JobDriver_OrientisBless : JobDriver
     {
         base.ExposeData();
         Scribe_Values.Look(ref ticksDone, "ticksDone");
+    }
+}
+
+// Blessings outside the bench: which parts can take one, and the permanent touch of the holy an expedition can give.
+// The touch is read by def name so this works whether or not the mod that grants it is loaded.
+public static class Blessings
+{
+    private static HediffDef? touch;
+    private static List<BodyPartDef>? benchParts;
+
+    public static HediffDef? Touch => touch ??= DefDatabase<HediffDef>.GetNamedSilentFail("BOR_TouchOfTheHoly");
+
+    // The parts any blessing bench can bless, read off the bench defs.
+    public static List<BodyPartDef> BenchParts => benchParts ??= DefDatabase<ThingDef>.AllDefsListForReading
+        .Select(d => d.GetCompProperties<CompProperties_BlessingBench>())
+        .Where(p => p != null).SelectMany(p => p!.blessableParts).Distinct().ToList();
+
+    public static bool Touched(Pawn pawn, BodyPartRecord part) =>
+        Touch != null && pawn.health.hediffSet.hediffs.Any(h => h.def == Touch && h.Part == part);
+
+    public static bool HasTouch(Pawn pawn) => Touch != null && pawn.health.hediffSet.HasHediff(Touch);
+
+    // Natural, present parts of these kinds that no touch of the holy already holds: a touched part is blessed for good.
+    public static IEnumerable<BodyPartRecord> Blessable(Pawn target, List<BodyPartDef> defs)
+    {
+        HediffSet set = target.health.hediffSet;
+        return target.RaceProps.body.AllParts.Where(p => defs.Contains(p.def)
+            && !set.PartIsMissing(p) && !set.PartOrAnyAncestorHasDirectlyAddedParts(p) && !Touched(target, p));
     }
 }
 

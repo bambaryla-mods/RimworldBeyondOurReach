@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+	<BOR_Exp_TouchLine>{0} was touched by the holy. Their {1} is blessed for good.</BOR_Exp_TouchLine>
+	<BOR_Exp_ReapingLine>{0} took {1} lives.</BOR_Exp_ReapingLine>
+	<BOR_Exp_PowerBanked>The calm they found came home with them: {0} meditation power banked.</BOR_Exp_PowerBanked>
+	<BOR_Exp_PowerFaded>The calm they found faded on the way home, with no cache to hold it.</BOR_Exp_PowerFaded>
+	<BOR_Exp_ScripLine>The Kwazaari paid {0} scrip.</BOR_Exp_ScripLine>
+	<BOR_Exp_PactPaid>The mirror took its due: {0} toward the pact.</BOR_Exp_PactPaid>
+	<BOR_Exp_PactGone>The pact had already ended. The mirror no longer cares what they did.</BOR_Exp_PactGone>
+	<BOR_Exp_DarkBurned>The dark things they found were burned where they lay.</BOR_Exp_DarkBurned>
+</LanguageData>

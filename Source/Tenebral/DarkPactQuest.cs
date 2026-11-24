@@ -347,6 +347,24 @@ public class QuestPart_DarkPact : QuestPartActivable
         }
     }
 
+    // What is still owed on a counted price.
+    public int Remaining => Counted ? System.Math.Max(0, goal - progress) : 0;
+
+    // Progress made away from the colony's maps (an expedition): adds to a counted price. The ossuary counts corpses at
+    // the mirror, so nothing done elsewhere pays it.
+    public void AddProgress(int n)
+    {
+        if (State != QuestPartState.Enabled || !Counted || n <= 0 || objective == DarkPactObjective.Ossuary)
+        {
+            return;
+        }
+        progress += n;
+        if (progress >= goal)
+        {
+            Succeed();
+        }
+    }
+
     // Humanlike corpses, skeletons too, lying within reach of any of the colony's dark mirrors. Counted at most once a
     // second for the inspect string and quest window, which ask every frame.
     private int OssuaryCount(bool fresh)

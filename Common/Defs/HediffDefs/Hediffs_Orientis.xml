@@ -37,6 +37,28 @@
 		</stages>
 	</HediffDef>
 
+	<!-- Touch of the holy, from an Orientis expedition: a blessing that never fades. One per pawn; the bench can't
+	     bless a touched part again. -->
+	<HediffDef>
+		<defName>BOR_TouchOfTheHoly</defName>
+		<label>touched by the holy</label>
+		<description>Something answered this one out in the world, and the part it touched has worked better than nature made it ever since. It will not fade.</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<defaultLabelColor>(1, 0.92, 0.6)</defaultLabelColor>
+		<isBad>false</isBad>
+		<scenarioCanAdd>false</scenarioCanAdd>
+		<comps>
+			<li MayRequire="v1024.ebframework" Class="EBF.Hediffs.HediffCompProperties_MaxHPAdjust">
+				<scaleAdjustment>2</scaleAdjustment>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<partEfficiencyOffset>2.2</partEfficiencyOffset>
+			</li>
+		</stages>
+	</HediffDef>
+
 	<!-- From a raised meditation shield. Severity is the share of consciousness lost, and it stops short of killing. -->
 	<HediffDef>
 		<defName>BOR_ShieldExposure</defName>
