@@ -38,6 +38,7 @@
   </incompatibleWith>
   <loadAfter>
     <li>bambaryla.resourcegeneratorframework</li>
+    <li>bambaryla.expeditions</li>
     <li>co.uk.epicguru.meleeanimation</li>
     <li>cf.chempowereddeepdrill</li>
     <li>onofre150.me.vaccines</li>

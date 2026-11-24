@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<LangVersion>latest</LangVersion>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+		<GenerateDependencyFile>false</GenerateDependencyFile>
+		<Nullable>enable</Nullable>
+		<DebugType>none</DebugType>
+		<DebugSymbols>false</DebugSymbols>
+		<AssemblyName>BORExpeditions</AssemblyName>
+		<RootNamespace>BeyondOurReach</RootNamespace>
+		<OutputPath>..\Assemblies\</OutputPath>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Compile Remove="obj/**" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Reference Include="Assembly-CSharp">
+			<HintPath>..\..\..\..\..\Assembly-CSharp.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+		<Reference Include="UnityStubs">
+			<HintPath>..\..\..\..\..\UnityStubs.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+		<!-- BOR's main assembly, for the tenebral, Orientis, Kwazaari and pact code the hooks call. -->
+		<Reference Include="BeyondOurReach">
+			<HintPath>..\..\..\Assemblies\BeyondOurReach.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+		<!-- Expeditions, for the hook base classes. Loaded only when Expeditions is active (LoadFolders.xml). -->
+		<Reference Include="Expeditions">
+			<HintPath>..\..\..\..\Expeditions\1.7\Assemblies\Expeditions.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+	</ItemGroup>
+
+</Project>

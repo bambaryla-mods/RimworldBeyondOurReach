@@ -37,6 +37,7 @@
 		<li IfModActive="shunthewitch.mechsuitframework">Mods/MechsuitFramework</li>
 		<li IfModActiveAll="ceteam.combatextended,shunthewitch.mechsuitframework">Mods/CE/MechsuitFramework</li>
 		<li IfModActive="smashphil.vehicleframework">Mods/VehicleFramework</li>
+		<li IfModActive="bambaryla.expeditions">Mods/Expeditions</li>
 		<li IfModActiveAll="ceteam.combatextended,smashphil.vehicleframework">Mods/CE/VehicleFramework</li>
 		<!-- Umbral Harbinger: an Odyssey shuttle if Odyssey is loaded, else a Vehicle Framework aircraft. -->
 		<li IfModActive="ludeon.rimworld.odyssey,smashphil.vehicleframework">Mods/Harbinger</li>
