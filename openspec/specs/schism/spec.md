@@ -103,5 +103,12 @@ Wrath, the cycle count, stage, recent changes, cooldowns, a pending champion sie
 - All numbers (rise per action, stage thresholds, -15/-10/-20, cooldowns, +15% per cycle) are starting points for tuning.
 - Omen conditions are cosmetic plus a small mood effect, with no gameplay penalty.
 
+## Expedition sites (ideas, not scheduled)
+These came up while planning the BOR expedition sites (BOR's `Mods/Expeditions`). None of them are being built yet. They wait until the Schism itself exists.
+
+- **Nemesis camp.** A Light colony hunts Umbral remnants, and a Dark colony hunts Orientis crusaders. A won expedition lowers wrath, the way a defeated Schism raid does. The nemesis has no settlements, so the camp is an expedition offer, not a world object.
+- **Champion's stronghold.** At high wrath, the colony can go after the champion before the siege comes. A won expedition counts as killing the champion: wrath drops to 0, the cycle count goes up, and the path's champion reward comes home with the squad.
+- **Umbral hunt.** The Orientis expedition against Umbrals was going to give "a stretch of quiet from Umbral raids", but Umbrals don't raid outside named events. With the Schism in place, its reward becomes a cut to the Hunger meter. Until then the reward stays commented out in its def.
+
 ## Non-goals
 A peace or diplomacy option with the nemesis, the nemesis on the world map, and switching paths.
