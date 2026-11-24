@@ -258,9 +258,6 @@
   <BOR_QuasarForagerOlfactoryArray.label>kwazarowa tablica węchowa zbieracza</BOR_QuasarForagerOlfactoryArray.label>
   <BOR_QuasarForagerOlfactoryArray.description>Zaawansowany implant analizy węchowej poprawiający wykrywanie dzikiego pożywienia.</BOR_QuasarForagerOlfactoryArray.description>
   <BOR_QuasarForagerOlfactoryArray.labelNoun>kwazarowa tablica węchowa zbieracza</BOR_QuasarForagerOlfactoryArray.labelNoun>
-  <BOR_QuasarCircadianStabilizerMatrix.label>kwazarowa matryca stabilizatora dobowego</BOR_QuasarCircadianStabilizerMatrix.label>
-  <BOR_QuasarCircadianStabilizerMatrix.description>Zaawansowany implant chrononeuronalny poprawiający efektywność odpoczynku i stabilność emocjonalną.</BOR_QuasarCircadianStabilizerMatrix.description>
-  <BOR_QuasarCircadianStabilizerMatrix.labelNoun>kwazarowa matryca stabilizatora dobowego</BOR_QuasarCircadianStabilizerMatrix.labelNoun>
   <BOR_QuasarNarcoEconomicAnalyzer.label>kwazarowy analizator narkoekonomiczny</BOR_QuasarNarcoEconomicAnalyzer.label>
   <BOR_QuasarNarcoEconomicAnalyzer.description>Zaawansowany implant analizy rynku wyspecjalizowany w dobrach psychoaktywnych.</BOR_QuasarNarcoEconomicAnalyzer.description>
   <BOR_QuasarNarcoEconomicAnalyzer.labelNoun>kwazarowy analizator narkoekonomiczny</BOR_QuasarNarcoEconomicAnalyzer.labelNoun>
@@ -384,9 +381,6 @@
   <BOR_TenebralForagerOlfactoryArray.label>tenebralna tablica węchowa zbieracza</BOR_TenebralForagerOlfactoryArray.label>
   <BOR_TenebralForagerOlfactoryArray.description>Szczytowy implant analizy węchowej dla maksymalnej wykrywalności dzikiego pożywienia.</BOR_TenebralForagerOlfactoryArray.description>
   <BOR_TenebralForagerOlfactoryArray.labelNoun>tenebralna tablica węchowa zbieracza</BOR_TenebralForagerOlfactoryArray.labelNoun>
-  <BOR_TenebralCircadianStabilizerMatrix.label>tenebralna matryca stabilizatora dobowego</BOR_TenebralCircadianStabilizerMatrix.label>
-  <BOR_TenebralCircadianStabilizerMatrix.description>Szczytowy implant chrononeuronalny zapewniający najwyższą regenerację snu i tłumienie stresu.</BOR_TenebralCircadianStabilizerMatrix.description>
-  <BOR_TenebralCircadianStabilizerMatrix.labelNoun>tenebralna matryca stabilizatora dobowego</BOR_TenebralCircadianStabilizerMatrix.labelNoun>
   <BOR_TenebralNarcoEconomicAnalyzer.label>tenebralny analizator narkoekonomiczny</BOR_TenebralNarcoEconomicAnalyzer.label>
   <BOR_TenebralNarcoEconomicAnalyzer.description>Szczytowy implant analizy rynku wyspecjalizowany w maksymalizacji marży na dobrach psychoaktywnych.</BOR_TenebralNarcoEconomicAnalyzer.description>
   <BOR_TenebralNarcoEconomicAnalyzer.labelNoun>tenebralny analizator narkoekonomiczny</BOR_TenebralNarcoEconomicAnalyzer.labelNoun>

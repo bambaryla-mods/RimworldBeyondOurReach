@@ -316,7 +316,7 @@
       <li>
         <statOffsets>
           <RestRateMultiplier>0.13</RestRateMultiplier>
-          <MentalBreakThreshold>0.08</MentalBreakThreshold>
+          <MentalBreakThreshold>-0.08</MentalBreakThreshold>
         </statOffsets>
       </li>
     </stages>

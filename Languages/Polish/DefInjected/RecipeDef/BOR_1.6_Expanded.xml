@@ -288,9 +288,6 @@
   <BOR_InstallQuasarForagerOlfactoryArray.label>Wszczep kwazarowe forager olfactory array</BOR_InstallQuasarForagerOlfactoryArray.label>
   <BOR_InstallQuasarForagerOlfactoryArray.description>Wszczep kwazarowe forager olfactory array.</BOR_InstallQuasarForagerOlfactoryArray.description>
   <BOR_InstallQuasarForagerOlfactoryArray.jobString>Wszczepianie kwazarowe forager olfactory array.</BOR_InstallQuasarForagerOlfactoryArray.jobString>
-  <BOR_InstallQuasarCircadianStabilizerMatrix.label>Wszczep kwazarowe circadian stabilizer matrix</BOR_InstallQuasarCircadianStabilizerMatrix.label>
-  <BOR_InstallQuasarCircadianStabilizerMatrix.description>Wszczep kwazarowe circadian stabilizer matrix.</BOR_InstallQuasarCircadianStabilizerMatrix.description>
-  <BOR_InstallQuasarCircadianStabilizerMatrix.jobString>Wszczepianie kwazarowe circadian stabilizer matrix.</BOR_InstallQuasarCircadianStabilizerMatrix.jobString>
   <BOR_InstallQuasarNarcoEconomicAnalyzer.label>Wszczep kwazarowe narco-economic analyzer</BOR_InstallQuasarNarcoEconomicAnalyzer.label>
   <BOR_InstallQuasarNarcoEconomicAnalyzer.description>Wszczep kwazarowe narco-economic analyzer.</BOR_InstallQuasarNarcoEconomicAnalyzer.description>
   <BOR_InstallQuasarNarcoEconomicAnalyzer.jobString>Wszczepianie kwazarowe narco-economic analyzer.</BOR_InstallQuasarNarcoEconomicAnalyzer.jobString>
@@ -417,9 +414,6 @@
   <BOR_InstallTenebralForagerOlfactoryArray.label>Wszczep tenebralne forager olfactory array</BOR_InstallTenebralForagerOlfactoryArray.label>
   <BOR_InstallTenebralForagerOlfactoryArray.description>Wszczep tenebralne forager olfactory array.</BOR_InstallTenebralForagerOlfactoryArray.description>
   <BOR_InstallTenebralForagerOlfactoryArray.jobString>Wszczepianie tenebralne forager olfactory array.</BOR_InstallTenebralForagerOlfactoryArray.jobString>
-  <BOR_InstallTenebralCircadianStabilizerMatrix.label>Wszczep tenebralne circadian stabilizer matrix</BOR_InstallTenebralCircadianStabilizerMatrix.label>
-  <BOR_InstallTenebralCircadianStabilizerMatrix.description>Wszczep tenebralne circadian stabilizer matrix.</BOR_InstallTenebralCircadianStabilizerMatrix.description>
-  <BOR_InstallTenebralCircadianStabilizerMatrix.jobString>Wszczepianie tenebralne circadian stabilizer matrix.</BOR_InstallTenebralCircadianStabilizerMatrix.jobString>
   <BOR_InstallTenebralNarcoEconomicAnalyzer.label>Wszczep tenebralne narco-economic analyzer</BOR_InstallTenebralNarcoEconomicAnalyzer.label>
   <BOR_InstallTenebralNarcoEconomicAnalyzer.description>Wszczep tenebralne narco-economic analyzer.</BOR_InstallTenebralNarcoEconomicAnalyzer.description>
   <BOR_InstallTenebralNarcoEconomicAnalyzer.jobString>Wszczepianie tenebralne narco-economic analyzer.</BOR_InstallTenebralNarcoEconomicAnalyzer.jobString>
