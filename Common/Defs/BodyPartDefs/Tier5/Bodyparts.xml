@@ -16,29 +16,6 @@
 			</li>
 		</comps>
 	</HediffDef>
-	<RecipeDef Name="BOR_UmbralSurgeryInstallBodyPartArtificialBase" ParentName="SurgeryInstallBodyPartArtificialBase" Abstract="True">
-		<researchPrerequisite>BOR_Research_Bionics_V</researchPrerequisite>
-		<skillRequirements>
-			<Medicine>20</Medicine>
-			<Intellectual>20</Intellectual>
-		</skillRequirements>
-		<workAmount>30000</workAmount>
-		<ingredients Inherit="False">
-			<li>
-				<filter>
-					<thingDefs>
-						<li>BOR_MedicineIV</li>
-					</thingDefs>
-				</filter>
-				<count>3</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>BOR_MedicineIV</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-	</RecipeDef>
 	<!-- Bionic eye -->
 	<HediffDef ParentName="BOR_AddedUmbralBodyPartBase">
 		<defName>BOR_UmbralBionicEye</defName>
@@ -54,36 +31,6 @@
 			<betterThanNatural>true</betterThanNatural>
 		</addedPartProps>
 	</HediffDef>
-	<RecipeDef ParentName="BOR_UmbralSurgeryInstallBodyPartArtificialBase">
-		<defName>BOR_InstallUmbralBionicEye</defName>
-		<label>install umbral eye</label>
-		<description>Install a Umbral eye.</description>
-		<descriptionHyperlinks>
-			<ThingDef>BOR_Attoclusters</ThingDef>
-			<HediffDef>BOR_UmbralBionicEye</HediffDef>
-		</descriptionHyperlinks>
-		<jobString>Installing Umbral bionic eye.</jobString>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>BOR_Attoclusters</li>
-					</thingDefs>
-				</filter>
-				<count>5</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>BOR_Attoclusters</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<appliedOnFixedBodyParts>
-			<li>Eye</li>
-		</appliedOnFixedBodyParts>
-		<addsHediff>BOR_UmbralBionicEye</addsHediff>
-		<researchPrerequisite>BOR_Research_Bionics_V</researchPrerequisite>
-	</RecipeDef>
 	<!-- Bionic arm -->
 	<HediffDef ParentName="BOR_AddedUmbralBodyPartBase">
 		<defName>BOR_UmbralBionicArm</defName>
@@ -115,35 +62,6 @@
 			<betterThanNatural>true</betterThanNatural>
 		</addedPartProps>
 	</HediffDef>
-	<RecipeDef ParentName="BOR_UmbralSurgeryInstallBodyPartArtificialBase">
-		<defName>BOR_InstallUmbralBionicArm</defName>
-		<label>install umbral arm</label>
-		<description>Install a Umbral arm.</description>
-		<descriptionHyperlinks>
-			<ThingDef>BOR_Attoclusters</ThingDef>
-			<HediffDef>BOR_UmbralBionicArm</HediffDef>
-		</descriptionHyperlinks>
-		<jobString>Installing Umbral bionic arm.</jobString>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>BOR_Attoclusters</li>
-					</thingDefs>
-				</filter>
-				<count>5</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>BOR_Attoclusters</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<appliedOnFixedBodyParts>
-			<li>Shoulder</li>
-		</appliedOnFixedBodyParts>
-		<addsHediff>BOR_UmbralBionicArm</addsHediff>
-	</RecipeDef>
 	<!-- Bionic leg -->
 	<HediffDef ParentName="BOR_AddedUmbralBodyPartBase">
 		<defName>BOR_UmbralBionicLeg</defName>
@@ -159,35 +77,6 @@
 			<betterThanNatural>true</betterThanNatural>
 		</addedPartProps>
 	</HediffDef>
-	<RecipeDef ParentName="BOR_UmbralSurgeryInstallBodyPartArtificialBase">
-		<defName>BOR_InstallUmbralBionicLeg</defName>
-		<label>install umbral leg</label>
-		<description>Install a Umbral leg.</description>
-		<descriptionHyperlinks>
-			<ThingDef>BOR_Attoclusters</ThingDef>
-			<HediffDef>BOR_UmbralBionicLeg</HediffDef>
-		</descriptionHyperlinks>
-		<jobString>Installing Umbral bionic leg.</jobString>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>BOR_Attoclusters</li>
-					</thingDefs>
-				</filter>
-				<count>5</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>BOR_Attoclusters</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<appliedOnFixedBodyParts>
-			<li>Leg</li>
-		</appliedOnFixedBodyParts>
-		<addsHediff>BOR_UmbralBionicLeg</addsHediff>
-	</RecipeDef>
 	<!-- Bionic spine -->
 	<HediffDef ParentName="BOR_AddedUmbralBodyPartBase">
 		<defName>BOR_UmbralBionicSpine</defName>
@@ -203,35 +92,6 @@
 			<partEfficiency>6.33</partEfficiency>
 		</addedPartProps>
 	</HediffDef>
-	<RecipeDef ParentName="BOR_UmbralSurgeryInstallBodyPartArtificialBase">
-		<defName>BOR_InstallUmbralBionicSpine</defName>
-		<label>install umbral spine</label>
-		<description>Install a Umbral spine.</description>
-		<descriptionHyperlinks>
-			<ThingDef>BOR_Attoclusters</ThingDef>
-			<HediffDef>BOR_UmbralBionicSpine</HediffDef>
-		</descriptionHyperlinks>
-		<jobString>Installing Umbral bionic spine.</jobString>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>BOR_Attoclusters</li>
-					</thingDefs>
-				</filter>
-				<count>5</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>BOR_Attoclusters</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<appliedOnFixedBodyParts>
-			<li>Spine</li>
-		</appliedOnFixedBodyParts>
-		<addsHediff>BOR_UmbralBionicSpine</addsHediff>
-	</RecipeDef>
 	<!-- Bionic heart -->
 	<HediffDef ParentName="BOR_AddedUmbralBodyPartBase">
 		<defName>BOR_UmbralBionicHeart</defName>
@@ -247,35 +107,6 @@
 			<betterThanNatural>true</betterThanNatural>
 		</addedPartProps>
 	</HediffDef>
-	<RecipeDef ParentName="BOR_UmbralSurgeryInstallBodyPartArtificialBase">
-		<defName>BOR_InstallUmbralBionicHeart</defName>
-		<label>install umbral heart</label>
-		<description>Install a Umbral heart.</description>
-		<descriptionHyperlinks>
-			<ThingDef>BOR_Attoclusters</ThingDef>
-			<HediffDef>BOR_UmbralBionicHeart</HediffDef>
-		</descriptionHyperlinks>
-		<jobString>Installing Umbral bionic heart.</jobString>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>BOR_Attoclusters</li>
-					</thingDefs>
-				</filter>
-				<count>5</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>BOR_Attoclusters</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<appliedOnFixedBodyParts>
-			<li>Heart</li>
-		</appliedOnFixedBodyParts>
-		<addsHediff>BOR_UmbralBionicHeart</addsHediff>
-	</RecipeDef>
 	<!-- Bionic stomach -->
 	<HediffDef ParentName="BOR_AddedUmbralBodyPartBase">
 		<defName>BOR_UmbralBionicStomach</defName>
@@ -299,35 +130,6 @@
 			<betterThanNatural>true</betterThanNatural>
 		</addedPartProps>
 	</HediffDef>
-	<RecipeDef ParentName="BOR_UmbralSurgeryInstallBodyPartArtificialBase">
-		<defName>BOR_InstallUmbralBionicStomach</defName>
-		<label>install umbral stomach</label>
-		<description>Install a Umbral stomach.</description>
-		<descriptionHyperlinks>
-			<ThingDef>BOR_Attoclusters</ThingDef>
-			<HediffDef>BOR_UmbralBionicStomach</HediffDef>
-		</descriptionHyperlinks>
-		<jobString>Installing Umbral bionic stomach.</jobString>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>BOR_Attoclusters</li>
-					</thingDefs>
-				</filter>
-				<count>5</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>BOR_Attoclusters</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<appliedOnFixedBodyParts>
-			<li>Stomach</li>
-		</appliedOnFixedBodyParts>
-		<addsHediff>BOR_UmbralBionicStomach</addsHediff>
-	</RecipeDef>
 	<!-- Bionic ear -->
 	<HediffDef ParentName="BOR_AddedUmbralBodyPartBase">
 		<defName>BOR_UmbralBionicEar</defName>
@@ -343,35 +145,6 @@
 			<betterThanNatural>true</betterThanNatural>
 		</addedPartProps>
 	</HediffDef>
-	<RecipeDef ParentName="BOR_UmbralSurgeryInstallBodyPartArtificialBase">
-		<defName>BOR_InstallUmbralBionicEar</defName>
-		<label>install umbral ear</label>
-		<description>Install a Umbral ear.</description>
-		<descriptionHyperlinks>
-			<ThingDef>BOR_Attoclusters</ThingDef>
-			<HediffDef>BOR_UmbralBionicEar</HediffDef>
-		</descriptionHyperlinks>
-		<jobString>Installing Umbral bionic ear.</jobString>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>BOR_Attoclusters</li>
-					</thingDefs>
-				</filter>
-				<count>5</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>BOR_Attoclusters</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<appliedOnFixedBodyParts>
-			<li>Ear</li>
-		</appliedOnFixedBodyParts>
-		<addsHediff>BOR_UmbralBionicEar</addsHediff>
-	</RecipeDef>
 	<!-- Bionic tongue -->
 	<HediffDef ParentName="BOR_AddedUmbralBodyPartBase">
 		<defName>BOR_UmbralBionicTongue</defName>
@@ -386,35 +159,6 @@
 			<partEfficiency>5.0625</partEfficiency>
 		</addedPartProps>
 	</HediffDef>
-	<RecipeDef ParentName="BOR_UmbralSurgeryInstallBodyPartArtificialBase">
-		<defName>BOR_InstallUmbralBionicTongue</defName>
-		<label>install umbral tongue</label>
-		<description>Install a Umbral tongue.</description>
-		<descriptionHyperlinks>
-			<ThingDef>BOR_Attoclusters</ThingDef>
-			<HediffDef>BOR_UmbralBionicTongue</HediffDef>
-		</descriptionHyperlinks>
-		<jobString>Installing Umbral bionic tongue.</jobString>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>BOR_Attoclusters</li>
-					</thingDefs>
-				</filter>
-				<count>5</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>BOR_Attoclusters</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<appliedOnFixedBodyParts>
-			<li>Tongue</li>
-		</appliedOnFixedBodyParts>
-		<addsHediff>BOR_UmbralBionicTongue</addsHediff>
-	</RecipeDef>
 	<!-- Bionic Jaw -->
 	<HediffDef ParentName="BOR_AddedUmbralBodyPartBase">
 		<defName>BOR_UmbralBionicJaw</defName>
@@ -430,31 +174,6 @@
 			<betterThanNatural>true</betterThanNatural>
 		</addedPartProps>
 	</HediffDef>
-	<RecipeDef ParentName="BOR_UmbralSurgeryInstallBodyPartArtificialBase">
-		<defName>BOR_InstallUmbralBionicJaw</defName>
-		<label>install umbral jaw</label>
-		<description>Install Umbral jaw.</description>
-		<jobString>Installing Umbral bionic jaw.</jobString>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>BOR_Attoclusters</li>
-					</thingDefs>
-				</filter>
-				<count>5</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>BOR_Attoclusters</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<appliedOnFixedBodyParts>
-			<li>Jaw</li>
-		</appliedOnFixedBodyParts>
-		<addsHediff>BOR_UmbralBionicJaw</addsHediff>
-	</RecipeDef>
 	<HediffDef ParentName="BOR_AddedUmbralBodyPartBase">
 		<defName>BOR_UmbralBionicLung</defName>
 		<label>umbral lung</label>
@@ -469,35 +188,6 @@
 			<betterThanNatural>true</betterThanNatural>
 		</addedPartProps>
 	</HediffDef>
-	<RecipeDef ParentName="BOR_UmbralSurgeryInstallBodyPartArtificialBase">
-		<defName>BOR_InstallUmbralBionicLung</defName>
-		<label>install umbral lung</label>
-		<description>Install a Umbral lung.</description>
-		<descriptionHyperlinks>
-			<ThingDef>BOR_Attoclusters</ThingDef>
-			<HediffDef>BOR_UmbralBionicLung</HediffDef>
-		</descriptionHyperlinks>
-		<jobString>Installing Umbral bionic lung.</jobString>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>BOR_Attoclusters</li>
-					</thingDefs>
-				</filter>
-				<count>5</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>BOR_Attoclusters</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<appliedOnFixedBodyParts>
-			<li>Lung</li>
-		</appliedOnFixedBodyParts>
-		<addsHediff>BOR_UmbralBionicLung</addsHediff>
-	</RecipeDef>
 	<HediffDef ParentName="BOR_AddedUmbralBodyPartBase">
 		<defName>BOR_UmbralBionicLiver</defName>
 		<label>umbral liver</label>
@@ -512,35 +202,6 @@
 			<betterThanNatural>true</betterThanNatural>
 		</addedPartProps>
 	</HediffDef>
-	<RecipeDef ParentName="BOR_UmbralSurgeryInstallBodyPartArtificialBase">
-		<defName>BOR_InstallUmbralBionicLiver</defName>
-		<label>install umbral liver</label>
-		<description>Install a Umbral liver.</description>
-		<descriptionHyperlinks>
-			<ThingDef>BOR_Attoclusters</ThingDef>
-			<HediffDef>BOR_UmbralBionicLiver</HediffDef>
-		</descriptionHyperlinks>
-		<jobString>Installing Umbral bionic liver.</jobString>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>BOR_Attoclusters</li>
-					</thingDefs>
-				</filter>
-				<count>5</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>BOR_Attoclusters</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<appliedOnFixedBodyParts>
-			<li>Liver</li>
-		</appliedOnFixedBodyParts>
-		<addsHediff>BOR_UmbralBionicLiver</addsHediff>
-	</RecipeDef>
 	<HediffDef ParentName="BOR_AddedUmbralBodyPartBase">
 		<defName>BOR_UmbralBionicKidney</defName>
 		<label>umbral kidney</label>
@@ -555,33 +216,4 @@
 			<betterThanNatural>true</betterThanNatural>
 		</addedPartProps>
 	</HediffDef>
-	<RecipeDef ParentName="BOR_UmbralSurgeryInstallBodyPartArtificialBase">
-		<defName>BOR_InstallUmbralBionicKidney</defName>
-		<label>install umbral kidney</label>
-		<description>Install a Umbral kidney.</description>
-		<descriptionHyperlinks>
-			<ThingDef>BOR_Attoclusters</ThingDef>
-			<HediffDef>BOR_UmbralBionicKidney</HediffDef>
-		</descriptionHyperlinks>
-		<jobString>Installing Umbral bionic kidney.</jobString>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>BOR_Attoclusters</li>
-					</thingDefs>
-				</filter>
-				<count>5</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>BOR_Attoclusters</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<appliedOnFixedBodyParts>
-			<li>Kidney</li>
-		</appliedOnFixedBodyParts>
-		<addsHediff>BOR_UmbralBionicKidney</addsHediff>
-	</RecipeDef>
 </Defs>

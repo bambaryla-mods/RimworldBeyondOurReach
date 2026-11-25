@@ -56,7 +56,7 @@
 			<damageDef>TenebralBullet</damageDef>
 			<damageAmountBase>30</damageAmountBase>
 			<stoppingPower>3</stoppingPower>
-			<armorPenetrationBase>0.6</armorPenetrationBase>
+			<armorPenetrationBase>1.15</armorPenetrationBase>
 			<speed>82</speed>
 		</projectile>
 		<modExtensions>
@@ -75,7 +75,7 @@
 			<damageDef>TenebralBullet</damageDef>
 			<damageAmountBase>45</damageAmountBase>
 			<stoppingPower>12</stoppingPower>
-			<armorPenetrationBase>0.9</armorPenetrationBase>
+			<armorPenetrationBase>1.5</armorPenetrationBase>
 			<speed>82</speed>
 		</projectile>
 		<modExtensions>
@@ -95,7 +95,7 @@
 			<damageAmountBase>32</damageAmountBase>
 			<stoppingPower>5</stoppingPower>
 			<speed>105</speed>
-			<armorPenetrationBase>0.65</armorPenetrationBase>
+			<armorPenetrationBase>1.25</armorPenetrationBase>
 		</projectile>
 		<modExtensions>
 			<li Class="BeyondOurReach.DefModExtension_DarkThing" />
@@ -114,7 +114,7 @@
 			<damageAmountBase>45</damageAmountBase>
 			<stoppingPower>6.75</stoppingPower>
 			<speed>125</speed>
-			<armorPenetrationBase>0.9</armorPenetrationBase>
+			<armorPenetrationBase>1.6</armorPenetrationBase>
 		</projectile>
 		<modExtensions>
 			<li Class="BeyondOurReach.DefModExtension_DarkThing" />
@@ -133,7 +133,7 @@
 			<damageAmountBase>28</damageAmountBase>
 			<stoppingPower>4.99</stoppingPower>
 			<speed>125</speed>
-			<armorPenetrationBase>0.55</armorPenetrationBase>
+			<armorPenetrationBase>1.1</armorPenetrationBase>
 		</projectile>
 		<modExtensions>
 			<li Class="BeyondOurReach.DefModExtension_DarkThing" />

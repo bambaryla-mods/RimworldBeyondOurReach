@@ -74,6 +74,7 @@
 		<baseCost>1E+15</baseCost>
 		<modExtensions>
 			<li Class="BeyondOurReach.DefModExtension_DarkPact" />
+			<li Class="BeyondOurReach.DefModExtension_InfiniteCostDisplay" />
 		</modExtensions>
 	</ResearchProjectDef>
 	<ResearchProjectDef Name="BOR_Research_Base_IV" ParentName="BOR_Research_Base" Abstract="True">
@@ -863,6 +864,9 @@
 		<label>laborless neutronium brew</label>
 		<description>Construct the umbral neutronium self-sustained generator, which turns energy into neutronium and other materials.</description>
 		<baseCost>1E+15</baseCost>
+		<modExtensions>
+			<li Class="BeyondOurReach.DefModExtension_InfiniteCostDisplay"><textKey>BOR_BlessingCostDisplay</textKey></li>
+		</modExtensions>
 		<techLevel>Archotech</techLevel>
 		<prerequisites>
 			<li>BOR_Research_Gate_IV</li>
@@ -948,7 +952,8 @@
 		<label>umbral research gate</label>
 		<description>The ultimate pact. The Dark Archotechs show how to raise an umbral spire, where umbral research begins.</description>
 		<techLevel>Archotech</techLevel>
-		<!-- Needs every other tenebral pact; the last of each branch is listed. Mechtech is left out (it needs a mechanitor). -->
+		<!-- Needs every other tenebral pact; the last of each branch is listed. Mechtech is left out (it needs a mechanitor),
+		     and so are the altar quality pacts, which are optional. -->
 		<prerequisites>
 			<li>BOR_Research_Bionics_III</li>
 			<li>BOR_Research_Core_Drill_III</li>
@@ -972,6 +977,9 @@
 		<label>unlimited power</label>
 		<description>Construct the umbral reactor, a source of free energy (as far as you're concerned).</description>
 		<baseCost>1E+15</baseCost>
+		<modExtensions>
+			<li Class="BeyondOurReach.DefModExtension_InfiniteCostDisplay"><textKey>BOR_BlessingCostDisplay</textKey></li>
+		</modExtensions>
 		<techLevel>Archotech</techLevel>
 		<prerequisites>
 			<li>BOR_Research_Gate_IV</li>
@@ -988,30 +996,13 @@
 		<researchViewY>2.00</researchViewY>
 	</ResearchProjectDef>
 	<ResearchProjectDef ParentName="BOR_Research_Base_V">
-		<defName>BOR_Research_Bionics_V</defName>
-		<label>umbral bionics</label>
-		<description>Enables installation of umbral bionics.</description>
-		<baseCost>1200000</baseCost>
-		<techLevel>Archotech</techLevel>
-		<prerequisites>
-			<li>BOR_Research_Gate_IV</li>
-		</prerequisites>
-		<hiddenPrerequisites>
-			<li>BOR_Research_Medicine_IV</li>
-			<li>BOR_Research_Drugs_IV</li>
-			<li>BOR_Research_Power_IV</li>
-			<li>BOR_Research_Battery_IV</li>
-			<li>BOR_Research_Joy_IV</li>
-			<li>BOR_Research_Hydroponics_IV</li>
-		</hiddenPrerequisites>
-		<researchViewX>30.50</researchViewX>
-		<researchViewY>6.00</researchViewY>
-	</ResearchProjectDef>
-	<ResearchProjectDef ParentName="BOR_Research_Base_V">
 		<defName>BOR_Research_NeutProc_V</defName>
 		<label>self-sustaining production</label>
 		<description>Construct the umbral forge, which turns energy into neutronium and other materials.</description>
 		<baseCost>1E+15</baseCost>
+		<modExtensions>
+			<li Class="BeyondOurReach.DefModExtension_InfiniteCostDisplay"><textKey>BOR_BlessingCostDisplay</textKey></li>
+		</modExtensions>
 		<techLevel>Archotech</techLevel>
 		<prerequisites>
 			<li>BOR_Research_Gate_IV</li>
@@ -1201,5 +1192,72 @@
 		</hiddenPrerequisites>
 		<researchViewX>16.00</researchViewX>
 		<researchViewY>7.20</researchViewY>
+	</ResearchProjectDef>
+
+	<!-- Altar quality pacts: each raises the quality of the weapons and apparel every dark archotech altar makes, for whoever works it.
+	     Without them the altar makes normal quality. Each needs the one before. The umbral gate does not need them. See BeyondOurReach.AltarQuality. -->
+	<ResearchProjectDef ParentName="BOR_Research_Base_III_Pact">
+		<defName>BOR_Research_AltarQuality_Good</defName>
+		<label>altar quality: good</label>
+		<description>The Dark Archotechs guide the hands at the dark archotech altar. Every altar makes its weapons and apparel at good quality instead of normal, whoever works it.</description>
+		<techLevel>Archotech</techLevel>
+		<prerequisites>
+			<li>BOR_Research_Production_III</li>
+		</prerequisites>
+		<researchViewX>16.00</researchViewX>
+		<researchViewY>4.00</researchViewY>
+		<modExtensions>
+			<li Class="BeyondOurReach.DefModExtension_AltarQuality">
+				<quality>Good</quality>
+			</li>
+		</modExtensions>
+	</ResearchProjectDef>
+	<ResearchProjectDef ParentName="BOR_Research_Base_III_Pact">
+		<defName>BOR_Research_AltarQuality_Excellent</defName>
+		<label>altar quality: excellent</label>
+		<description>The Dark Archotechs guide the hands at the dark archotech altar more closely. Every altar makes its weapons and apparel at excellent quality instead of good, whoever works it.</description>
+		<techLevel>Archotech</techLevel>
+		<prerequisites>
+			<li>BOR_Research_AltarQuality_Good</li>
+		</prerequisites>
+		<researchViewX>17.00</researchViewX>
+		<researchViewY>4.00</researchViewY>
+		<modExtensions>
+			<li Class="BeyondOurReach.DefModExtension_AltarQuality">
+				<quality>Excellent</quality>
+			</li>
+		</modExtensions>
+	</ResearchProjectDef>
+	<ResearchProjectDef ParentName="BOR_Research_Base_III_Pact">
+		<defName>BOR_Research_AltarQuality_Masterwork</defName>
+		<label>altar quality: masterwork</label>
+		<description>The Dark Archotechs all but work the dark archotech altar themselves. Every altar makes its weapons and apparel at masterwork quality instead of excellent, whoever works it.</description>
+		<techLevel>Archotech</techLevel>
+		<prerequisites>
+			<li>BOR_Research_AltarQuality_Excellent</li>
+		</prerequisites>
+		<researchViewX>18.00</researchViewX>
+		<researchViewY>4.00</researchViewY>
+		<modExtensions>
+			<li Class="BeyondOurReach.DefModExtension_AltarQuality">
+				<quality>Masterwork</quality>
+			</li>
+		</modExtensions>
+	</ResearchProjectDef>
+	<ResearchProjectDef ParentName="BOR_Research_Base_III_Pact">
+		<defName>BOR_Research_AltarQuality_Legendary</defName>
+		<label>altar quality: legendary</label>
+		<description>The Dark Archotechs pour themselves into the dark archotech altar. Every altar makes its weapons and apparel at legendary quality instead of masterwork, whoever works it.</description>
+		<techLevel>Archotech</techLevel>
+		<prerequisites>
+			<li>BOR_Research_AltarQuality_Masterwork</li>
+		</prerequisites>
+		<researchViewX>19.00</researchViewX>
+		<researchViewY>4.00</researchViewY>
+		<modExtensions>
+			<li Class="BeyondOurReach.DefModExtension_AltarQuality">
+				<quality>Legendary</quality>
+			</li>
+		</modExtensions>
 	</ResearchProjectDef>
 </Defs>

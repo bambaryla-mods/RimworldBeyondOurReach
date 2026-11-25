@@ -41,13 +41,15 @@ public static class DarkPacts
     public static List<ResearchProjectDef> All => all ??= DefDatabase<ResearchProjectDef>.AllDefsListForReading.Where(r => r.HasModExtension<DefModExtension_DarkPact>()).ToList();
 
     // The icon a Pacts tab row shows: a building the research unlocks if it has one, else the first unlocked thing with an icon.
-    // Some researches only unlock modes of other buildings; they get the mirror's icon. The tab redraws every frame, so this is kept.
+    // Some researches only unlock modes of other buildings; they get the mirror's icon. Altar quality pacts get the altar's.
+    // The tab redraws every frame, so this is kept.
     public static ThingDef? IconDefFor(ResearchProjectDef research)
     {
         if (!iconDefs.TryGetValue(research, out ThingDef? def))
         {
             List<ThingDef> things = research.UnlockedDefs.OfType<ThingDef>().Where(d => d.uiIcon != null && d.uiIcon != BaseContent.BadTex).ToList();
-            def = things.FirstOrDefault(d => d.building != null) ?? things.FirstOrDefault();
+            def = things.FirstOrDefault(d => d.building != null) ?? things.FirstOrDefault()
+                ?? (AltarQuality.GrantedBy(research) != null ? BOR_TenebralDefOf.BOR_DarkArchotechAltar_III : null);
             iconDefs[research] = def;
         }
         return def;

@@ -6,16 +6,18 @@ Tenebral research is not studied; it is bargained for. Every tenebral research c
 ## Requirements
 
 ### Requirement: Pact research
-A research SHALL be a pact research when it inherits `BOR_Research_Base_III_Pact`, which sets a base cost of 1E+15 and the `DefModExtension_DarkPact` marker. Every tenebral research is one, compat researches included, and so is `BOR_Research_Gate_IV` (umbral research gate), the ultimate pact: it needs every other tenebral pact and unlocks the umbral spire. `BOR_Research_Analyzer_III` ("dark pacts"), which unlocks the dark mirror, is the last tier II project: it is studied at the quasar bench and needs the whole quasar tree (compat projects through `MayRequire`, Biotech mechtech left out because it needs a mechanitor).
+A research SHALL be a pact research when it inherits `BOR_Research_Base_III_Pact`, which sets a base cost of 1E+15 and the `DefModExtension_DarkPact` marker. Every tenebral research is one, compat researches included, and so is `BOR_Research_Gate_IV` (umbral research gate), the ultimate pact: it needs every other tenebral pact except the optional altar quality pacts, and unlocks the umbral spire. `BOR_Research_Analyzer_III` ("dark pacts"), which unlocks the dark mirror, is the last tier II project: it is studied at the quasar bench and needs the whole quasar tree (compat projects through `MayRequire`, Biotech mechtech left out because it needs a mechanitor).
+
+The altar quality pacts (`BOR_Research_AltarQuality_Good`, `_Excellent`, `_Masterwork`, `_Legendary`) unlock nothing. Each needs the one before, the first needs `BOR_Research_Production_III`, and each carries `DefModExtension_AltarQuality`; see the Dark Archotech Altar requirement in `tenebral-rework`.
 
 The dark mirror is not a research bench. Pact research still names it as `requiredResearchBuilding`; a Harmony postfix on `PlayerHasAnyAppropriateResearchBench` counts a standing mirror. Pact communion reserves the mirror on its own reservation layer (`BOR_DarkMirrorCommune`), so it never blocks the mirror's pod.
 
 ### Requirement: Pacts tab
 The dark mirror SHALL have a **Pacts** inspector tab (`ITab_DarkPacts`) and no pact gizmos. The tab SHALL show:
 - At the top, the pact under way: its research, the price, a progress bar for counted prices, the time left, an **Abandon pact** button and, in dev mode, **Complete** and **Expire** buttons. With no pact under way, a line saying so.
-- Below, a scrolling list of every pact research, ready ones first, then ones held back for the moment, then ones locked by research, then granted ones. Each row SHALL show the building the research unlocks (else the first unlocked thing with an icon, else the mirror itself) and the research name.
+- Below, a scrolling list of every pact research, ready ones first, then ones held back for the moment, then ones locked by research, then granted ones. Each row SHALL show the building the research unlocks (else the first unlocked thing with an icon, else the altar for an altar quality pact, else the mirror itself) and the research name.
 - On the right of each row: **Make pact** for a ready research; the same button greyed out, with the reason in its tooltip, while a pact is under way, a colonist is communing, the mirror is unpowered, or a needed mechanitor is missing; "Under way" for the research of the current pact; "Needs: ..." listing the missing research (hidden prerequisites included); or "Granted".
-- A row tooltip with the research's description, everything it unlocks and the time limit.
+- A row tooltip with the research's description, everything it unlocks (for an altar quality pact, the quality it grants) and the time limit.
 
 ### Requirement: Communing
 Clicking **Make pact** SHALL open a menu of the map's free colonists (downed and unreachable ones listed disabled), then a confirmation. The chosen colonist SHALL walk to the mirror and commune for 600 ticks, with a progress bar and red flashes. When it ends, the pact quest SHALL start, auto-accepted, with a letter showing its description.

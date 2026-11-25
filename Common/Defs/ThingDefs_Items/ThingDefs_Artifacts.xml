@@ -265,20 +265,6 @@ Your researchers can now begin work on dark pacts.</completedLetter>
 			<graphicClass>Graphic_StackCount</graphicClass>
 		</graphicData>
 		<generateCommonality>0.05</generateCommonality>
-		<descriptionHyperlinks>
-			<RecipeDef>BOR_InstallUmbralBionicArm</RecipeDef>
-			<RecipeDef>BOR_InstallUmbralBionicLeg</RecipeDef>
-			<RecipeDef>BOR_InstallUmbralBionicEar</RecipeDef>
-			<RecipeDef>BOR_InstallUmbralBionicTongue</RecipeDef>
-			<RecipeDef>BOR_InstallUmbralBionicEye</RecipeDef>
-			<RecipeDef>BOR_InstallUmbralBionicSpine</RecipeDef>
-			<RecipeDef>BOR_InstallUmbralBionicHeart</RecipeDef>
-			<RecipeDef>BOR_InstallUmbralBionicStomach</RecipeDef>
-			<RecipeDef>BOR_InstallUmbralBionicJaw</RecipeDef>
-			<RecipeDef>BOR_InstallUmbralBionicLung</RecipeDef>
-			<RecipeDef>BOR_InstallUmbralBionicLiver</RecipeDef>
-			<RecipeDef>BOR_InstallUmbralBionicKidney</RecipeDef>
-		</descriptionHyperlinks>
 		<soundInteract>Silver_Drop</soundInteract>
 		<soundDrop>Silver_Drop</soundDrop>
 		<statBases>

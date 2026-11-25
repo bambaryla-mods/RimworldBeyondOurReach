@@ -66,6 +66,7 @@ The Dark Archotech Altar SHALL be a special Forge whose grid is prefilled with t
 - The altar SHALL be usable only by a pawn with the Tenebral Psychosis hediff.
 - Analysis and production on the altar SHALL drain the pawn's Bloodlust need.
 - Progress SHALL persist, so work can be paused and resumed. (Unlike a regular forge.) Production progress SHALL stay on the altar.
+- Products with a quality (weapons, apparel) SHALL come out at one quality for every altar, whoever works it: normal, or the highest quality granted by a finished altar quality pact (`BOR_Research_AltarQuality_Good`, `_Excellent`, `_Masterwork`, `_Legendary`, each needing the one before; see `dark-pacts`). The quality SHALL show in the altar's inspect string and in the tooltip of every cell whose item has a quality. Saves without these pacts make normal quality.
 
 #### Scenario: Second altar
 - WHEN an item has been unlocked at one altar and the player builds a second altar

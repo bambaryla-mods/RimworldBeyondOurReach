@@ -35,15 +35,33 @@ public class DefModExtension_Nuke : DefModExtension
 
     // Camera rumble while the front is on screen.
     public float fringeShake = 0.3f;
+
+    // Share of the rock removed by the shockwave that leaves its rubble behind.
+    public float rubbleChance = 0.15f;
 }
 
 // A Cracker shell spawns this at the centre of its own blast, through preExplosionSpawnSingleThingDef, which both
 // vanilla and CE explosions honor. Vanilla and CE explosions stop at the radial pattern (about radius 80) and need line of
 // sight from the centre, so the shockwave builds its own cell list and hands it to a vanilla explosion as overrideCells.
 // It then stays until the front has crossed the map, drawing the distortion at the front.
+//
+// A rock killed by an explosion costs far more than the damage: a roof collapse search per rock, a yield drop, a history
+// event and filth, hundreds of times a tick when the front crosses a mountain. So the shockwave clears its own path
+// just ahead of the front: it takes thin roofs off, and removes outright the rock the blast would have destroyed.
 public class NukeDetonation : Thing
 {
     private static readonly DefModExtension_Nuke Defaults = new();
+
+    // How far ahead of the front rock is removed, so the explosion never reaches a rock first.
+    private const float RockLead = 2f;
+
+    // Roofs go further ahead still, so that no roof is left within support range of a rock when it is removed.
+    private const float RoofLead = RockLead + RoofCollapseUtility.RoofMaxSupportDistance + 1f;
+
+    // The shockwave's cells, nearest first. Not saved: rebuilt after loading.
+    private List<IntVec3>? cells;
+    private int roofIndex;
+    private int rockIndex;
 
     private int detonationTick = -1;
 
@@ -73,6 +91,7 @@ public class NukeDetonation : Thing
             Destroy();
             return;
         }
+        ClearAhead();
         if (Ext.fringeFleck != null && TicksSinceDetonation % Mathf.Max(1, Ext.fringeInterval) == 0)
         {
             DrawFringe();
@@ -87,25 +106,10 @@ public class NukeDetonation : Thing
         // The shell's own explosion is still standing on this cell; it knows who fired.
         Explosion? source = center.GetThingList(map).OfType<Explosion>().FirstOrDefault();
 
-        float radiusSquared = ext.radius * ext.radius;
-        float reachSquared = 0f;
-        List<IntVec3> cells = new();
-        foreach (IntVec3 cell in map.AllCells)
-        {
-            float distanceSquared = (cell - center).LengthHorizontalSquared;
-            if (distanceSquared > radiusSquared)
-            {
-                continue;
-            }
-            if (ext.spareThickRoof && (cell.GetRoof(map)?.isThickRoof ?? false))
-            {
-                continue;
-            }
-            cells.Add(cell);
-            reachSquared = Mathf.Max(reachSquared, distanceSquared);
-        }
-        reach = Mathf.Sqrt(reachSquared);
+        cells = BuildCells(map, center);
+        reach = cells.Count > 0 ? (cells[cells.Count - 1] - center).LengthHorizontal : 0f;
         detonationTick = Find.TickManager.TicksGame;
+        ClearAhead();
 
         float armorPenetration = ext.armorPenetration >= 0f ? ext.armorPenetration : damageDef.defaultArmorPenetration;
         GenExplosion.DoExplosion(center, map, ext.radius, damageDef, source?.instigator, ext.damage, armorPenetration, ext.sound,
@@ -117,6 +121,74 @@ public class NukeDetonation : Thing
             FleckCreationData ring = FleckMaker.GetDataStatic(center.ToVector3Shifted(), map, ext.ringFleck, 0.01f);
             ring.solidTimeOverride = reach * 1.5f / Mathf.Max(0.01f, ext.propagationSpeed) / 60f;
             map.flecks.CreateFleck(ring);
+        }
+    }
+
+    private List<IntVec3> BuildCells(Map map, IntVec3 center)
+    {
+        DefModExtension_Nuke ext = Ext;
+        float radiusSquared = ext.radius * ext.radius;
+        List<IntVec3> result = new();
+        foreach (IntVec3 cell in map.AllCells)
+        {
+            if ((cell - center).LengthHorizontalSquared > radiusSquared)
+            {
+                continue;
+            }
+            if (ext.spareThickRoof && (cell.GetRoof(map)?.isThickRoof ?? false))
+            {
+                continue;
+            }
+            result.Add(cell);
+        }
+        result.Sort((a, b) => (a - center).LengthHorizontalSquared.CompareTo((b - center).LengthHorizontalSquared));
+        return result;
+    }
+
+    private void ClearAhead()
+    {
+        Map map = Map;
+        IntVec3 center = Position;
+        DefModExtension_Nuke ext = Ext;
+
+        // After loading, the cells behind the front are walked once more; there is nothing left on them to clear.
+        cells ??= BuildCells(map, center);
+
+        // The explosion reaches a cell up to one tick of travel beyond FrontRadius.
+        float front = FrontRadius + ext.propagationSpeed;
+
+        float roofFront = front + RoofLead;
+        for (; roofIndex < cells.Count; roofIndex++)
+        {
+            IntVec3 cell = cells[roofIndex];
+            if ((cell - center).LengthHorizontal > roofFront)
+            {
+                break;
+            }
+            map.roofGrid.SetRoof(cell, null);
+        }
+
+        float rockFront = front + RockLead;
+        for (; rockIndex < cells.Count; rockIndex++)
+        {
+            IntVec3 cell = cells[rockIndex];
+            float distance = (cell - center).LengthHorizontal;
+            if (distance > rockFront)
+            {
+                break;
+            }
+
+            // Only rock the blast would destroy anyway; anything tougher is left to the explosion.
+            if (cell.GetEdifice(map) is not Mineable rock || rock.HitPoints > Mathf.Lerp(ext.damage, ext.damage * 0.2f, distance / ext.radius))
+            {
+                continue;
+            }
+            ThingDef? rubble = rock.def.filthLeaving;
+            rock.Destroy(DestroyMode.Vanish);
+            if (rubble != null && Rand.Chance(ext.rubbleChance))
+            {
+                FilthMaker.TryMakeFilth(cell, map, rubble);
+            }
         }
     }
 

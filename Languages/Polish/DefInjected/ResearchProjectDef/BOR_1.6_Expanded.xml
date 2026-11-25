@@ -58,6 +58,14 @@
   <BOR_Research_Medicine_III.description>Wytwarzaj ciemne medykamenty, tenebralny fabrykator medyczny oraz femtoklastry: małe maszyny dające lekarzom sprawczość w skali mikro, potrzebne do tenebralnych procedur medycznych.</BOR_Research_Medicine_III.description>
   <BOR_Research_Bionics_III.label>bionika tenebrytowa</BOR_Research_Bionics_III.label>
   <BOR_Research_Bionics_III.description>Buduj tenebralne części ciała, aby przewyższać naturalne ciało. Wymaga femtoklastrów i wykwalifikowanego lekarza do wszczepienia.</BOR_Research_Bionics_III.description>
+  <BOR_Research_AltarQuality_Good.label>jakość ołtarza: dobra</BOR_Research_AltarQuality_Good.label>
+  <BOR_Research_AltarQuality_Good.description>Mroczne Archotechy prowadzą ręce przy ołtarzu Mrocznych Archotechów. Każdy ołtarz wytwarza broń i odzież dobrej jakości zamiast normalnej, bez względu na to, kto przy nim pracuje.</BOR_Research_AltarQuality_Good.description>
+  <BOR_Research_AltarQuality_Excellent.label>jakość ołtarza: doskonała</BOR_Research_AltarQuality_Excellent.label>
+  <BOR_Research_AltarQuality_Excellent.description>Mroczne Archotechy jeszcze pewniej prowadzą ręce przy ołtarzu Mrocznych Archotechów. Każdy ołtarz wytwarza broń i odzież doskonałej jakości zamiast dobrej, bez względu na to, kto przy nim pracuje.</BOR_Research_AltarQuality_Excellent.description>
+  <BOR_Research_AltarQuality_Masterwork.label>jakość ołtarza: mistrzowska</BOR_Research_AltarQuality_Masterwork.label>
+  <BOR_Research_AltarQuality_Masterwork.description>Mroczne Archotechy niemal same pracują przy ołtarzu Mrocznych Archotechów. Każdy ołtarz wytwarza broń i odzież mistrzowskiej jakości zamiast doskonałej, bez względu na to, kto przy nim pracuje.</BOR_Research_AltarQuality_Masterwork.description>
+  <BOR_Research_AltarQuality_Legendary.label>jakość ołtarza: legendarna</BOR_Research_AltarQuality_Legendary.label>
+  <BOR_Research_AltarQuality_Legendary.description>Mroczne Archotechy wlewają siebie w ołtarz Mrocznych Archotechów. Każdy ołtarz wytwarza broń i odzież legendarnej jakości zamiast mistrzowskiej, bez względu na to, kto przy nim pracuje.</BOR_Research_AltarQuality_Legendary.description>
   <BOR_Research_Drugs_IV.label>tenebrytowa produkcja narkotyków</BOR_Research_Drugs_IV.label>
   <BOR_Research_Drugs_IV.description>Wytwarzaj narkotyki powszechnie używane w tenebralnych komunach kosmicznych.
 
@@ -76,8 +84,6 @@
   <BOR_Research_Power_V.description>Zbuduj umbralny reaktor, źródło darmowej energii (przynajmniej z twojej perspektywy).</BOR_Research_Power_V.description>
   <BOR_Research_Production_IV.label>nieograniczona produkcja</BOR_Research_Production_IV.label>
   <BOR_Research_Production_IV.description>Zbuduj umbralny silnik kreacji, który zamienia energię w neutronium i inne materiały.</BOR_Research_Production_IV.description>
-  <BOR_Research_Bionics_V.label>bionika umbralna</BOR_Research_Bionics_V.label>
-  <BOR_Research_Bionics_V.description>Umożliwia instalację bioniki umbralnej.</BOR_Research_Bionics_V.description>
   <BOR_Research_NeutProc_V.label>samowystarczalna produkcja</BOR_Research_NeutProc_V.label>
   <BOR_Research_NeutProc_V.description>Zbuduj umbralną kuźnię, która zamienia energię w neutronium i inne materiały.</BOR_Research_NeutProc_V.description>
 </LanguageData>

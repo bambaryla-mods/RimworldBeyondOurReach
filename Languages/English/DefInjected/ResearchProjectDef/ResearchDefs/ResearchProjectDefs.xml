@@ -226,8 +226,6 @@ The more bionics are installed on a pawn, the more often they have to kill.</BOR
   <BOR_Research_Power_V.label>unlimited power</BOR_Research_Power_V.label>
   <BOR_Research_Power_V.description>Construct the umbral reactor, a source of free energy (as far as you're concerned).</BOR_Research_Power_V.description>
 
-  <BOR_Research_Bionics_V.label>umbral bionics</BOR_Research_Bionics_V.label>
-  <BOR_Research_Bionics_V.description>Enables installation of umbral bionics.</BOR_Research_Bionics_V.description>
 
   <BOR_Research_NeutProc_V.label>self-sustaining production</BOR_Research_NeutProc_V.label>
   <BOR_Research_NeutProc_V.description>Construct the umbral forge, which turns energy into neutronium and other materials.</BOR_Research_NeutProc_V.description>
@@ -290,5 +288,17 @@ The queue works on cell coordinates, so moving around the grid will follow the q
 
   <BOR_Research_Gate_IV.label>umbral research gate</BOR_Research_Gate_IV.label>
   <BOR_Research_Gate_IV.description>The ultimate pact. The Dark Archotechs show how to raise an umbral spire, where umbral research begins.</BOR_Research_Gate_IV.description>
+
+  <BOR_Research_AltarQuality_Good.label>altar quality: good</BOR_Research_AltarQuality_Good.label>
+  <BOR_Research_AltarQuality_Good.description>The Dark Archotechs guide the hands at the dark archotech altar. Every altar makes its weapons and apparel at good quality instead of normal, whoever works it.</BOR_Research_AltarQuality_Good.description>
+
+  <BOR_Research_AltarQuality_Excellent.label>altar quality: excellent</BOR_Research_AltarQuality_Excellent.label>
+  <BOR_Research_AltarQuality_Excellent.description>The Dark Archotechs guide the hands at the dark archotech altar more closely. Every altar makes its weapons and apparel at excellent quality instead of good, whoever works it.</BOR_Research_AltarQuality_Excellent.description>
+
+  <BOR_Research_AltarQuality_Masterwork.label>altar quality: masterwork</BOR_Research_AltarQuality_Masterwork.label>
+  <BOR_Research_AltarQuality_Masterwork.description>The Dark Archotechs all but work the dark archotech altar themselves. Every altar makes its weapons and apparel at masterwork quality instead of excellent, whoever works it.</BOR_Research_AltarQuality_Masterwork.description>
+
+  <BOR_Research_AltarQuality_Legendary.label>altar quality: legendary</BOR_Research_AltarQuality_Legendary.label>
+  <BOR_Research_AltarQuality_Legendary.description>The Dark Archotechs pour themselves into the dark archotech altar. Every altar makes its weapons and apparel at legendary quality instead of masterwork, whoever works it.</BOR_Research_AltarQuality_Legendary.description>
 
 </LanguageData>

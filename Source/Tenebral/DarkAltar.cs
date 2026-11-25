@@ -14,6 +14,42 @@ public class DarkAltarEntry
     public ThingDef? stuff;
 }
 
+// Marks an altar quality pact: once its research is finished, every altar's weapons and apparel come out at this quality.
+public class DefModExtension_AltarQuality : DefModExtension
+{
+    public QualityCategory quality = QualityCategory.Normal;
+}
+
+// The quality of what dark archotech altars make: normal, raised by the altar quality pacts. Research belongs to the
+// colony, so it holds for every altar and whoever works it, and a save without these pacts stays at normal.
+public static class AltarQuality
+{
+    private static List<(ResearchProjectDef research, QualityCategory quality)>? pacts;
+
+    private static List<(ResearchProjectDef research, QualityCategory quality)> Pacts => pacts ??= DefDatabase<ResearchProjectDef>.AllDefsListForReading
+        .Where(r => r.HasModExtension<DefModExtension_AltarQuality>())
+        .Select(r => (r, r.GetModExtension<DefModExtension_AltarQuality>().quality)).ToList();
+
+    public static QualityCategory Current
+    {
+        get
+        {
+            QualityCategory best = QualityCategory.Normal;
+            foreach ((ResearchProjectDef research, QualityCategory quality) in Pacts)
+            {
+                if (quality > best && research.IsFinished)
+                {
+                    best = quality;
+                }
+            }
+            return best;
+        }
+    }
+
+    // The quality a research grants, or null when it is not an altar quality pact.
+    public static QualityCategory? GrantedBy(ResearchProjectDef research) => research.GetModExtension<DefModExtension_AltarQuality>()?.quality;
+}
+
 // A special forge: every cell is prefilled with a tenebral item but locked until worked on.
 // Unlocking is shared by every altar (GameComponent_DarkAltar); production progress stays on the altar.
 public class CompProperties_DarkAltar : CompProperties
@@ -269,7 +305,7 @@ public sealed class CompDarkAltar : ThingComp
         ThingDef? stuff = entry.thing.MadeFromStuff ? entry.stuff ?? GenStuff.DefaultStuffFor(entry.thing) : null;
         Thing product = ThingMaker.MakeThing(entry.thing, stuff);
         product.stackCount = ForgeMath.YieldFor(entry.thing);
-        product.TryGetComp<CompQuality>()?.SetQuality(QualityCategory.Normal, ArtGenerationContext.Colony);
+        product.TryGetComp<CompQuality>()?.SetQuality(AltarQuality.Current, ArtGenerationContext.Colony);
         GenPlace.TryPlaceThing(product, parent.InteractionCell, parent.Map, ThingPlaceMode.Near);
         countsTick = -CountRefreshTicks;
         return true;
@@ -336,7 +372,8 @@ public sealed class CompDarkAltar : ThingComp
         action = action
     };
 
-    public override string CompInspectStringExtra() => "BOR_AltarComponents".Translate(components);
+    public override string CompInspectStringExtra() =>
+        "BOR_AltarComponents".Translate(components) + "\n" + "BOR_AltarQualityInspect".Translate(AltarQuality.Current.GetLabel());
 
     // Right-clicking the altar explains why a colonist cannot work it.
     public override IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn selPawn)
@@ -782,9 +819,14 @@ public class ITab_DarkAltar : BorTab
         }
 
         skin.Hover(cell);
-        TooltipHandler.TipRegion(cell, () => open
-            ? "BOR_AltarCellTip".Translate(entry.thing.LabelCap, ForgeMath.YieldFor(entry.thing), altar.ComponentCost(i)).Resolve()
-            : "BOR_AltarLockedTip".Translate(entry.thing.LabelCap, altar.UnlockTicks(i).ToStringTicksToPeriod(), ForgeMath.YieldFor(entry.thing), altar.ComponentCost(i)).Resolve(), 7393000 + i);
+        TooltipHandler.TipRegion(cell, () =>
+        {
+            // Only weapons and apparel have a quality; the line is left out for the rest.
+            string quality = entry.thing.HasComp(typeof(CompQuality)) ? "\n" + "BOR_AltarQualityTip".Translate(AltarQuality.Current.GetLabel()).Resolve() : "";
+            return open
+                ? "BOR_AltarCellTip".Translate(entry.thing.LabelCap, ForgeMath.YieldFor(entry.thing), altar.ComponentCost(i), quality).Resolve()
+                : "BOR_AltarLockedTip".Translate(entry.thing.LabelCap, altar.UnlockTicks(i).ToStringTicksToPeriod(), ForgeMath.YieldFor(entry.thing), altar.ComponentCost(i), quality).Resolve();
+        }, 7393000 + i);
 
         // The mode bar handles its own clicks.
         if (open && Mouse.IsOver(modeBar))

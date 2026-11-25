@@ -68,6 +68,7 @@ public static class BOR_TenebralDefOf
     public static ThingDef BOR_Femtoclusters = null!;
     public static ThingDef BOR_TenebralOrgan = null!;
     public static ThingDef BOR_TenebralAppendage = null!;
+    public static ThingDef BOR_DarkArchotechAltar_III = null!;
 
     public static HediffDef BOR_TenebralPsychosis = null!;
     public static HediffDef BOR_TenebralBreakCounter = null!;

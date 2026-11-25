@@ -85,104 +85,17 @@
 					<li Class="CombatExtended.PartialArmorExt">
 						<stats>
 							<li>
-								<ArmorRating_Sharp>2.7</ArmorRating_Sharp>
+								<ArmorRating_Sharp>1.0</ArmorRating_Sharp>
 								<parts>
 									<li>Eye</li>
 									<li>Nose</li>
 								</parts>
 							</li>
 							<li>
-								<ArmorRating_Blunt>2.7</ArmorRating_Blunt>
+								<ArmorRating_Blunt>1.0</ArmorRating_Blunt>
 								<parts>
 									<li>Eye</li>
 									<li>Nose</li>
-								</parts>
-							</li>
-						</stats>
-					</li>
-				</value>
-			</li>
-
-
-			<li Class="PatchOperationAdd">
-				<xpath>Defs/ThingDef[defName="BOR_Tenebral_Apparel_PowerArmor"]/statBases</xpath>
-				<value>
-					<Bulk>1</Bulk>
-					<WornBulk>0</WornBulk>
-					<NightVisionEfficiency_Apparel>2.362</NightVisionEfficiency_Apparel>
-				</value>
-			</li>
-
-			<li Class="PatchOperationReplace">
-				<xpath>Defs/ThingDef[defName="BOR_Tenebral_Apparel_PowerArmor"]/statBases/Flammability</xpath>
-				<value>
-					<Flammability>0.144</Flammability>
-				</value>
-			</li>
-
-			<li Class="PatchOperationReplace">
-				<xpath>Defs/ThingDef[defName="BOR_Tenebral_Apparel_PowerArmor"]/statBases/Mass</xpath>
-				<value>
-					<Mass>0</Mass>
-				</value>
-			</li>
-
-			<li Class="PatchOperationAdd">
-				<xpath>Defs/ThingDef[defName="BOR_Tenebral_Apparel_PowerArmor"]</xpath>
-				<value>
-					<equippedStatOffsets>
-						<AimingAccuracy>0.507</AimingAccuracy>
-						<SmokeSensitivity>-1</SmokeSensitivity>
-					</equippedStatOffsets>
-				</value>
-			</li>
-
-			<li Class="PatchOperationReplace">
-				<xpath>Defs/ThingDef[defName="BOR_Tenebral_Apparel_PowerArmor"]/costList/BOR_Tenebrite</xpath>
-				<value>
-					<BOR_Tenebrite>50</BOR_Tenebrite>
-					<DevilstrandCloth>15</DevilstrandCloth>
-				</value>
-			</li>
-
-
-			<li Class="PatchOperationAdd">
-				<xpath>Defs/ThingDef[defName="BOR_Tenebral_Apparel_PowerArmor"]/apparel/layers</xpath>
-				<value>
-					<li>OnHead</li>
-					<li>StrappedHead</li>
-				</value>
-			</li>
-
-			<li Class="PatchOperationAddModExtension">
-				<xpath>Defs/ThingDef[defName="BOR_Tenebral_Apparel_PowerArmor"]</xpath>
-				<value>
-					<li Class="CombatExtended.PartialArmorExt">
-						<stats>
-							<li>
-								<ArmorRating_Sharp>2.362</ArmorRating_Sharp>
-								<parts>
-									<li>Eye</li>
-								</parts>
-							</li>
-							<li>
-								<ArmorRating_Blunt>2.362</ArmorRating_Blunt>
-								<parts>
-									<li>Eye</li>
-								</parts>
-							</li>
-							<li>
-								<ArmorRating_Sharp>1.688</ArmorRating_Sharp>
-								<parts>
-									<li>Nose</li>
-									<li>Jaw</li>
-								</parts>
-							</li>
-							<li>
-								<ArmorRating_Blunt>1.688</ArmorRating_Blunt>
-								<parts>
-									<li>Nose</li>
-									<li>Jaw</li>
 								</parts>
 							</li>
 						</stats>

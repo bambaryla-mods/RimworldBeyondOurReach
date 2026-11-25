@@ -90,10 +90,13 @@
   <BOR_TabDarkAltar>Altar</BOR_TabDarkAltar>
   <BOR_AltarHeader>Crystalline joints offered: {0}</BOR_AltarHeader>
   <BOR_AltarLocked>sealed</BOR_AltarLocked>
-  <BOR_AltarLockedTip>{0}\n\nSealed. Click to have a psychotic colonist unseal it ({1} of work). Click again to cancel. Unsealing it here unseals it at every altar.\n\nOnce unsealed: yield per run {2}, crystalline joints per run {3}.</BOR_AltarLockedTip>
-  <BOR_AltarCellTip>{0}\n\nYield per run: {1}\nCrystalline joints per run: {2}\n\nLeft click: queue 1 (Shift: 5)\nRight click: remove 1 (Shift: 5)</BOR_AltarCellTip>
+  <BOR_AltarLockedTip>{0}\n\nSealed. Click to have a psychotic colonist unseal it ({1} of work). Click again to cancel. Unsealing it here unseals it at every altar.\n\nOnce unsealed: yield per run {2}, crystalline joints per run {3}.{4}</BOR_AltarLockedTip>
+  <BOR_AltarCellTip>{0}\n\nYield per run: {1}\nCrystalline joints per run: {2}{3}\n\nLeft click: queue 1 (Shift: 5)\nRight click: remove 1 (Shift: 5)</BOR_AltarCellTip>
   <BOR_AltarUnlocked>The altar gave up the design for {0}.</BOR_AltarUnlocked>
   <BOR_AltarComponents>Crystalline joints offered: {0}</BOR_AltarComponents>
+  <BOR_AltarQualityInspect>Weapon and apparel quality: {0}</BOR_AltarQualityInspect>
+  <BOR_AltarQualityTip>Quality: {0}</BOR_AltarQualityTip>
+  <BOR_AltarQualityUnlocks>{0} quality for weapons and apparel from every dark archotech altar</BOR_AltarQualityUnlocks>
   <BOR_AltarNeedsPsychosis>Cannot work the altar: psychosis at {0}, needs {1}</BOR_AltarNeedsPsychosis>
   <BOR_AltarNeedsComponents>needs {0} more crystalline joints</BOR_AltarNeedsComponents>
   <BOR_AltarPietyBloodlust>Unsated bloodlust</BOR_AltarPietyBloodlust>
@@ -141,4 +144,6 @@ The sleeper loses a random body part. It might be a toe. It might be the heart.<
   <BOR_UtilityPodMode>Pod: {0}</BOR_UtilityPodMode>
   <BOR_UtilityPodModeDesc>Change the shape of the utility pod. The crystal morphs for a few seconds, and the pawn is unarmed until it is done.</BOR_UtilityPodModeDesc>
   <BOR_PodBlocksWeapon>the Umbral utility pod holds no other weapon</BOR_PodBlocksWeapon>
+  <BOR_PactCostDisplay>Dark Pact</BOR_PactCostDisplay>
+  <BOR_BlessingCostDisplay>Dark Blessing</BOR_BlessingCostDisplay>
 </LanguageData>

@@ -90,10 +90,13 @@
   <BOR_TabDarkAltar>Ołtarz</BOR_TabDarkAltar>
   <BOR_AltarHeader>Złożone krystaliczne stawy: {0}</BOR_AltarHeader>
   <BOR_AltarLocked>zapieczętowane</BOR_AltarLocked>
-  <BOR_AltarLockedTip>{0}\n\nZapieczętowane. Kliknij, by psychotyczny kolonista zdjął pieczęć ({1} pracy). Kliknij ponownie, by anulować. Zdjęcie pieczęci tutaj zdejmuje ją na każdym ołtarzu.\n\nPo zdjęciu pieczęci: wydajność na cykl {2}, krystaliczne stawy na cykl {3}.</BOR_AltarLockedTip>
-  <BOR_AltarCellTip>{0}\n\nWydajność na cykl: {1}\nKrystaliczne stawy na cykl: {2}\n\nLewy przycisk: dodaj 1 (Shift: 5)\nPrawy przycisk: usuń 1 (Shift: 5)</BOR_AltarCellTip>
+  <BOR_AltarLockedTip>{0}\n\nZapieczętowane. Kliknij, by psychotyczny kolonista zdjął pieczęć ({1} pracy). Kliknij ponownie, by anulować. Zdjęcie pieczęci tutaj zdejmuje ją na każdym ołtarzu.\n\nPo zdjęciu pieczęci: wydajność na cykl {2}, krystaliczne stawy na cykl {3}.{4}</BOR_AltarLockedTip>
+  <BOR_AltarCellTip>{0}\n\nWydajność na cykl: {1}\nKrystaliczne stawy na cykl: {2}{3}\n\nLewy przycisk: dodaj 1 (Shift: 5)\nPrawy przycisk: usuń 1 (Shift: 5)</BOR_AltarCellTip>
   <BOR_AltarUnlocked>Ołtarz wydał projekt: {0}.</BOR_AltarUnlocked>
   <BOR_AltarComponents>Złożone krystaliczne stawy: {0}</BOR_AltarComponents>
+  <BOR_AltarQualityInspect>Jakość broni i odzieży: {0}</BOR_AltarQualityInspect>
+  <BOR_AltarQualityTip>Jakość: {0}</BOR_AltarQualityTip>
+  <BOR_AltarQualityUnlocks>{0} jakość broni i odzieży z każdego ołtarza Mrocznych Archotechów</BOR_AltarQualityUnlocks>
   <BOR_AltarNeedsPsychosis>Nie można pracować przy ołtarzu: psychoza {0}, wymaga {1}</BOR_AltarNeedsPsychosis>
   <BOR_AltarNeedsComponents>brakuje krystalicznych stawów: {0}</BOR_AltarNeedsComponents>
   <BOR_AltarPietyBloodlust>Niezaspokojona żądza krwi</BOR_AltarPietyBloodlust>
@@ -141,4 +144,6 @@ Kliknij, by lekarz wydobył ten gen do paczki genów ({2} pracy, {4}: {3}). Klik
   <BOR_UtilityPodMode>Kapsuła: {0}</BOR_UtilityPodMode>
   <BOR_UtilityPodModeDesc>Zmień kształt kapsuły użytkowej. Kryształ przekształca się przez kilka sekund, a pionek jest w tym czasie nieuzbrojony.</BOR_UtilityPodModeDesc>
   <BOR_PodBlocksWeapon>umbralna kapsuła użytkowa nie mieści innej broni</BOR_PodBlocksWeapon>
+  <BOR_PactCostDisplay>Mroczny pakt</BOR_PactCostDisplay>
+  <BOR_BlessingCostDisplay>Mroczne błogosławieństwo</BOR_BlessingCostDisplay>
 </LanguageData>

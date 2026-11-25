@@ -398,7 +398,9 @@ public class ITab_DarkPacts : BorTab
 
         TooltipHandler.TipRegion(row, () =>
         {
-            string unlocks = research.UnlockedDefs.Select(d => d.LabelCap.Resolve()).Distinct().ToCommaList();
+            string unlocks = AltarQuality.GrantedBy(research) is QualityCategory quality
+                ? "BOR_AltarQualityUnlocks".Translate(quality.GetLabel()).Resolve()
+                : research.UnlockedDefs.Select(d => d.LabelCap.Resolve()).Distinct().ToCommaList();
             return "BOR_DarkPact_RowTip".Translate(research.LabelCap, research.description, unlocks.NullOrEmpty() ? "-" : unlocks,
                 QuestNode_Root_DarkPact.DurationLabel).Resolve();
         }, 7394000 + index);

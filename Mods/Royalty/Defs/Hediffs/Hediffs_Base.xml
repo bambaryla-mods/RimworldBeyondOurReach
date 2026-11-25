@@ -112,34 +112,6 @@
     <researchPrerequisite>BOR_Research_Bionics_III</researchPrerequisite>
   </RecipeDef>
 
-  <RecipeDef Name="SurgeryInstallImplantBORUmbralBase" ParentName="SurgeryFlesh" Abstract="True">
-    <workerClass>Recipe_InstallImplant</workerClass>
-    <workAmount>50000</workAmount>
-    <developmentalStageFilter>Child, Adult</developmentalStageFilter>
-    <skillRequirements>
-      <Medicine>20</Medicine>
-    </skillRequirements>
-    <recipeUsers>
-      <li>Human</li>
-    </recipeUsers>
-    <ingredients>
-      <li>
-        <filter>
-          <thingDefs>
-            <li>BOR_MedicineIV</li>
-          </thingDefs>
-        </filter>
-        <count>3</count>
-      </li>
-    </ingredients>
-    <fixedIngredientFilter>
-      <thingDefs>
-        <li>BOR_MedicineIV</li>
-      </thingDefs>
-    </fixedIngredientFilter>
-    <researchPrerequisite>BOR_Research_Bionics_V</researchPrerequisite>
-  </RecipeDef>
-
   <ThingDef Name="BodyPartBORBase" ParentName="BodyPartArchotechBase" Abstract="True">
     <thingSetMakerTags>
       <li>BOR_Implant_Royal</li>

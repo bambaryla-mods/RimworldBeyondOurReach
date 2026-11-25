@@ -346,7 +346,8 @@
 
     <!-- The Cracker shell's shockwave: every cell within the radius takes BombSuper with falloff, spreading outward over
          a few seconds with a distortion ring and heat haze at the front (Common/Defs/Effects/BOR_NukeShockwave.xml).
-         Mountain roofs shield what is under them. Source/Buildings/NukeDetonation.cs. -->
+         Mountain roofs shield what is under them. Thin roofs are stripped ahead of the front, and the rock the blast
+         would destroy is removed without dropping chunks or ore. Source/Buildings/NukeDetonation.cs. -->
     <ThingDef>
         <defName>BOR_NegotiatorDetonation</defName>
         <label>Cracker shockwave</label>
@@ -362,7 +363,8 @@
                 <radius>1000</radius>
                 <damage>15000</damage>
                 <damageDef>BombSuper</damageDef>
-                <chanceToStartFire>0.22</chanceToStartFire>
+                <!-- Kept low: the shockwave covers the whole map, and thousands of fires cost more than the blast -->
+                <chanceToStartFire>0.01</chanceToStartFire>
                 <propagationSpeed>1</propagationSpeed>
                 <spareThickRoof>true</spareThickRoof>
                 <screenShakeFactor>4</screenShakeFactor>

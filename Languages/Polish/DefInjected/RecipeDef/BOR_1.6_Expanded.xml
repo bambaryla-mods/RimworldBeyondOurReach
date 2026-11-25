@@ -420,42 +420,6 @@
   <BOR_InstallTenebralSubcoreEncodingCoprocessor.label>Wszczep tenebralne subcore encoding coprocessor</BOR_InstallTenebralSubcoreEncodingCoprocessor.label>
   <BOR_InstallTenebralSubcoreEncodingCoprocessor.description>Wszczep tenebralne subcore encoding coprocessor.</BOR_InstallTenebralSubcoreEncodingCoprocessor.description>
   <BOR_InstallTenebralSubcoreEncodingCoprocessor.jobString>Wszczepianie tenebralne subcore encoding coprocessor.</BOR_InstallTenebralSubcoreEncodingCoprocessor.jobString>
-  <BOR_InstallUmbralBionicEye.label>Wszczep umbralne oko</BOR_InstallUmbralBionicEye.label>
-  <BOR_InstallUmbralBionicEye.description>Wszczep umbralne oko.</BOR_InstallUmbralBionicEye.description>
-  <BOR_InstallUmbralBionicEye.jobString>Wszczepianie umbralne bioniczne oko.</BOR_InstallUmbralBionicEye.jobString>
-  <BOR_InstallUmbralBionicArm.label>Wszczep umbralne ramię</BOR_InstallUmbralBionicArm.label>
-  <BOR_InstallUmbralBionicArm.description>Wszczep umbralne ramię.</BOR_InstallUmbralBionicArm.description>
-  <BOR_InstallUmbralBionicArm.jobString>Wszczepianie umbralne bioniczne ramię.</BOR_InstallUmbralBionicArm.jobString>
-  <BOR_InstallUmbralBionicLeg.label>Wszczep umbralną nogę</BOR_InstallUmbralBionicLeg.label>
-  <BOR_InstallUmbralBionicLeg.description>Wszczep umbralną nogę.</BOR_InstallUmbralBionicLeg.description>
-  <BOR_InstallUmbralBionicLeg.jobString>Wszczepianie umbralne bioniczną nogę.</BOR_InstallUmbralBionicLeg.jobString>
-  <BOR_InstallUmbralBionicSpine.label>Wszczep umbralny kręgosłup</BOR_InstallUmbralBionicSpine.label>
-  <BOR_InstallUmbralBionicSpine.description>Wszczep umbralny kręgosłup.</BOR_InstallUmbralBionicSpine.description>
-  <BOR_InstallUmbralBionicSpine.jobString>Wszczepianie umbralne bioniczny kręgosłup.</BOR_InstallUmbralBionicSpine.jobString>
-  <BOR_InstallUmbralBionicHeart.label>Wszczep umbralne serce</BOR_InstallUmbralBionicHeart.label>
-  <BOR_InstallUmbralBionicHeart.description>Wszczep umbralne serce.</BOR_InstallUmbralBionicHeart.description>
-  <BOR_InstallUmbralBionicHeart.jobString>Wszczepianie umbralne bioniczne serce.</BOR_InstallUmbralBionicHeart.jobString>
-  <BOR_InstallUmbralBionicStomach.label>Wszczep umbralny żołądek</BOR_InstallUmbralBionicStomach.label>
-  <BOR_InstallUmbralBionicStomach.description>Wszczep umbralny żołądek.</BOR_InstallUmbralBionicStomach.description>
-  <BOR_InstallUmbralBionicStomach.jobString>Wszczepianie umbralne bioniczny żołądek.</BOR_InstallUmbralBionicStomach.jobString>
-  <BOR_InstallUmbralBionicEar.label>Wszczep umbralne ucho</BOR_InstallUmbralBionicEar.label>
-  <BOR_InstallUmbralBionicEar.description>Wszczep umbralne ucho.</BOR_InstallUmbralBionicEar.description>
-  <BOR_InstallUmbralBionicEar.jobString>Wszczepianie umbralne bioniczne ucho.</BOR_InstallUmbralBionicEar.jobString>
-  <BOR_InstallUmbralBionicTongue.label>Wszczep umbralny język</BOR_InstallUmbralBionicTongue.label>
-  <BOR_InstallUmbralBionicTongue.description>Wszczep umbralny język.</BOR_InstallUmbralBionicTongue.description>
-  <BOR_InstallUmbralBionicTongue.jobString>Wszczepianie umbralne bioniczny język.</BOR_InstallUmbralBionicTongue.jobString>
-  <BOR_InstallUmbralBionicJaw.label>Wszczep umbralną szczękę</BOR_InstallUmbralBionicJaw.label>
-  <BOR_InstallUmbralBionicJaw.description>Wszczep umbralną szczękę.</BOR_InstallUmbralBionicJaw.description>
-  <BOR_InstallUmbralBionicJaw.jobString>Wszczepianie umbralne bioniczną szczękę.</BOR_InstallUmbralBionicJaw.jobString>
-  <BOR_InstallUmbralBionicLung.label>Wszczep umbralne płuco</BOR_InstallUmbralBionicLung.label>
-  <BOR_InstallUmbralBionicLung.description>Wszczep umbralne płuco.</BOR_InstallUmbralBionicLung.description>
-  <BOR_InstallUmbralBionicLung.jobString>Wszczepianie umbralne bioniczne płuco.</BOR_InstallUmbralBionicLung.jobString>
-  <BOR_InstallUmbralBionicLiver.label>Wszczep umbralną wątrobę</BOR_InstallUmbralBionicLiver.label>
-  <BOR_InstallUmbralBionicLiver.description>Wszczep umbralną wątrobę.</BOR_InstallUmbralBionicLiver.description>
-  <BOR_InstallUmbralBionicLiver.jobString>Wszczepianie umbralne bioniczną wątrobę.</BOR_InstallUmbralBionicLiver.jobString>
-  <BOR_InstallUmbralBionicKidney.label>Wszczep umbralną nerkę</BOR_InstallUmbralBionicKidney.label>
-  <BOR_InstallUmbralBionicKidney.description>Wszczep umbralną nerkę.</BOR_InstallUmbralBionicKidney.description>
-  <BOR_InstallUmbralBionicKidney.jobString>Wszczepianie umbralne bioniczną nerkę.</BOR_InstallUmbralBionicKidney.jobString>
   <BOR_InstallUmbralDuelflowLattice.label>Wszczep umbralne duelflow lattice</BOR_InstallUmbralDuelflowLattice.label>
   <BOR_InstallUmbralDuelflowLattice.description>Wszczep duelflow lattice.</BOR_InstallUmbralDuelflowLattice.description>
   <BOR_InstallUmbralDuelflowLattice.jobString>Wszczepianie umbralne duelflow lattice.</BOR_InstallUmbralDuelflowLattice.jobString>
