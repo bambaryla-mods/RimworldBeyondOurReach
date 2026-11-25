@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+	<BOR_Exp_TenebralRuins.label>ruiny tenebralne</BOR_Exp_TenebralRuins.label>
+	<BOR_Exp_TenebralRuins.description>Pozostałości budowli Tenebralnych Zdobywców. Ściany wciąż buczą, a powietrze smakuje żelazem. To, z czego budowali, nadal tam jest i wnika w każdego, kto zacznie tego szukać.</BOR_Exp_TenebralRuins.description>
+
+	<BOR_Exp_UmbralHuntingGround.label>umbralne łowisko</BOR_Exp_UmbralHuntingGround.label>
+	<BOR_Exp_UmbralHuntingGround.description>Widziano tu Umbrali krążących po wzgórzach. Czegokolwiek strzegą, strzegą tego dobrze.</BOR_Exp_UmbralHuntingGround.description>
+
+	<BOR_Exp_NeutroniumStore.label>gasnący magazyn neutronium</BOR_Exp_NeutroniumStore.label>
+	<BOR_Exp_NeutroniumStore.description>Opuszczony magazyn neutronium, któremu kończy się zasilanie. Bez energii, która je trzyma w ryzach, długo nie wytrzyma. Wynieście, ile zdołacie, zanim wybuchnie.</BOR_Exp_NeutroniumStore.description>
+
+	<BOR_Exp_TechRecovery.label>odzysk technologii kwazaari</BOR_Exp_TechRecovery.label>
+	<BOR_Exp_TechRecovery.description>Kwazaari chcą coś odzyskać z wraku w tej okolicy i płacą scripem temu, kto przyniesie to w całości.</BOR_Exp_TechRecovery.description>
+	<BOR_Exp_TechRecovery.successText>Kwazaari odzyskali swoją technologię.</BOR_Exp_TechRecovery.successText>
+
+	<BOR_Exp_Crusade.label>krucjata</BOR_Exp_Crusade.label>
+	<BOR_Exp_Crusade.description>Osada Tenebralnych Zdobywców w zasięgu. Światło żąda, by położyć jej kres. Nic, co się w niej znajduje, nie nadaje się do zabrania, ale ci, których więzi, mogą wrócić z wami.</BOR_Exp_Crusade.description>
+
+	<BOR_Exp_HolyRetreat.label>święte odosobnienie</BOR_Exp_HolyRetreat.label>
+	<BOR_Exp_HolyRetreat.description>Ciche miejsce, z dala od wszystkich, gdzie łatwo usłyszeć światło. Ci, którzy tam pójdą, wracają spokojniejsi i przynoszą trochę tego spokoju do domu.</BOR_Exp_HolyRetreat.description>
+	<BOR_Exp_HolyRetreat.successText>Wrócili spokojniejsi, niż wyruszyli.</BOR_Exp_HolyRetreat.successText>
+
+	<BOR_Exp_UmbralHunt.label>polowanie na Umbrali</BOR_Exp_UmbralHunt.label>
+	<BOR_Exp_UmbralHunt.description>Umbrale krążą po okolicznych dziczach. Światło chce, by ich odnaleziono i zgładzono.</BOR_Exp_UmbralHunt.description>
+	<BOR_Exp_UmbralHunt.successText>Umbrali, których znaleźli, już nie ma.</BOR_Exp_UmbralHunt.successText>
+
+	<BOR_Exp_Reaping.label>żniwa</BOR_Exp_Reaping.label>
+	<BOR_Exp_Reaping.description>Wrogi obóz i głód, który chce go opróżnić. Ci, którzy niosą w sobie mrok, wracają nasyceni i nieco bardziej odmienieni.</BOR_Exp_Reaping.description>
+
+	<BOR_Exp_PactRaze.label>pakt: zrównać osadę z ziemią</BOR_Exp_PactRaze.label>
+	<BOR_Exp_PactRaze.description>Lustro wskazało osadę. Wyślij oddział, by położył jej kres, a cena zostanie zapłacona.</BOR_Exp_PactRaze.description>
+
+	<BOR_Exp_PactSlaughter.label>pakt: rzeź</BOR_Exp_PactSlaughter.label>
+	<BOR_Exp_PactSlaughter.description>Lustro żąda istnień. Są tam ludzie, za którymi nie będziecie tęsknić.</BOR_Exp_PactSlaughter.description>
+
+	<BOR_Exp_PactHunt.label>pakt: wielkie łowy</BOR_Exp_PactHunt.label>
+	<BOR_Exp_PactHunt.description>Lustro chce krwi i nie wybrzydza, czyjej. Tutejsze stada wystarczą.</BOR_Exp_PactHunt.description>
+
+</LanguageData>

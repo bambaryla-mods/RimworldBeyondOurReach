@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+	<BOR_Exp_TouchLine>{0} doznaje dotyku świętości. Ta część ciała ({1}) jest odtąd pobłogosławiona na zawsze.</BOR_Exp_TouchLine>
+	<BOR_Exp_ReapingLine>{0}: odebrane istnienia: {1}.</BOR_Exp_ReapingLine>
+	<BOR_Exp_PowerBanked>Spokój, który odnaleźli, wrócił z nimi do domu: zgromadzono {0} mocy medytacji.</BOR_Exp_PowerBanked>
+	<BOR_Exp_PowerFaded>Spokój, który odnaleźli, rozwiał się w drodze do domu. Nie było magazynu, który by go przechował.</BOR_Exp_PowerFaded>
+	<BOR_Exp_ScripLine>Kwazaari zapłacili {0} scripu.</BOR_Exp_ScripLine>
+	<BOR_Exp_PactPaid>Lustro wzięło swoje: {0} na poczet paktu.</BOR_Exp_PactPaid>
+	<BOR_Exp_PactGone>Pakt już się skończył. Lustra nie obchodzi, czego dokonali.</BOR_Exp_PactGone>
+	<BOR_Exp_DarkBurned>Mroczne rzeczy, które znaleźli, spłonęły tam, gdzie leżały.</BOR_Exp_DarkBurned>
+</LanguageData>

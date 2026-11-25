@@ -44,6 +44,33 @@ The [Umbral harbinger](mechs.html#umbral-harbinger) works as a shuttle that can 
 
 Guns, turrets and armor have hand-set CE stats, and the Solar, Kwazaari, Badzaari and Tenebral guns each have their own ammo. The dark altar makes the Tenebral ammo along with the guns. BOR adds new shells and vehicle ammunition too, and the less-lethal beam weapons only exist with CE. Muzzle Flash is supported as well. The [Weapons](weapons.html), [Turrets](turrets.html) and [Armor](armor.html) pages show the CE numbers when you flip the switch.
 
+## Expeditions
+
+With [Expeditions](https://bambaryla-mods.github.io/rimworldExpeditions/) loaded, squads can go after BOR's things without leaving the colony. Every site waits for its tier's research or for the colony's path, so nothing from a tier reaches a colony below it.
+
+| Site | When it shows up | What it's for |
+|---|---|---|
+| Tenebral ruins | Kwazaari analyzer researched, not on the Path of Light | A second way to the diluted tenebrite shard and the tenebrite motor, next to Strange Signals. Each day among the ruins counts as tenebrite exposure. |
+| Umbral hunting ground | Umbral research gate, not on the Path of Light | A rare tenebrite amplifier, at a high price. |
+| Failing neutronium store | Quarks research | Neutronium, hauled out before the store goes up. Deaths here are the store exploding, so nobody is captured. |
+| Kwazaari tech recovery | Kwazaari analyzer | Scrip, with no items. |
+| Crusade | Path of Light, a Tenebral Vanquisher settlement in range | A win razes the settlement. Its captives may join you, everyone but the tenebrals thinks better of you, and Orientis pawns may be touched by the holy. |
+| Holy retreat | Path of Light | Meditation power banked into your caches. |
+| Umbral hunt | Path of Light | A chance at the touch of the holy. |
+| Reaping | Path of Dark | Kills that sate bloodlust and feed crystallization. One trip never crystallizes a brain fully. |
+| Pact: raze, slaughter, great hunt | A dark pact with that price is under way | Pays the pact from the field. The offer appears as soon as the pact starts and goes when it ends. |
+
+**Touch of the holy** is a blessing that never fades: the same strength as the blessing bench's, on one body part, one per pawn. The bench can't bless a touched part again.
+
+BOR also changes some of Expeditions' own sites:
+- The Solar Republic pays its jobs in sunsteel, sunweave and fuel rods.
+- Badzaari and Vanquisher outposts hold their own gear and materials.
+- A downed courier can carry the data drive that opens tier II, until you've analysed one.
+- Dormant mechs can be Solar and Kwazaari work mechs.
+- The Kwazaari pay scrip for every badzaar gun brought home from a bounty on the Badzaari.
+
+On the Path of Light, anything dark a squad finds is burned before it comes home.
+
 ## Adaptive Storage Framework
 
 {{ banner("adaptive-storage", "") }}

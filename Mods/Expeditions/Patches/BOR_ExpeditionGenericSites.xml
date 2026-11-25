@@ -11,15 +11,21 @@
 		</value>
 	</Operation>
 
-	<!-- Tier mechs among the dormant ones, once the colony has their tier. -->
-	<Operation Class="PatchOperationAdd" MayRequire="Ludeon.RimWorld.Biotech">
-		<xpath>Defs/Expeditions.ExpeditionSiteDef[defName="Exp_DormantMechs"]/joiners/mechKinds</xpath>
-		<value>
-			<li><kind>BOR_Mech_SolarLifter</kind><research>BOR_Research_Analyzer_I</research></li>
-			<li><kind>BOR_Mech_SolarCleaner</kind><research>BOR_Research_Analyzer_I</research></li>
-			<li><kind>BOR_Mech_QuasarFabricor</kind><research>BOR_Research_Analyzer_II</research></li>
-			<li><kind>BOR_Mech_QuasarDriller</kind><research>BOR_Research_Analyzer_II</research></li>
-		</value>
+	<!-- Tier mechs among the dormant ones, once the colony has their tier. Only with Biotech: the site and the mechs
+	     both need it. -->
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Biotech</li>
+		</mods>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/Expeditions.ExpeditionSiteDef[defName="Exp_DormantMechs"]/joiners/mechKinds</xpath>
+			<value>
+				<li><kind>BOR_Mech_SolarLifter</kind><research>BOR_Research_Analyzer_I</research></li>
+				<li><kind>BOR_Mech_SolarCleaner</kind><research>BOR_Research_Analyzer_I</research></li>
+				<li><kind>BOR_Mech_QuasarFabricor</kind><research>BOR_Research_Analyzer_II</research></li>
+				<li><kind>BOR_Mech_QuasarDriller</kind><research>BOR_Research_Analyzer_II</research></li>
+			</value>
+		</match>
 	</Operation>
 
 </Patch>
