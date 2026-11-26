@@ -28,7 +28,7 @@
   <BOR_UmbralPodNotCrystallized>skrystalizowane tylko {0}, wymaga {1}</BOR_UmbralPodNotCrystallized>
   <BOR_UmbralPodRemaining>Przemiana kończy się za {0}</BOR_UmbralPodRemaining>
   <BOR_UmbralEmergedLabel>{0}: przemiana w umbrala</BOR_UmbralEmergedLabel>
-  <BOR_UmbralEmergedText>Kapsuła się otwiera. {PAWN_labelShort} jest teraz umbralem: to ciało nie przyjmie już żadnej operacji i będzie się dalej zmieniać tylko przez pakty przy mrocznym lustrze.</BOR_UmbralEmergedText>
+  <BOR_UmbralEmergedText>Kapsuła się otwiera. {PAWN_labelShort} jest teraz umbralem: wszystkie protezy i implanty zniknęły, a kryształ stał się umbralnym mózgiem; to ciało nie przyjmie już żadnej operacji i będzie się dalej zmieniać tylko przez pakty przy mrocznym lustrze.</BOR_UmbralEmergedText>
 
   <!-- Tenebral pod (the dark mirror) -->
   <BOR_TenebralPodMode>Tryb</BOR_TenebralPodMode>

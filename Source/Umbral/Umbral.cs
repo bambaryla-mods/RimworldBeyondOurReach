@@ -188,24 +188,38 @@ public static class Umbral
     }
 
     // Turns a crystallized tenebral pawn into an Umbral, as it leaves a Tenebral pod in transformation mode.
+    // The pawn emerges clean: every bionic, prosthetic and implant is gone (natural parts restored), ready for the Umbral parts,
+    // with only the Umbral brain in place.
     public static void MakeUmbral(Pawn pawn)
     {
         Crystallization.ClearAll(pawn);
-        List<Hediff> tenebral = pawn.health.hediffSet.hediffs
-            .Where(h => h.def.HasModExtension<DefModExtension_TenebralImplant>()
+        List<Hediff> strip = pawn.health.hediffSet.hediffs
+            .Where(h => (h.def.countsAsAddedPartOrImplant && !h.def.HasModExtension<DefModExtension_UmbralPart>())
+                || h.def.HasModExtension<DefModExtension_TenebralImplant>()
                 || h.def == BOR_TenebralDefOf.BOR_TenebralPsychosis
                 || h.def == BOR_TenebralDefOf.BOR_TenebralBreakCounter)
             .ToList();
-        foreach (Hediff h in tenebral)
+        foreach (Hediff h in strip)
         {
+            // Restoring a parent part already took this one off.
+            if (!pawn.health.hediffSet.hediffs.Contains(h))
+            {
+                continue;
+            }
             if (h is Hediff_AddedPart && h.Part != null)
             {
                 pawn.health.RestorePart(h.Part);
             }
-            else if (pawn.health.hediffSet.hediffs.Contains(h))
+            else
             {
                 pawn.health.RemoveHediff(h);
             }
+        }
+        // The crystal already took the brain, so it emerges as an Umbral brain; phase A grows the rest.
+        BodyPartRecord? brain = pawn.health.hediffSet.GetBrain();
+        if (brain != null && !pawn.health.hediffSet.hediffs.Any(h => h.def == BOR_UmbralDefOf.BOR_UmbralBrain && h.Part == brain))
+        {
+            pawn.health.AddHediff(BOR_UmbralDefOf.BOR_UmbralBrain, brain);
         }
         if (ModsConfig.BiotechActive && pawn.genes != null && BOR_UmbralDefOf.BOR_UmbralXenotype != null)
         {

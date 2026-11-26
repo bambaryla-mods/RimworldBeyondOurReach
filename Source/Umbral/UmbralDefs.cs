@@ -38,6 +38,7 @@ public static class BOR_UmbralDefOf
     public static HediffDef BOR_UmbralExoskull = null!;
     public static HediffDef BOR_UmbralCamo = null!;
     public static HediffDef BOR_UmbralUtilityPod = null!;
+    public static HediffDef BOR_UmbralBrain = null!;
     public static HediffDef BOR_DarkArchotechCommune = null!;
     public static ThoughtDef BOR_UmbralEmpty = null!;
     public static HediffDef BOR_UmbralHerald = null!;
