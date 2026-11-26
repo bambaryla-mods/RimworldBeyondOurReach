@@ -3,7 +3,7 @@
 
 	<HediffDef ParentName="InjuryBase">
 		<defName>TenebralGunshot</defName>
-		<label>tenebralGunshot</label>
+		<label>tenebral gunshot</label>
 		<labelNoun>a tenebral gunshot wound</labelNoun>
 		<description>A tenebral gunshot wound.</description>
 		<comps>
