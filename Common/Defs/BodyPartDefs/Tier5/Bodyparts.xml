@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-	<!-- base for implants. Umbral parts are a deeper red than tenebral ones (128, 0, 0). -->
+	<!-- base for implants. Umbral parts share the purple of the other Umbral hediffs. -->
 	<HediffDef Abstract="True" ParentName="ImplantHediffBase" Name="BOR_ImplantUmbralHediffBase">
-		<defaultLabelColor>(90, 0, 0)</defaultLabelColor>
+		<defaultLabelColor>(0.45, 0.2, 0.6)</defaultLabelColor>
 		<modExtensions>
 			<li Class="BeyondOurReach.DefModExtension_UmbralPart" />
 		</modExtensions>
 	</HediffDef>
 	<HediffDef ParentName="AddedBodyPartBase" Name="BOR_AddedUmbralBodyPartBase" Abstract="True">
-		<defaultLabelColor>(90, 0, 0)</defaultLabelColor>
+		<defaultLabelColor>(0.45, 0.2, 0.6)</defaultLabelColor>
 		<modExtensions>
 			<li Class="BeyondOurReach.DefModExtension_UmbralPart" />
 		</modExtensions>

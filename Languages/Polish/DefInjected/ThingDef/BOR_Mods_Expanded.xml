@@ -179,9 +179,9 @@
 
 
   <BOR_PowerLinkI.label>pylon mocy solarite</BOR_PowerLinkI.label>
-  <BOR_PowerLinkI.description>Zwiększa moc wyjściową reaktora Solarite o 50%. Można podłączyć do 16.</BOR_PowerLinkI.description>
+  <BOR_PowerLinkI.description>Zwiększa moc wyjściową reaktora Solarite o 10%. Można podłączyć do 16.</BOR_PowerLinkI.description>
   <BOR_PowerLinkII.label>pylon mocy kwazaari</BOR_PowerLinkII.label>
-  <BOR_PowerLinkII.description>Zwiększa moc wyjściową reaktora Kwazaari o 25%. Można podłączyć do 8.</BOR_PowerLinkII.description>
+  <BOR_PowerLinkII.description>Zwiększa moc wyjściową reaktora Kwazaari o 20%. Można podłączyć do 8.</BOR_PowerLinkII.description>
 
   <BOR_Proj_Dunder_I.label>ładunek wybuchowy</BOR_Proj_Dunder_I.label>
   <BOR_Proj_Dunder_II.label>kwazarny ładunek wybuchowy</BOR_Proj_Dunder_II.label>

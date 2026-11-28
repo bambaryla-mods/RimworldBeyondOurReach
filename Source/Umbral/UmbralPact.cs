@@ -92,6 +92,9 @@ public static class UmbralPacts
         DarkPulse.Flash(mirror.Map, mirror.TrueCenter(), 4f);
     }
 
+    // Some Umbral pact under way asks for a slaughter, so the butcher table's slaughter cooldown does not apply.
+    public static bool WantsSlaughter => Active.Any(p => p.demand == UmbralPactDemand.Slaughter);
+
     // One slaughter, by any Umbral, counts for every Umbral pact asking for one.
     public static void Notify_Slaughter()
     {

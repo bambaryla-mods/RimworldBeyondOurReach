@@ -70,7 +70,7 @@ When the price is paid, the research SHALL be finished (credited to the pact mak
 ### Requirement: Dark Punishment
 Every failure (time running out, a target dying wrongly, abandoning) SHALL be punished:
 - The mirror the pact was made at (else any player dark mirror on a home map) SHALL send out a red ring, drawn like the Path of Light's shockwave, that crosses the whole map.
-- Every living pawn the ring reaches, of any faction, SHALL get `BOR_DarkPunishment` (+20% pain for 1 day) once per pulse. A pawn who already has it SHALL have its timer reset.
+- Every living pawn the ring reaches, of any faction, SHALL get `BOR_DarkPunishment` (+20% pain for 1 day) once per pulse. A pawn who already has it SHALL get one stage worse (+35%, then +50% pain at most) and have its timer reset.
 - A negative letter SHALL name the research and the reason. With no mirror standing, only the letter comes.
 - The ring SHALL be saved with the map and resume after loading.
 

@@ -762,8 +762,8 @@
 	</ResearchProjectDef>
 	<ResearchProjectDef ParentName="BOR_Research_Base_IV">
 		<defName>BOR_Research_Battery_IV</defName>
-		<label>tenebrite battery</label>
-		<description>Build tenebral batteries to store supreme amounts of power.</description>
+		<label>umbral battery</label>
+		<description>Build umbral batteries to store supreme amounts of power.</description>
 		<baseCost>175000</baseCost>
 		<techLevel>Archotech</techLevel>
 		<prerequisites>
@@ -825,7 +825,7 @@
 	</ResearchProjectDef>
 	<ResearchProjectDef ParentName="BOR_Research_Base_IV">
 		<defName>BOR_Research_Drugs_IV</defName>
-		<label>tenebrite drug production</label>
+		<label>umbral drug production</label>
 		<description>Produce drugs commonly enjoyed in tenebral space communes.
 
 			Pax is a powerful disease prevention drug that blocks virtually all ailments - including infection and neurodegenerative disorders like dementia.
@@ -869,17 +869,8 @@
 		</modExtensions>
 		<techLevel>Archotech</techLevel>
 		<prerequisites>
-			<li>BOR_Research_Gate_IV</li>
-			<li>BOR_Research_NSynth_IV</li>
+			<li>BOR_Research_Gate_V</li>
 		</prerequisites>
-		<hiddenPrerequisites>
-			<li>BOR_Research_Medicine_IV</li>
-			<li>BOR_Research_Drugs_IV</li>
-			<li>BOR_Research_Power_IV</li>
-			<li>BOR_Research_Battery_IV</li>
-			<li>BOR_Research_Joy_IV</li>
-			<li>BOR_Research_Hydroponics_IV</li>
-		</hiddenPrerequisites>
 		<researchViewX>31.50</researchViewX>
 		<researchViewY>0.10</researchViewY>
 	</ResearchProjectDef>
@@ -972,6 +963,29 @@
 		<researchViewX>20.00</researchViewX>
 		<researchViewY>3.00</researchViewY>
 	</ResearchProjectDef>
+	<!-- The last umbral project: it needs the whole umbral tree, and the three unlimited projects need only it.
+	     Only the last project of each branch is listed, since each one needs the projects before it. -->
+	<ResearchProjectDef ParentName="BOR_Research_Base_IV">
+		<defName>BOR_Research_Gate_V</defName>
+		<label>unlimited research gate</label>
+		<description>Umbral research has reached its limit. What lies beyond cannot be studied: an Umbral must commune with the Dark Archotechs at the spire, and they grant unlimited power, self-sustaining production and laborless neutronium.</description>
+		<baseCost>1000000</baseCost>
+		<techLevel>Archotech</techLevel>
+		<prerequisites>
+			<li>BOR_Research_Battery_IV</li>
+			<li>BOR_Research_UmbralShield</li>
+			<li>BOR_Research_NSynth_IV</li>
+			<li>BOR_Research_Drugs_IV</li>
+			<li>BOR_Research_Joy_IV</li>
+			<li>BOR_Research_Hydroponics_IV</li>
+		</prerequisites>
+		<hiddenPrerequisites>
+			<li MayRequireAnyOf="ludeon.rimworld.odyssey,smashphil.vehicleframework">BOR_Research_Harbinger</li>
+			<li MayRequire="onofre150.me.vaccines">BOR_Research_Vaccines_IV</li>
+		</hiddenPrerequisites>
+		<researchViewX>27.50</researchViewX>
+		<researchViewY>2.90</researchViewY>
+	</ResearchProjectDef>
 	<ResearchProjectDef ParentName="BOR_Research_Base_V">
 		<defName>BOR_Research_Power_V</defName>
 		<label>unlimited power</label>
@@ -982,16 +996,8 @@
 		</modExtensions>
 		<techLevel>Archotech</techLevel>
 		<prerequisites>
-			<li>BOR_Research_Gate_IV</li>
+			<li>BOR_Research_Gate_V</li>
 		</prerequisites>
-		<hiddenPrerequisites>
-			<li>BOR_Research_Medicine_IV</li>
-			<li>BOR_Research_Drugs_IV</li>
-			<li>BOR_Research_Power_IV</li>
-			<li>BOR_Research_Battery_IV</li>
-			<li>BOR_Research_Joy_IV</li>
-			<li>BOR_Research_Hydroponics_IV</li>
-		</hiddenPrerequisites>
 		<researchViewX>30.50</researchViewX>
 		<researchViewY>2.00</researchViewY>
 	</ResearchProjectDef>
@@ -1005,16 +1011,8 @@
 		</modExtensions>
 		<techLevel>Archotech</techLevel>
 		<prerequisites>
-			<li>BOR_Research_Gate_IV</li>
+			<li>BOR_Research_Gate_V</li>
 		</prerequisites>
-		<hiddenPrerequisites>
-			<li>BOR_Research_Medicine_IV</li>
-			<li>BOR_Research_Drugs_IV</li>
-			<li>BOR_Research_Power_IV</li>
-			<li>BOR_Research_Battery_IV</li>
-			<li>BOR_Research_Joy_IV</li>
-			<li>BOR_Research_Hydroponics_IV</li>
-		</hiddenPrerequisites>
 		<researchViewX>30.50</researchViewX>
 		<researchViewY>4.00</researchViewY>
 	</ResearchProjectDef>

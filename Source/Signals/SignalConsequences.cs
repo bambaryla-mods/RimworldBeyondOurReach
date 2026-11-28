@@ -77,22 +77,32 @@ public class MapComponent_SignalConsequences : MapComponent
             2 => 0.9f,
             _ => Rand.Value
         };
+        string kind;
+        TargetInfo target;
         if (roll < 0.2f)
         {
-            OrbitalLaser();
+            kind = "Laser";
+            target = new TargetInfo(OrbitalLaser(), map);
         }
         else if (roll < 0.7f)
         {
-            FilthPods();
+            kind = "FilthPods";
+            target = new TargetInfo(FilthPods(), map);
         }
         else if (ModsConfig.BiotechActive)
         {
-            Wastepacks();
+            kind = "Wastepacks";
+            target = new TargetInfo(Wastepacks(), map);
         }
         else
         {
+            kind = "Drone";
             PsychicDrone();
+            target = new TargetInfo(map.Center, map);
         }
+        Find.LetterStack.ReceiveLetter("BOR_Signals_RevengeLabel".Translate(),
+            "BOR_Signals_Revenge".Translate() + "\n\n" + ("BOR_Signals_Revenge_" + kind).Translate(),
+            LetterDefOf.NegativeEvent, target);
     }
 
     private IntVec3 RandomHomeCell()
@@ -106,7 +116,7 @@ public class MapComponent_SignalConsequences : MapComponent
         return buildings.Count > 0 ? buildings.RandomElement().Position : CellFinder.RandomNotEdgeCell(10, map);
     }
 
-    private void OrbitalLaser()
+    private IntVec3 OrbitalLaser()
     {
         IntVec3 cell = RandomHomeCell();
         PowerBeam beam = (PowerBeam)GenSpawn.Spawn(ThingDefOf.PowerBeam, cell, map);
@@ -114,9 +124,10 @@ public class MapComponent_SignalConsequences : MapComponent
         beam.duration = 45;
         beam.StartStrike();
         CameraJumper.TryJump(cell, map);
+        return cell;
     }
 
-    private void FilthPods()
+    private IntVec3 FilthPods()
     {
         IntVec3 first = IntVec3.Invalid;
         int pods = Rand.RangeInclusive(15, 25);
@@ -130,9 +141,10 @@ public class MapComponent_SignalConsequences : MapComponent
             }
         }
         CameraJumper.TryJump(first, map);
+        return first;
     }
 
-    private void Wastepacks()
+    private IntVec3 Wastepacks()
     {
         ThingDef wastepack = DefDatabase<ThingDef>.GetNamed("Wastepack");
         const int total = 1000;
@@ -155,6 +167,7 @@ public class MapComponent_SignalConsequences : MapComponent
             }
         }
         CameraJumper.TryJump(first, map);
+        return first;
     }
 
     private void PsychicDrone()

@@ -32,6 +32,8 @@ A pact is a quest with a terrible price and seven days to pay it. Pay, and the r
 
 {{ screenshot("dark-pact", "A dark pact offered at the dark mirror") }}
 
+Umbral research is studied at the umbral spire. Its last project, the unlimited research gate, needs the whole umbral tree and opens the three unlimited projects, which an Umbral has to commune for at the spire.
+
 ## All research projects
 
 Costs are in research points. Projects marked *dark pact* or *communion* can't be finished at a bench.

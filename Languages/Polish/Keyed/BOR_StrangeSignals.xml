@@ -18,6 +18,12 @@
   <!-- Letters -->
   <BOR_Signals_ArrivalLabel>Nadlatuje wahadłowiec</BOR_Signals_ArrivalLabel>
   <BOR_Signals_ArrivalText>[PLACEHOLDER] Wahadłowiec odpowiada na dziwne sygnały i ląduje w pobliżu twojego analizatora. Jego pilot chce porozmawiać.</BOR_Signals_ArrivalText>
+  <BOR_Signals_RevengeLabel>Stracony czas</BOR_Signals_RevengeLabel>
+  <BOR_Signals_Revenge>Pilot wahadłowca nie zapomniał, że zmarnowałeś mu czas.</BOR_Signals_Revenge>
+  <BOR_Signals_Revenge_Laser>Promień z orbity uderza w twoją kolonię.</BOR_Signals_Revenge_Laser>
+  <BOR_Signals_Revenge_FilthPods>Na twoją kolonię spadają kapsuły pełne wymiocin, odchodów i śmieci.</BOR_Signals_Revenge_FilthPods>
+  <BOR_Signals_Revenge_Wastepacks>Kapsuły zrzucają toksyczne odpady po całej twojej kolonii.</BOR_Signals_Revenge_Wastepacks>
+  <BOR_Signals_Revenge_Drone>Wywołał nad okolicą silny psychiczny dron.</BOR_Signals_Revenge_Drone>
 
   <!-- Dialogue: strange signal -->
   <BOR_Signals_Title>Dziwne sygnały</BOR_Signals_Title>

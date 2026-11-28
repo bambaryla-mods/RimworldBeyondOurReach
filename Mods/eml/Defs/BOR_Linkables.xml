@@ -7,7 +7,7 @@
         	<li>BOR_Tech_I</li>
         </tradeTags>
         <label>solarite power pylon</label>
-        <description>Increases the power output of Solarite Reactor by 50%. Can connect up to 16.</description>
+        <description>Increases the power output of Solarite Reactor by 10%. Can connect up to 16.</description>
         <tickerType>Long</tickerType>
         <uiIconScale>0.5</uiIconScale>
         <graphicData>
@@ -47,7 +47,7 @@
         	<li>BOR_Tech_II</li>
         </tradeTags>
         <label>kwazaari power pylon</label>
-        <description>Increases the power output of Kwazaari Reactor by 25%. Can connect up to 8.</description>
+        <description>Increases the power output of Kwazaari Reactor by 20%. Can connect up to 8.</description>
         <tickerType>Long</tickerType>
         <uiIconScale>0.5</uiIconScale>
         <graphicData>

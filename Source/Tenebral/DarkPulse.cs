@@ -62,16 +62,19 @@ public class DarkPulse : IExposable
         return radius >= ShockwaveRing.MaxRadius(map, center);
     }
 
-    // A pawn already punished starts the day over.
+    // A pawn already punished gets a stage worse (up to the def's max severity) and starts the day over.
     private static void Punish(Pawn pawn)
     {
         Hediff? existing = pawn.health.hediffSet.GetFirstHediffOfDef(BOR_DarkPactDefOf.BOR_DarkPunishment);
         if (existing != null)
         {
+            existing.Severity += 1f;
             existing.TryGetComp<HediffComp_Disappears>()?.ResetElapsedTicks();
-            return;
         }
-        pawn.health.AddHediff(BOR_DarkPactDefOf.BOR_DarkPunishment);
+        else
+        {
+            pawn.health.AddHediff(BOR_DarkPactDefOf.BOR_DarkPunishment);
+        }
         Flash(pawn.Map, pawn.DrawPos, 1.2f);
     }
 

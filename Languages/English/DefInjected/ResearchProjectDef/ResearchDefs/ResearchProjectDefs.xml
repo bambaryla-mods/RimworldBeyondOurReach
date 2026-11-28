@@ -185,8 +185,8 @@ This is not a technology attained by humans; it is granted by the Dark Archotech
   <BOR_Research_Power_IV.label>tenebrite energy</BOR_Research_Power_IV.label>
   <BOR_Research_Power_IV.description>Build the dark reactor, which captures energy from stray, non-interacting particles to freely generate power.</BOR_Research_Power_IV.description>
 
-  <BOR_Research_Battery_IV.label>tenebrite battery</BOR_Research_Battery_IV.label>
-  <BOR_Research_Battery_IV.description>Build tenebral batteries to store supreme amounts of power.</BOR_Research_Battery_IV.description>
+  <BOR_Research_Battery_IV.label>umbral battery</BOR_Research_Battery_IV.label>
+  <BOR_Research_Battery_IV.description>Build umbral batteries to store supreme amounts of power.</BOR_Research_Battery_IV.description>
 
   <BOR_Research_UmbralShield.label>umbral shield</BOR_Research_UmbralShield.label>
   <BOR_Research_UmbralShield.description>Build a crimson dome that turns aside hostile fire, drop pods and solar flares. Every pawn beneath it pays with their mind.</BOR_Research_UmbralShield.description>
@@ -205,7 +205,7 @@ Each implant adds a 1% chance that such a rage ends with them abandoning the col
 
 The more bionics are installed on a pawn, the more often they have to kill.</BOR_Research_Bionics_III.discoveredLetterText>
 
-  <BOR_Research_Drugs_IV.label>tenebrite drug production</BOR_Research_Drugs_IV.label>
+  <BOR_Research_Drugs_IV.label>umbral drug production</BOR_Research_Drugs_IV.label>
   <BOR_Research_Drugs_IV.description>Produce drugs commonly enjoyed in tenebral space communes.
 
 			Pax is a powerful disease prevention drug that blocks virtually all ailments - including infection and neurodegenerative disorders like dementia.
@@ -288,6 +288,9 @@ The queue works on cell coordinates, so moving around the grid will follow the q
 
   <BOR_Research_Gate_IV.label>umbral research gate</BOR_Research_Gate_IV.label>
   <BOR_Research_Gate_IV.description>The ultimate pact. The Dark Archotechs show how to raise an umbral spire, where umbral research begins.</BOR_Research_Gate_IV.description>
+
+  <BOR_Research_Gate_V.label>unlimited research gate</BOR_Research_Gate_V.label>
+  <BOR_Research_Gate_V.description>Umbral research has reached its limit. What lies beyond cannot be studied: an Umbral must commune with the Dark Archotechs at the spire, and they grant unlimited power, self-sustaining production and laborless neutronium.</BOR_Research_Gate_V.description>
 
   <BOR_Research_AltarQuality_Good.label>altar quality: good</BOR_Research_AltarQuality_Good.label>
   <BOR_Research_AltarQuality_Good.description>The Dark Archotechs guide the hands at the dark archotech altar. Every altar makes its weapons and apparel at good quality instead of normal, whoever works it.</BOR_Research_AltarQuality_Good.description>

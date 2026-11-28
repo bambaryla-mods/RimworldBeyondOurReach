@@ -36,6 +36,10 @@ public class CompComponentHarvest : ThingComp
         slaughterNextAllowedTick = Find.TickManager.TicksGame + Props.slaughterCooldownTicks;
     }
 
+    // The cooldown is as long as an Umbral pact, so a pact asking for a slaughter skips it; otherwise one slaughter
+    // just before the pact could lock the table for the whole pact.
+    private bool SlaughterOnCooldown => Find.TickManager.TicksGame < slaughterNextAllowedTick && !UmbralPacts.WantsSlaughter;
+
     public bool CorpseValid(Corpse corpse)
     {
         return corpse.Spawned
@@ -87,7 +91,7 @@ public class CompComponentHarvest : ThingComp
             icon = ContentFinder<Texture2D>.Get("BOR/Things/Factions/TenebralIcon"),
             action = () => OpenPawnMenu(true)
         };
-        if (Find.TickManager.TicksGame < slaughterNextAllowedTick)
+        if (SlaughterOnCooldown)
         {
             slaughter.Disable("BOR_Slaughter_Cooldown".Translate((slaughterNextAllowedTick - Find.TickManager.TicksGame).ToStringTicksToPeriod()));
         }
@@ -164,7 +168,7 @@ public class CompComponentHarvest : ThingComp
     {
         // The menus can stay open for a while; everything may have changed since they were built.
         if (!parent.Spawned || !pawn.Spawned || pawn.Dead || pawn.Downed || !Umbral.IsUmbral(pawn) || !victim.Spawned || !RighteousSlaughter.CanBeVictim(victim)
-            || Find.TickManager.TicksGame < slaughterNextAllowedTick
+            || SlaughterOnCooldown
             || !pawn.CanReserveAndReach(victim, PathEndMode.ClosestTouch, Danger.Deadly)
             || !pawn.CanReserveAndReach(parent, PathEndMode.InteractionCell, Danger.Deadly))
         {
@@ -241,7 +245,7 @@ public class CompComponentHarvest : ThingComp
             lines.Add("BOR_Harvest_Cooldown".Translate(left.ToStringTicksToPeriod()).Resolve());
         }
         int slaughterLeft = slaughterNextAllowedTick - Find.TickManager.TicksGame;
-        if (slaughterLeft > 0)
+        if (slaughterLeft > 0 && SlaughterOnCooldown)
         {
             lines.Add("BOR_Slaughter_Cooldown".Translate(slaughterLeft.ToStringTicksToPeriod()).Resolve());
         }

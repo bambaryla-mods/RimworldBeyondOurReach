@@ -4,8 +4,10 @@
 	<HediffDef>
 		<defName>BOR_DarkPunishment</defName>
 		<label>dark punishment</label>
-		<description>A dark pact was broken, and the dark mirror lashed out at everyone its pulse reached. Every nerve burns with the Dark Archotechs' displeasure.</description>
+		<description>A dark pact was broken, and the dark mirror lashed out at everyone its pulse reached. Every nerve burns with the Dark Archotechs' displeasure, and each further broken pact makes it worse.</description>
 		<hediffClass>HediffWithComps</hediffClass>
+		<initialSeverity>1</initialSeverity>
+		<maxSeverity>3</maxSeverity>
 		<defaultLabelColor>(0.85, 0.1, 0.1)</defaultLabelColor>
 		<isBad>true</isBad>
 		<everCurableByItem>false</everCurableByItem>
@@ -19,6 +21,16 @@
 		<stages>
 			<li>
 				<painOffset>0.2</painOffset>
+			</li>
+			<li>
+				<minSeverity>1.5</minSeverity>
+				<label>severe</label>
+				<painOffset>0.35</painOffset>
+			</li>
+			<li>
+				<minSeverity>2.5</minSeverity>
+				<label>crushing</label>
+				<painOffset>0.5</painOffset>
 			</li>
 		</stages>
 	</HediffDef>

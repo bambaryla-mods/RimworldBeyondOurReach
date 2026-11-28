@@ -18,6 +18,12 @@
   <!-- Letters -->
   <BOR_Signals_ArrivalLabel>Shuttle arriving</BOR_Signals_ArrivalLabel>
   <BOR_Signals_ArrivalText>[PLACEHOLDER] A shuttle is answering the strange signals and landing near your analyzer. Its pilot wants to talk.</BOR_Signals_ArrivalText>
+  <BOR_Signals_RevengeLabel>Wasted time</BOR_Signals_RevengeLabel>
+  <BOR_Signals_Revenge>The shuttle pilot has not forgotten how you wasted his time.</BOR_Signals_Revenge>
+  <BOR_Signals_Revenge_Laser>A beam lances down from orbit into your colony.</BOR_Signals_Revenge_Laser>
+  <BOR_Signals_Revenge_FilthPods>Drop pods full of vomit, excrement and garbage are raining down on your colony.</BOR_Signals_Revenge_FilthPods>
+  <BOR_Signals_Revenge_Wastepacks>Drop pods are dumping toxic wastepacks all over your colony.</BOR_Signals_Revenge_Wastepacks>
+  <BOR_Signals_Revenge_Drone>He has set off a strong psychic drone over the area.</BOR_Signals_Revenge_Drone>
 
   <!-- Dialogue: strange signal -->
   <BOR_Signals_Title>Strange signals</BOR_Signals_Title>

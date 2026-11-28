@@ -50,8 +50,8 @@
   <BOR_Research_Production_III.description>Wytwarzaj tenebryt, krystaliczny materiał pochodzący ze stopu kwazarowego i szczątkowej ciemnej materii. Twórz krystaliczne złącza z tenebrytu, kluczowe komponenty produktów z tenebrytu. Buduj konstrukcje z tenebrytu oraz wytwarzaj narzędzia i broń z tenebrytu; będą przewyższać niemal wszystkie inne.</BOR_Research_Production_III.description>
   <BOR_Research_Power_IV.label>energia tenebrytowa</BOR_Research_Power_IV.label>
   <BOR_Research_Power_IV.description>Zbuduj ciemny reaktor, który przechwytuje energię z rozproszonych, nieoddziałujących cząstek, aby swobodnie generować energię.</BOR_Research_Power_IV.description>
-  <BOR_Research_Battery_IV.label>akumulator tenebrytowy</BOR_Research_Battery_IV.label>
-  <BOR_Research_Battery_IV.description>Buduj tenebralne akumulatory do magazynowania ogromnych ilości energii.</BOR_Research_Battery_IV.description>
+  <BOR_Research_Battery_IV.label>akumulator umbralny</BOR_Research_Battery_IV.label>
+  <BOR_Research_Battery_IV.description>Buduj umbralne akumulatory do magazynowania ogromnych ilości energii.</BOR_Research_Battery_IV.description>
   <BOR_Research_UmbralShield.label>tarcza umbralna</BOR_Research_UmbralShield.label>
   <BOR_Research_UmbralShield.description>Zbuduj szkarłatną kopułę, która odpiera wrogi ostrzał, kapsuły desantowe i rozbłyski słoneczne. Każdy pod nią płaci za to swoim umysłem.</BOR_Research_UmbralShield.description>
   <BOR_Research_Medicine_III.label>tenebrytowa produkcja medyczna</BOR_Research_Medicine_III.label>
@@ -66,7 +66,7 @@
   <BOR_Research_AltarQuality_Masterwork.description>Mroczne Archotechy niemal same pracują przy ołtarzu Mrocznych Archotechów. Każdy ołtarz wytwarza broń i odzież mistrzowskiej jakości zamiast doskonałej, bez względu na to, kto przy nim pracuje.</BOR_Research_AltarQuality_Masterwork.description>
   <BOR_Research_AltarQuality_Legendary.label>jakość ołtarza: legendarna</BOR_Research_AltarQuality_Legendary.label>
   <BOR_Research_AltarQuality_Legendary.description>Mroczne Archotechy wlewają siebie w ołtarz Mrocznych Archotechów. Każdy ołtarz wytwarza broń i odzież legendarnej jakości zamiast mistrzowskiej, bez względu na to, kto przy nim pracuje.</BOR_Research_AltarQuality_Legendary.description>
-  <BOR_Research_Drugs_IV.label>tenebrytowa produkcja narkotyków</BOR_Research_Drugs_IV.label>
+  <BOR_Research_Drugs_IV.label>umbralna produkcja narkotyków</BOR_Research_Drugs_IV.label>
   <BOR_Research_Drugs_IV.description>Wytwarzaj narkotyki powszechnie używane w tenebralnych komunach kosmicznych.
 
     Pax to silny lek zapobiegający chorobom, który blokuje praktycznie wszystkie dolegliwości - w tym infekcję i zaburzenia neurodegeneracyjne, takie jak demencja.
@@ -86,4 +86,6 @@
   <BOR_Research_Production_IV.description>Zbuduj umbralny silnik kreacji, który zamienia energię w neutronium i inne materiały.</BOR_Research_Production_IV.description>
   <BOR_Research_NeutProc_V.label>samowystarczalna produkcja</BOR_Research_NeutProc_V.label>
   <BOR_Research_NeutProc_V.description>Zbuduj umbralną kuźnię, która zamienia energię w neutronium i inne materiały.</BOR_Research_NeutProc_V.description>
+  <BOR_Research_Gate_V.label>brama nieograniczonych badań</BOR_Research_Gate_V.label>
+  <BOR_Research_Gate_V.description>Badania umbralne osiągnęły swoją granicę. Tego, co leży dalej, nie da się zbadać: Umbral musi nawiązać komunię z Mrocznymi Archotechami przy iglicy, a one obdarzą cię nieograniczoną energią, samowystarczalną produkcją i beznakładowym neutronium.</BOR_Research_Gate_V.description>
 </LanguageData>
