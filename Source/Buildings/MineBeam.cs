@@ -1,4 +1,4 @@
-using CVN_EnhancedResourceDrill;
+using BambaResourceGenerator;
 using UnityEngine;
 using Verse;
 using Verse.Sound;

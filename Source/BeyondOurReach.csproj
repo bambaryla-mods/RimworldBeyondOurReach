@@ -36,8 +36,8 @@
 			<HintPath>..\..\..\..\..\workshop\content\294100\2023507013\1.7\Assemblies\0ModSettingsFramework.dll</HintPath>
 			<Private>False</Private>
 		</Reference>
-		<Reference Include="CVN_EnhancedResourceDrill">
-			<HintPath>..\..\ResourceGeneratorFramework\1.7\Assemblies\CVN_EnhancedResourceDrill.dll</HintPath>
+		<Reference Include="BambaResourceGenerator">
+			<HintPath>..\..\ResourceGeneratorFramework\1.7\Assemblies\BambaResourceGenerator.dll</HintPath>
 			<Private>False</Private>
 		</Reference>
 		<Reference Include="Waylith">

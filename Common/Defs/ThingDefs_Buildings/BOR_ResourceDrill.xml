@@ -51,7 +51,7 @@
             <li>PlaceWorker_PreventInteractionSpotOverlap</li>
         </placeWorkers>
         <inspectorTabs>
-            <li>CVN_EnhancedResourceDrill.ITab_ResourceDrill</li>
+            <li>BambaResourceGenerator.ITab_ResourceDrill</li>
         </inspectorTabs>
         <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
         <researchPrerequisites>
@@ -71,7 +71,7 @@
                 <basePowerConsumption>100000</basePowerConsumption>
             </li>
             <li Class="CompProperties_CreatesInfestations" />
-            <li Class="CVN_EnhancedResourceDrill.CompProperties_ResourceDrill">
+            <li Class="BambaResourceGenerator.CompProperties_ResourceDrill">
                 <!-- what to display when resource not selected -->
                 <selectResourceUiIcon>UI/Designators/Mine</selectResourceUiIcon>
                 <!-- whether humans are involved -->
@@ -80,7 +80,7 @@
                 <tickInterval>60</tickInterval>
                 <!-- how much work is done per tick interval multiplied by number of pawns -->
                 <workPerInterval>15</workPerInterval>
-                <operateJobDef>CVN_OperateResourceDrill</operateJobDef>
+                <operateJobDef>Bamba_OperateResourceDrill</operateJobDef>
                 <!-- underground grid size -->
                 <gridWidth>2</gridWidth>
                 <gridHeight>2</gridHeight>
@@ -182,7 +182,7 @@
             <li>PlaceWorker_PreventInteractionSpotOverlap</li>
         </placeWorkers>
         <inspectorTabs>
-            <li>CVN_EnhancedResourceDrill.ITab_ResourceDrill</li>
+            <li>BambaResourceGenerator.ITab_ResourceDrill</li>
         </inspectorTabs>
         <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
         <researchPrerequisites>
@@ -201,12 +201,12 @@
                 <compClass>CompPowerTrader</compClass>
                 <basePowerConsumption>250000</basePowerConsumption>
             </li>
-            <li Class="CVN_EnhancedResourceDrill.CompProperties_ResourceDrill">
+            <li Class="BambaResourceGenerator.CompProperties_ResourceDrill">
                 <selectResourceUiIcon>UI/Designators/Mine</selectResourceUiIcon>
                 <isAutomatic>False</isAutomatic>
                 <tickInterval>60</tickInterval>
                 <workPerInterval>30</workPerInterval>
-                <operateJobDef>CVN_OperateResourceDrill</operateJobDef>
+                <operateJobDef>Bamba_OperateResourceDrill</operateJobDef>
                 <!-- underground grid size -->
                 <gridWidth>3</gridWidth>
                 <gridHeight>3</gridHeight>
@@ -288,7 +288,7 @@
             <BOR_ComponentIII>8</BOR_ComponentIII>
         </costList>
         <inspectorTabs>
-            <li>CVN_EnhancedResourceDrill.ITab_ResourceDrill</li>
+            <li>BambaResourceGenerator.ITab_ResourceDrill</li>
         </inspectorTabs>
         <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
         <researchPrerequisites>
@@ -308,12 +308,12 @@
                 <!-- level 1 figure; each level adds powerPerDepth, so the level 20 start is 10000 + 19 x 100000 = 1,910,000 W -->
                 <basePowerConsumption>10000</basePowerConsumption>
             </li>
-            <li Class="CVN_EnhancedResourceDrill.CompProperties_ResourceDrill">
+            <li Class="BambaResourceGenerator.CompProperties_ResourceDrill">
                 <selectResourceUiIcon>UI/Designators/Mine</selectResourceUiIcon>
                 <isAutomatic>True</isAutomatic>
                 <tickInterval>60</tickInterval>
                 <workPerInterval>60</workPerInterval>
-                <operateJobDef>CVN_OperateResourceDrill</operateJobDef>
+                <operateJobDef>Bamba_OperateResourceDrill</operateJobDef>
                 <!-- underground grid size -->
                 <gridWidth>4</gridWidth>
                 <gridHeight>4</gridHeight>
@@ -400,7 +400,7 @@
             <BOR_ComponentIII>4</BOR_ComponentIII>
         </costList>
         <inspectorTabs>
-            <li>CVN_EnhancedResourceDrill.ITab_ResourceDrill</li>
+            <li>BambaResourceGenerator.ITab_ResourceDrill</li>
         </inspectorTabs>
         <researchPrerequisites>
             <li>BOR_Research_Core_Drill_III</li>
@@ -419,12 +419,12 @@
                 <!-- level 1 figure; each level adds powerPerDepth, so the level 8 start is 50000 + 7 x 70000 = 540,000 W -->
                 <basePowerConsumption>50000</basePowerConsumption>
             </li>
-            <li Class="CVN_EnhancedResourceDrill.CompProperties_ResourceDrill">
+            <li Class="BambaResourceGenerator.CompProperties_ResourceDrill">
                 <selectResourceUiIcon>UI/Designators/Mine</selectResourceUiIcon>
                 <isAutomatic>True</isAutomatic>
                 <tickInterval>60</tickInterval>
                 <workPerInterval>45</workPerInterval>
-                <operateJobDef>CVN_OperateResourceDrill</operateJobDef>
+                <operateJobDef>Bamba_OperateResourceDrill</operateJobDef>
                 <!-- underground grid size -->
                 <gridWidth>3</gridWidth>
                 <gridHeight>3</gridHeight>
@@ -480,7 +480,7 @@
     <WorkGiverDef>
         <defName>BOR_ResourceDrill</defName>
         <label>drill at resource drill</label>
-        <giverClass>CVN_EnhancedResourceDrill.WorkGiver_DrillAtResourceDrill</giverClass>
+        <giverClass>BambaResourceGenerator.WorkGiver_DrillAtResourceDrill</giverClass>
         <workType>Mining</workType>
         <priorityInType>50</priorityInType>
         <verb>drill</verb>
@@ -490,9 +490,9 @@
         </requiredCapacities>
         <canBeDoneByMechs>true</canBeDoneByMechs>
         <modExtensions>
-            <li Class="CVN_EnhancedResourceDrill.DefModExtension_ResourceDrill">
+            <li Class="BambaResourceGenerator.DefModExtension_ResourceDrill">
                 <DrillThingDef>BOR_ResourceDrill</DrillThingDef>
-                <DrillJobDef>CVN_OperateResourceDrill</DrillJobDef>
+                <DrillJobDef>Bamba_OperateResourceDrill</DrillJobDef>
             </li>
         </modExtensions>
     </WorkGiverDef>
@@ -500,7 +500,7 @@
     <WorkGiverDef>
         <defName>BOR_ResourceDrill_II</defName>
         <label>drill at kwazaari resource drill</label>
-        <giverClass>CVN_EnhancedResourceDrill.WorkGiver_DrillAtResourceDrill</giverClass>
+        <giverClass>BambaResourceGenerator.WorkGiver_DrillAtResourceDrill</giverClass>
         <workType>Mining</workType>
         <priorityInType>51</priorityInType>
         <verb>drill</verb>
@@ -510,9 +510,9 @@
         </requiredCapacities>
         <canBeDoneByMechs>true</canBeDoneByMechs>
         <modExtensions>
-            <li Class="CVN_EnhancedResourceDrill.DefModExtension_ResourceDrill">
+            <li Class="BambaResourceGenerator.DefModExtension_ResourceDrill">
                 <DrillThingDef>BOR_ResourceDrill_II</DrillThingDef>
-                <DrillJobDef>CVN_OperateResourceDrill</DrillJobDef>
+                <DrillJobDef>Bamba_OperateResourceDrill</DrillJobDef>
             </li>
         </modExtensions>
     </WorkGiverDef>
