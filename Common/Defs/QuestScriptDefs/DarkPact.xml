@@ -9,7 +9,6 @@
     <root Class="BeyondOurReach.QuestNode_Root_DarkPact">
       <people>40~60</people>
       <animals>100~150</animals>
-      <burned>10</burned>
       <guests>5</guests>
       <organs>10</organs>
       <corpses>15</corpses>

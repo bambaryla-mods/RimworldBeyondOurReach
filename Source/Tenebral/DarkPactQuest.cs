@@ -14,6 +14,7 @@ public enum DarkPactObjective
     KillPeople,
     ExecuteColonist,
     SlaughterAnimals,
+    // Removed: no longer rolled. Kept so old saves load; QuestPart_DarkPact turns it into KillPeople.
     BurnAlive,
     BetrayGuests,
     Kinslayer,
@@ -27,7 +28,6 @@ public class QuestNode_Root_DarkPact : QuestNode
     // Rolled each time the pact is made.
     public IntRange people = new(40, 60);
     public IntRange animals = new(100, 150);
-    public int burned = 10;
     public int guests = 5;
     public int organs = 10;
     public int corpses = 15;
@@ -62,8 +62,8 @@ public class QuestNode_Root_DarkPact : QuestNode
 
         List<DarkPactObjective> pool = new()
         {
-            DarkPactObjective.KillPeople, DarkPactObjective.SlaughterAnimals, DarkPactObjective.BurnAlive,
-            DarkPactObjective.HarvestOrgans, DarkPactObjective.Ossuary
+            DarkPactObjective.KillPeople, DarkPactObjective.SlaughterAnimals, DarkPactObjective.HarvestOrgans,
+            DarkPactObjective.Ossuary
         };
         Settlement? settlement = PickSettlement();
         if (settlement != null)
@@ -105,10 +105,6 @@ public class QuestNode_Root_DarkPact : QuestNode
             case DarkPactObjective.SlaughterAnimals:
                 part.goal = animals.RandomInRange;
                 part.objectiveText = "BOR_DarkPact_Obj_KillAnimals".Translate(part.goal);
-                break;
-            case DarkPactObjective.BurnAlive:
-                part.goal = burned;
-                part.objectiveText = "BOR_DarkPact_Obj_BurnAlive".Translate(burned);
                 break;
             case DarkPactObjective.BetrayGuests:
                 part.goal = guests;
@@ -284,7 +280,6 @@ public class QuestPart_DarkPact : QuestPartActivable
         {
             case DarkPactObjective.KillPeople when byColony && pawn.RaceProps.Humanlike:
             case DarkPactObjective.SlaughterAnimals when byColony && pawn.RaceProps.Animal:
-            case DarkPactObjective.BurnAlive when pawn.RaceProps.Humanlike && (Pawn_Kill_DarkPact_Patch.dyingBurning == pawn || dinfo?.Def == DamageDefOf.Flame || dinfo?.Def == DamageDefOf.Burn):
             case DarkPactObjective.BetrayGuests when byColony && betrayed.Contains(pawn.thingIDNumber):
                 Count();
                 break;
@@ -427,6 +422,22 @@ public class QuestPart_DarkPact : QuestPartActivable
         quest.End(QuestEndOutcome.Fail, sendLetter: false);
     }
 
+    // The burning pact was removed: one saved under way becomes a kill-people pact with the same count and progress.
+    private void MigrateBurnAlive()
+    {
+        if (objective != DarkPactObjective.BurnAlive)
+        {
+            return;
+        }
+        string old = objectiveText;
+        objective = DarkPactObjective.KillPeople;
+        objectiveText = "BOR_DarkPact_Obj_KillPeople".Translate(goal);
+        if (quest?.description.RawText is string text && !old.NullOrEmpty())
+        {
+            quest.description = text.Replace(old, objectiveText);
+        }
+    }
+
     // The quest stays in the history; nothing there needs these, and dead or destroyed ones would not load cleanly.
     public override void Cleanup()
     {
@@ -459,6 +470,7 @@ public class QuestPart_DarkPact : QuestPartActivable
         {
             betrayed ??= new List<int>();
             objectiveText ??= "";
+            MigrateBurnAlive();
         }
     }
 }
@@ -503,20 +515,4 @@ public static class MedicalRecipesUtility_SpawnNaturalPartIfClean_DarkPact_Patch
             DarkPacts.Active?.Notify_OrganHarvested();
         }
     }
-}
-
-// The burning pact: vanilla despawns a dying pawn (putting out its fire) before it tells the quests, so whether it
-// was burning is noted here first.
-[HarmonyPatch(typeof(Pawn), nameof(Pawn.Kill))]
-public static class Pawn_Kill_DarkPact_Patch
-{
-    public static Pawn? dyingBurning;
-
-    public static void Prefix(Pawn __instance, out Pawn? __state)
-    {
-        __state = dyingBurning;
-        dyingBurning = __instance.Spawned && __instance.IsBurning() ? __instance : null;
-    }
-
-    public static void Finalizer(Pawn? __state) => dyingBurning = __state;
 }

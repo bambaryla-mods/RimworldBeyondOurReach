@@ -125,7 +125,10 @@ public static class TenebralPodPawnCard
         y = Heading(x, y, width, "BOR_PodCard_Implants".Translate(), measure);
         y = Line(x, y, width, implants.Count > 0 ? implants.ToCommaList() : "BOR_PodCard_None".Translate().Resolve(), Color.white, measure);
 
-        List<string> conditions = hediffs
+        // Missing parts as the health tab shows them: only the topmost of a missing limb, and none under an added part,
+        // which replaces everything below it (an Umbral or bionic arm on the shoulder).
+        List<string> conditions = pawn.health.hediffSet.GetMissingPartsCommonAncestors().Cast<Hediff>()
+            .Concat(hediffs.Where(h => h is not Hediff_MissingPart))
             .Where(h => h.Visible && h.def.isBad && !ImplantDefs.Contains(h.def) && h.def != BOR_TenebralDefOf.BOR_TenebralPsychosis)
             .Select(Describe).Distinct().ToList();
         y = Heading(x, y, width, "BOR_PodCard_Conditions".Translate(), measure);
