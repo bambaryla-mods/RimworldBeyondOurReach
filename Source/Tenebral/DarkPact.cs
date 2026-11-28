@@ -97,16 +97,31 @@ public static class DarkPacts
     public static bool Powered(Thing mirror) => mirror.TryGetComp<CompPowerTrader>()?.PowerOn ?? true;
 
     // The colony hit someone who still trusted it. Remembered for the betrayal pact, since that first hit can turn the
-    // victim's faction hostile before they die.
+    // victim's faction hostile before they die. Their faction's other trusting pawns on the map are remembered with them:
+    // the same hit turns the whole group against the colony, and they trusted it a moment ago.
     public static void Notify_ColonyHurt(Pawn victim)
     {
-        if (victim.Dead || !victim.RaceProps.Humanlike || victim.Faction == null || victim.Faction.IsPlayer
-            || victim.IsPrisoner || victim.IsSlave || victim.HostileTo(Faction.OfPlayer))
+        QuestPart_DarkPact? active = Active;
+        if (active == null || !Trusts(victim))
         {
             return;
         }
-        Active?.Notify_Betrayal(victim);
+        active.Notify_Betrayal(victim);
+        if (victim.MapHeld is Map map)
+        {
+            foreach (Pawn p in map.mapPawns.SpawnedPawnsInFaction(victim.Faction))
+            {
+                if (p != victim && Trusts(p))
+                {
+                    active.Notify_Betrayal(p);
+                }
+            }
+        }
     }
+
+    // A living humanlike of another faction, free and not hostile to the colony.
+    private static bool Trusts(Pawn p) => !p.Dead && p.RaceProps.Humanlike && p.Faction is { IsPlayer: false }
+        && !p.IsPrisoner && !p.IsSlave && !p.HostileTo(Faction.OfPlayer);
 }
 
 public class CompProperties_DarkPact : CompProperties

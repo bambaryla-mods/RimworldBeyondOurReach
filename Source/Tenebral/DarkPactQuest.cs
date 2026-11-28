@@ -75,7 +75,9 @@ public class QuestNode_Root_DarkPact : QuestNode
         {
             pool.Add(DarkPactObjective.ExecuteColonist);
         }
-        if (Find.FactionManager.AllFactionsVisible.Any(f => !f.IsPlayer && !f.HostileTo(Faction.OfPlayer)))
+        // Only while someone can still come as a guest: a living humanlike faction that is not hostile to the colony.
+        if (Find.FactionManager.AllFactionsVisible.Any(f => !f.IsPlayer && !f.defeated && f.def.humanlikeFaction
+            && !f.def.permanentEnemy && !f.HostileTo(Faction.OfPlayer)))
         {
             pool.Add(DarkPactObjective.BetrayGuests);
         }
@@ -475,7 +477,7 @@ public class QuestPart_DarkPact : QuestPartActivable
     }
 }
 
-// The betrayal pact: remembers guests the colony hurts while they still trust it.
+// The betrayal pact: remembers guests the colony hurts while they still trust it, and their trusting companions.
 [HarmonyPatch(typeof(Thing), nameof(Thing.TakeDamage))]
 public static class Thing_TakeDamage_DarkPact_Patch
 {
